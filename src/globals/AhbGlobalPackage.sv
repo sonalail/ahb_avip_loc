@@ -118,6 +118,19 @@ package AhbGlobalPackage;
     logic                  HREADY;         // Combined transfer completion
   } ahb_transfer_char_s;
 
+   //-------------------------------------------------------
+  // Struct : apb_cfg_char_s
+  //  This struct datatype consists of all configurations
+  //  which are used for seq item conversion
+  //-------------------------------------------------------
+  typedef struct{
+   
+    logic [ADDR_WIDTH-1:0] HADDR;          // Address of the transfer
+   // bit [ADDRESS_WIDTH-1:0]min_address;
+   // bit [ADDRESS_WIDTH-1:0]max_address; 
+   // int slave_id;
+  }ahb_transfer_cfg_s;
+
 endpackage : AhbGlobalPackage
 
 `endif
