@@ -2,7 +2,7 @@
 `define AHB_VIRTUAL_BASE_SEQ_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
-// Class: apb_virtual_base_seq
+// Class: ahb_virtual_base_seq
 // Holds the handle of actual sequencer.
 //--------------------------------------------------------------------------------------------
 class AhbVirtualBaseSequencer extends uvm_sequence;
