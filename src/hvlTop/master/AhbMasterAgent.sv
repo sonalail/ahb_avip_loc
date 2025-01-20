@@ -97,7 +97,7 @@ function void AhbMasterAgent::connect_phase(uvm_phase phase);
     ahb_master_drv_proxy_h.ahb_master_agent_cfg_h = ahb_master_agent_cfg_h;
     ahb_master_seqr_h.ahb_master_agent_cfg_h = ahb_master_agent_cfg_h;
     
-    //Connecting driver_proxy port to sequencer export
+    //Connecting AhbSlaveDriverProxy port to AhbSlaveSequencer export
     ahb_master_drv_proxy_h.seq_item_port.connect(ahb_master_seqr_h.seq_item_export);
   end
   ahb_master_mon_proxy_h.ahb_master_agent_cfg_h = ahb_master_agent_cfg_h;
@@ -105,7 +105,7 @@ function void AhbMasterAgent::connect_phase(uvm_phase phase);
   if(ahb_master_agent_cfg_h.has_coverage) begin
     ahb_master_cov_h.ahb_master_agent_cfg_h = ahb_master_agent_cfg_h;
   
-    //Connecting monitor_proxy port to coverage export
+    //Connecting AhbSlaveMonitorProxy port to AhbSlaveSequencerCoverage export
     ahb_master_mon_proxy_h.ahb_master_analysis_port.connect(ahb_master_cov_h.analysis_export);
   end
     ahb_master_mon_proxy_h.ahb_master_agent_cfg_h = ahb_master_agent_cfg_h;

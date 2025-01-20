@@ -11,8 +11,8 @@ class AhbSlaveSequenceItemConverter extends uvm_object;
   // Externally defined Tasks and Functions
   //-------------------------------------------------------
   extern function new(string name = "AhbSlaveSequenceItemConverter");
-  extern static function void from_class(input ahb_slave_tx input_conv, output ahb_transfer_char_s output_conv);
-  extern static function void to_class(input ahb_transfer_char_s input_conv, ref ahb_slave_tx output_conv_h);
+    extern static function void from_class(input AhbSlaveTransaction input_conv, output ahb_transfer_char_s output_conv);
+  extern static function void to_class(input ahb_transfer_char_s input_conv, ref AhbSlaveTransaction output_conv_h);
   extern function void do_print(uvm_printer printer);
 
 endclass : AhbSlaveSequenceItemConverter
@@ -34,7 +34,7 @@ endfunction: new
 // Parameters:
 //  name - ahb_slave_tx, ahb_transfer_char_s
 //--------------------------------------------------------------------------------------------
-function void AhbSlaveSequenceItemConverter::from_class(input ahb_slave_tx input_conv, output ahb_transfer_char_s output_conv);
+function void AhbSlaveSequenceItemConverter::from_class(input AhbSlaveTransaction input_conv, output ahb_transfer_char_s output_conv);
   `uvm_info("AhbSlaveSeqItemConvClass",$sformatf("-------------------------------------------------------------"),UVM_HIGH);
 
   $cast(output_conv.HPROT, input_conv.HPROT);
@@ -96,7 +96,7 @@ endfunction : from_class
 // Parameters:
 // name - ahb_slave_tx, ahb_transfer_char_s
 //--------------------------------------------------------------------------------------------
-function void AhbSlaveSequenceItemConverter::to_class(input ahb_transfer_char_s input_conv, ref ahb_slave_tx output_conv_h);
+function void AhbSlaveSequenceItemConverter::to_class(input ahb_transfer_char_s input_conv, ref AhbSlaveTransaction output_conv_h);
   `uvm_info("AhbSlaveSeqItemConv", $sformatf("-------------------------------------------------------------"), UVM_HIGH);
 
   $cast(output_conv_h.HPROT, input_conv.HPROT);
