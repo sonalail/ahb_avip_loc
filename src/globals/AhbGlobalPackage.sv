@@ -127,7 +127,7 @@ package AhbGlobalPackage;
    
     logic [ADDR_WIDTH-1:0] HADDR;          // Address of the transfer
     
-  }apb_transfer_cfg_s;
+  }ahb_transfer_cfg_s;
 
 endpackage : AhbGlobalPackage
 
