@@ -166,7 +166,7 @@ endfunction  : end_of_elaboration_phase
 //  phase - uvm phase
 //--------------------------------------------------------------------------------------------
 task AhbBaseTest::run_phase(uvm_phase phase);
-
+  `uvm_info(get_type_name(),$sformatf("Inside run phase of test"),UVM_LOW);
   phase.raise_objection(this);
   super.run_phase(phase);
   #100;
