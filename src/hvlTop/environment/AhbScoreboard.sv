@@ -10,19 +10,19 @@ class AhbScoreboard extends uvm_scoreboard;
 
   //Variable: ahb_master_tx_h
   //Declaring handle for ahb_master_tx
-  ahb_master_tx ahb_master_tx_h;
+  AhbMasterTransaction ahb_master_tx_h;
 
   //Variable: ahb_slave_tx_h
   //Declaring handle for ahb_slaver_tx
-  ahb_slave_tx ahb_slave_tx_h;
+  AhbSlaveTransaction ahb_slave_tx_h;
 
   //Variable: ahb_master_analysis_fifo
   //Used to store the ahb_master_data
-  uvm_tlm_analysis_fifo#(ahb_master_tx) ahb_master_analysis_fifo;
+  uvm_tlm_analysis_fifo#(AhbMasterTransaction) ahb_master_analysis_fifo;
 
   //Variable: ahb_slave_analysis_fifo
   //Used to store the ahb_slave_data
-  uvm_tlm_analysis_fifo#(ahb_slave_tx) ahb_slave_analysis_fifo[];
+  uvm_tlm_analysis_fifo#(AhbSlaveTransaction) ahb_slave_analysis_fifo[];
 
   //Variable: ahb_master_tx_count
   //To keep track of number of transactions for master
@@ -82,8 +82,8 @@ task apb_scoreboard::run_phase(uvm_phase phase);
   super.run_phase(phase);
   `uvm_info(get_type_name(),$sformatf("Entering the run phases of scoreboard"),UVM_HIGH)
   forever begin
-     ahb_master_analysis_fifo.get(ahb_master_tx_h);
-     ahb_master_analysis_fifo.get(ahb_master_tx_h);
+    ahb_master_analysis_fifo.get(AhbMasterTransaction);
+    ahb_master_analysis_fifo.get(AhbSlaveTransaction);
   end
 endtask : run_phase
 
