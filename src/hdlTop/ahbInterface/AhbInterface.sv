@@ -1,7 +1,7 @@
 `ifndef AHB_IF_INCLUDED_
 `define AHB_IF_INCLUDED_
 
-// Importing ahb global package (if applicable)
+// Importing ahb global package 
 import AhbGlobalPackage::*;
 
 //--------------------------------------------------------------------------------------------
