@@ -85,7 +85,7 @@ task ahb_master_monitor_proxy::run_phase(uvm_phase phase);
   `uvm_info(get_type_name(), $sformatf("Inside the master_monitor_proxy"), UVM_LOW);
   ahb_master_packet = AhbMasterTransaction::type_id::create("master_packet");
   
-  ahb_master_mon_bfm_h.wait_for_hreset_n();
+  ahb_master_mon_bfm_h.wait_for_HRESETn();
 
   forever begin
     ahb_transfer_char_s struct_data_packet;
