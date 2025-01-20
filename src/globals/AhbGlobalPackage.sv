@@ -79,6 +79,23 @@ package AhbGlobalPackage;
     ERROR  = 1'b1
   } ahb_resp_e;
 
+//-------------------------------------------------------
+// Enum: hsize_e
+//  Specifies the size of a data transfer for HSIZE
+//-------------------------------------------------------
+typedef enum logic [2:0] {
+  BYTE        = 3'b000, // 8 bits
+  HALFWORD    = 3'b001, // 16 bits
+  WORD        = 3'b010, // 32 bits
+  DOUBLEWORD  = 3'b011, // 64 bits
+  LINE4       = 3'b100, // 128 bits (4-word line)
+  LINE8       = 3'b101, // 256 bits (8-word line)
+  LINE16      = 3'b110, // 512 bits
+  LINE32      = 3'b111  // 1024 bits
+} hsize_e;
+
+
+ 
   //-------------------------------------------------------
   // Enum: ahb_protection_e
   //  Specifies the type of protection for a transfer
@@ -103,7 +120,7 @@ package AhbGlobalPackage;
     ahb_burst_e            HBURST;         // Burst type
     logic                  HMASTLOCK;      // Locked sequence indicator
     ahb_protection_e       HPROT;          // Protection type
-    logic [2:0]            HSIZE;          // Transfer size
+    hsize_e                HSIZE;          // Transfer size
     logic                  HNONSEC;        // Secure or non-secure indicator
     logic                  HEXCL;          // Exclusive access sequence
     logic [HMASTER_WIDTH-1:0] HMASTER;     // Master ID
