@@ -7,76 +7,94 @@
 //  and also holds methods that manipulate those data items
 //--------------------------------------------------------------------------------------------
  class AhbMasterTransaction extends uvm_sequence_item;
-  `uvm_object_utils(apb_master_tx)
+  `uvm_object_utils(AhbMasterTransaction)
 
-  //Variable: HADDR
-  //Address selected in slave
-  rand bit [ADDRESS_WIDTH-1:0] HADDR;
+  // Variable : HADDR
+  // Byte address of the transfer
+  rand bit [ADDR_WIDTH-1:0] HADDR;
 
-  rand bit [2:0] HBURST;
+  //Variable : HSELx
+  //Indicates the number of slaves
+  rand bit [NO_OF_SLAVES-1:0] HSELx;
+  
+  // Variable : HBURST
+  // Indicates burst type
+  rand ahb_burst_e HBURST;
 
+  // Variable : HMASTLOCK
+  // Indicates a locked sequence
   rand bit HMASTLOCK;
 
-  //Variable: HPROT
-  //Used for different access
-  rand protection_type_e HPROT;
+  // Variable : HPROT
+  // Protection control signal
+  rand ahb_protection_e HPROT;
 
-  //Variable: HSELx
-  //Used to select the slave
-  rand slave_no_e HSELx;
+  // Variable : HSIZE
+  // Indicates the size of a transfer
+  rand ahb__e HSIZE;
 
-  //Variable: HWRITE
-  //Write when HWRITE is 1 and read is 0
-  rand tx_type_e HWRITE;
+  // Variable : HNONSEC
+  // Indicates whether the transfer is Non-secure or Secure
+  rand bit HNONSEC;
 
-  //Variable: HSIZE
-  //Used to decide the transfer size of the pwdata
-  rand transfer_size_e HSIZE;
+  // Variable : HEXCL
+  // Indicates Exclusive Access sequence
+  rand bit HEXCL;
 
-  //Variable: HWDATA
-  //Used to store the WDATA
-  rand bit [DATA_WIDTH-1:0]HWDATA;
+  // Variable : HMASTER
+  // Manager identifier
+  rand bit [HMASTER_WIDTH-1:0] HMASTER;
 
-  //Variable: HWSTRB
-  //Used to transfer the data to HWDATA bus
-  rand bit [(DATA_WIDTH/8)-1:0]HWSTRB;              
-    
-  //Variable: HRDATA
-  //Used to store the RDATA from the slave
-  bit [DATA_WIDTH-1:0]HRDATA;
- 
-  //Variable : HADDR
-  bit [ADDRESS_WIDTH-1:0]HADDR;
+  // Variable : HTRANS
+  // Indicates the transfer type
+  rand ahb_transfer_e HTRANS;
+
+  // Variable : HWDATA
+  // Write data bus
+  rand bit [DATA_WIDTH-1:0] HWDATA;
+
+  // Variable : HWSTRB
+  // Write strobes for active byte lanes
+  rand bit [(DATA_WIDTH/8)-1:0] HWSTRB;
+
+  // Variable : HWRITE
+  // Indicates transfer direction (1 = write, 0 = read)
+  rand bit HWRITE;
+
+  // Variable : HRDATA
+  // Read data bus
+  bit [DATA_WIDTH-1:0] HRDATA;
+
+  // Variable : HREADYOUT
+  // Indicates transfer completion for a Subordinate
+  bit HREADYOUT;
+
+  // Variable : HRESP
+  // Transfer response status (0 = OKAY, 1 = ERROR)
+  bit HRESP;
+
+  // Variable : HEXOKAY
+  // Indicates Exclusive OKAY status
+  ahb_resp_e HEXOKAY;
+
+  // Variable : HREADY
+  // Combined transfer completion for Manager and Subordinate
+  bit HREADY;
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
   //-------------------------------------------------------
-  extern function new  (string name = "apb_master_tx");
+  extern function new  (string name = "AhbMasterTransaction");
   extern function void do_copy(uvm_object rhs);
   extern function bit  do_compare(uvm_object rhs, uvm_comparer comparer);
   extern function void do_print(uvm_printer printer);
   extern function void post_randomize();
 
   //-------------------------------------------------------
-  // Constraints defined on variables pselx,
+  // Constraints
   //-------------------------------------------------------
-  constraint pselx_c1  { $countones(pselx) == 1; }
 
-  constraint pselx_c2 { pselx >0 && pselx < 2**NO_OF_SLAVES; }
-
-  constraint pwdata_c3 { soft pwdata inside {[0:100]}; }
-
-  //This constraint is used to decide the pwdata size based om transfer size
-  constraint transfer_size_c4 {if(transfer_size == BIT_8)
-                                  $countones (pstrb) == 1;
-                              else if(transfer_size == BIT_16)
-                                      $countones (pstrb) == 2;
-                              else if(transfer_size == BIT_24)
-                                      $countones (pstrb) == 3;
-                              else 
-                                  $countones (pstrb) == 4;
-                             }
-endclass : apb_master_tx
+endclass : AhbMasterTransaction
 
 //--------------------------------------------------------------------------------------------
 // Construct: new
@@ -85,7 +103,7 @@ endclass : apb_master_tx
 // Parameters:
 //  name - apb_master_tx
 //--------------------------------------------------------------------------------------------
-function apb_master_tx::new(string name = "apb_master_tx");
+function AhbMasterTransaction::new(string name = "AhbMasterTransaction");
   super.new(name);
 endfunction : new
 
@@ -96,22 +114,34 @@ endfunction : new
 // Parameters:
 //  rhs - uvm_object
 //--------------------------------------------------------------------------------------------
-function void apb_master_tx::do_copy (uvm_object rhs);
-  apb_master_tx apb_master_tx_copy_obj;
+function void AhbMasterTransaction::do_copy (uvm_object rhs);
+ AhbMasterTransaction ahb_master_tx_copy_obj;
 
   if(!$cast(apb_master_tx_copy_obj,rhs)) begin
     `uvm_fatal("do_copy","cast of the rhs object failed")
   end
   super.do_copy(rhs);
 
-  paddr   = apb_master_tx_copy_obj.paddr;
-  pprot   = apb_master_tx_copy_obj.pprot;
-  pselx   = apb_master_tx_copy_obj.pselx;
-  pwrite  = apb_master_tx_copy_obj.pwrite;
-  pwdata  = apb_master_tx_copy_obj.pwdata;
-  pstrb   = apb_master_tx_copy_obj.pstrb;
-  prdata  = apb_master_tx_copy_obj.prdata;
-  pslverr = apb_master_tx_copy_obj.pslverr;
+HADDR      = ahb_master_tx_copy_obj.HADDR;
+HSELx      = ahb_master_tx_copy_obj.HSELx;
+HBURST     = ahb_master_tx_copy_obj.HBURST;
+HMASTLOCK  = ahb_master_tx_copy_obj.HMASTLOCK;
+HPROT      = ahb_master_tx_copy_obj.HPROT;
+HSIZE      = ahb_master_tx_copy_obj.HSIZE;
+HNONSEC    = ahb_master_tx_copy_obj.HNONSEC;
+HEXCL      = ahb_master_tx_copy_obj.HEXCL;
+HMASTER    = ahb_master_tx_copy_obj.HMASTER;
+HTRANS     = ahb_master_tx_copy_obj.HTRANS;
+HWDATA     = ahb_master_tx_copy_obj.HWDATA;
+HWSTRB     = ahb_master_tx_copy_obj.HWSTRB;
+HWRITE     = ahb_master_tx_copy_obj.HWRITE;
+
+// Outputs for read transactions
+HRDATA     = ahb_master_tx_copy_obj.HRDATA;
+HREADYOUT  = ahb_master_tx_copy_obj.HREADYOUT;
+HRESP      = ahb_master_tx_copy_obj.HRESP;
+HEXOKAY    = ahb_master_tx_copy_obj.HEXOKAY;
+HREADY     = ahb_master_tx_copy_obj.HREADY;
 
 endfunction : do_copy
 
@@ -122,23 +152,33 @@ endfunction : do_copy
 // Parameters:
 //  phase - uvm phase
 //--------------------------------------------------------------------------------------------
-function bit apb_master_tx::do_compare (uvm_object rhs, uvm_comparer comparer);
-  apb_master_tx apb_master_tx_compare_obj;
+function bit AhbMasterTransaction::do_compare (uvm_object rhs, uvm_comparer comparer);
+  AhbMasterTransaction ahb_master_tx_compare_obj;
 
-  if(!$cast(apb_master_tx_compare_obj,rhs)) begin
-    `uvm_fatal("FATAL_APB_MASTER_TX_DO_COMPARE_FAILED","cast of the rhs object failed")
+ if(!$cast(ahb_master_tx_compare_obj,rhs)) begin
+  `uvm_fatal("FATAL_AHB_MASTER_TX_DO_COMPARE_FAILED","cast of the rhs object failed")
     return 0;
   end
 
-  return super.do_compare(apb_master_tx_compare_obj, comparer) &&
-  paddr   == apb_master_tx_compare_obj.paddr &&
-  pprot   == apb_master_tx_compare_obj.pprot &&
-  pselx   == apb_master_tx_compare_obj.pselx &&
-  pwrite  == apb_master_tx_compare_obj.pwrite &&
-  pwdata  == apb_master_tx_compare_obj.pwdata &&
-  pstrb   == apb_master_tx_compare_obj.pstrb &&
-  prdata  == apb_master_tx_compare_obj.prdata &&
-  pslverr == apb_master_tx_compare_obj.pslverr;
+ return super.do_compare(ahb_master_tx_compare_obj, comparer) &&
+HADDR    == ahb_master_tx_compare_obj.HADDR    &&
+HSELx    == ahb_master_tx_compare_obj.HSELx    &&
+HBURST   == ahb_master_tx_compare_obj.HBURST   &&
+HMASTLOCK == ahb_master_tx_compare_obj.HMASTLOCK &&
+HPROT    == ahb_master_tx_compare_obj.HPROT    &&
+HSIZE    == ahb_master_tx_compare_obj.HSIZE    &&
+HNONSEC  == ahb_master_tx_compare_obj.HNONSEC  &&
+HEXCL    == ahb_master_tx_compare_obj.HEXCL    &&
+HMASTER  == ahb_master_tx_compare_obj.HMASTER  &&
+HTRANS   == ahb_master_tx_compare_obj.HTRANS   &&
+HWDATA   == ahb_master_tx_compare_obj.HWDATA   &&
+HWSTRB   == ahb_master_tx_compare_obj.HWSTRB   &&
+HWRITE   == ahb_master_tx_compare_obj.HWRITE   &&
+HRDATA   == ahb_master_tx_compare_obj.HRDATA   &&
+HREADYOUT == ahb_master_tx_compare_obj.HREADYOUT &&
+HRESP    == ahb_master_tx_compare_obj.HRESP    &&
+HEXOKAY  == ahb_master_tx_compare_obj.HEXOKAY  &&
+HREADY   == ahb_master_tx_compare_obj.HREADY;
 
 endfunction : do_compare
 
@@ -149,18 +189,27 @@ endfunction : do_compare
 // Parameters:
 //  printer - uvm_printer
 //--------------------------------------------------------------------------------------------
-function void apb_master_tx::do_print(uvm_printer printer);
+function void AhbMasterTransaction::do_print(uvm_printer printer);
   
-  printer.print_string ("pselx",pselx.name());
-  printer.print_field  ("paddr",paddr,$bits(paddr),UVM_HEX);
-  printer.print_string ("pwrite",pwrite.name());
-  printer.print_field  ("pwdata",pwdata,$bits(pwdata),UVM_HEX);
-  printer.print_string ("transfer_size",transfer_size.name());
-  printer.print_field  ("pstrb",pstrb,4,UVM_BIN);
-  printer.print_string ("pprot",pprot.name());
-  printer.print_field  ("prdata",prdata,$bits(prdata),UVM_HEX);
-  printer.print_string ("pslverr",pslverr.name());
-  printer.print_field  ("no_of_wait_states_detected", no_of_wait_states_detected, $bits(no_of_wait_states_detected), UVM_DEC);
+printer.print_field  ("HADDR", HADDR, $bits(HADDR), UVM_HEX);
+printer.print_field  ("HSELx", HSELx, $bits(HSELx), UVM_BIN);
+printer.print_string ("HBURST", HBURST.name());
+printer.print_string ("HMASTLOCK", HMASTLOCK.name());
+printer.print_string ("HPROT", HPROT.name());
+printer.print_string ("HSIZE", HSIZE.name());
+printer.print_string ("HNONSEC", HNONSEC.name());
+printer.print_string ("HEXCL", HEXCL.name());
+printer.print_field  ("HMASTER", HMASTER, $bits(HMASTER), UVM_DEC);
+printer.print_string ("HTRANS", HTRANS.name());
+printer.print_field  ("HWDATA", HWDATA, $bits(HWDATA), UVM_HEX);
+printer.print_field  ("HWSTRB", HWSTRB, $bits(HWSTRB), UVM_BIN);
+printer.print_string ("HWRITE", HWRITE.name());
+printer.print_field  ("HRDATA", HRDATA, $bits(HRDATA), UVM_HEX);
+printer.print_string ("HREADYOUT", HREADYOUT.name());
+printer.print_string ("HRESP", HRESP.name());
+printer.print_string ("HEXOKAY", HEXOKAY.name());
+printer.print_string ("HREADY", HREADY.name());
+
 
 endfunction : do_print
 
@@ -168,38 +217,8 @@ endfunction : do_print
 // Function : post_randomize
 // Selects the address based on the slave selected
 //--------------------------------------------------------------------------------------------
-function void apb_master_tx::post_randomize();
-  int index;
-
-  // Derive the slave number using the index
-  for(int i=0; i<NO_OF_SLAVES; i++) begin
-    if(pselx[i]) begin
-      index = i;
-    end
-  end
-  
-  // Randmoly chosing paddr value between a given range
-  if (!std::randomize(paddr) with { paddr inside {[apb_master_agent_cfg_h.master_min_addr_range_array[index]:
-                                                   apb_master_agent_cfg_h.master_max_addr_range_array[index]]};
-    paddr %4 == 0;
-  }) begin
-    `uvm_fatal("FATAL_STD_RANDOMIZATION_PADDR", $sformatf("Not able to randomize paddr"));
-  end
-
-  //Constraint to make pwdata non-zero when pstrb is high for that 8-bit lane
-  for(int i=0; i<DATA_WIDTH/8; i++) begin
-    `uvm_info(get_type_name(),$sformatf("MASTER-TX-pstrb[%0d]=%0d",i,pstrb[i]),UVM_HIGH);
-    if(pstrb[i]) begin
-      `uvm_info(get_type_name(),$sformatf("MASTER-TX-pstrb[%0d]=%0d",i,pstrb[i]),UVM_HIGH);
-      if(!std::randomize(pwdata) with {pwdata[8*i+7 -: 8] != 0;}) begin
-        `uvm_fatal("FATAL_STD_RANDOMIZATION_PWDATA", $sformatf("Not able to randomize pwdata"));
-      end
-      else begin
-        `uvm_info(get_type_name(),$sformatf("MASTER-TX-pwdata[%0d]=%0h",8*i+7,pwdata[8*i+7 +: 8]),UVM_HIGH);
-      end 
-    end
-  end
-
+function void AhbMasterTransaction::post_randomize();
+  //Logic
 endfunction : post_randomize
 
 `endif
