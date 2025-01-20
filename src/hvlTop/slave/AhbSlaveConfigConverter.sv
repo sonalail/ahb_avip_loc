@@ -38,16 +38,16 @@ function void apb_slave_cfg_converter::from_class(input AhbSlaveAgentConfig inpu
   
   /*`uvm_info("Ahb_slave_config_converter",$sformatf("Before randomizing min_address = %0h",output_conv_h.min_address),UVM_HIGH);
   output_conv_h.min_address = input_conv_h.min_address; 
-  `uvm_info("apb_slave_config_converter",$sformatf("After randomizing the min_address = %0h",output_conv_h.min_address),UVM_HIGH);
+  `uvm_info("Ahb_slave_config_converter",$sformatf("After randomizing the min_address = %0h",output_conv_h.min_address),UVM_HIGH);
 
-  `uvm_info("apb_slave_config_converter",$sformatf("Before randomizing max_address = %0h",output_conv_h.max_address),UVM_HIGH);
+  `uvm_info("Ahb_slave_config_converter",$sformatf("Before randomizing max_address = %0h",output_conv_h.max_address),UVM_HIGH);
   output_conv_h.max_address = input_conv_h.max_address; 
-  `uvm_info("apb_slave_config_converter",$sformatf("After randomizing the max_address = %0h",output_conv_h.max_address),UVM_HIGH);
+  `uvm_info("Ahb_slave_config_converter",$sformatf("After randomizing the max_address = %0h",output_conv_h.max_address),UVM_HIGH);
   output_conv_h.slave_id = input_conv_h.slave_id;
   `uvm_info("AhbSlaveConfigConverter",$sformatf("After randomizing the slave_id = %0h",output_conv_h.slave_id),UVM_HIGH);
   */
   
-  `uvm_info("apb_slave_config_converter","--\n------------------------------------------------------------EOP---------------------------------------------------- ",UVM_HIGH);
+  `uvm_info("Ahb_slave_config_converter","--\n------------------------------------------------------------EOP---------------------------------------------------- ",UVM_HIGH);
 
 endfunction : from_class
 
