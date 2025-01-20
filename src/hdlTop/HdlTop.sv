@@ -39,7 +39,7 @@ module HdlTop;
   end
 
   //-------------------------------------------------------
-  // Generation of system preset_n
+  // Generation of system reset signal,
   //  system reset can be asserted asynchronously,
   //  but system reset de-assertion is synchronous.
   //-------------------------------------------------------
