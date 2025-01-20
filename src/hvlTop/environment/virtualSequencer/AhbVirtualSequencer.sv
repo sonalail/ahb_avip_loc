@@ -10,11 +10,11 @@ class AhbVirtualSequencer extends uvm_sequencer#(uvm_sequence_item);
 
   // Variable: ahb_master_vseqr_h
   // Declaring master virtual sequencer handle
-  ahb_master_vsequencer ahb_master_vseqr_h;
+  AhbMasterVirtualSequencer ahb_master_vseqr_h;
 
   // Variable: ahb_slave_vseqr_h
   // Declaring slave virtual sequencer handle
-  ahb_slave_vsequencer ahb_slave_vseqr_h;
+  AhbSlaveVirtualSequencer ahb_slave_vseqr_h;
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
