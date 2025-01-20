@@ -24,7 +24,7 @@ package AhbMasterPackage;
   //-------------------------------------------------------
   `include "AhbMasterAgentConfig.sv"
   `include "AhbMasterTransaction.sv"
-  `include "AhbMasterSeqItemConverter.sv"
+  `include "AhbMasterSequenceItemConverter.sv"
   `include "AhbMasterConfigConverter.sv"
   `include "AhbMasterSequencer.sv"
   `include "AhbMasterDriverProxy.sv"
