@@ -9,12 +9,12 @@ class AhbVirtualBaseSequence extends uvm_sequence;
   `uvm_object_utils(AhbVirtualBaseSequence)
   
   //Declaring p_sequencer
-  `uvm_declare_p_sequencer(ApbVirtualSequencer)
-  
+  `uvm_declare_p_sequencer(AhbVirtualSequencer)
+ 
   //Variable : ahb_master_seqr_h
   //Declaring handle to the virtual sequencer
   ApbMasterSequencer ahb_master_seqr_h;
-
+ 
   //Variable : ahb_master_seqr_h
   //Declaring handle to the virtual sequencer
   ApbSlaveSequencer ahb_slave_seqr_h;
@@ -54,4 +54,3 @@ task AhbVirtualBaseSequence::body();
 endtask : body
 
 `endif
-
