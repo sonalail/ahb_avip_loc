@@ -12,8 +12,8 @@ class AhbMasterSequenceItemConverter extends uvm_object;
   // Externally defined Tasks and Functions
   //-------------------------------------------------------
   extern function new(string name = "AhbMasterSequenceItemConverter");
-  extern static function void from_class(input ahb_master_tx input_conv, output ahb_transfer_char_s output_conv);
-  extern static function void to_class(input ahb_transfer_char_s input_conv, ref ahb_master_tx output_conv_h);
+   extern static function void from_class(input AhbMasterTransaction input_conv, output ahb_transfer_char_s output_conv);
+  extern static function void to_class(input ahb_transfer_char_s input_conv, ref AhbMasterTransaction output_conv_h);
   extern function void do_print(uvm_printer printer);
 
 endclass : AhbMasterSequenceItemConverter
@@ -35,7 +35,7 @@ endfunction: new
 // Parameters:
 //  name - ahb_master_tx, ahb_transfer_char_s
 //--------------------------------------------------------------------------------------------
-function void AhbMasterSequenceItemConverter::from_class(input ahb_master_tx input_conv, output ahb_transfer_char_s output_conv);
+function void AhbMasterSequenceItemConverter::from_class(input AhbMasterTransaction input_conv, output ahb_transfer_char_s output_conv);
   `uvm_info("AhbMasterSeqItemConvClass",$sformatf("-------------------------------------------------------------"),UVM_HIGH);
 
   $cast(output_conv.HPROT, input_conv.HPROT);
@@ -97,7 +97,7 @@ endfunction : from_class
 // Parameters:
 // name - ahb_master_tx, ahb_transfer_char_s
 //--------------------------------------------------------------------------------------------
-function void AhbMasterSequenceItemConverter::to_class(input ahb_transfer_char_s input_conv, ref ahb_master_tx output_conv_h);
+function void AhbMasterSequenceItemConverter::to_class(input ahb_transfer_char_s input_conv, ref AhbMasterTransaction output_conv_h);
   `uvm_info("AhbMasterSeqItemConv", $sformatf("-------------------------------------------------------------"), UVM_HIGH);
 
   $cast(output_conv_h.HPROT, input_conv.HPROT);
