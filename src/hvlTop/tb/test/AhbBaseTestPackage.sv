@@ -27,7 +27,7 @@ package AhbBaseTestPackage;
   //-------------------------------------------------------
   // Including the base test files
   //-------------------------------------------------------
-
+  `include "AhbBaseTest.sv"
 
 endpackage : AhbBaseTestPackage
 
