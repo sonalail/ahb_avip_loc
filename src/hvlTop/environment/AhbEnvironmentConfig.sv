@@ -43,7 +43,7 @@ endclass : AhbEnvironmentConfig
 // Parameters:
 //  name - AhbEnvironmentConfig
 //--------------------------------------------------------------------------------------------
-function apb_env_config::new(string name = "AhbEnvironmentConfig");
+function  AhbEnvironmentConfig::new(string name = "AhbEnvironmentConfig");
   super.new(name);
 endfunction : new
 
@@ -64,4 +64,3 @@ function void AhbEnvironmentConfig::do_print(uvm_printer printer);
 endfunction : do_print
 
 `endif
-

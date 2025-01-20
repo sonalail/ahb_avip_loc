@@ -47,7 +47,7 @@ function void AhbMasterConfigConverter::do_print(uvm_printer printer);
   
   ahb_transfer_cfg_s ahb_st;
   super.do_print(printer);
-  printer.print_field( "paddr", ahb_st.HADDR , $bits(ahb_st.HADDR),UVM_DEC);
+  printer.print_field( "haddr", ahb_st.HADDR , $bits(ahb_st.HADDR),UVM_DEC);
 
 endfunction : do_print
 

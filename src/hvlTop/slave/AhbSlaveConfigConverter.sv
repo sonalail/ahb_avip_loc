@@ -31,7 +31,7 @@ endfunction : new
 // Function: from_class
 //  Converting AhbSlaveAgentConfig configurations into structure configutrations
 //--------------------------------------------------------------------------------------------
-function void apb_slave_cfg_converter::from_class(input AhbSlaveAgentConfig input_conv_h, 
+function void AhbSlaveConfigConverter::from_class(input AhbSlaveAgentConfig input_conv_h, 
                                                   output apb_transfer_cfg_s output_conv_h);
   
   `uvm_info("Ahb_seq_item_conv_from_class",$sformatf("--\n----------------------------------------SLAVE_CFG_CONVERTER_FROM_CLASS--------------------------------------"),UVM_HIGH);
