@@ -1,5 +1,5 @@
-`ifndef APB_SLAVE_CFG_CONVERTER_INCLUDED_
-`define APB_SLAVE_CFG_CONVERTER_INCLUDED_
+`ifndef AHB_SLAVE_CFG_CONVERTER_INCLUDED_
+`define AHB_SLAVE_CFG_CONVERTER_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbSlaveConfigConverter

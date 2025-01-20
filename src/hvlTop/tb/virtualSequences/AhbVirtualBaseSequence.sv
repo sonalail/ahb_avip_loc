@@ -2,22 +2,22 @@
 `define AHB_VIRTUAL_BASE_SEQ_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
-// Class: apb_virtual_base_seq
+// Class: AhbVirtualBaseSequence
 // Holds the handle of actual sequencer.
 //--------------------------------------------------------------------------------------------
-class AhbVirtualBaseSequencer extends uvm_sequence;
+class AhbVirtualBaseSequence extends uvm_sequence;
   `uvm_object_utils(AhbVirtualBaseSequence)
   
   //Declaring p_sequencer
-  `uvm_declare_p_sequencer(AhbVirtualBaseSequence)
+  `uvm_declare_p_sequencer(ApbVirtualSequencer)
   
   //Variable : ahb_master_seqr_h
   //Declaring handle to the virtual sequencer
-  AhbMasterSequencer ahb_master_seqr_h;
+  ApbMasterSequencer ahb_master_seqr_h;
 
-  //Variable : apb_master_seqr_h
+  //Variable : ahb_master_seqr_h
   //Declaring handle to the virtual sequencer
-  AhbSlaveSequencer ahb_slave_seqr_h;
+  ApbSlaveSequencer ahb_slave_seqr_h;
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
@@ -33,7 +33,7 @@ endclass : AhbVirtualBaseSequence
 // Parameters:
 //  name - AhbVirtualBaseSequence
 //--------------------------------------------------------------------------------------------
-    function AhbVirtualBaseSequence::new(string name = "AhbVirtualBaseSequence");
+function AhbVirtualBaseSequence::new(string name = "AhbVirtualBaseSequence");
   super.new(name);
 endfunction : new
 
@@ -54,3 +54,4 @@ task AhbVirtualBaseSequence::body();
 endtask : body
 
 `endif
+
