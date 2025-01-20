@@ -81,7 +81,7 @@ endfunction : start_of_simulation_phase
 // Parameters:
 //  phase - UVM phase
 //--------------------------------------------------------------------------------------------
-taskAhbSlaveBaseSequence::run_phase(uvm_phase phase);
+task AhbSlaveBaseSequence::run_phase(uvm_phase phase);
   `uvm_info("AHB_SLAVE_BASE_SEQUENCE", "AHB slave base sequence started", UVM_LOW)
   
  
