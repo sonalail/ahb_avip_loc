@@ -61,55 +61,28 @@ interface AhbSlaveMonitorBfm (input  bit   HCLK,
   end
 
   //-------------------------------------------------------
-  // Task: wait_for_preset_n
+  // Task: wait_for_HRESETn
   //  Waiting for the system reset to be active low
   //-------------------------------------------------------
-  task wait_for_preset_n();
-    @(negedge preset_n);
+  task wait_for_HRESETn();
+    @(negedge HRESETn);
     `uvm_info(name, $sformatf("SYSTEM_RESET_DETECTED"), UVM_HIGH)
     
-    @(posedge preset_n);
+    @(posedge HRESETn);
     `uvm_info(name, $sformatf("SYSTEM_RESET_DEACTIVATED"), UVM_HIGH)
-  endtask : wait_for_preset_n
+  endtask : wait_for_HRESETn
 
   //-------------------------------------------------------
   // Task: sample_data
   //  In this task, the pwdata and prdata is sampled
   //
   // Parameters: 
-  //  apb_data_packet - Handle for apb_transfer_char_s class
-  //  apb_cfg_packet  - Handle for apb_transfer_cfg_s class
+  //  ahb_data_packet - Handle for ahb_transfer_char_s class
+  //  ahb_cfg_packet  - Handle for ahb_transfer_cfg_s class
   //-------------------------------------------------------
-  //task sample_data (output apb_transfer_char_s apb_data_packet, input apb_transfer_cfg_s apb_cfg_packet);
-    //@(negedge pclk);
-    
-    //while(psel[apb_cfg_packet.slave_id] === 1'bX) begin
-      //@(negedge pclk);
-      //`uvm_info(name, $sformatf("Inside while loop PSEL"), UVM_HIGH)
-    //end
-
-    //while(psel[apb_cfg_packet.slave_id] !==1 || penable !==1 || pready !==1) begin
-    //`uvm_info(name, $sformatf("Inside while loop: SLAVE[%0d] penable =%0d, pready=%0d, psel=%0d ", 
-      //                        apb_cfg_packet.slave_id, penable, pready, psel), UVM_HIGH)
-      //@(negedge pclk);
-    //end
-    //`uvm_info(name, $sformatf("After while loop: penable =%0d, pready=%0d, psel=%0d ", penable, pready, psel), UVM_HIGH)
-
-    //apb_data_packet.pselx[0] = psel[apb_cfg_packet.slave_id];
-    //apb_data_packet.pslverr  = pslverr;
-    //apb_data_packet.pprot    = pprot;
-    //apb_data_packet.pwrite   = pwrite;
-    //apb_data_packet.paddr    = paddr;
-    //apb_data_packet.pstrb    = pstrb;
-
-    //if (pwrite == WRITE) begin
-      //apb_data_packet.pwdata = pwdata;
-    //end
-    //else begin
-      //apb_data_packet.prdata = prdata;
-    //end
-    //`uvm_info(name, $sformatf("SLAVE_SAMPLE_DATA=%p", apb_data_packet), UVM_HIGH)
-  //endtask : sample_data
+  task sample_data (output apb_transfer_char_s apb_data_packet, input apb_transfer_cfg_s apb_cfg_packet);
+    //logic to be written
+  endtask : sample_data
 
 endinterface : AhbSlaveMonitorBfm 
 
