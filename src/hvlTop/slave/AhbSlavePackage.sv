@@ -1,8 +1,8 @@
-`ifndef AHB_SLAVE_PKG_INCLUDED_
-`define AHB_SLAVE_PKG_INCLUDED_
+`ifndef AHBSLAVEPACKAGE_INCLUDED_
+`define AHBSLAVEPACKAGE_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
-// Package: ahb_slave_pkg
+// Package: AhbSlavePackage
 //  Includes all the files related to ahb_slave
 //--------------------------------------------------------------------------------------------
 package AhbSlavePackage;
@@ -14,7 +14,7 @@ package AhbSlavePackage;
   import uvm_pkg::*;
 
   //-------------------------------------------------------
-  // Import ahb_global_pkg 
+  // Import AhbGlobalPackage 
   //-------------------------------------------------------
   import AhbGlobalPackage::*;
 
@@ -31,6 +31,6 @@ package AhbSlavePackage;
   `include "AhbSlaveCoverage.sv"
   `include "AhbSlaveAgent.sv"
   
-endpackage : ahb_slave_pkg
+endpackage : AhbSlavePackage
 
 `endif
