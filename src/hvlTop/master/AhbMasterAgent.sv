@@ -28,10 +28,6 @@ class AhbMasterAgent extends uvm_agent;
   // Variable: ahb_master_cov_h
   // Decalring a handle for AhbMasterCoverage
   AhbMasterCoverage ahb_master_cov_h;
-
-  // Variable: ahb_reg_adapter_h
-  // Declaring a handle for AhbMasterAdapter
-  AhbMasterAdapter ahb_reg_adapter_h;
     
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
