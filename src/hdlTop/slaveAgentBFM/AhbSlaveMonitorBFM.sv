@@ -1,5 +1,5 @@
- `ifndef AHB_SLAVE_MONITOR_BFM_INCLUDED_
-`define AHB_SLAVE_MONITOR_BFM_INCLUDED_
+ `ifndef AHBSLAVEMONITORBFM_INCLUDED_
+`define AHBSLAVEMONITORBFM_INCLUDED_
 
 //-------------------------------------------------------
 // Importing apb global package
@@ -7,11 +7,11 @@
 import ahb_global_pkg::*;
 
 //--------------------------------------------------------------------------------------------
-// Inteface: apb_slave_monitor_bfm
+// Inteface: AhbSlaveMonitorBFM
 //  Connects the slave monitor bfm with the monitor proxy 
 //  to call the tasks and functions from apb monitor bfm to apb monitor proxy
 //--------------------------------------------------------------------------------------------
-interface AhbSlaveMonitorBfm (input  bit   HCLK,
+interface AhbSlaveMonitorBFM (input  bit   HCLK,
                               input  bit  HRESETn,
                               input logic [ADDR_WIDTH-1:0] HADDR;
                               input logic [2:0] HBURST;
@@ -50,7 +50,7 @@ interface AhbSlaveMonitorBfm (input  bit   HCLK,
   //Variable: ahb_slave_drv_proxy_h
   //Declaring handle for AhbSlaveDriverProxy
   
-  AhbSlaveMonitorProxy ahb_slave_mon_proxy_h;
+  AhbSlaveMonitorProxy ahbSlaveMonitorProxy;
   
 
   //-------------------------------------------------------
@@ -64,23 +64,23 @@ interface AhbSlaveMonitorBfm (input  bit   HCLK,
   // Task: wait_for_HRESETn
   //  Waiting for the system reset to be active low
   //-------------------------------------------------------
-  task wait_for_HRESETn();
+  task waitForHRESETn();
     @(negedge HRESETn);
     `uvm_info(name, $sformatf("SYSTEM_RESET_DETECTED"), UVM_HIGH)
     
     @(posedge HRESETn);
     `uvm_info(name, $sformatf("SYSTEM_RESET_DEACTIVATED"), UVM_HIGH)
-  endtask : wait_for_HRESETn
+  endtask : waitForHRESETn
 
   //-------------------------------------------------------
-  // Task: sample_data
+  // Task: sampleData
   //  In this task, the pwdata and prdata is sampled
   //
   // Parameters: 
   //  ahb_data_packet - Handle for ahb_transfer_char_s class
   //  ahb_cfg_packet  - Handle for ahb_transfer_cfg_s class
   //-------------------------------------------------------
-  task sample_data (output apb_transfer_char_s apb_data_packet, input apb_transfer_cfg_s apb_cfg_packet);
+  task sampleData (output apb_transfer_char_s apb_data_packet, input apb_transfer_cfg_s apb_cfg_packet);
     //logic to be written
   endtask : sample_data
 
