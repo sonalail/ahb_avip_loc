@@ -1,5 +1,5 @@
-`ifndef AHB_MASTER_COVERAGE_INCLUDED_
-`define AHB_MASTER_COVERAGE_INCLUDED_
+`ifndef AHBMASTERCOVERAGE_INCLUDED_
+`define AHBMASTERCOVERAGE_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbMasterCoverage
@@ -7,15 +7,15 @@
 //--------------------------------------------------------------------------------------------
 class AhbMasterCoverage extends uvm_subscriber #(AhbMasterTransaction);
   `uvm_component_utils(AhbMasterCoverage)
- 
+
   //Variable: ahb_master_agent_cfg_h
-  //Declaring handle for master agent configuration class 
-  AhbMasterAgentConfig apb_master_agent_cfg_h;
-  
+  //Declaring handle for master agent configuration class
+  AhbMasterAgentConfig apbMasterAgentConfig;
+
   //-------------------------------------------------------
-  covergroup ahb_master_covergroup;
-  
-  endgroup: apb_master_covergroup
+  covergroup ahbMasterCovergroup;
+
+  endgroup: apbMasterCovergroup
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
@@ -36,7 +36,7 @@ endclass : AhbMasterCoverage
 //--------------------------------------------------------------------------------------------
 function  AhbMasterCoverage::new(string name = "AhbMasterCoverage", uvm_component parent = null);
   super.new(name, parent);
-  ahb_master_covergroup = new();
+  ahbMasterCovergroup = new();
 endfunction : new
 
 //-------------------------------------------------------------------------------------------
@@ -55,7 +55,8 @@ endfunction : write
 //--------------------------------------------------------------------------------------------
 function void AhbMasterCoverage::report_phase(uvm_phase phase);
   `uvm_info(get_type_name(), $sformatf("Entered the report_phase of AHB Master Coverage"), UVM_NONE);
-  `uvm_info(get_type_name(), $sformatf("APB Master Agent Coverage = %0.2f %%", apb_master_covergroup.get_coverage()), UVM_NONE);
+  `uvm_info(get_type_name(), $sformatf("AHB Master Agent Coverage = %0.2f %%", apbMasterCovergroup.get_coverage()), UVM_NONE);
 endfunction: report_phase
 
 `endif
+

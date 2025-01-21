@@ -1,10 +1,10 @@
-`ifndef AHB_MASTER_CFG_CONVERTER_INCLUDED_
-`define AHB_MASTER_CFG_CONVERTER_INCLUDED_
+`ifndef AHBMASTERCONFIGCONVERTER_INCLUDED_
+`define AHBMASTERCONFICCONVERTER_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbMasterConfigConverter
 // Description:
-// class for converting master_cfg configuration into struct configurations
+// class for converting masterConfig configuration into struct configurations
 //--------------------------------------------------------------------------------------------
 class AhbMasterConfigConverter extends uvm_object;
   `uvm_object_utils(AhbMasterConfigConverter)
@@ -13,7 +13,7 @@ class AhbMasterConfigConverter extends uvm_object;
   // Externally defined Tasks and Functions
   //-------------------------------------------------------
   extern function new(string name = "AhbMasterConfigConverter");
-  extern static function void from_class(input AhbMasterAgentConfig input_conv_h, output ahb_transfer_cfg_s output_conv);
+    extern static function void from_class(input AhbMasterAgentConfig inputConv, output ahbTransferConfigStruct outputConv);
   extern function void do_print(uvm_printer printer);
 
 endclass : AhbMasterConfigConverter
@@ -32,9 +32,9 @@ endfunction : new
 // Function: from_class
 //  Converting AhbMasterConfig configurations into structure configutrations
 //--------------------------------------------------------------------------------------------
-function void AhbMasterConfigConverter::from_class(input AhbMasterAgentConfig input_conv_h, 
-                                                   output ahb_transfer_cfg_s output_conv);
-  output_conv.HADDR = input_conv_h.HADDR; 
+    function void AhbMasterConfigConverter::from_class(input AhbMasterAgentConfig inputConv,
+                                                   output ahbTransferConfigStr outputConv);
+  output_conv.HADDR = input_conv_h.HADDR;
   `uvm_info("AhbMasterConfigConverter",$sformatf("after randomizing addr = \n %p",output_conv.HADDR),UVM_HIGH);
 
 endfunction : from_class
@@ -44,10 +44,10 @@ endfunction : from_class
 // print method can be added to display the data members values
 //---------------------------------------------------------------------------------------------
 function void AhbMasterConfigConverter::do_print(uvm_printer printer);
-  
-  ahb_transfer_cfg_s ahb_st;
+
+  ahbTransferConfigStruct ahbSt;
   super.do_print(printer);
-  printer.print_field( "haddr", ahb_st.HADDR , $bits(ahb_st.HADDR),UVM_DEC);
+  printer.print_field( "haddr", ahbSt.HADDR , $bits(ahbSt.HADDR),UVM_DEC);
 
 endfunction : do_print
 

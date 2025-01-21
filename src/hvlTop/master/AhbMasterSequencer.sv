@@ -1,5 +1,5 @@
-`ifndef AHB_MASTER_SEQUENCER_INCLUDED_
-`define AHB_MASTER_SEQUENCER_INCLUDED_
+`ifndef AHBMASTERSEQUENCER_INCLUDED_
+`define AHBMASTERSEQUENCER_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbMasterSequencer
@@ -7,9 +7,9 @@
 class AhbMasterSequencer extends uvm_sequencer #(AhbMasterTransaction);
   `uvm_component_utils(AhbMasterSequencer)
 
-  //Variable: ahb_master_agent_cfg_h
+  //Variable: ahbMasterAgentConfig
   //Declaring handle for AhbMasterAgentConfig class 
-  AhbMasterAgentConfig ahb_master_agent_cfg_h;
+  AhbMasterAgentConfig ahbMasterAgentConfig;
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
