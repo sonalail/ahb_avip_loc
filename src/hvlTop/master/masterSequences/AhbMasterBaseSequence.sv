@@ -1,5 +1,5 @@
-`ifndef AHB_MASTER_BASE_SEQUENCE_INCLUDED_
-`define AHB_MASTER_BASE_SEQUENCE_INCLUDED_
+`ifndef AHBMASTERBASESEQUENCE_INCLUDED_
+`define AHBMASTERBASESEQUENCE_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbMasterBaseSequence
@@ -8,13 +8,13 @@
 class AhbMasterBaseSequence extends uvm_sequence#(uvm_sequence_item);
   `uvm_object_utils(AhbMasterBaseSequence)
 
-  // Variable: seqr_h
+  // Variable: seqr
   // Handle for the AHB master sequencer
-  AhbMasterSequencer ahb_master_seqr_h;
+  AhbMasterSequencer ahbMasterSeq;
 
-  // Variable: item_h
+  // Variable: item
   // Handle for the AHB master transaction (sequence item)
-  AhbMasterTransaction ahb_master_tx_h;
+  AhbMasterTransaction ahbMasterTx;
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
@@ -82,7 +82,7 @@ endfunction : start_of_simulation_phase
 //  phase - UVM phase
 //--------------------------------------------------------------------------------------------
 task AhbMasterBaseSequence::run_phase(uvm_phase phase);
-  `uvm_info("AHB_BASE_SEQUENCE", "AHB base sequence started", UVM_LOW)
+  `uvm_info("AHB BASE SEQUENCE", "AHB base sequence started", UVM_LOW)
   
  
 
