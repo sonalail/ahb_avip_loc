@@ -26,7 +26,7 @@ class AhbEnvironmentConfig extends uvm_object;
 
   //Variable: ahbSlaveAgentConfig
   //Dynamic array of slave agnet configuration handles
-  AhbSlaveAgentConfig ahbSlaveAgentConfig[];
+  AhbSlaveAgentConfig ahbSlaveAgentConfig;
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
@@ -57,9 +57,9 @@ endfunction : new
 function void AhbEnvironmentConfig::do_print(uvm_printer printer);
   super.do_print(printer);
   
-  printer.print_field ("hasScoreboard", hasScoreboard, $bits(has_scoreboard), UVM_DEC);
-  printer.print_field ("hasVirtualSequencer", hasVirtualSequencer, $bits(has_virtual_seqr), UVM_DEC);
-  printer.print_field ("noOfSlaves",  noOfSlaves,  $bits(no_of_slaves), UVM_DEC);
+  printer.print_field ("hasScoreboard", hasScoreboard, $bits(hasScoreboard), UVM_DEC);
+  printer.print_field ("hasVirtualSequencer", hasVirtualSequencer, $bits(hasVirtualSequencer), UVM_DEC);
+  printer.print_field ("noOfSlaves",  noOfSlaves,  $bits(noOfSlaves), UVM_DEC);
 
 endfunction : do_print
 
