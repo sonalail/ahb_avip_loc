@@ -115,33 +115,33 @@ endfunction : new
 //  rhs - uvm_object
 //--------------------------------------------------------------------------------------------
 function void AhbMasterTransaction::do_copy (uvm_object rhs);
- AhbMasterTransaction ahb_master_tx_copy_obj;
+ AhbMasterTransaction ahbMasterTransactionCopyObject;
 
-  if(!$cast(apb_master_tx_copy_obj,rhs)) begin
+  if(!$cast(ahbMasterTransactionCopyObject,rhs)) begin
     `uvm_fatal("do_copy","cast of the rhs object failed")
   end
   super.do_copy(rhs);
 
-HADDR      = ahb_master_tx_copy_obj.HADDR;
-HSELx      = ahb_master_tx_copy_obj.HSELx;
-HBURST     = ahb_master_tx_copy_obj.HBURST;
-HMASTLOCK  = ahb_master_tx_copy_obj.HMASTLOCK;
-HPROT      = ahb_master_tx_copy_obj.HPROT;
-HSIZE      = ahb_master_tx_copy_obj.HSIZE;
-HNONSEC    = ahb_master_tx_copy_obj.HNONSEC;
-HEXCL      = ahb_master_tx_copy_obj.HEXCL;
-HMASTER    = ahb_master_tx_copy_obj.HMASTER;
-HTRANS     = ahb_master_tx_copy_obj.HTRANS;
-HWDATA     = ahb_master_tx_copy_obj.HWDATA;
-HWSTRB     = ahb_master_tx_copy_obj.HWSTRB;
-HWRITE     = ahb_master_tx_copy_obj.HWRITE;
+HADDR      = ahbMasterTransactionCopyObject.HADDR;
+HSELx      = ahbMasterTransactionCopyObject.HSELx;
+HBURST     = ahbMasterTransactionCopyObject.HBURST;
+HMASTLOCK  = ahbMasterTransactionCopyObject.HMASTLOCK;
+HPROT      = ahbMasterTransactionCopyObject.HPROT;
+HSIZE      = ahbMasterTransactionCopyObject.HSIZE;
+HNONSEC    = ahbMasterTransactionCopyObject.HNONSEC;
+HEXCL      = ahbMasterTransactionCopyObject.HEXCL;
+HMASTER    = ahbMasterTransactionCopyObject.HMASTER;
+HTRANS     = ahbMasterTransactionCopyObject.HTRANS;
+HWDATA     = ahbMasterTransactionCopyObject.HWDATA;
+HWSTRB     = ahbMasterTransactionCopyObject.HWSTRB;
+HWRITE     = ahbMasterTransactionCopyObject.HWRITE;
 
 // Outputs for read transactions
-HRDATA     = ahb_master_tx_copy_obj.HRDATA;
-HREADYOUT  = ahb_master_tx_copy_obj.HREADYOUT;
-HRESP      = ahb_master_tx_copy_obj.HRESP;
-HEXOKAY    = ahb_master_tx_copy_obj.HEXOKAY;
-HREADY     = ahb_master_tx_copy_obj.HREADY;
+HRDATA     = ahbMasterTransactionCopyObject.HRDATA;
+HREADYOUT  = ahbMasterTransactionCopyObject.HREADYOUT;
+HRESP      = ahbMasterTransactionCopyObject.HRESP;
+HEXOKAY    = ahbMasterTransactionCopyObject.HEXOKAY;
+HREADY     = ahbMasterTransactionCopyObject.HREADY;
 
 endfunction : do_copy
 
@@ -153,32 +153,32 @@ endfunction : do_copy
 //  phase - uvm phase
 //--------------------------------------------------------------------------------------------
 function bit AhbMasterTransaction::do_compare (uvm_object rhs, uvm_comparer comparer);
-  AhbMasterTransaction ahb_master_tx_compare_obj;
+  AhbMasterTransaction ahbMasterTransactionCompareObject;
 
- if(!$cast(ahb_master_tx_compare_obj,rhs)) begin
+ if(!$cast(ahbMasterTransactionCompareObject,rhs)) begin
   `uvm_fatal("FATAL_AHB_MASTER_TX_DO_COMPARE_FAILED","cast of the rhs object failed")
     return 0;
   end
 
  return super.do_compare(ahb_master_tx_compare_obj, comparer) &&
-HADDR    == ahb_master_tx_compare_obj.HADDR    &&
-HSELx    == ahb_master_tx_compare_obj.HSELx    &&
-HBURST   == ahb_master_tx_compare_obj.HBURST   &&
-HMASTLOCK == ahb_master_tx_compare_obj.HMASTLOCK &&
-HPROT    == ahb_master_tx_compare_obj.HPROT    &&
-HSIZE    == ahb_master_tx_compare_obj.HSIZE    &&
-HNONSEC  == ahb_master_tx_compare_obj.HNONSEC  &&
-HEXCL    == ahb_master_tx_compare_obj.HEXCL    &&
-HMASTER  == ahb_master_tx_compare_obj.HMASTER  &&
-HTRANS   == ahb_master_tx_compare_obj.HTRANS   &&
-HWDATA   == ahb_master_tx_compare_obj.HWDATA   &&
-HWSTRB   == ahb_master_tx_compare_obj.HWSTRB   &&
-HWRITE   == ahb_master_tx_compare_obj.HWRITE   &&
-HRDATA   == ahb_master_tx_compare_obj.HRDATA   &&
-HREADYOUT == ahb_master_tx_compare_obj.HREADYOUT &&
-HRESP    == ahb_master_tx_compare_obj.HRESP    &&
-HEXOKAY  == ahb_master_tx_compare_obj.HEXOKAY  &&
-HREADY   == ahb_master_tx_compare_obj.HREADY;
+HADDR    == ahbMasterTransactionCompareObject.HADDR    &&
+HSELx    == ahbMasterTransactionCompareObject.HSELx    &&
+HBURST   == ahbMasterTransactionCompareObject.HBURST   &&
+HMASTLOCK == ahbMasterTransactionCompareObject.HMASTLOCK &&
+HPROT    ==ahbMasterTransactionCompareObject.HPROT    &&
+HSIZE    == ahbMasterTransactionCompareObject.HSIZE    &&
+HNONSEC  == ahbMasterTransactionCompareObject.HNONSEC  &&
+HEXCL    == ahbMasterTransactionCompareObject.HEXCL    &&
+HMASTER  == ahbMasterTransactionCompareObject.HMASTER  &&
+HTRANS   == ahbMasterTransactionCompareObject.HTRANS   &&
+HWDATA   == ahbMasterTransactionCompareObject.HWDATA   &&
+HWSTRB   == ahbMasterTransactionCompareObject.HWSTRB   &&
+HWRITE   == ahbMasterTransactionCompareObject.HWRITE   &&
+HRDATA   == ahbMasterTransactionCompareObject.HRDATA   &&
+HREADYOUT == ahbMasterTransactionCompareObject.HREADYOUT &&
+HRESP    == ahbMasterTransactionCompareObject.HRESP    &&
+HEXOKAY  == ahbMasterTransactionCompareObject.HEXOKAY  &&
+HREADY   == ahbMasterTransactionCompareObject.HREADY;
 
 endfunction : do_compare
 
