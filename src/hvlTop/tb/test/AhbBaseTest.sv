@@ -11,12 +11,12 @@
 class AhbBaseTest extends uvm_test;
   `uvm_component_utils(AhbBaseTest)
   
-  //Variable: env_h
-  //Declaring a handle for env
+  //Variable: ahbEnvironment
+  //Declaring a handle for AhbEnvironment
   AhbEnvironment ahbEnvironment;
 
   //Variable: ahbEnvironmentConfig
-  //Declaring a handle for env_cfg_h
+  //Declaring a handle for AhbEnvironmentConfig
   AhbEnvironmentConfig ahbEnvironmentConfig;
 
   //-------------------------------------------------------
@@ -62,16 +62,15 @@ endfunction : build_phase
 //--------------------------------------------------------------------------------------------
 function void AhbBaseTest::setupAhbEnvironmentConfig();
   ahbEnvironmentConfig = AhbEnvironmentConfig::type_id::create("ahbEnvironmentConfig");
-  ahbEnvironmentConfig.no_of_slaves      = NO_OF_SLAVES;
-  ahbEnvironmentConfig.has_scoreboard    = 1;
-  ahbEnvironmentConfig.has_virtual_seqr  = 1;
+  ahbEnvironmentConfig.noOfSlaves      = NO_OF_SLAVES;
+  ahbEnvironmentConfig.hasScoreboard    = 1;
+  ahbEnvironmentConfig.hasVirtualSequencer  = 1;
 
   //Setting up the configuration for master agent
-  setup_AhbMasterAgentConfig();
+  setupAhbMasterAgentConfig();
 
   //Setting the master agent configuration into config_db
-   uvm_config_db#(AhbMasterAgentConfig)::set(this,"*master_agent*","AhbMasterAgentConfig",
-                                               ahbEnvironmentConfig.ahbMasterAgentConfig);
+  uvm_config_db#(AhbMasterAgentConfig)::set(this,"*MasterAgent*","AhbMasterAgentConfig",ahbEnvironmentConfig.ahbMasterAgentConfig);
  //Displaying the master agent configuration
   `uvm_info(get_type_name(),$sformatf("\nAHB_MASTER_AGENT_CONFIG\n%s",ahbEnvironmentConfig.ahbMasterAgentConfig.sprint()),UVM_LOW);
 
@@ -80,9 +79,9 @@ function void AhbBaseTest::setupAhbEnvironmentConfig();
   uvm_config_db#(AhbEnvironmentConfig)::set(this,"*","AhbEnvironmentConfig",ahbEnvironmentConfig);
   `uvm_info(get_type_name(),$sformatf("\nAHB_ENV_CONFIG\n%s",ahbEnvironmentConfig.sprint()),UVM_LOW);
 
-endfunction : setup_AhbEnvironmentConfig
+endfunction : setupAhbEnvironmentConfig
 //--------------------------------------------------------------------------------------------
-// Function : setup_AhbMasterAgentConfig
+// Function : setupAhbMasterAgentConfig
 //  Sets the configurations to the corresponding variables in ahb master agent config
 //  Creates the master agent config
 //  Sets ahb master agent config into configdb 
@@ -118,13 +117,13 @@ function void AhbBaseTest::setupAhbMasterAgentConfig();
       local_max_address = ahbEnvironmentConfig.ahbMasterAgentConfig.master_max_addr_range_array[i];
     end
   end
-endfunction : setup_AhbMasterAgentConfig
+endfunction : setupAhbMasterAgentConfig
 //--------------------------------------------------------------------------------------------
 // Function : setup_AhbSlaveAgentConfig
 //  It calls the master agent config setup and slave agent config steup functions
 //--------------------------------------------------------------------------------------------
     
-function void AhbBaseTest::setup_AhbSlaveAgentConfig();
+function void AhbBaseTest::setupAhbSlaveAgentConfig();
   ahbEnvironmentConfig.ahb_slave_agent_cfg_h = new[ahbEnvironmentConfig.no_of_slaves];
   foreach(ahbEnvironmentConfig.ahbSlaveAgentConfig[i]) begin
     ahbEnvironmentConfig.ahbSlaveAgentConfig[i] = AhbSlaveAgentConfig::type_id::create($sformatf("AhbSlaveAgentConfig[%0d]",i));
@@ -144,7 +143,7 @@ function void AhbBaseTest::setup_AhbSlaveAgentConfig();
     `uvm_info(get_type_name(),$sformatf("\nAHB_SLAVE_CONFIG[%0d]\n%s",i,ahbEnvironmentConfig.ahbSlaveAgentConfig[i].sprint()),UVM_LOW);
   end
 
-endfunction : setup_AhbSlaveAgentConfig
+endfunction : setupAhbSlaveAgentConfig
 
 //--------------------------------------------------------------------------------------------
 // Function: end_of_elaboration_phase
