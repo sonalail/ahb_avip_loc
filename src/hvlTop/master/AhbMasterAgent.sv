@@ -46,8 +46,7 @@ endclass :AhbMasterAgent
 //  name - instance name of the AhbMasterAgent
 //  parent - parent under which this component is created
 //-------------------------------------------------------------------------
-function AhbMasterAgent::new(string name = "AhbMasterAgent",
-                                    uvm_component parent = null);
+function AhbMasterAgent::new(string name = "AhbMasterAgent",uvm_component parent = null);
   super.new(name, parent);
 endfunction : new
     
