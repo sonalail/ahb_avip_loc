@@ -1,5 +1,5 @@
-`ifndef AHB_IF_INCLUDED_
-`define AHB_IF_INCLUDED_
+`ifndef AHBINTERFACE_INCLUDED_
+`define AHBINTERFACE_INCLUDED_
 
 // Importing ahb global package 
 import AhbGlobalPackage::*;
@@ -82,7 +82,7 @@ interface AhbInterface(input HCLK, input HRESETn);
   // Combined transfer completion for Manager and Subordinate
   logic HREADY;
 
-endinterface : ahb_if
+endinterface : AhbInterface
 
 `endif
 
