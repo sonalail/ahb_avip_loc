@@ -70,18 +70,16 @@ function void AhbMasterAgent::build_phase(uvm_phase phase);
   end
 
   if(ahb_master_agent_cfg_h.is_active == UVM_ACTIVE) begin
-    
-    
-    ahb_master_seqr_h=AhbMasterSequencer::type_id::create("ahb_master_seqr_h",this);
-        ahb_master_drv_proxy_h=AhbMasterDriverProxy::type_id::create("ahb_master_drv_proxy_h",this);
+        ahb_master_seqr_h = AhbMasterSequencer::type_id::create("ahb_master_seqr_h",this);
+        ahb_master_drv_proxy_h = AhbMasterDriverProxy::type_id::create("ahb_master_drv_proxy_h",this);
   end
-
-  ahb_master_mon_proxy_h=AhbMasterMonitorProxy::type_id::create("ahb_master_mon_proxy_h",this);
+  
+  ahb_master_mon_proxy_h = AhbMasterMonitorProxy::type_id::create("ahb_master_mon_proxy_h",this);
 
   if(ahb_master_agent_cfg_h.has_coverage) begin
     ahb_master_cov_h = AhbMasterCoverage::type_id::create("ahb_master_cov_h",this);
   end
-
+  
   ahb_reg_adapter_h = AhbMasterAdapter::type_id::create("ahb_reg_adapter_h"); 
 endfunction : build_phase
 
