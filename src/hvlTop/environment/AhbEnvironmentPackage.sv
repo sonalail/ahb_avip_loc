@@ -1,8 +1,8 @@
-`ifndef AHB_ENV_PKG_INCLUDED_
-`define AHB_ENV_PKG_INCLUDED_
+`ifndef AHBENVIRONMENTPACKAGE_INCLUDED_
+`define AHBENVIRONMENTPACKAGE_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
-// Package: ahb_env_pkg
+// Package: ahbEnvironmentPackage
 // Includes all the files related to ahb env
 //--------------------------------------------------------------------------------------------
 package AhbEnvironmentPackage;
