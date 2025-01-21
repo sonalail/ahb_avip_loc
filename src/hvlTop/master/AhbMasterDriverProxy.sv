@@ -9,7 +9,7 @@
 //  uvm_driver is a parameterized class and it is parameterized with the type of the request
 //  sequence_item and the type of the response sequence_item
 //--------------------------------------------------------------------------------------------
-class ApbMasterDriverProxy extends uvm_driver #(AhbMasterTransaction);
+class AhbMasterDriverProxy extends uvm_driver #(AhbMasterTransaction);
   `uvm_component_utils(AhbMasterDriverProxy)
 
   //Variable: AhbMasterTransaction_h
