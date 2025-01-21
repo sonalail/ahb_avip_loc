@@ -62,29 +62,29 @@ endfunction : new
 function void AhbEnvironment::build_phase(uvm_phase phase);
   super.build_phase(phase);
   if(!uvm_config_db #(AhbEnvironmentConfig)::get(this,"","ahbEnvironmentConfig",ahbEnvironmentConfig)) begin
-   `uvm_fatal("FATAL_ENV_CONFIG", $sformatf("Couldn't get the env_config from config_db"))
+   `uvm_fatal("FATAL_ENV_CONFIG", $sformatf("Couldn't get the ahbEnvironmentConfig from config_db"))
   end
-ahbSlaveAgentConfig= new[ahbEnvironmentConfig.no_of_slaves];
+  ahbSlaveAgentConfig= new[ahbEnvironmentConfig.noOfSlaves];
   
 
-  if(!uvm_config_db #( AhbSlaveAgentConfig)::get(this,"","ahbSlaveAgentConfig",ahbSlaveAgentConfig)) begin
-    `uvm_fatal("FATAL_SA_AGENT_CONFIG", $sformatf("Couldn't get the ahb_slave_agent_config from config_db"))
+  if(!uvm_config_db #(AhbSlaveAgentConfig)::get(this,"","ahbSlaveAgentConfig",ahbSlaveAgentConfig)) begin
+    `uvm_fatal("FATAL_SA_AGENT_CONFIG", $sformatf("Couldn't get the ahbSlaveAgentConfig from config_db"))
     end
  
   
   ahbMasterAgent = AhbMasterAgent::type_id::create("ahbMasterAgent",this);
   
-  ahbSlaveAgent = new[ahbEnvConfig.no_of_slaves];
+  ahbSlaveAgent = new[ahbEnvConfig.noOfSlaves];
 
-  ahbSlaveAgent = AhbSlaveAgent ::type_id::create("ahbSlaveAgent",this);
+  ahbSlaveAgent = AhbSlaveAgent::type_id::create("ahbSlaveAgent",this);
  
 
-  if(ahbEnvConfig.has_virtual_seqr) begin
+  if(ahbEnvConfig.hasVirtualSeqr) begin
     ahbVirtualSequencer = AhbVirtualSequencer::type_id::create("ahbVirtualSequencer",this);
   end
 
-  if(ahbEnvConfig.has_scoreboard) begin
-    ahbScoreboard = AhbScoreboard::type_id::create(" ahbScoreboard",this);
+  if(ahbEnvConfig.hasScoreboard) begin
+    ahbScoreboard = AhbScoreboard::type_id::create("ahbScoreboard",this);
   end
 
   
@@ -108,11 +108,9 @@ function void AhbEnvironment::connect_phase(uvm_phase phase);
     end
   
   
-  ahbMasterAgent.ahbMasterMonitorProxy.ahbMasterAnalysisPort.connect(ahbScoreboard
-                                                                    .ahbMasterAnalysisFifo.analysisExport);
+  ahbMasterAgent.ahbMasterMonitorProxy.ahbMasterAnalysisPort.connect(ahbScoreboard.ahbMasterAnalysisFifo.analysisExport);
   
-  ahbSlaveAgent.ahbSlaveMonitorProxy.ahbSlaveAnalysisPort.connect(ahbScoreboard
-                                                                      .ahbSlaveAnalysisFifo.analysisExport);
+  ahbSlaveAgent.ahbSlaveMonitorProxy.ahbSlaveAnalysisPort.connect(ahbScoreboard.ahbSlaveAnalysisFifo.analysisExport);
   
   
 endfunction : connect_phase
