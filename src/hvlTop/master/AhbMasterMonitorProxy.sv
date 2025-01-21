@@ -30,7 +30,7 @@ class AhbMasterMonitorProxy extends uvm_monitor;
   extern virtual function void end_of_elaboration_phase(uvm_phase phase);
   extern virtual task run_phase(uvm_phase phase);
 
-endclass : apb_master_monitor_proxy
+endclass : AhbMasterMonitorProxy
 
 //--------------------------------------------------------------------------------------------
 // Construct: new
