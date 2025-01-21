@@ -16,11 +16,11 @@
 ../../src/hvlTop/tb/virtualSequences/ApbVirtualSequencePackage.sv
 ../../src/hvlTop/tb/test/AhbBaseTestPackage.sv
 ../../src/hdlTop/ahbInterface/AhbInterface.sv
-../../src/hdlTop/masterAgentBfm/AhbMasterDriverBFM.sv
-../../src/hdlTop/masterAgentBfm/AhbMasterMonitorBFM.sv
-../../src/hdlTop/masterAgentBfm/AhbMasterAgentBFM.sv
-../../src/hdlTop/slaveAgentBfm/AhbSlaveDriverBFM.sv
-../../src/hdlTop/slaveAgentBfm/AhbSlaveMonitorBFM.sv
-../../src/hdlTop/slaveAgentBfm/AhbSlaveAgentBFM.sv
+../../src/hdlTop/masterAgentBFM/AhbMasterDriverBFM.sv
+../../src/hdlTop/masterAgentBFM/AhbMasterMonitorBFM.sv
+../../src/hdlTop/masterAgentBFM/AhbMasterAgentBFM.sv
+../../src/hdlTop/slaveAgentBFM/AhbSlaveDriverBFM.sv
+../../src/hdlTop/slaveAgentBFM/AhbSlaveMonitorBFM.sv
+../../src/hdlTop/slaveAgentBFM/AhbSlaveAgentBFM.sv
 ../../src/hdlTop/hdlTop.sv
 ../../src/hdlTop/hvlTop.sv 
