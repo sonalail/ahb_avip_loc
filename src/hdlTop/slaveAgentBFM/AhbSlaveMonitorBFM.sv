@@ -77,12 +77,12 @@ interface AhbSlaveMonitorBFM (input  bit   HCLK,
   //  In this task, the pwdata and prdata is sampled
   //
   // Parameters: 
-  //  ahbDataPacket - Handle for ahb_transfer_char_s class 
-  //  ahb_cfg_packet  - Handle for ahb_transfer_cfg_s class
+  //  ahbDataPacket - Handle for ahbTransferCharStruct class 
+  //  ahbConfigPacket  - Handle for ahbTransferCharStruct class
   //-------------------------------------------------------
-  task sampleData (output apb_transfer_char_s ahbDataPacket, input apb_transfer_cfg_s apb_cfg_packet);
+  task sampleData (output ahbTransferCharStruct ahbDataPacket, input ahbTransferCharStruct ahbConfigPacket);
     //logic to be written
-  endtask : sample_data
+  endtask : sampleData
 
 endinterface : AhbSlaveMonitorBfm 
 
