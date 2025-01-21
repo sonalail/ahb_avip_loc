@@ -1,11 +1,11 @@
-`ifndef AHB_SLAVE_AGENT_BFM_INCLUDED_
-`define AHB_SLAVE_AGENT_BFM_INCLUDED_
+`ifndef AHBSLAVEAGENTBFM_INCLUDED_
+`define AHBSLAVEAGENTBFM_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
-// Module      : AhbSlaveAgentBfm
+// Module      : AhbSlaveAgentBFM
 // Description : Instantiates driver and monitor
 //--------------------------------------------------------------------------------------------
-module AhbSlaveAgentBfm #(parameter int SLAVE_ID=0) (AhbInterface intf);
+module AhbSlaveAgentBFM #(parameter int SLAVE_ID=0) (AhbInterface intf);
 
   //-------------------------------------------------------
   // Importing uvm_pkg file
@@ -20,7 +20,7 @@ module AhbSlaveAgentBfm #(parameter int SLAVE_ID=0) (AhbInterface intf);
   //-------------------------------------------------------
   // slave driver bfm instantiation
   //-------------------------------------------------------
-  AhbSlaveDriverBfm ahb_slave_drv_bfm_h(.HCLK(intf.HCLK),
+  AhbSlaveDriverBFM ahbSlaveDriverBFM(.HCLK(intf.HCLK),
                                            .HRESETn(intf.HRESETn),
                                            .HSELx(intf.HSELx),
                                            .HBURST(intf.HBURST),
@@ -46,7 +46,7 @@ module AhbSlaveAgentBfm #(parameter int SLAVE_ID=0) (AhbInterface intf);
   //-------------------------------------------------------
   // slave monitor bfm instantiation
   //-------------------------------------------------------
-  AhbSlaveMonitorBfm ahb_slave_mon_bfm_h (.HCLK(intf.HCLK),
+  AhbSlaveMonitorBFM ahbSlaveMonitorBFM(.HCLK(intf.HCLK),
                                            .HRESETn(intf.HRESETn),
                                            .HSELx(intf.HSELx),
                                            .HBURST(intf.HBURST),
@@ -68,13 +68,13 @@ module AhbSlaveAgentBfm #(parameter int SLAVE_ID=0) (AhbInterface intf);
                                            .HREADY(intf.HREADY),
                                           );
   initial begin
-    uvm_config_db#(virtual AhbSlaveDriverBfm)::set(null,"*", "ahb_slave_driver_bfm", ahb_slave_drv_bfm_h); 
-    uvm_config_db #(virtual AhbSlaveMonitorBfm)::set(null,"*", "ahb_slave_monitor_bfm", ahb_slave_mon_bfm_h); 
+    uvm_config_db#(virtual AhbSlaveDriverBFM)::set(null,"*", "ahb_slave_driver_bfm", ahbSlaveDriverBFM); 
+    uvm_config_db #(virtual AhbSlaveMonitorBFM)::set(null,"*", "ahb_slave_monitor_bfm", ahbSlaveMonitorBFM); 
     `uvm_info("SLAVE_AGENT_BFM",$sformatf("HSELx=%0d",intf.HSELx),UVM_HIGH)
     `uvm_info("SLAVE_AGENT_BFM",$sformatf("HSELx=%0d",SLAVE_ID),UVM_HIGH)
   end
 
-endmodule : AhbSlaveAgentBfm
+endmodule : AhbSlaveAgentBFM
 
 `endif
 
