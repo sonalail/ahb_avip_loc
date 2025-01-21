@@ -52,10 +52,6 @@ interface AhbMasterDriverBfm (input  bit   HCLK,
   //Creating the handle for the proxy_driver
   AhbMasterDriverProxy ahb_master_drv_proxy_h;
    
-  //Variable: state
-  //Creating handle for fsm states
-  ahb_fsm_state_e state;
-
   //-------------------------------------------------------
   // Used to display the name of the interface
   //-------------------------------------------------------
@@ -68,12 +64,12 @@ interface AhbMasterDriverBfm (input  bit   HCLK,
   //  Waiting for the system reset to be active low
   //-------------------------------------------------------
   task wait_for_HRESETn();
-   
+    @(negedge HRESETn);
     `uvm_info(name ,$sformatf("SYSTEM RESET DETECTED"),UVM_HIGH)
  
-   
+   @(posedge HRESETn);
     `uvm_info(name ,$sformatf("SYSTEM RESET DEACTIVATED"),UVM_HIGH)
-  endtask: wait_for_preset_n
+  endtask: wait_for_HRESETn
   
   //--------------------------------------------------------------------------------------------
   // Task: drive_to_bfm
@@ -88,78 +84,11 @@ interface AhbMasterDriverBfm (input  bit   HCLK,
     `uvm_info(name,$sformatf("cfg_packet=\n%p",cfg_packet),UVM_HIGH);
     `uvm_info(name,$sformatf("DRIVE TO BFM TASK"),UVM_HIGH);
 
-    //Driving Setup state
-    drive_setup_state(data_packet);
-
-    //Driving Access state
-    waiting_in_access_state(data_packet);
+    //logic to be written
 
   endtask: drive_to_bfm
 
-  //--------------------------------------------------------------------------------------------
-  // Task: drive_idle_state
-  //  This task drives the ahb interface to idle state
-  //--------------------------------------------------------------------------------------------
-  task drive_idle_state();
-  
-    `uvm_info(name,$sformatf("DROVE THE IDLE STATE"),UVM_HIGH)
-
-    `uvm_info("DEBUG_MSHA", $sformatf("drive_ahb_idle state = %0s and state = %0d",
-                                    state.name(), state), UVM_NONE);
-    
-  endtask : drive_idle_state
-
-  //--------------------------------------------------------------------------------------------
-  // Task: drive_setup_state
-  //  It drives the required signals to the slave 
-  //
-  // Parameters:
-  //  data_packet - ahb_transfer_char_s
-  //--------------------------------------------------------------------------------------------
-  task drive_setup_state(inout ahb_transfer_char_s data_packet);
-   
-    `uvm_info(name,$sformatf("DRIVING THE SETUP STATE"),UVM_HIGH)
-   
-    `uvm_info("DEBUG_MSHA", $sformatf("drive_ahb_setup state = %0s and state = %0d", state.name(), state), UVM_NONE);
-    
-  endtask : drive_setup_state
  
-  //-------------------------------------------------------
-  // Task: drive_access_state
-  //  This task defines the accessing of data signals from 
-  //  master to slave or viceverse
-  //
-  // Parameters:
-  //  data_packet - handle for ahb_transfer_char_s
-  //-------------------------------------------------------
-  task waiting_in_access_state(inout ahb_transfer_char_s data_packet);
-   
-    `uvm_info(name,$sformatf("INSIDE ACCESS STATE"),UVM_HIGH);
-
-   
-    
-    `uvm_info("DEBUG_NADEEM",$sformatf("pready=%0d",pready), UVM_HIGH);
-
-  
-  endtask : waiting_in_access_state
-
-  //--------------------------------------------------------------------------------------------
-  // Task: detect_wait_state
-  // In this task, signals are waiting for pready to set to high to transfer the data_packet
-  //
-  // Parameters:
-  // data_packet - handle for ahb_transfer_char_s
-  //--------------------------------------------------------------------------------------------
-  task detect_wait_state(inout ahb_transfer_char_s data_packet);
- 
-    `uvm_info(name,$sformatf("DETECT_WAIT_STATE"),UVM_HIGH);
-
-   
-    
-    `uvm_info(name,$sformatf("DATA READY TO TRANSFER"),UVM_HIGH);
-
- 
-  endtask : detect_wait_state
 
 endinterface : ahb_master_driver_bfm
 
