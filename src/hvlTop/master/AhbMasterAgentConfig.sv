@@ -18,15 +18,15 @@ class AhbMasterAgentConfig extends uvm_object;
 
   //Variable: NO_OF_SLAVES
   //Used for specifying the number of slaves connected to this ahb_master over ahb interface
-  int NO_OF_SLAVES;
+  int noOfSlaves;
 
   //Variable: has_coverage
   //Used for enabling the master agent coverage
- // bit has_coverage;
+ bit hasCoverage;
 
   //Variable: master_memory
   //Memory decleration for master to store the data of each slave
-  bit [ADDR_WIDTH-1:0]paddr;
+ bit [ADDR_WIDTH-1:0]haddr;
 
   //Variable : master_memory
   //Used to store all the data from the slaves
@@ -80,7 +80,7 @@ function void AhbMasterAgentConfig::do_print(uvm_printer printer);
 
 //  printer.print_field ("is_active",    is_active,    $bits(is_active),    UVM_DEC);
  // printer.print_field ("has_coverage", has_coverage, $bits(has_coverage), UVM_DEC);
-  printer.print_field ("NO_OF_SLAVES", NO_OF_SLAVES, $bits(NO_OF_SLAVES), UVM_DEC);
+ printer.print_field ("NO OF SLAVES", noOfSlaves, $bits(noOfSlaves), UVM_DEC);
 
 endfunction : do_print
 
