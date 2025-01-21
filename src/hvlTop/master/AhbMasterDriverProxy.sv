@@ -97,10 +97,7 @@ endfunction : end_of_elaboration_phase
 task AhbMasterDriverProxy::run_phase(uvm_phase phase);
 
   //wait for system reset
-  ahb_master_drv_bfm_h.wait_for_preset_n();
-
-  //Drive the idle state for APB interface
-  ahb_master_drv_bfm_h.drive_idle_state();
+  ahb_master_drv_bfm_h.wait_for_HRESETn();
 
 uvm_info(get_type_name(), $sformatf(" run phase inside master driver proxy \n "), UVM_NONE);
 
