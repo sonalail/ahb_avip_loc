@@ -10,11 +10,11 @@ class AhbMasterBaseSequence extends uvm_sequence#(uvm_sequence_item);
 
   // Variable: seqr
   // Handle for the AHB master sequencer
-  AhbMasterSequencer ahbMasterSeq;
+  AhbMasterSequencer ahbMasterSequencer;
 
   // Variable: item
   // Handle for the AHB master transaction (sequence item)
-  AhbMasterTransaction ahbMasterTx;
+  AhbMasterTransaction ahbMasterTransaction;
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
