@@ -83,7 +83,7 @@ task AhbMasterMonitorProxy::run_phase(uvm_phase phase);
   AhbMasterTransaction ahbMasterPacket;
 
   `uvm_info(get_type_name(), $sformatf("Inside the master_monitor_proxy"), UVM_LOW);
-  ahbMasterPacket = AhbMasterTransaction::type_id::create("master_packet");
+  ahbMasterPacket = AhbMasterTransaction::type_id::create("ahbMasterPacket");
   
   ahbMasterMonitorBFM.waitForHRESETn();
 
@@ -92,9 +92,9 @@ task AhbMasterMonitorProxy::run_phase(uvm_phase phase);
     ahbTransferConfig  structConfigPacket; 
     AhbMasterTransaction  ahbMasterClonePacket;
     
-    AhbMasterConfigConverter.sv :: from_class (ahbMasterAgentConfig,  structConfigPacket);
+    AhbMasterConfigConverter :: fromClass(ahbMasterAgentConfig,  structConfigPacket);
     ahbMasterMonitorBFM.sample_data (structDataPacket,  structConfigPacket);
-    AhbMasterSequenceItemConverter :: to_class (structDataPacket, ahbMasterPacket);
+    AhbMasterSequenceItemConverter :: toClass(structDataPacket, ahbMasterPacket);
 
     `uvm_info(get_type_name(),$sformatf("Received packet from master monitor bfm: , \n %s", ahbMasterPacket.sprint()),UVM_HIGH)
 
