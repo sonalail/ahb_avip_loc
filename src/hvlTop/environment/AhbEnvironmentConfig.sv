@@ -1,5 +1,5 @@
-`ifndef AHB_ENV_CONFIG_INCLUDED_
-`define AHB_ENV_CONFIG_INCLUDED_
+`ifndef AHBENVIRONMENTCONFIG_INCLUDED_
+`define AHBENVIRONMENTCONFIG_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbEnvironmentConfig
@@ -8,25 +8,25 @@
 class AhbEnvironmentConfig extends uvm_object;
   `uvm_object_utils(AhbEnvironmentConfig)
   
-  //Variable: has_scoreboard
+  //Variable: hasScoreboard
   //Enables the scoreboard. Default value is 1
-  bit has_scoreboard = 1;
+  bit hasScoreboard = 1;
 
-  //Variable: has_virtual_sqr
+  //Variable: hasVirtualSequencer
   //Enables the virtual sequencer. Default value is 1
-  bit has_virtual_seqr = 1;
+  bit hasVirtualSequencer = 1;
 
-  //Variable: no_of_slaves
+  //Variable: noOfSlaves
   //Number of slaves connected to the SPI interface
-  int no_of_slaves;
+  int noOfSlaves;
 
-  //Variable: master_agent_cfg_h
+  //Variable: ahbMasterAgentConfig
   //Handle for master agent configuration
-  AhbMasterAgentConfig ahb_master_agent_cfg_h;
+  AhbMasterAgentConfig ahbMasterAgentConfig;
 
-  //Variable: slave_agent_cfg_h
+  //Variable: ahbSlaveAgentConfig
   //Dynamic array of slave agnet configuration handles
-  AhbSlaveAgentConfig ahb_slave_agent_cfg_h[];
+  AhbSlaveAgentConfig ahbSlaveAgentConfig;
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
@@ -57,9 +57,9 @@ endfunction : new
 function void AhbEnvironmentConfig::do_print(uvm_printer printer);
   super.do_print(printer);
   
-  printer.print_field ("has_scoreboard",   has_scoreboard,   $bits(has_scoreboard),   UVM_DEC);
-  printer.print_field ("has_virtual_seqr", has_virtual_seqr, $bits(has_virtual_seqr), UVM_DEC);
-  printer.print_field ("no_of_slaves",     no_of_slaves,     $bits(no_of_slaves),     UVM_DEC);
+  printer.print_field ("hasScoreboard", hasScoreboard, $bits(has_scoreboard), UVM_DEC);
+  printer.print_field ("hasVirtualSequencer", hasVirtualSequencer, $bits(has_virtual_seqr), UVM_DEC);
+  printer.print_field ("noOfSlaves",  noOfSlaves,  $bits(no_of_slaves), UVM_DEC);
 
 endfunction : do_print
 
