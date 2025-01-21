@@ -1,5 +1,5 @@
-`ifndef_ENV_PKG_INCLUDED_
-`define ahb_ENV_PKG_INCLUDED_
+`ifndef AHB_ENV_PKG_INCLUDED_
+`define AHB_ENV_PKG_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Package: ahb_env_pkg
