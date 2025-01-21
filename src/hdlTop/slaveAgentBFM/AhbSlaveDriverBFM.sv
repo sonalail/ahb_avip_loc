@@ -1,5 +1,5 @@
-`ifndef AHB_SLAVE_DRIVER_BFM_INCLUDED_
-`define AHB_SLAVE_DRIVER_BFM_INCLUDED_
+`ifndef AHBSLAVEDRIVERBFM_INCLUDED_
+`define AHBSLAVEDRIVERBFM_INCLUDED_
 
 //-------------------------------------------------------
 // Importing ahb global package
@@ -7,11 +7,11 @@
 import AhbGlobalPackage::*;
 
 //--------------------------------------------------------------------------------------------
-// Interface : AhbSlaveDriverBfm
+// Interface : AhbSlaveDriverBFm
 //  Used as the HDL driver for ahb
 //  It connects with the HVL driver_proxy for driving the stimulus
 //--------------------------------------------------------------------------------------------
-interface AhbSlaveDriverBfm (input  bit   HCLK,
+interface AhbSlaveDriverBFM (input  bit   HCLK,
                               input  bit  HRESETn,
                               input logic [ADDR_WIDTH-1:0] HADDR;
                               input logic [2:0] HBURST;
@@ -47,10 +47,10 @@ interface AhbSlaveDriverBfm (input  bit   HCLK,
   string name = "AHB_SLAVE_DRIVER_BFM";
   
 
-  //Variable: ahb_slave_drv_proxy_h
+  //Variable: ahbSlaveDriverProxy 
   //Declaring handle for AhbSlaveDriverProxy
   
-  AhbSlaveDriverProxy ahb_slave_drv_proxy_h;
+  AhbSlaveDriverProxy ahbSlaveDriverProxy ;
   
 
   //-------------------------------------------------------
@@ -90,6 +90,6 @@ interface AhbSlaveDriverBfm (input  bit   HCLK,
    //logic
   endtask: wait_for_access_state
 
-endinterface : AhbSlaveDriverBfm
+endinterface : AhbSlaveDriverBFM
 
 `endif
