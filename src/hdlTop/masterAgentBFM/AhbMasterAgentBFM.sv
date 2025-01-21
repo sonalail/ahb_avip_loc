@@ -1,11 +1,11 @@
-`ifndef AHB_MASTER_AGENT_BFM_INCLUDED_
-`define AHB_MASTER_AGENT_BFM_INCLUDED_
+`ifndef AHBMASTERAGENTBFM_INCLUDED_
+`define AHBMASTERAGENTBFM_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Module      : AHB Master Agent BFM
 // Description : Instantiates driver and monitor for AHB interface
 //--------------------------------------------------------------------------------------------
-module AhbMasterAgentBfm(AhbInterface intf); // Change interface to ahb_if
+module AhbMasterAgentBFM(AhbInterface intf); // Change interface to AhbInterface
 
   //-------------------------------------------------------
   // Importing uvm package file
@@ -20,7 +20,7 @@ module AhbMasterAgentBfm(AhbInterface intf); // Change interface to ahb_if
   //-------------------------------------------------------
   // master driver bfm instantiation
   //-------------------------------------------------------
-  AhbMasterDriverBfm ahb_master_drv_bfm_h (
+  AhbMasterDriverBFM ahbMasterDriverBFM (
     .HCLK(intf.HCLK),
     .HRESETn(intf.HRESETn),
     .HADDR(intf.HADDR),
@@ -46,7 +46,7 @@ module AhbMasterAgentBfm(AhbInterface intf); // Change interface to ahb_if
   //-------------------------------------------------------
   // master monitor bfm instantiation
   //-------------------------------------------------------
-  AhbMasterMonitorBfm ahb_master_mon_bfm_h (
+  AhbMasterMonitorBFM ahbMasterMonitorBFM (
     .HCLK(intf.HCLK),
     .HRESETn(intf.HRESETn),
     .HADDR(intf.HADDR),
@@ -73,9 +73,9 @@ module AhbMasterAgentBfm(AhbInterface intf); // Change interface to ahb_if
   // setting the virtual handle of BFMs into config_db
   //-------------------------------------------------------
   initial begin
-    uvm_config_db#(virtual AhbMasterDriverBfm)::set(null,"*","AhbMasterDriverBfm", ahb_master_drv_bfm_h);
-    uvm_config_db#(virtual AhbMasterMonitorBfm)::set(null,"*","AhbMasterMonitorBfm", ahb_master_mon_bfm_h);
+    uvm_config_db#(virtual AhbMasterDriverBFM)::set(null,"*","AhbMasterDriverBFM", ahbMasterDriverBFM);
+    uvm_config_db#(virtual AhbMasterMonitorBFM)::set(null,"*","AhbMasterMonitorBFM", ahbMasterMonitorBFM);
   end
 
-endmodule : AhbMasterAgentBfm
+endmodule : AhbMasterAgentBFM
 `endif
