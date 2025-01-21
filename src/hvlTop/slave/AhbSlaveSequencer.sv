@@ -1,5 +1,5 @@
-`ifndef AHB_SLAVE_SEQUENCER_INCLUDED_
-`define AHB_SLAVE_SEQUENCER_INCLUDED_
+`ifndef AHBSLAVESEQUENCER_INCLUDED_
+`define AHBSLAVESEQUENCER_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbSlaveSequencer
@@ -8,9 +8,9 @@
 class AhbSlaveSequencer extends uvm_sequencer#(AhbSlaveTransaction);
   `uvm_component_utils(AhbSlaveSequencer)
   
-  //Variable: ahb_slave_agent_cfg_h;
+  //Variable: ahbSlaveAgentConfig;
   //Handle for  ahb slave agent configuration
-  ahb_slave_agent_config ahb_slave_agent_cfg_h;
+  AhbSlaveAgentConfig ahbSlaveAgentConfig;
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
