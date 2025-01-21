@@ -61,34 +61,34 @@ interface AhbSlaveDriverBFM (input  bit   HCLK,
   end
 
   //-------------------------------------------------------
-  // Task: wait_for_HRESETn
+  // Task: waitForHRESETn
   // Waiting for the system reset to be active low
   //-------------------------------------------------------
-  task wait_for_HRESETn();
+  task waitForHRESETn();
 
     @(negedge HRESETn);
     `uvm_info(name,$sformatf("SYSTEM RESET DETECTED"),UVM_HIGH)
     @(posedge HRESETn);
     `uvm_info(name,$sformatf("SYSTEM RESET DEACTIVATED"),UVM_HIGH)
   
-  endtask: wait_for_HRESETn
+  endtask: waitForHRESETn
   
   //-------------------------------------------------------
-  // Task: wait_for_setup_state
+  // Task: waitForSetupState
   // Samples the required data and sends back to the proxy
   //-------------------------------------------------------
-  task wait_for_setup_state(output ahb_transfer_char_s data_packet);
+  task waitForSetupState(output ahbTransferCharStruct dataPacket);
   //logic
-  endtask: wait_for_setup_state
+  endtask:waitForSetupState
 
   //-------------------------------------------------------
   // Task: wait_for_access_state
   // Samples the data or drives the data to master based
   // on pwrite signal
   //-------------------------------------------------------
-  task wait_for_access_state(inout ahb_transfer_char_s data_packet);
+  task waitForAccessState(inout ahbTransferCharStruct dataPacket);
    //logic
-  endtask: wait_for_access_state
+  endtask: waitForAccessState
 
 endinterface : AhbSlaveDriverBFM
 
