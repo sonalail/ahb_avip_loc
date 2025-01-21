@@ -80,7 +80,6 @@ function void AhbMasterAgent::build_phase(uvm_phase phase);
     ahb_master_cov_h = AhbMasterCoverage::type_id::create("ahb_master_cov_h",this);
   end
   
-  ahb_reg_adapter_h = AhbMasterAdapter::type_id::create("ahb_reg_adapter_h"); 
 endfunction : build_phase
 
 //--------------------------------------------------------------------------------------------
