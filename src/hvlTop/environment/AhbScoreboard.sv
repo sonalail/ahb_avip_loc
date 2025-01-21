@@ -1,36 +1,36 @@
-`ifndef AHB_SCOREBOARD_INCLUDED_
-`define AHB_SCOREBOARD_INCLUDED_
+`ifndef AHBSCOREBOARD_INCLUDED_
+`define AHBSCOREBOARD_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
-// Class: apb_scoreboard
+// Class: AhbScoreboard
 // Used to compare the data sent/received by the master with the slave's data sent/received
 //--------------------------------------------------------------------------------------------
 class AhbScoreboard extends uvm_scoreboard;
   `uvm_component_utils(AhbScoreboard)
 
-  //Variable: ahb_master_tx_h
-  //Declaring handle for ahb_master_tx
-  AhbMasterTransaction ahb_master_tx_h;
+  //Variable: ahbMasterTransaction
+  //Declaring handle for AhbMasterTransaction
+  AhbMasterTransaction ahbMasterTransaction;
 
-  //Variable: ahb_slave_tx_h
-  //Declaring handle for ahb_slaver_tx
-  AhbSlaveTransaction ahb_slave_tx_h;
+  //Variable: ahbSlaveTransaction
+  //Declaring handle for AhbSlaveTransaction
+  AhbSlaveTransaction ahbSlaveTransaction;
 
   //Variable: ahb_master_analysis_fifo
   //Used to store the ahb_master_data
-  uvm_tlm_analysis_fifo#(AhbMasterTransaction) ahb_master_analysis_fifo;
+  uvm_tlm_analysis_fifo#(AhbMasterTransaction) ahbMasterAnalysisFifo;
 
-  //Variable: ahb_slave_analysis_fifo
+  //Variable: ahbSlaveAnalysisFifo
   //Used to store the ahb_slave_data
-  uvm_tlm_analysis_fifo#(AhbSlaveTransaction) ahb_slave_analysis_fifo[];
+  uvm_tlm_analysis_fifo#(AhbSlaveTransaction) ahbSlaveAnalysisFifo[];
 
-  //Variable: ahb_master_tx_count
+  //Variable: ahbMasterTransactionCount
   //To keep track of number of transactions for master
-  int ahb_master_tx_count = 0;
+  int ahbMasterTransactionCount = 0;
 
-  //Variable: ahb_slave_tx_count
+  //Variable: ahbSlaveTransactionCount
   //To keep track of number of transactions for slave
-  int ahb_slave_tx_count = 0;
+  int ahbSlaveTransactionCount = 0;
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
@@ -51,13 +51,13 @@ endclass : AhbScoreboard
 //  name - AhbScoreboard
 //  parent - parent under which this component is created
 //--------------------------------------------------------------------------------------------
-function AhbScoreboard::new(string name = "ahb_scoreboard",uvm_component parent = null);
+function AhbScoreboard::new(string name = "AhbScoreboard",uvm_component parent = null);
   super.new(name, parent);
-  ahb_master_analysis_fifo = new("ahb_master_analysis_fifo",this);
-  ahb_slave_analysis_fifo = new[NO_OF_SLAVES];
+ ahbMasterAnalysisFifo = new("ahbMasterAnalysisFifo",this);
+  ahbSlaveAnalysisFifo = new[NO_OF_SLAVES];
 
-  foreach(ahb_slave_analysis_fifo[i]) begin
-    ahb_slave_analysis_fifo[i] = new($sformatf("ahb_slave_analysis_fifo[%0d]",i),this);
+  foreach(ahbSlaveAnalysisFifo[i]) begin
+    ahbSlaveAnalysisFifo[i] = new($sformatf("ahbSlaveAnalysisFifo[%0d]",i),this);
   end
 endfunction : new
 
@@ -78,12 +78,12 @@ endfunction : build_phase
 // Parameters:
 //  phase - uvm phase
 //--------------------------------------------------------------------------------------------
-task apb_scoreboard::run_phase(uvm_phase phase);
+task AhbScoreboard::run_phase(uvm_phase phase);
   super.run_phase(phase);
   `uvm_info(get_type_name(),$sformatf("Entering the run phases of scoreboard"),UVM_HIGH)
   forever begin
-    ahb_master_analysis_fifo.get(AhbMasterTransaction);
-    ahb_master_analysis_fifo.get(AhbSlaveTransaction);
+  ahbMasterAnalysisFifo.get(AhbMasterTransaction);
+   ahbMasterAnalysisFifo.get(AhbSlaveTransaction);
   end
 endtask : run_phase
 
@@ -94,7 +94,7 @@ endtask : run_phase
 // Parameters:
 //  phase - uvm phase
 //--------------------------------------------------------------------------------------------
-function void apb_scoreboard::check_phase(uvm_phase phase);
+function void AhbScoreboard::check_phase(uvm_phase phase);
   super.check_phase(phase);
 endfunction : check_phase
 
@@ -105,7 +105,7 @@ endfunction : check_phase
 // Parameters:
 //  phase - uvm phase
 //--------------------------------------------------------------------------------------------
-function void apb_scoreboard::report_phase(uvm_phase phase);
+function void AhbScoreboard::report_phase(uvm_phase phase);
   super.report_phase(phase);
 endfunction : check_phase
 
