@@ -1,9 +1,9 @@
 
-`ifndef AHB_MASTER_DRIVER_PROXY_INCLUDED_
-`define AHB_MASTER_DRIVER_PROXY_INCLUDED_
+`ifndef AHBMASTERDRIVERPROXY_INCLUDED_
+`define AHBMASTERDRIVERPROXY_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
-// Class: ahb_master_driver_proxy
+// Class: ahbMasterDriverProxy
 //  Driver is written by extending uvm_driver,uvm_driver is inherited from uvm_component,
 //  Methods and TLM port (seq_item_port) are defined for communication between sequencer and driver,
 //  uvm_driver is a parameterized class and it is parameterized with the type of the request
@@ -12,18 +12,18 @@
 class AhbMasterDriverProxy extends uvm_driver #(AhbMasterTransaction);
   `uvm_component_utils(AhbMasterDriverProxy)
 
-  //Variable: AhbMasterTransaction_h
-  //Declaring handle for ahb master transaction
-  AhbMasterTransaction  ahb_master_tx_h;
+  //Variable: ahbMasterTransaction
+  //Declaring handle for ahbMasterTransaction
+  AhbMasterTransaction   ahbMasterTransaction;
 
-  //Variable: apb_master_drv_Transaction_h;
-  //Declaring handle for apb driver bfm
-  virtual AhbMasterDriverBfm ahb_master_drv_bfm_h;
+  //Variable: ahbMasterDriverTransaction;
+  //Declaring handle for ahbMasterDriverBFM
+  virtual AhbMasterDriverBFM ahbMasterDriverBFM;
 
-  //Variable: apb_master_agent_cfg_h
-  //Declaring handle for apb_master agent config class
+  //Variable: ahbMasterAgentConfig
+  //Declaring handle for AhbMasterAgentConfig class
 
-  AhbMasterAgentConfig ahb_master_agent_cfg_h;
+  AhbMasterAgentConfig ahbMasterAgentConfig;
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
@@ -57,8 +57,8 @@ endfunction : new
 //--------------------------------------------------------------------------------------------
 function void AhbMasterDriverProxy::build_phase(uvm_phase phase);
   super.build_phase(phase);
-  if(!uvm_config_db #(virtual AhbMasterDriverBfm)::get(this,"","AhbMasterDriverBfm", ahb_master_drv_bfm_h)) begin
-    `uvm_fatal("FATAL_MDP_CANNOT_GET_APB_MASTER_DRIVER_BFM","cannot get() ahb_master_drv_bfm_h");
+  if(!uvm_config_db #(virtual AhbMasterDriverBFM)::get(this,"","AhbMasterDriverBFM", ahbMasterDriverBFM)) begin
+    `uvm_fatal("FATAL_MDP_CANNOT_GET_APB_MASTER_DRIVER_BFM","cannot get() ahbMasterDriverBFM");
   end
 endfunction : build_phase
 
@@ -82,7 +82,7 @@ endfunction : connect_phase
 //--------------------------------------------------------------------------------------------
 function void AhbMasterDriverProxy::end_of_elaboration_phase(uvm_phase phase);
   super.end_of_elaboration_phase(phase);
-  ahb_master_drv_bfm_h.ahb_master_drv_proxy_h = this;
+  ahbMasterDriverBFM.ahbMasterDriverProxy = this;
 
 endfunction : end_of_elaboration_phase
 
@@ -97,7 +97,7 @@ endfunction : end_of_elaboration_phase
 task AhbMasterDriverProxy::run_phase(uvm_phase phase);
 
   //wait for system reset
-  ahb_master_drv_bfm_h.wait_for_HRESETn();
+  ahbMasterDriverBFM.waitForHRESETn();
 
 uvm_info(get_type_name(), $sformatf(" run phase inside master driver proxy \n "), UVM_NONE);
 
