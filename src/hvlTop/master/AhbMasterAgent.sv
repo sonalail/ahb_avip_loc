@@ -1,5 +1,5 @@
-`ifndef AHB_MASTER_AGENT_INCLUDED_
-`define AHB_MASTER_AGENT_INCLUDED_
+`ifndef AHBMASTERAGENT_INCLUDED_
+`define AHBMASTERAGENT_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbMasterAgent 
@@ -9,25 +9,25 @@
 class AhbMasterAgent extends uvm_agent;
   `uvm_component_utils(AhbMasterAgent)
 
-  //Variable: ahb_master_agent_cfg_h
+  //Variable: ahbMasterAgentConfig
   //Declaring handle for AhbMasterAgentConfig class 
-  AhbMasterAgentConfig ahb_master_agent_cfg_h;
+  AhbMasterAgentConfig ahbMasterAgentConfig;
 
-  //Varible: ahb_master_seqr_h
+  //Varible: ahbMasterSequencer
   //Handle for  AhbMasterSequencer
-  AhbMasterSequencer ahb_master_seqr_h;
+  AhbMasterSequencer ahbMasterSequencer;
   
-  //Variable: ahb_master_drv_proxy_h
+  //Variable: ahbMasterDriverProxy
   //Creating a Handle for AhbMasterDriverProxy
-  AhbMasterDriverProxy ahb_master_drv_proxy_h;
+  AhbMasterDriverProxy ahbMasterDriverProxy;
 
-  //Variable: apb_master_mon_proxy_h
+  //Variable: ahbMasterMonitorProxy
   //Declaring a handle for AhbMasterMonitorProxy
-  AhbMasterMonitorProxy ahb_master_mon_proxy_h;
+  AhbMasterMonitorProxy ahbMasterMonitorProxy;
 
-  // Variable: ahb_master_cov_h
+  // Variable: ahbMasterCoverage
   // Decalring a handle for AhbMasterCoverage
-  AhbMasterCoverage ahb_master_cov_h;
+  AhbMasterCoverage ahbMasterCoverage;
     
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
@@ -61,19 +61,19 @@ endfunction : new
 function void AhbMasterAgent::build_phase(uvm_phase phase);
   super.build_phase(phase);
 
-  if(!uvm_config_db #(AhbMasterAgentConfig)::get(this,"","AhbMasterAgentConfig", ahb_master_agent_cfg_h)) begin
-    `uvm_fatal("FATAL_MA_CANNOT_GET_AHB_MASTER_AGENT_CONFIG", "cannot get ahb_master_agent_cfg_h from uvm_config_db");
+  if(!uvm_config_db #(AhbMasterAgentConfig)::get(this,"","AhbMasterAgentConfig", ahbMasterAgentConfig)) begin
+    `uvm_fatal("FATAL MASTER CANNOT GET AHBMASTERAGENTCONFIG", "cannot get ahbMasterAgentConfig from uvm_config_db");
   end
 
-  if(ahb_master_agent_cfg_h.is_active == UVM_ACTIVE) begin
-        ahb_master_seqr_h = AhbMasterSequencer::type_id::create("ahb_master_seqr_h",this);
-        ahb_master_drv_proxy_h = AhbMasterDriverProxy::type_id::create("ahb_master_drv_proxy_h",this);
+  if(ahbMasterAgentConfig.is_active == UVM_ACTIVE) begin
+        ahbMasterSequencer = AhbMasterSequencer::type_id::create("ahbMasterSequencer",this);
+        ahbMasterDriverProxy = AhbMasterDriverProxy::type_id::create("ahbMasterDriverProxy",this);
   end
   
-  ahb_master_mon_proxy_h = AhbMasterMonitorProxy::type_id::create("ahb_master_mon_proxy_h",this);
+  ahbMasterMonitorProxy = AhbMasterMonitorProxy::type_id::create("ahbMasterMonitorProxy",this);
 
-  if(ahb_master_agent_cfg_h.has_coverage) begin
-    ahb_master_cov_h = AhbMasterCoverage::type_id::create("ahb_master_cov_h",this);
+  if(ahbMasterAgentConfig.has_coverage) begin
+    ahbMasterCoverage = AhbMasterCoverage::type_id::create("ahbMasterCoverage",this);
   end
   
 endfunction : build_phase
@@ -86,22 +86,22 @@ endfunction : build_phase
 // phase - uvm phase
 //--------------------------------------------------------------------------------------------
 function void AhbMasterAgent::connect_phase(uvm_phase phase);
-  if(ahb_master_agent_cfg_h.is_active == UVM_ACTIVE) begin
-    ahb_master_drv_proxy_h.ahb_master_agent_cfg_h = ahb_master_agent_cfg_h;
-    ahb_master_seqr_h.ahb_master_agent_cfg_h = ahb_master_agent_cfg_h;
+  if(ahbMasterAgentConfig.is_active == UVM_ACTIVE) begin
+    ahbMasterDriverProxy.ahbMasterAgentConfig = ahbMasterAgentConfig;
+    ahbMasterSequencer.ahbMasterAgentConfig = ahbMasterAgentConfig;
     
     //Connecting AhbSlaveDriverProxy port to AhbSlaveSequencer export
-    ahb_master_drv_proxy_h.seq_item_port.connect(ahb_master_seqr_h.seq_item_export);
+    ahbMasterDriverProxy.seq_item_port.connect(ahbMasterSequencer.seq_item_export);
   end
-  ahb_master_mon_proxy_h.ahb_master_agent_cfg_h = ahb_master_agent_cfg_h;
+  ahbMasterMonitorProxy.ahbMasterAgentConfig = ahbMasterAgentConfig;
 
-  if(ahb_master_agent_cfg_h.has_coverage) begin
-    ahb_master_cov_h.ahb_master_agent_cfg_h = ahb_master_agent_cfg_h;
+  if(ahbMasterAgentConfig.has_coverage) begin
+    ahbMasterCoverage.ahbMasterAgentConfig = ahbMasterAgentConfig;
   
     //Connecting AhbSlaveMonitorProxy port to AhbSlaveSequencerCoverage export
-    ahb_master_mon_proxy_h.ahb_master_analysis_port.connect(ahb_master_cov_h.analysis_export);
+    ahbMasterMonitorProxy.ahbMasterAnalysisPort.connect(ahbMasterCoverage.analysis_export);
   end
-    ahb_master_mon_proxy_h.ahb_master_agent_cfg_h = ahb_master_agent_cfg_h;
+    ahbMasterMonitorProxy.ahbMasterAgentConfig = ahbMasterAgentConfig;
 
 endfunction : connect_phase
 
