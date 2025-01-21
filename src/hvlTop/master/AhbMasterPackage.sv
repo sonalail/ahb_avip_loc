@@ -1,9 +1,9 @@
  
-`ifndef AHB_MASTER_PKG_INCLUDED_
-`define AHB_MASTER_PKG_INCLUDED_
+`ifndef AHBMASTERPACKAGE_INCLUDED_
+`define AHBMASTERPACKAGE_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
-// Package: ahb_master_pkg
+// Package: AhbMasterPackage
 //  Includes all the files related to ahb_master
 //--------------------------------------------------------------------------------------------
 package AhbMasterPackage;
@@ -32,7 +32,7 @@ package AhbMasterPackage;
   `include "AhbMasterCoverage.sv"
   `include "AhbMasterAgent.sv"
   
-endpackage : ahb_master_pkg
+endpackage : AhbMasterPackage
 
 `endif
 
