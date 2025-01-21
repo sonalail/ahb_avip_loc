@@ -22,7 +22,7 @@ class AhbScoreboard extends uvm_scoreboard;
 
   //Variable: ahbSlaveAnalysisFifo
   //Used to store the ahb_slave_data
-  uvm_tlm_analysis_fifo#(AhbSlaveTransaction) ahbSlaveAnalysisFifo[];
+  uvm_tlm_analysis_fifo#(AhbSlaveTransaction) ahbSlaveAnalysisFifo;
 
   //Variable: ahbMasterTransactionCount
   //To keep track of number of transactions for master
