@@ -1,6 +1,6 @@
  
-`ifndef AHB_GLOBAL_PKG_INCLUDED_
-`define AHB_GLOBAL_PKG_INCLUDED_
+`ifndef AHBGLOBALPACKAGE_INCLUDED_
+`define AHBGLOBALPACKAGE_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Package : AhbGlobalPackage
