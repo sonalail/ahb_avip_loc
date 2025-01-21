@@ -1,5 +1,5 @@
-`ifndef AHB_ENV_INCLUDED_
-`define AHB_ENV_INCLUDED_
+`ifndef AHBENVIRONMENT_INCLUDED_
+`define AHBENVIRONMENT_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbEnvironment
@@ -8,29 +8,29 @@
 class AhbEnvironment extends uvm_env;
   `uvm_component_utils(AhbEnvironment)
 
-  //Variable: ahb_master_agent_h
+  //Variable: ahbMasterAgent
   //Declaring ahb master agent handle
-  AhbMasterAgent ahb_master_agent_h;
+  AhbMasterAgent ahbMasterAgent;
 
-  //Variable: ahb_slave_agent_h
+  //Variable: ahbSlaveAgent
   //Declaring ahb slave agent handle
-  AhbSlaveAgent  ahb_slave_agent_h;
+  AhbSlaveAgent  ahbSlaveAgent;
 
-  //Variable: ahb_scoreboard_h
+  //Variable: ahbScoreboard
   //Declaring ahb scoreboard handle
-  AhbScoreboard ahb_scoreboard_h;
+  AhbScoreboard ahbScoreboard;
 
-  //Variable: ahb_virtual_seqr_h
+  //Variable: ahbVirtualSequencer
   //Declaring ahb virtual seqr handle
-  AhbVirtualSequencer ahb_virtual_seqr_h;
+  AhbVirtualSequencer ahbVirtualSequencer;
   
-  //Variable: ahb_env_cfg_h
+  //Variable: ahbEnvironmentConfig
   //Declaring handle for ahb_env_config_object
-  AhbEnvironmentConfig ahb_env_cfg_h;  
+  AhbEnvironmentConfig ahbEnvironmentConfig;  
   
-  //Variable: ahb_slave_agent_cfg_h;
+  //Variable: ahbSlaveAgentConfig;
   //Handle for ahb_slave agent configuration
-  AhbSlaveAgentConfig ahb_slave_agent_cfg_h;
+  AhbSlaveAgentConfig ahbSlaveAgentConfig;
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
@@ -61,34 +61,34 @@ endfunction : new
 //--------------------------------------------------------------------------------------------
 function void AhbEnvironment::build_phase(uvm_phase phase);
   super.build_phase(phase);
-  if(!uvm_config_db #(AhbEnvironmentConfig)::get(this,"","ahb_env_config",ahb_env_cfg_h)) begin
+  if(!uvm_config_db #(AhbEnvironmentConfig)::get(this,"","ahbEnvironmentConfig",ahbEnvironmentConfig)) begin
    `uvm_fatal("FATAL_ENV_CONFIG", $sformatf("Couldn't get the env_config from config_db"))
   end
-  ahb_slave_agent_cfg_h = new[ahb_env_cfg_h.no_of_slaves];
+ahbSlaveAgentConfig= new[ahbEnvironmentConfig.no_of_slaves];
   
 
-  if(!uvm_config_db #( AhbSlaveAgentConfig)::get(this,"","ahb_slave_agent_config",ahb_slave_agent_cfg_h)) begin
+  if(!uvm_config_db #( AhbSlaveAgentConfig)::get(this,"","ahbSlaveAgentConfig",ahbSlaveAgentConfig)) begin
     `uvm_fatal("FATAL_SA_AGENT_CONFIG", $sformatf("Couldn't get the ahb_slave_agent_config from config_db"))
     end
  
   
-  ahb_master_agent_h = AhbMasterAgent::type_id::create("ahb_master_agent",this);
+  ahbMasterAgent = AhbMasterAgent::type_id::create("ahbMasterAgent",this);
   
-  ahb_slave_agent_h = new[ahb_env_cfg_h.no_of_slaves];
+  ahbSlaveAgent = new[ahbEnvConfig.no_of_slaves];
 
-  ahb_slave_agent_h = AhbSlaveAgent ::type_id::create("ahb_slave_agent_h",this);
+  ahbSlaveAgent = AhbSlaveAgent ::type_id::create("ahbSlaveAgent",this);
  
 
-  if(ahb_env_cfg_h.has_virtual_seqr) begin
-    ahb_virtual_seqr_h = AhbVirtualSequencer::type_id::create("ahb_virtual_seqr_h",this);
+  if(ahbEnvConfig.has_virtual_seqr) begin
+    ahbVirtualSequencer = AhbVirtualSequencer::type_id::create("ahbVirtualSequencer",this);
   end
 
-  if(ahb_env_cfg_h.has_scoreboard) begin
-    ahb_scoreboard_h = AhbScoreboard::type_id::create("ahb_scoreboard_h",this);
+  if(ahbEnvConfig.has_scoreboard) begin
+    ahbScoreboard = AhbScoreboard::type_id::create(" ahbScoreboard",this);
   end
 
   
-    ahb_slave_agent_h.ahb_slave_agent_cfg_h = ahb_slave_agent_cfg_h;
+    ahbSlaveAgent.ahbSlaveAgentConfig = ahbSlaveAgentConfig;
   
 
 endfunction : build_phase
@@ -102,17 +102,17 @@ endfunction : build_phase
 //--------------------------------------------------------------------------------------------
 function void AhbEnvironment::connect_phase(uvm_phase phase);
   super.connect_phase(phase);
-  if(ahb_env_cfg_h.has_virtual_seqr) begin
-    ahb_virtual_seqr_h.ahb_master_seqr_h = ahb_master_agent_h.ahb_master_seqr_h;
-    ahb_virtual_seqr_h.ahb_slave_seqr_h = ahb_slave_agent_h.ahb_slave_seqr_h;
+  if(ahbEnvironmentConfig.hasVirtualSequencer) begin
+    ahbVirtualSequencer.ahbMasterSequencer = ahbMasterAgent.ahbMasterSequencer;
+    ahbVirtualSequencer.ahbSlaveSequencer = ahbSlaveAgent.ahbSlaveSequencer;
     end
   
   
-  ahb_master_agent_h.ahb_master_mon_proxy_h.ahb_master_analysis_port.connect(ahb_scoreboard_h
-                                                                    .ahb_master_analysis_fifo.analysis_export);
+  ahbMasterAgent.ahbMasterMonitorProxy.ahbMasterAnalysisPort.connect(ahbScoreboard
+                                                                    .ahbMasterAnalysisFifo.analysisExport);
   
-  ahb_slave_agent_h.ahb_slave_mon_proxy_h.ahb_slave_analysis_port.connect(ahb_scoreboard_h
-                                                                      .ahb_slave_analysis_fifo.analysis_export);
+  ahbSlaveAgent.ahbSlaveMonitorProxy.ahbSlaveAnalysisPort.connect(ahbScoreboard
+                                                                      .ahbSlaveAnalysisFifo.analysisExport);
   
   
 endfunction : connect_phase
