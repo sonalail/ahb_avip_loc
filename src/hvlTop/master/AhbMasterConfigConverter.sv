@@ -13,7 +13,7 @@ class AhbMasterConfigConverter extends uvm_object;
   // Externally defined Tasks and Functions
   //-------------------------------------------------------
   extern function new(string name = "AhbMasterConfigConverter");
-    extern static function void from_class(input AhbMasterAgentConfig ahbMasterAgentConfig, output ahbTransferConfigStruct outputConv);
+    extern static function void fromClass(input AhbMasterAgentConfig ahbMasterAgentConfig, output ahbTransferConfigStruct outputConv);
   extern function void do_print(uvm_printer printer);
 
 endclass : AhbMasterConfigConverter
