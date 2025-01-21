@@ -1,5 +1,5 @@
-`ifndef AHB_VIRTUAL_SEQ_PKG_INCLUDED_
-`define AHB_VIRTUAL_SEQ_PKG_INCLUDED_
+`ifndef AHBVIRTUALSEQPKG_INCLUDED_
+`define AHBVIRTUALSEQPKG_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Package : AhbVirtualSequencePackage
@@ -24,6 +24,6 @@ package AhbVirtualSequencePackage;
   //-------------------------------------------------------
   `include "AhbVirtualBaseSequence.sv"
   
-endpackage : apb_virtual_seq_pkg
+endpackage : AhbVirtualSequencePackage
 
 `endif
