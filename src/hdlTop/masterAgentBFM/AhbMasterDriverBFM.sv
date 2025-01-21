@@ -1,5 +1,5 @@
-`ifndef AHB_MASTER_DRIVER_BFM_INCLUDED_
-`define AHB_MASTER_DRIVER_BFM_INCLUDED_
+`ifndef AHBMASTERDRIVERBFM_INCLUDED_
+`define AHBMASTERDRIVERBFM_INCLUDED_
 
 //-------------------------------------------------------
 // Importing ahb global package
@@ -7,11 +7,11 @@
 import AhbGlobalPackage::*;
 
 //--------------------------------------------------------------------------------------------
-// Interface : AhbMasterDriverBfm
+// Interface : AhbMasterDriverBFM
 //  Used as the HDL driver for ahb
 //  It connects with the HVL driver_proxy for driving the stimulus
 //--------------------------------------------------------------------------------------------
-interface AhbMasterDriverBfm (input  bit   HCLK,
+interface AhbMasterDriverBFM (input  bit  HCLK,
                               input  bit  HRESETn,
                               input logic [ADDR_WIDTH-1:0] HADDR;
                               input logic [2:0] HBURST;
@@ -29,9 +29,7 @@ interface AhbMasterDriverBfm (input  bit   HCLK,
                               output logic HREADYOUT;
                               output logic HRESP;
                               output logic HEXOKAY;
-                              
-                            
-                                );
+                              );
 
   //-------------------------------------------------------
   // Importing uvm package file
@@ -50,7 +48,7 @@ interface AhbMasterDriverBfm (input  bit   HCLK,
   
   //Variable: ahb_master_drv_proxy_h
   //Creating the handle for the proxy_driver
-  AhbMasterDriverProxy ahb_master_drv_proxy_h;
+  AhbMasterDriverProxy ahbMasterDriverProxy;
    
   //-------------------------------------------------------
   // Used to display the name of the interface
@@ -60,36 +58,36 @@ interface AhbMasterDriverBfm (input  bit   HCLK,
   end
  
   //-------------------------------------------------------
-  // Task: wait_for_HRESETn
+  // Task: waitForHRESETn
   //  Waiting for the system reset to be active low
   //-------------------------------------------------------
-  task wait_for_HRESETn();
+  task waitForHRESETn();
     @(negedge HRESETn);
     `uvm_info(name ,$sformatf("SYSTEM RESET DETECTED"),UVM_HIGH)
  
    @(posedge HRESETn);
     `uvm_info(name ,$sformatf("SYSTEM RESET DEACTIVATED"),UVM_HIGH)
-  endtask: wait_for_HRESETn
+  endtask: waitForHRESETn
   
   //--------------------------------------------------------------------------------------------
-  // Task: drive_to_bfm
+  // Task: driveToBFM
   //  This task will drive the data from bfm to proxy using converters
   //
   // Parameters:
-  // data_packet - handle for ahb_transfer_char_s
-  // cfg_pkt     - handle for ahb_transfer_cfg_s
+  // dataPacket - handle for ahbTransferCharStruct
+  // configPacket - handle for ahbTransferConfigStruct
   //--------------------------------------------------------------------------------------------
-  task drive_to_bfm(inout ahb_transfer_char_s data_packet, input ahb_transfer_cfg_s cfg_packet);
-    `uvm_info(name,$sformatf("data_packet=\n%p",data_packet),UVM_HIGH);
-    `uvm_info(name,$sformatf("cfg_packet=\n%p",cfg_packet),UVM_HIGH);
+  task driveToBFM(inout ahbTransferCharStruct dataPacket, input ahbTransferConfigStruct configPacket);
+    `uvm_info(name,$sformatf("dataPacket = \n%p",dataPacket),UVM_HIGH);
+    `uvm_info(name,$sformatf("configPacket = \n%p",configPacket),UVM_HIGH);
     `uvm_info(name,$sformatf("DRIVE TO BFM TASK"),UVM_HIGH);
 
     //logic to be written
 
-  endtask: drive_to_bfm
+  endtask: driveToBFM
 
  
 
-endinterface : ahb_master_driver_bfm
+endinterface : AhbMasterDriverBFM
 
 `endif
