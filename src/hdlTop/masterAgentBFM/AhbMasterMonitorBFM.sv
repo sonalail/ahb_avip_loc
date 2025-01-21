@@ -1,6 +1,6 @@
 
-`ifndef AHB_MASTER_MONITOR_BFM_INCLUDED_
-`define AHB_MASTER_MONITOR_BFM_INCLUDED_
+`ifndef AHBMASTERMONITORBFM_INCLUDED_
+`define AHBMASTERMONITORBFM_INCLUDED_
 
 //-------------------------------------------------------
 // Importing ahb global package
@@ -8,10 +8,10 @@
 import AhbGlobalPackage::*;
 
 //--------------------------------------------------------------------------------------------
-// Interface: ahb_master_monitor_bfm
+// Interface: AhbMasterMonitorBFM
 //  Connects the master monitor bfm with the master monitor proxy
 //--------------------------------------------------------------------------------------------
-interface AhbMasterMonitorBfm(
+interface AhbMasterMonitorBFM(
     input logic [ADDR_WIDTH-1:0] HADDR,
     input logic [NO_OF_SLAVES-1:0] HSELx,
     input logic [2:0] HBURST,
@@ -42,9 +42,9 @@ interface AhbMasterMonitorBfm(
   //-------------------------------------------------------
   import AhbMasterPackage::*;
 
-  // Variable: ahb_master_mon_proxy_h
-  // Declaring handle for apb_master_monitor_proxy  
-  AhbMasterMonitorProxy ahb_master_mon_proxy_h;
+  // Variable: ahbMasterMonitorProxy
+  // Declaring handle for AhbMasterMonitorProxy  
+  AhbMasterMonitorProxy ahbMasterMonitorProxy;
 
   // Variable: name
   // Assigning the string used in infos
@@ -55,30 +55,30 @@ interface AhbMasterMonitorBfm(
   end
 
   //-------------------------------------------------------
-  // Task: wait_for_HRESETn
+  // Task: waitForRESETn
   //  Waiting for the system reset to be active low
   //-------------------------------------------------------
-  task wait_for_HRESETn();
+  task waitForRESETn();
     @(negedge HRESETn);
     `uvm_info(name, $sformatf("system reset detected"), UVM_HIGH)
     
     @(posedge HRESETn);
     `uvm_info(name, $sformatf("system reset deactivated"), UVM_HIGH)
-  endtask : wait_for_HRESETn
+  endtask : waitForRESETn
   
   //-------------------------------------------------------
-  // Task: sample_data
-  //  In this task, the pwdata and prdata is sampled
+  // Task: sampleData
+  //  In this task, the HWDATA and HRDATA is sampled
   //
   // Parameters: 
-  //  ahb_data_packet - Handle for ahb_transfer_char_s class
-  //  ahb_cfg_packet  - Handle for ahb_transfer_cfg_s class
+  //  ahbDataPacket - Handle for ahbTransferCharStruct class
+  //  ahbConfigPacket  - Handle for ahbTransferConfigStruct class
   //-------------------------------------------------------
-  task sample_data (output ahb_transfer_char_s ahb_data_packet, input ahb_transfer_cfg_s ahb_cfg_packet);
+    task sampleData (output ahbTransferCharStruct ahbDataPacket, input ahbTransferConfigStruct ahbConfigPacket);
    //logic to be written
     
-  endtask : sample_data
+  endtask : sampleData
 
-endinterface : AhbMasterMonitorBfm
+endinterface : AhbMasterMonitorBFM
 
 `endif
