@@ -15,7 +15,7 @@ class AhbMasterCoverage extends uvm_subscriber #(AhbMasterTransaction);
   //-------------------------------------------------------
   covergroup ahbMasterCovergroup;
 
-  endgroup: apbMasterCovergroup
+  endgroup: ahbMasterCovergroup
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
@@ -44,7 +44,7 @@ endfunction : new
 // Overriding the write method declared in the parent class
 //
 // Parameters:
-//  t - ahb_master_tx
+//  t - AhbMasterTransaction
 //--------------------------------------------------------------------------------------------
 function void AhbMasterCoverage::write(AhbMasterTransaction t);
 endfunction : write
