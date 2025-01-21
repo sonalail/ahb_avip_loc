@@ -5,7 +5,7 @@
 // Class: AhbMasterCoverage
 // This class is used to include covergroups and bins required for functional coverage
 //--------------------------------------------------------------------------------------------
-class AhbMasterCoverage extends uvm_subscriber #(AhbMasterTranscation);
+class AhbMasterCoverage extends uvm_subscriber #(AhbMasterTransaction);
   `uvm_component_utils(AhbMasterCoverage)
  
   //Variable: ahb_master_agent_cfg_h
@@ -13,7 +13,7 @@ class AhbMasterCoverage extends uvm_subscriber #(AhbMasterTranscation);
   AhbMasterAgentConfig apb_master_agent_cfg_h;
   
   //-------------------------------------------------------
-  Covergroup: ahb_master_covergroup
+  covergroup ahb_master_covergroup;
   
   endgroup: apb_master_covergroup
 
@@ -21,7 +21,7 @@ class AhbMasterCoverage extends uvm_subscriber #(AhbMasterTranscation);
   // Externally defined Tasks and Functions
   //-------------------------------------------------------
   extern function new(string name = "AhbMasterCoverage", uvm_component parent = null);
-  extern function void write(AhbMasterTranscation t);
+  extern function void write(AhbMasterTransaction t);
   extern virtual function void report_phase(uvm_phase phase);
 
 endclass : AhbMasterCoverage
