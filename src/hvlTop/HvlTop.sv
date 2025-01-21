@@ -1,11 +1,11 @@
-`ifndef HVL_TOP_INCLUDED_
-`define HVL_TOP_INCLUDED_
+`ifndef HVLTOP_INCLUDED_
+`define HVLTOP_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
-// Module : hvl_top
+// Module : HvlTop
 //  Starts the testbench components
 //--------------------------------------------------------------------------------------------
-module hvl_top;
+module HvlTop;
 
   //-------------------------------------------------------
   // Importing UVM Package and test Package
@@ -20,6 +20,6 @@ module hvl_top;
     run_test("AhbBaseTest");
   end
 
-endmodule : hvl_top
+endmodule : HvlTop
 
 `endif
