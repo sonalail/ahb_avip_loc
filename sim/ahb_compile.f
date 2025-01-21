@@ -1,6 +1,6 @@
 
 +incdir+../../src/hvlTop/master/masterSequences/
-+incdir+../../src/hvlTop/master/
++incdir+../../src/hvlTop/master
 +incdir+../../src/hvlTop/environment/virtualSequencer/
 +incdir+../../src/hvlTop/tb/virtualSequences/
 +incdir+../../src/hvlTop/environment

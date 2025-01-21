@@ -101,8 +101,8 @@ override uvm_verbosity = UVM_MEDIUM
 endif
 
 
-ifndef apb_type
-override  apb_type= AhbBaseTest
+ifndef ahb_type
+override  ahb_type= AhbBaseTest
 endif
 
 ## For randomized seed
@@ -202,11 +202,11 @@ compile_war_err:
 	echo "-----------------------------------------------------------------";
 	echo "------------------- Compilation Report --------------------------";
 	echo "";
-	grep "^** " apb_compile.log;
+	grep "^** " ahb_compile.log;
 	echo "";
-	grep "^Error" apb_compile.log;
+	grep "^Error" ahb_compile.log;
 	echo "";
-	echo "Log file path: apb_compile.log"
+	echo "Log file path: ahb_compile.log"
 	echo "";
 	echo "-----------------------------------------------------------------";
 	echo "-----------------------------------------------------------------";
