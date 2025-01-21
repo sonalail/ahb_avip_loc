@@ -1,5 +1,5 @@
-`ifndef AHB_SLAVE_TRANSACTION_INCLUDED_
-`define AHB_SLAVE_TRANSACTION_INCLUDED_
+`ifndef AHBSLAVETRANSACTION_INCLUDED_
+`define AHBSLAVETRANSACTION_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbSlaveTransaction.
@@ -19,7 +19,7 @@ class AhbSlaveTransaction extends uvm_sequence_item;
   
   // Variable : HBURST
   // Indicates burst type
-  ahb_burst_e HBURST;
+  ahbBurstEnum HBURST;
 
   // Variable : HMASTLOCK
   // Indicates a locked sequence
@@ -27,11 +27,11 @@ class AhbSlaveTransaction extends uvm_sequence_item;
 
   // Variable : HPROT
   // Protection control signal
-  ahb_protection_e HPROT;
+  ahbProtectionEnum HPROT;
 
   // Variable : HSIZE
   // Indicates the size of a transfer
-  ahb__e HSIZE;
+  ahbHsizeEnum HSIZE;
 
   // Variable : HNONSEC
   // Indicates whether the transfer is Non-secure or Secure
@@ -47,7 +47,7 @@ class AhbSlaveTransaction extends uvm_sequence_item;
 
   // Variable : HTRANS
   // Indicates the transfer type
-  ahb_transfer_e HTRANS;
+  ahbTransferEnum HTRANS;
 
   // Variable : HWDATA
   // Write data bus
@@ -76,7 +76,7 @@ class AhbSlaveTransaction extends uvm_sequence_item;
 
   // Variable : HEXOKAY
   // Indicates Exclusive OKAY status
-  rand ahb_resp_e HEXOKAY;
+  rand ahbRespEnum HEXOKAY;
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
@@ -98,7 +98,7 @@ endclass : AhbSlaveTransaction
 // Initializes the class object
 //
 // Parameters:
-//  name - ahb_slave_tx
+//  name - AhbSlaveTransaction
 //--------------------------------------------------------------------------------------------
 function AhbSlaveTransaction::new(string name = "AhbSlaveTransaction");
   super.new(name);
@@ -112,33 +112,33 @@ endfunction : new
 //  rhs - uvm_object
 //--------------------------------------------------------------------------------------------
 function void AhbSlaveTransaction::do_copy(uvm_object rhs);
-  AhbSlaveTransaction ahb_slave_tx_copy_obj;
+  AhbSlaveTransaction ahbSlaveTransaction;
 
-  if (!$cast(ahb_slave_tx_copy_obj, rhs)) begin
+  if (!$cast(ahbSlaveTransaction, rhs)) begin
     `uvm_fatal("do_copy", "cast of the rhs object failed")
   end
   super.do_copy(rhs);
 
   // Inputs for slave
-  HADDR     = ahb_slave_tx_copy_obj.HADDR;
-  HSELx     = ahb_slave_tx_copy_obj.HSELx;
-  HBURST    = ahb_slave_tx_copy_obj.HBURST;
-  HMASTLOCK = ahb_slave_tx_copy_obj.HMASTLOCK;
-  HPROT     = ahb_slave_tx_copy_obj.HPROT;
-  HSIZE     = ahb_slave_tx_copy_obj.HSIZE;
-  HNONSEC   = ahb_slave_tx_copy_obj.HNONSEC;
-  HEXCL     = ahb_slave_tx_copy_obj.HEXCL;
-  HMASTER   = ahb_slave_tx_copy_obj.HMASTER;
-  HTRANS    = ahb_slave_tx_copy_obj.HTRANS;
-  HWDATA    = ahb_slave_tx_copy_obj.HWDATA;
-  HWSTRB    = ahb_slave_tx_copy_obj.HWSTRB;
-  HWRITE    = ahb_slave_tx_copy_obj.HWRITE;
+  HADDR     = ahbSlaveTransaction.HADDR;
+  HSELx     = ahbSlaveTransaction.HSELx;
+  HBURST    = ahbSlaveTransaction.HBURST;
+  HMASTLOCK = ahbSlaveTransaction.HMASTLOCK;
+  HPROT     = ahbSlaveTransaction.HPROT;
+  HSIZE     = ahbSlaveTransaction.HSIZE;
+  HNONSEC   = ahbSlaveTransaction.HNONSEC;
+  HEXCL     = ahbSlaveTransaction.HEXCL;
+  HMASTER   = ahbSlaveTransaction.HMASTER;
+  HTRANS    = ahbSlaveTransaction.HTRANS;
+  HWDATA    = ahbSlaveTransaction.HWDATA;
+  HWSTRB    = ahbSlaveTransaction.HWSTRB;
+  HWRITE    = ahbSlaveTransaction.HWRITE;
 
   // Outputs for slave
-  HRDATA    = ahb_slave_tx_copy_obj.HRDATA;
-  HREADYOUT = ahb_slave_tx_copy_obj.HREADYOUT;
-  HRESP     = ahb_slave_tx_copy_obj.HRESP;
-  HEXOKAY   = ahb_slave_tx_copy_obj.HEXOKAY;
+  HRDATA    = ahbSlaveTransaction.HRDATA;
+  HREADYOUT = ahbSlaveTransaction.HREADYOUT;
+  HRESP     = ahbSlaveTransaction.HRESP;
+  HEXOKAY   = ahbSlaveTransaction.HEXOKAY;
 
 endfunction : do_copy
 
@@ -150,31 +150,31 @@ endfunction : do_copy
 //  phase - uvm phase
 //--------------------------------------------------------------------------------------------
 function bit AhbSlaveTransaction::do_compare(uvm_object rhs, uvm_comparer comparer);
-  AhbSlaveTransaction ahb_slave_tx_compare_obj;
+  AhbSlaveTransaction ahbSlaveTransaction;
 
-  if (!$cast(ahb_slave_tx_compare_obj, rhs)) begin
+  if (!$cast(ahbSlaveTransaction, rhs)) begin
     `uvm_fatal("FATAL_AHB_SLAVE_TX_DO_COMPARE_FAILED", "cast of the rhs object failed")
     return 0;
   end
 
-  return super.do_compare(ahb_slave_tx_compare_obj, comparer) &&
-         HADDR     == ahb_slave_tx_compare_obj.HADDR     &&
-         HSELx     == ahb_slave_tx_compare_obj.HSELx     &&
-         HBURST    == ahb_slave_tx_compare_obj.HBURST    &&
-         HMASTLOCK == ahb_slave_tx_compare_obj.HMASTLOCK &&
-         HPROT     == ahb_slave_tx_compare_obj.HPROT     &&
-         HSIZE     == ahb_slave_tx_compare_obj.HSIZE     &&
-         HNONSEC   == ahb_slave_tx_compare_obj.HNONSEC   &&
-         HEXCL     == ahb_slave_tx_compare_obj.HEXCL     &&
-         HMASTER   == ahb_slave_tx_compare_obj.HMASTER   &&
-         HTRANS    == ahb_slave_tx_compare_obj.HTRANS    &&
-         HWDATA    == ahb_slave_tx_compare_obj.HWDATA    &&
-         HWSTRB    == ahb_slave_tx_compare_obj.HWSTRB    &&
-         HWRITE    == ahb_slave_tx_compare_obj.HWRITE    &&
-         HRDATA    == ahb_slave_tx_compare_obj.HRDATA    &&
-         HREADYOUT == ahb_slave_tx_compare_obj.HREADYOUT &&
-         HRESP     == ahb_slave_tx_compare_obj.HRESP     &&
-         HEXOKAY   == ahb_slave_tx_compare_obj.HEXOKAY;
+  return super.do_compare(ahbSlaveTransaction, comparer) &&
+         HADDR     == ahbSlaveTransaction.HADDR     &&
+         HSELx     == ahbSlaveTransaction.HSELx     &&
+         HBURST    == ahbSlaveTransaction.HBURST    &&
+         HMASTLOCK == ahbSlaveTransaction.HMASTLOCK &&
+         HPROT     == ahbSlaveTransaction.HPROT     &&
+         HSIZE     == ahbSlaveTransaction.HSIZE     &&
+         HNONSEC   == ahbSlaveTransaction.HNONSEC   &&
+         HEXCL     == ahbSlaveTransaction.HEXCL     &&
+         HMASTER   == ahbSlaveTransaction.HMASTER   &&
+         HTRANS    == ahbSlaveTransaction.HTRANS    &&
+         HWDATA    == ahbSlaveTransaction.HWDATA    &&
+         HWSTRB    == ahbSlaveTransaction.HWSTRB    &&
+         HWRITE    == ahbSlaveTransaction.HWRITE    &&
+         HRDATA    == ahbSlaveTransaction.HRDATA    &&
+         HREADYOUT == ahbSlaveTransaction.HREADYOUT &&
+         HRESP     == ahbSlaveTransaction.HRESP     &&
+         HEXOKAY   == ahbSlaveTransaction.HEXOKAY;
 endfunction : do_compare
 
 //--------------------------------------------------------------------------------------------
