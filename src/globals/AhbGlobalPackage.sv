@@ -135,7 +135,7 @@ typedef enum logic [2:0] {
   } ahbTransferCharStruct;
 
    //-------------------------------------------------------
-  // Struct : ahbConfigCharStruct
+  // Struct : ahbTransferConfigStruct 
   //  This struct datatype consists of all configurations
   //  which are used for seq item conversion
   //-------------------------------------------------------
@@ -145,7 +145,7 @@ typedef enum logic [2:0] {
    // bit [ADDRESS_WIDTH-1:0]min_address;
    // bit [ADDRESS_WIDTH-1:0]max_address; 
    // int slave_id;
-  } ahbConfigCharStruct;
+  } ahbTransferConfigStruct ;
 
 endpackage : AhbGlobalPackage
 
