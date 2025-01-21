@@ -8,7 +8,7 @@
 class AhbMasterCoverage extends uvm_subscriber #(AhbMasterTransaction);
   `uvm_component_utils(AhbMasterCoverage)
 
-  //Variable: ahb_master_agent_cfg_h
+  //Variable: apbMasterAgentConfig
   //Declaring handle for master agent configuration class
   AhbMasterAgentConfig apbMasterAgentConfig;
 
