@@ -28,11 +28,7 @@ class AhbSlaveAgent extends uvm_agent;
   // Variable: ahb_slave_cov_h
   // Decalring a handle for AhbSlaveCoverage
   AhbSlaveCoverage ahb_slave_cov_h;
-
-  // Variable: ahb_reg_adapter_h
-  // Declaring a handle for AhbSlaveAdapter
-  AhbSlaveAdapter ahb_reg_adapter_h;
-    
+  
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
   //-------------------------------------------------------
@@ -72,8 +68,8 @@ function void AhbSlaveAgent::build_phase(uvm_phase phase);
   if(ahb_slave_agent_cfg_h.is_active == UVM_ACTIVE) begin
     
     
-    ahb_slave_seqr_h=AhbSlaveSequencer::type_id::create("ahb_slave_seqr_h",this);
-    ahb_slave_drv_proxy_h=AhbSlaveDriverProxy::type_id::create("ahb_slave_drv_proxy_h",this);
+    ahb_slave_seqr_h = AhbSlaveSequencer::type_id::create("ahb_slave_seqr_h",this);
+    ahb_slave_drv_proxy_h = AhbSlaveDriverProxy::type_id::create("ahb_slave_drv_proxy_h",this);
   end
 
   ahb_slave_mon_proxy_h=AhbSlaveMonitorProxy::type_id::create("ahb_slave_mon_proxy_h",this);
@@ -82,7 +78,6 @@ function void AhbSlaveAgent::build_phase(uvm_phase phase);
     ahb_slave_cov_h = AhbSlaveCoverage::type_id::create("ahb_slave_cov_h",this);
   end
 
-  ahb_reg_adapter_h = AhbSlaveAdapter::type_id::create("ahb_reg_adapter_h"); 
 endfunction : build_phase
 
 //--------------------------------------------------------------------------------------------
