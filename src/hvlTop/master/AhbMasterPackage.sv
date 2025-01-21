@@ -15,7 +15,7 @@ package AhbMasterPackage;
   import uvm_pkg::*;
  
   //-------------------------------------------------------
-  // Import ahb_global_pkg 
+  // Import AhbGlobalPackage 
   //-------------------------------------------------------
   import AhbGlobalPackage::*;
 
