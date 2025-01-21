@@ -1,5 +1,5 @@
-`ifndef AHB_MASTER_TRANSACTION_INCLUDED_
-`define AHB_MASTER_TRANSACTION_INCLUDED_
+`ifndef AHBMASTERTRANSACTION_INCLUDED_
+`define AHBMASTERTRANSACTION_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbMasterTransaction.
@@ -19,7 +19,7 @@
   
   // Variable : HBURST
   // Indicates burst type
-  rand ahb_burst_e HBURST;
+  rand ahbBurstEnum HBURST;
 
   // Variable : HMASTLOCK
   // Indicates a locked sequence
@@ -27,11 +27,11 @@
 
   // Variable : HPROT
   // Protection control signal
-  rand ahb_protection_e HPROT;
+  rand ahbProtectionEnum HPROT;
 
   // Variable : HSIZE
   // Indicates the size of a transfer
-  rand ahb__e HSIZE;
+  rand ahbHsizeEnum HSIZE;
 
   // Variable : HNONSEC
   // Indicates whether the transfer is Non-secure or Secure
@@ -47,7 +47,7 @@
 
   // Variable : HTRANS
   // Indicates the transfer type
-  rand ahb_transfer_e HTRANS;
+  rand ahbTransferEnum HTRANS;
 
   // Variable : HWDATA
   // Write data bus
@@ -75,7 +75,7 @@
 
   // Variable : HEXOKAY
   // Indicates Exclusive OKAY status
-  ahb_resp_e HEXOKAY;
+  ahbRespEnum HEXOKAY;
 
   // Variable : HREADY
   // Combined transfer completion for Manager and Subordinate
