@@ -1,6 +1,6 @@
  
-`ifndef AHBMASTERSEQITEMCONVERTER_INCLUDED_
-`define AHBMASTERSEQITEMCONVERTER_INCLUDED_
+`ifndef AHBMASTERSEQUENCEITEMCONVERTER_INCLUDED_
+`define AHBMASTERSEQUENCEITEMCONVERTER_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Class : AhbMasterSequenceItemConverter
@@ -12,8 +12,8 @@ class AhbMasterSequenceItemConverter extends uvm_object;
   // Externally defined Tasks and Functions
   //-------------------------------------------------------
   extern function new(string name = "AhbMasterSequenceItemConverter");
-  extern static function void from_class(input AhbMasterTransaction inputConv, output ahbTransferCharStruct  outputConv);
-  extern static function void to_class(input ahbTransferCharStruct  inputConv, ref AhbMasterTransaction outputConv);
+  extern static function void fromClass(input AhbMasterTransaction inputConv, output ahbTransferCharStruct  outputConv);
+  extern static function void toClass(input ahbTransferCharStruct  inputConv, ref AhbMasterTransaction outputConv);
   extern function void do_print(uvm_printer printer);
 
 endclass : AhbMasterSequenceItemConverter
