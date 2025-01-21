@@ -1,6 +1,6 @@
 
-`ifndef APB_MASTER_MONITOR_PROXY_INCLUDED_
-`define APB_MASTER_MONITOR_PROXY_INCLUDED_
+`ifndef APBMASTERMONITORPROXY_INCLUDED_
+`define APBMASTERMONITORPROXY_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbMasterMonitorProxy
@@ -10,17 +10,17 @@
 class AhbMasterMonitorProxy extends uvm_monitor; 
   `uvm_component_utils(AhbMasterMonitorProxy)
   
-  // Variable: ahb_master_mon_bfm_h
-  // Declaring handle for ahb monitor bfm
-  virtual AhbMasterMonitorBfm ahb_master_mon_bfm_h;
+  // Variable: ahbMasterMonitorBFM
+  // Declaring handle for AhbMasterMonitorBFM
+  virtual AhbMasterMonitorBFM ahbMasterMonitorBFM;
    
-  // Variable: ahb_master_agent_cfg_h
+  // Variable: ahbmasterAgentConfig
   // Declaring handle for AhbMasterAgentConfig class 
-  AhbMasterAgentConfig ahb_master_agent_cfg_h;
+  AhbMasterAgentConfig ahbMasterAgentConfig;
     
-  // Variable: ahb_master_analysis_port
+  // Variable: ahbMasterAnalysisPort
   // Declaring analysis port for the monitor port
-  uvm_analysis_port#(AhbMasterTransaction) ahb_master_analysis_port;
+  uvm_analysis_port#(AhbMasterTransaction) ahbMasterAnalysisPort;
   
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
@@ -42,7 +42,7 @@ endclass : AhbMasterMonitorProxy
 //--------------------------------------------------------------------------------------------
 function AhbMasterMonitorProxy::new(string name = "AhbMasterMonitorProxy",uvm_component parent);
   super.new(name, parent);
-  ahb_master_analysis_port = new("ahb_master_analysis_port",this);
+  ahb_master_analysis_port = new("ahbMasterAnalysisPort",this);
 endfunction : new
 
 //--------------------------------------------------------------------------------------------
@@ -54,8 +54,8 @@ endfunction : new
 //--------------------------------------------------------------------------------------------
 function void AhbMasterMonitorProxy::build_phase(uvm_phase phase);
   super.build_phase(phase);
-  if(!uvm_config_db #(virtual AhbMasterMonitorBfm)::get(this,"","AhbMasterMonitorBfm", ahb_master_mon_bfm_h)) begin
-    `uvm_fatal("FATAL_MDP_CANNOT_GET_AHB_MASTER_MONITOR_BFM","cannot get() ahb_master_mon_bfm_h");
+  if(!uvm_config_db #(virtual AhbMasterMonitorBFM)::get(this,"","AhbMasterMonitorBFM", ahbMasterMonitorBFM)) begin
+    `uvm_fatal("FATAL_MDP_CANNOT_GET_AHB_MASTER_MONITOR_BFM","cannot get() ahbMasterMonitorBFM");
   end
 endfunction : build_phase
 
@@ -68,7 +68,7 @@ endfunction : build_phase
 //--------------------------------------------------------------------------------------------
 function void AhbMasterMonitorProxy::end_of_elaboration_phase(uvm_phase phase);
   super.end_of_elaboration_phase(phase);
-  ahb_master_mon_bfm_h.ahb_master_mon_proxy_h = this;
+ahbMasterMonitorBFM.ahbMasterMonitorProxy = this;
 endfunction : end_of_elaboration_phase
 
 //--------------------------------------------------------------------------------------------
@@ -79,32 +79,31 @@ endfunction : end_of_elaboration_phase
 // Parameters:
 //  phase - uvm phase
 //--------------------------------------------------------------------------------------------
-task ahb_master_monitor_proxy::run_phase(uvm_phase phase);
-  AhbMasterTransaction ahb_master_packet;
+task AhbMasterMonitorProxy::run_phase(uvm_phase phase);
+  AhbMasterTransaction ahbMasterPacket;
 
   `uvm_info(get_type_name(), $sformatf("Inside the master_monitor_proxy"), UVM_LOW);
-  ahb_master_packet = AhbMasterTransaction::type_id::create("master_packet");
+  ahbMasterPacket = AhbMasterTransaction::type_id::create("master_packet");
   
-  ahb_master_mon_bfm_h.wait_for_HRESETn();
+  ahbMasterMonitorBFM.waitForHRESETn();
 
   forever begin
-    ahb_transfer_char_s struct_data_packet;
-    ahb_transfer_cfg_s  struct_cfg_packet; 
-    AhbMasterTransaction  ahb_master_clone_packet;
+    ahbTransferChar structDataPacket;
+    ahbTransferConfig  structConfigPacket; 
+    AhbMasterTransaction  ahbMasterClonePacket;
     
-    AhbMasterConfigConverter.sv :: from_class (ahb_master_agent_cfg_h, struct_cfg_packet);
-    ahb_master_mon_bfm_h.sample_data (struct_data_packet, struct_cfg_packet);
-    AhbMasterSequenceItemConverter :: to_class (struct_data_packet, ahb_master_packet);
+    AhbMasterConfigConverter.sv :: from_class (ahbMasterAgentConfig,  structConfigPacket);
+    ahbMasterMonitorBFM.sample_data (structDataPacket,  structConfigPacket);
+    AhbMasterSequenceItemConverter :: to_class (structDataPacket, ahbMasterPacket);
 
-    `uvm_info(get_type_name(),$sformatf("Received packet from master monitor bfm: , \n %s", ahb_master_packet.sprint()),UVM_HIGH)
+    `uvm_info(get_type_name(),$sformatf("Received packet from master monitor bfm: , \n %s", ahbMasterPacket.sprint()),UVM_HIGH)
 
     //Clone and publish the cloned item to the subscribers
-    $cast(ahb_master_clone_packet, ahb_master_packet.clone());
-    `uvm_info(get_type_name(),$sformatf("Sending packet via analysis_port: , \n %s", ahb_master_clone_packet.sprint()),UVM_HIGH)
-    ahb_master_analysis_port.write(ahb_master_clone_packet);
+    $cast(ahbMasterClonePacket, ahbMasterPacket.clone());
+    `uvm_info(get_type_name(),$sformatf("Sending packet via analysis_port: , \n %s", ahbMasterClonePacket.sprint()),UVM_HIGH)
+    ahbMasterAnalysisPort.write(ahbMasterClonePacket);
   end
 
 endtask : run_phase
 
 `endif
-
