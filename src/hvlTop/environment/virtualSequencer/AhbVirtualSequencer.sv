@@ -1,5 +1,5 @@
-`ifndef AHB_VIRTUAL_SEQUENCER_INCLUDED_
-`define AHB_VIRTUAL_SEQUENCER_INCLUDED_
+`ifndef AHBVIRTUALSEQUENCER_INCLUDED_
+`define AHBVIRTUALSEQUENCER_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbVirtualSequencer
@@ -8,13 +8,13 @@
 class AhbVirtualSequencer extends uvm_sequencer#(uvm_sequence_item);
   `uvm_component_utils(AhbVirtualSequencer)
 
-  // Variable: ahb_master_vseqr_h
+  // Variable: ahbMasterVirtualSequencer
   // Declaring master virtual sequencer handle
-  AhbMasterVirtualSequencer ahb_master_vseqr_h;
+  AhbMasterVirtualSequencer ahbMasterVirtualSequencer;
 
-  // Variable: ahb_slave_vseqr_h
+  // Variable: ahbSlaveVirtualSequencer
   // Declaring slave virtual sequencer handle
-  AhbSlaveVirtualSequencer ahb_slave_vseqr_h;
+  AhbSlaveVirtualSequencer ahbSlaveVirtualSequencer;
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
