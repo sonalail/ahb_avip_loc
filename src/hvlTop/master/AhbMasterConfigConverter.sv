@@ -1,5 +1,5 @@
 `ifndef AHBMASTERCONFIGCONVERTER_INCLUDED_
-`define AHBMASTERCONFICCONVERTER_INCLUDED_
+`define AHBMASTERCONFIGCONVERTER_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbMasterConfigConverter
