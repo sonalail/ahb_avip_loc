@@ -1,5 +1,5 @@
-`ifndef AHB_BASE_TEST_PKG_INCLUDED_
-`define AHB_BASE_TEST_PKG_INCLUDED_
+`ifndef AHBBASETESTPKG_INCLUDED_
+`define AHBBASETESTPKG_INCLUDED_
 
 //-----------------------------------------------------------------------------------------
 // Package: ahb base_test
