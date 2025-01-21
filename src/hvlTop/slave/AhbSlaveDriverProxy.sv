@@ -1,25 +1,25 @@
-`ifndef AHB_SLAVE_DRIVER_PROXY_INCLUDED_
-`define AHB_SLAVE_DRIVER_PROXY_INCLUDED_
+`ifndef AHBSLAVEDRIVERPROXY_INCLUDED_
+`define AHBSLAVEDRIVERPROXY_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
-//  Class: ahb_slave_driver_proxy
+//  Class: AhbSlaveDriverProxy
 //  This is the proxy driver on the HVL side
 //  It receives the transactions and converts them to task calls for the HDL driver
 //--------------------------------------------------------------------------------------------
 class AhbSlaveDriverProxy extends uvm_driver#(AhbSlaveTransaction);
   `uvm_component_utils(AhbSlaveDriverProxy)
 
-  //Variable : AhbSlaveTransaction_h
+  //Variable : ahbSlaveTx
   //Declaring handle for apb slave transaction
-  AhbSlaveTransaction ahb_slave_tx_h;
+  AhbSlaveTransaction ahbSlaveTx;
 
-  // Variable: apb_slave_driver_bfm_h;
+  // Variable: ahbSlaveDrvBFM;
   // Handle for apb_slave driver bfm
-  virtual AhbSlaveDriverBfm ahb_slave_drv_bfm_h;
+  virtual AhbSlaveDriverBFM ahbSlaveDrvBFM;
 
-  // Variable: apb_slave_agent_cfg_h;
-  // Handle for apb_slave agent configuration
-  AhbSlaveAgentConfig ahb_slave_agent_cfg_h;
+  // Variable: ahbSlaveAgentConfig;
+  // Handle for apb Slave agent configuration
+  AhbSlaveAgentConfig ahbSlaveAgentConfig;
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
@@ -29,9 +29,9 @@ class AhbSlaveDriverProxy extends uvm_driver#(AhbSlaveTransaction);
   extern virtual function void connect_phase(uvm_phase phase);
   extern function void end_of_elaboration_phase(uvm_phase phase);
   extern virtual task run_phase(uvm_phase phase);
-  extern virtual task check_for_pslverr(inout apb_transfer_char_s struct_packet);
-  extern virtual task task_write(inout apb_transfer_char_s struct_packet);
-  extern virtual task task_read(inout apb_transfer_char_s struct_packet);
+  extern virtual task checkForPslverr(inout apbTransferCharStruct structPacket);
+  extern virtual task taskWrite(inout apbTransferCharStruct structPacket);
+  extern virtual task taskRead(inout apbTransferCharStruct structPacket);
 endclass : AhbSlaveDriverProxy
   
 //--------------------------------------------------------------------------------------------
@@ -48,23 +48,23 @@ endfunction : new
 
 //--------------------------------------------------------------------------------------------
 //  Function: build_phase
-//  Slave_driver_bfm congiguration is obtained in build phase
+//  AhbSlaveDriverBFM congiguration is obtained in build phase
 //
 //  Parameters:
 //  phase - uvm phase
 //--------------------------------------------------------------------------------------------
 function void AhbSlaveDriverProxy::build_phase(uvm_phase phase);
   super.build_phase(phase);
-  if(!uvm_config_db #(virtual AhbSlaveDriverBfm)::get(this,"","AhbSlaveDriverBfm",
-                                                             ahb_slave_drv_bfm_h)) begin
-    `uvm_fatal("FATAL_SDP_CANNOT_GET_SLAVE_DRIVER_BFM","cannot get() ahb_slave_drv_bfm_h");
+  if(!uvm_config_db #(virtual AhbSlaveDriverBFM)::get(this,"","AhbSlaveDriverBFM",
+                                                             ahbSlaveDrvBFM)) begin
+    `uvm_fatal("FATAL SDP CANNOT GET SLAVE DRIVER BFM","cannot get() ahbSlaveDrvBFM");
   end
 
 endfunction : build_phase
 
 //--------------------------------------------------------------------------------------------
 //  Function: connect_phase
-//  Connects driver_proxy and driver_bfm
+//  Connects driver proxy and driver bfm
 //
 //  Parameters:
 //  phase - stores the current phase
@@ -83,7 +83,7 @@ endfunction : connect_phase
 //-------------------------------------------------------
 function void AhbSlaveDriverProxy::end_of_elaboration_phase(uvm_phase phase);
   super.end_of_elaboration_phase(phase);
-  ahb_slave_drv_bfm_h.ahb_slave_drv_proxy_h = this;
+  ahbSlaveDrvBFM.ahbSlaveDrvProxy = this;
 endfunction : end_of_elaboration_phase
 
 //--------------------------------------------------------------------------------------------
@@ -97,7 +97,7 @@ endfunction : end_of_elaboration_phase
 task AhbSlaveDriverProxy::run_phase(uvm_phase phase);
   
   //wait for system reset
-  ahb_slave_drv_bfm_h.wait_for_preset_n();
+  ahbSlaveDrvBFM.wait_for_preset_n();
   `uvm_info(get_type_name(), $sformatf("INSIDE run phase "),UVM_LOW);
  
   forever begin
@@ -116,9 +116,9 @@ endtask : run_phase
 // Parameters:
 //  struct_packet   - apb_transfer_char_s
 //--------------------------------------------------------------------------------------------
-task AhbSlaveDriverProxy::task_write(inout apb_transfer_char_s struct_packet);
+    task AhbSlaveDriverProxy::taskWrite(inout apbTransferCharStruct structPacket);
 
-endtask : task_write
+endtask : taskWrite
 
 //--------------------------------------------------------------------------------------------
 // Task: task_read
@@ -126,9 +126,9 @@ endtask : task_write
 // Parameters:
 //  struct_packet   - apb_transfer_char_s
 //--------------------------------------------------------------------------------------------
-task AhbSlaveDriverProxy::task_read(inout apb_transfer_char_s struct_packet);
+    task AhbSlaveDriverProxy::taskRead(inout apbTransferCharStruct structPacket);
 
-endtask : task_read
+endtask : taskRead
 
 //--------------------------------------------------------------------------------------------
 // Task: check_for_pslverr
@@ -138,8 +138,8 @@ endtask : task_read
 // Parameters:
 //  struct_packet   - apb_transfer_char_s
 //--------------------------------------------------------------------------------------------
-task AhbSlaveDriverProxy::check_for_pslverr(inout apb_transfer_char_s struct_packet);
+    task AhbSlaveDriverProxy::checkForPslverr(inout apbTransferCharStruct structPacket);
 
-endtask : check_for_pslverr 
+endtask : checkForPslverr 
 
 `endif
