@@ -31,7 +31,7 @@ endclass : AhbMasterCoverage
 //  Initializes memory for new object
 //
 // Parameters:
-//  name - ahb_master_coverage
+//  name - AhbMasterCoverage
 //  parent - parent under which this component is created
 //--------------------------------------------------------------------------------------------
 function  AhbMasterCoverage::new(string name = "AhbMasterCoverage", uvm_component parent = null);
@@ -56,7 +56,7 @@ endfunction : write
 //--------------------------------------------------------------------------------------------
 function void AhbMasterCoverage::report_phase(uvm_phase phase);
   `uvm_info(get_type_name(), $sformatf("Entered the report_phase of AHB Master Coverage"), UVM_NONE);
-//  `uvm_info(get_type_name(), $sformatf("AHB Master Agent Coverage = %0.2f %%", ahbMasterCovergroup.get_coverage()), UVM_NONE);
+  `uvm_info(get_type_name(), $sformatf("AHB Master Agent Coverage = %0.2f %%", ahbMasterCovergroup.get_coverage()), UVM_NONE);
 endfunction: report_phase
 
 `endif
