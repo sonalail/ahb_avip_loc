@@ -70,8 +70,8 @@ module AhbSlaveAgentBFM #(parameter int SLAVE_ID=0) (AhbInterface ahbInterface);
   initial begin
     uvm_config_db#(virtual AhbSlaveDriverBFM)::set(null,"*", "ahb_slave_driver_bfm", ahbSlaveDriverBFM); 
     uvm_config_db #(virtual AhbSlaveMonitorBFM)::set(null,"*", "ahb_slave_monitor_bfm", ahbSlaveMonitorBFM); 
-    `uvm_info("SLAVE_AGENT_BFM",$sformatf("HSELx=%0d",intf.hselx),UVM_HIGH)
-    `uvm_info("SLAVE_AGENT_BFM",$sformatf("HSELx=%0d",SLAVE_ID),UVM_HIGH)
+    `uvm_info("SLAVE_AGENT_BFM",$sformatf("hselx=%0d",intf.hselx),UVM_HIGH)
+    `uvm_info("SLAVE_AGENT_BFM",$sformatf("hselx=%0d",SLAVE_ID),UVM_HIGH)
   end
 
 endmodule : AhbSlaveAgentBFM
