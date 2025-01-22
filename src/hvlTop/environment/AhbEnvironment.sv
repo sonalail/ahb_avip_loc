@@ -61,13 +61,13 @@ endfunction : new
 //--------------------------------------------------------------------------------------------
 function void AhbEnvironment::build_phase(uvm_phase phase);
   super.build_phase(phase);
-  if(!uvm_config_db #(AhbEnvironmentConfig)::get(this,"","ahbEnvironmentConfig",ahbEnvironmentConfig)) begin
+  if(!uvm_config_db #(AhbEnvironmentConfig)::get(this,"","AhbEnvironmentConfig",ahbEnvironmentConfig)) begin
    `uvm_fatal("FATAL_ENV_CONFIG", $sformatf("Couldn't get the ahbEnvironmentConfig from config_db"))
   end
   ahbSlaveAgentConfig= new[ahbEnvironmentConfig.noOfSlaves];
   
 
-  if(!uvm_config_db #(AhbSlaveAgentConfig)::get(this,"","ahbSlaveAgentConfig",ahbSlaveAgentConfig)) begin
+  if(!uvm_config_db #(AhbSlaveAgentConfig)::get(this,"","AhbSlaveAgentConfig",ahbSlaveAgentConfig)) begin
     `uvm_fatal("FATAL_SA_AGENT_CONFIG", $sformatf("Couldn't get the ahbSlaveAgentConfig from config_db"))
     end
  
@@ -79,7 +79,7 @@ function void AhbEnvironment::build_phase(uvm_phase phase);
   ahbSlaveAgent = AhbSlaveAgent::type_id::create("ahbSlaveAgent",this);
  
 
-  if(ahbEnvConfig.hasVirtualSeqr) begin
+  if(ahbEnvConfig.hasVirtualSequencer) begin
     ahbVirtualSequencer = AhbVirtualSequencer::type_id::create("ahbVirtualSequencer",this);
   end
 
