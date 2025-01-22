@@ -1,12 +1,12 @@
 
-+incdir+../../src/hvlTop/masterAgent/masterSequences
++incdir+../../src/hvlTop/masterAgent/masterSequences/
 +incdir+../../src/hvlTop/masterAgent
-+incdir+../../src/hvlTop/environment/virtualSequencer
-+incdir+../../src/hvlTop/tb/virtualSequences
++incdir+../../src/hvlTop/environment/virtualSequencer/
++incdir+../../src/hvlTop/tb/virtualSequences/
 +incdir+../../src/hvlTop/environment
 +incdir+../../src/hvlTop/slaveAgent
-+incdir+../../src/hvlTop/slaveAgent/slaveSequences
-+incdir+../../src/hvlTop/tb/test
++incdir+../../src/hvlTop/slaveAgent/slaveSequences/
++incdir+../../src/hvlTop/tb/test/
 ../../src/globals/AhbGlobalPackage.sv
 ../../src/hvlTop/masterAgent/AhbMasterPackage.sv
 ../../src/hvlTop/slaveAgent/AhbSlavePackage.sv
