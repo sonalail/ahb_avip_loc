@@ -1,8 +1,8 @@
-`ifndef AHBSLAVESEQPKG_INCLUDED_
-`define AHBSLAVESEQPKG_INCLUDED_
+`ifndef AHBSLAVESEQUENCEPACKAGE_INCLUDED_
+`define AHBSLAVESEQUENCEPACKAGE_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
-// Package : apb_master_seq_pkg
+// Package : AhbSlaveSequencePackage
 //  Includes all the master seq files declared
 //--------------------------------------------------------------------------------------------
 package AhbSlaveSequencePackage;
