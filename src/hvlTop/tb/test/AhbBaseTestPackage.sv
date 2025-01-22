@@ -1,8 +1,8 @@
-`ifndef AHBBASETESTPKG_INCLUDED_
-`define AHBBASETESTPKG_INCLUDED_
+`ifndef AHBBASETESTPACKAGE_INCLUDED_
+`define AHBBASETESTPACKAGE_INCLUDED_
 
 //-----------------------------------------------------------------------------------------
-// Package: ahb base_test
+// Package: AhbBaseTestPackage
 //  Includes all the files written to run the simulation
 //--------------------------------------------------------------------------------------------
 package AhbBaseTestPackage;
