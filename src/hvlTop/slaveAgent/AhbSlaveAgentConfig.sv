@@ -48,7 +48,7 @@ class AhbSlaveAgentConfig extends uvm_object;
   //-------------------------------------------------------
   extern function new(string name = "AhbSlaveAgentConfig");
   extern function void do_print(uvm_printer printer);
-   extern virtual task slaveMemoryTask(bit [HADDR-1:0]slave_address, bit [DATA_WIDTH-1:0]data); 
+//   extern virtual task slaveMemoryTask(bit [HADDR-1:0]slave_address, bit [DATA_WIDTH-1:0]data); 
 
 endclass : AhbSlaveAgentConfig
 
@@ -85,8 +85,8 @@ endfunction : new
 //  slave_address   - bit [ADDRESS_WIDTH-1:0]
 //  data            - bit [DATA_WIDTH-1:0]
 //--------------------------------------------------------------------------------------------
-    task AhbSlaveAgentConfig::slaveMemoryTask(bit [HADDR-1:0]slave_address, bit [DATA_WIDTH-1:0]data);
+//    task AhbSlaveAgentConfig::slaveMemoryTask(bit [HADDR-1:0]slave_address, bit [DATA_WIDTH-1:0]data);
 //  slave_memory[slave_address] = data;
-endtask : slaveMemoryTask
+//endtask : slaveMemoryTask
 
 `endif
