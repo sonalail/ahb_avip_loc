@@ -13,7 +13,7 @@ class AhbMasterConfigConverter extends uvm_object;
   // Externally defined Tasks and Functions
   //-------------------------------------------------------
   extern function new(string name = "AhbMasterConfigConverter");
-    extern static function void fromClass(input AhbMasterAgentConfig ahbMasterAgentConfig, output ahbTransferConfigStruct outputConv);
+    extern static function void fromClass(input AhbMasterAgentConfig inputConv, output ahbTransferConfigStruct outputConv);
   extern function void do_print(uvm_printer printer);
 
 endclass : AhbMasterConfigConverter
@@ -32,8 +32,8 @@ endfunction : new
 // Function: from_class
 //  Converting AhbMasterConfig configurations into structure configutrations
 //--------------------------------------------------------------------------------------------
-    function void AhbMasterConfigConverter::fromClass(input AhbMasterAgentConfig ahbMasterAgentConfig,output ahbTransferConfigStruct outputConv);
-  outputConv.HADDR = ahbMasterAgentConfig.HADDR;
+    function void AhbMasterConfigConverter::fromClass(input AhbMasterAgentConfig inputConv,output ahbTransferConfigStruct outputConv);
+  outputConv.HADDR = inputConv.HADDR;
   `uvm_info("AhbMasterConfigConverter",$sformatf("after randomizing addr = \n %p",outputConv.HADDR),UVM_HIGH);
 
 endfunction : from_class
