@@ -101,7 +101,7 @@ function void AhbSlaveAgent::connect_phase(uvm_phase phase);
     ahbSlaveCov.ahbSlaveAgentConfig = ahbSlaveAgentConfig;
   
     //Connecting AhbSlaveMonitorProxyport to AhbSlaveCoverage export
-    ahbSlaveMonProxy.ahbSlave_analysis_port.connect(ahbSlaveCov.analysis_export);
+    ahbSlaveMonProxy.ahbSlaveAnalysisPort.connect(ahbSlaveCov.analysis_export);
   end
     ahbSlaveMonProxy.ahbSlaveAgentConfig = ahbSlaveAgentConfig;
 
