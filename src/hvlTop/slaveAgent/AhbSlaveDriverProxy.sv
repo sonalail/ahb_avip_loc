@@ -116,19 +116,20 @@ endtask : run_phase
 // Parameters:
 //  struct_packet   - apb_transfer_char_s
 //--------------------------------------------------------------------------------------------
-    task AhbSlaveDriverProxy::taskWrite(inout apbTransferCharStruct structPacket);
+/*    task AhbSlaveDriverProxy::taskWrite(inout apbTransferCharStruct structPacket);
 
 endtask : taskWrite
-
+*/
 //--------------------------------------------------------------------------------------------
 // Task: task_read
 // This task is used to read the data from the slave memory
 // Parameters:
 //  struct_packet   - apb_transfer_char_s
 //--------------------------------------------------------------------------------------------
-    task AhbSlaveDriverProxy::taskRead(inout apbTransferCharStruct structPacket);
+/*    task AhbSlaveDriverProxy::taskRead(inout apbTransferCharStruct structPacket);
 
 endtask : taskRead
+    */
 
 //--------------------------------------------------------------------------------------------
 // Task: check_for_pslverr
@@ -138,8 +139,8 @@ endtask : taskRead
 // Parameters:
 //  struct_packet   - apb_transfer_char_s
 //--------------------------------------------------------------------------------------------
-    task AhbSlaveDriverProxy::checkForPslverr(inout apbTransferCharStruct structPacket);
+/*    task AhbSlaveDriverProxy::checkForPslverr(inout apbTransferCharStruct structPacket);
 
 endtask : checkForPslverr 
-
+*/
 `endif
