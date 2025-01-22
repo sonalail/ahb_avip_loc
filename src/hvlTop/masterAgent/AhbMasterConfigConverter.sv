@@ -29,12 +29,12 @@ function AhbMasterConfigConverter::new(string name = "AhbMasterConfigConverter")
 endfunction : new
 
 //-------------------------------------------------------------------------------------------
-// Function: from_class
+// Function: fromClass
 //  Converting AhbMasterConfig configurations into structure configutrations
 //--------------------------------------------------------------------------------------------
     function void AhbMasterConfigConverter::fromClass(input AhbMasterAgentConfig inputConv,output ahbTransferConfigStruct outputConv);
-  outputConv.HADDR = inputConv.HADDR;
-  `uvm_info("AhbMasterConfigConverter",$sformatf("after randomizing addr = \n %p",outputConv.HADDR),UVM_HIGH);
+  outputConv.haddr = inputConv.haddr;
+  `uvm_info("AhbMasterConfigConverter",$sformatf("after randomizing addr = \n %p",outputConv.haddr),UVM_HIGH);
 
 endfunction : fromClass
 
@@ -46,7 +46,7 @@ function void AhbMasterConfigConverter::do_print(uvm_printer printer);
 
   ahbTransferConfigStruct ahbStruct;
   super.do_print(printer);
-  printer.print_field( "haddr", ahbStruct.HADDR , $bits(ahbStruct.HADDR),UVM_DEC);
+  printer.print_field( "haddr", ahbStruct.haddr , $bits(ahbStruct.haddr),UVM_DEC);
 
 endfunction : do_print
 
