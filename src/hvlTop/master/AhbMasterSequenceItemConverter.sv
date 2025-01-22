@@ -157,25 +157,25 @@ endfunction : to_class
 //  Print method can be added to display the data members values
 //---------------------------------------------------------------------------------------------
 function void AhbMasterSequenceItemConverter::do_print(uvm_printer printer);
- ahbTransferCharStruct ahbSt;
+ ahbTransferCharStruct ahbStruct;
   super.do_print(printer);
 
-  printer.print_field("HPROT", ahbSt.HPROT, $bits(ahbSt.HPROT), UVM_BIN);
-  printer.print_field("HBURST", ahbSt.HBURST, $bits(ahbSt.HBURST), UVM_BIN);
-  printer.print_field("HMASTLOCK", ahbSt.HMASTLOCK, $bits(ahbSt.HMASTLOCK), UVM_BIN);
-  printer.print_field("HSIZE", ahbSt.HSIZE, $bits(ahbSt.HSIZE), UVM_BIN);
-  printer.print_field("HNONSEC", ahbSt.HNONSEC, $bits(ahbSt.HNONSEC), UVM_BIN);
-  printer.print_field("HEXCL", ahbSt.HEXCL, $bits(ahbSt.HEXCL), UVM_BIN);
-  printer.print_field("HMASTER", ahbSt.HMASTER, $bits(ahbSt.HMASTER), UVM_BIN);
-  printer.print_field("HTRANS", ahbSt.HTRANS, $bits(ahbSt.HTRANS), UVM_BIN);
-  printer.print_field("HWDATA", ahbSt.HWDATA, $bits(ahbSt.HWDATA), UVM_HEX);
-  printer.print_field("HWSTRB", ahbSt.HWSTRB, $bits(ahbSt.HWSTRB), UVM_BIN);
-  printer.print_field("HWRITE", ahbSt.HWRITE, $bits(ahbSt.HWRITE), UVM_BIN);
-  printer.print_field("HRDATA", ahbSt.HRDATA, $bits(ahbSt.HRDATA), UVM_HEX);
-  printer.print_field("HREADYOUT", ahbSt.HREADYOUT, $bits(ahbSt.HREADYOUT), UVM_BIN);
-  printer.print_field("HRESP", ahbSt.HRESP, $bits(ahbSt.HRESP), UVM_BIN);
-  printer.print_field("HEXOKAY", ahbSt.HEXOKAY, $bits(ahbSt.HEXOKAY), UVM_BIN);
-  printer.print_field("HREADY", ahbSt.HREADY, $bits(ahbSt.HREADY), UVM_BIN);
+  printer.print_field("HPROT", ahbStruct.HPROT, $bits(ahbStruct.HPROT), UVM_BIN);
+  printer.print_field("HBURST", ahbStruct.HBURST, $bits(ahbStruct.HBURST), UVM_BIN);
+  printer.print_field("HMASTLOCK", ahbStruct.HMASTLOCK, $bits(ahbStruct.HMASTLOCK), UVM_BIN);
+  printer.print_field("HSIZE", ahbStruct.HSIZE, $bits(ahbStruct.HSIZE), UVM_BIN);
+  printer.print_field("HNONSEC", ahbStruct.HNONSEC, $bits(ahbStruct.HNONSEC), UVM_BIN);
+  printer.print_field("HEXCL", ahbStruct.HEXCL, $bits(ahbStruct.HEXCL), UVM_BIN);
+  printer.print_field("HMASTER", ahbStruct.HMASTER, $bits(ahbStruct.HMASTER), UVM_BIN);
+  printer.print_field("HTRANS", ahbStruct.HTRANS, $bits(ahbStruct.HTRANS), UVM_BIN);
+  printer.print_field("HWDATA", ahbStruct.HWDATA, $bits(ahbStruct.HWDATA), UVM_HEX);
+  printer.print_field("HWSTRB", ahbStruct.HWSTRB, $bits(ahbStruct.HWSTRB), UVM_BIN);
+  printer.print_field("HWRITE", ahbStruct.HWRITE, $bits(ahbStruct.HWRITE), UVM_BIN);
+  printer.print_field("HRDATA", ahbStruct.HRDATA, $bits(ahbStruct.HRDATA), UVM_HEX);
+  printer.print_field("HREADYOUT", ahbStruct.HREADYOUT, $bits(ahbStruct.HREADYOUT), UVM_BIN);
+  printer.print_field("HRESP", ahbStruct.HRESP, $bits(ahbStruct.HRESP), UVM_BIN);
+  printer.print_field("HEXOKAY", ahbStruct.HEXOKAY, $bits(ahbStruct.HEXOKAY), UVM_BIN);
+  printer.print_field("HREADY", ahbStruct.HREADY, $bits(ahbStruct.HREADY), UVM_BIN);
 
 endfunction : do_print  
 
