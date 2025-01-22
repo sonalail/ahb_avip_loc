@@ -114,24 +114,24 @@ typedef enum logic [2:0] {
   // Struct: ahbTransferCharStruct
   //  This struct datatype includes all key transfer characteristics
   //-------------------------------------------------------
-  typedef struct {
-    logic [ADDR_WIDTH-1:0]  HADDR;          // Address of the transfer
-    ahbBurstEnum            HBURST;         // Burst type
-    logic                   HMASTLOCK;      // Locked sequence indicator
-    ahbProtectionEnum       HPROT;          // Protection type
-    ahbHsizeEnum            HSIZE;          // Transfer size
-    logic                   HNONSEC;        // Secure or non-secure indicator
-    logic                   HEXCL;          // Exclusive access sequence
-    logic [HMASTER_WIDTH-1:0] HMASTER;     // Master ID
-    ahbTransferEnum          HTRANS;        // Transfer type
-    logic [DATA_WIDTH-1:0]   HWDATA;         // Write data bus
-    logic [(DATA_WIDTH/8)-1:0] HWSTRB;     // Write strobes
-    logic                   HWRITE;         // Write or read indicator
-    logic [DATA_WIDTH-1:0]  HRDATA;         // Read data bus
-    logic                   HREADYOUT;      // Transfer completion for subordinate
-    ahbRespEnum             HRESP;          // Response status
-    logic                   HEXOKAY;        // Exclusive OKAY status
-    logic                   HREADY;         // Combined transfer completion
+typedef struct {
+logic [ADDR_WIDTH-1:0]  haddr;          // Address of the transfer
+ahbBurstEnum            hburst;         // Burst type
+logic                   hmastlock;      // Locked sequence indicator
+ahbProtectionEnum       hprot;          // Protection type
+ahbHsizeEnum            hsize;          // Transfer size
+logic                   hnonsec;        // Secure or non-secure indicator
+logic                   hexcl;          // Exclusive access sequence
+logic [HMASTER_WIDTH-1:0] hmaster;     // Master ID
+ahbTransferEnum          htrans;        // Transfer type
+logic [DATA_WIDTH-1:0]   hwdata;         // Write data bus
+logic [(DATA_WIDTH/8)-1:0] hwstrb;     // Write strobes
+logic                   hwrite;         // Write or read indicator
+logic [DATA_WIDTH-1:0]  hrdata;         // Read data bus
+logic                   hreadyout;      // Transfer completion for subordinate
+ahbRespEnum             hresp;          // Response status
+logic                   hexokay;        // Exclusive OKAY status
+logic                   hready;         // Combined transfer completion
   } ahbTransferCharStruct;
 
    //-------------------------------------------------------
@@ -141,7 +141,7 @@ typedef enum logic [2:0] {
   //-------------------------------------------------------
   typedef struct{
    
-    logic [ADDR_WIDTH-1:0] HADDR;          // Address of the transfer
+    logic [ADDR_WIDTH-1:0] haddr;          // Address of the transfer
    // bit [ADDRESS_WIDTH-1:0]min_address;
    // bit [ADDRESS_WIDTH-1:0]max_address; 
    // int slave_id;
