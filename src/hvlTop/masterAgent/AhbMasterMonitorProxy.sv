@@ -88,12 +88,12 @@ task AhbMasterMonitorProxy::run_phase(uvm_phase phase);
   ahbMasterMonitorBFM.waitForHRESETn();
 
   forever begin
-    ahbTransferChar structDataPacket;
-    ahbTransferConfig  structConfigPacket; 
+    ahbTransferCharStruct structDataPacket;
+    ahbTransferConfigStruct  structConfigPacket; 
     AhbMasterTransaction  ahbMasterClonePacket;
     
     AhbMasterConfigConverter :: fromClass(ahbMasterAgentConfig,  structConfigPacket);
-    ahbMasterMonitorBFM.sample_data (structDataPacket,  structConfigPacket);
+    ahbMasterMonitorBFM.sampleData (structDataPacket,  structConfigPacket);
     AhbMasterSequenceItemConverter :: toClass(structDataPacket, ahbMasterPacket);
 
     `uvm_info(get_type_name(),$sformatf("Received packet from master monitor bfm: , \n %s", ahbMasterPacket.sprint()),UVM_HIGH)
