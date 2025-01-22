@@ -1,5 +1,5 @@
-`ifndef AHB_SLAVE_SEQ_PKG_INCLUDED_
-`define AHB_SLAVE_SEQ_PKG_INCLUDED_
+`ifndef AHBSLAVESEQPKG_INCLUDED_
+`define AHBSLAVESEQPKG_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Package : apb_master_seq_pkg
