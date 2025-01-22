@@ -9,13 +9,13 @@
 class AhbSlaveDriverProxy extends uvm_driver#(AhbSlaveTransaction);
   `uvm_component_utils(AhbSlaveDriverProxy)
 
-  //Variable : ahbSlaveTx
+  //Variable : ahbSlaveTransaction
   //Declaring handle for apb slave transaction
-  AhbSlaveTransaction ahbSlaveTx;
+  AhbSlaveTransaction ahbSlaveTransaction;
 
-  // Variable: ahbSlaveDrvBFM;
-  // Handle for apb_slave driver bfm
-  virtual AhbSlaveDriverBFM ahbSlaveDrvBFM;
+  // Variable: ahbSlaveDriverBFM;
+  // Handle for  AhbSlaveDriverBFM
+  virtual AhbSlaveDriverBFM ahbSlaveDriverBFM;
 
   // Variable: ahbSlaveAgentConfig;
   // Handle for apb Slave agent configuration
@@ -29,7 +29,6 @@ class AhbSlaveDriverProxy extends uvm_driver#(AhbSlaveTransaction);
   extern virtual function void connect_phase(uvm_phase phase);
   extern function void end_of_elaboration_phase(uvm_phase phase);
   extern virtual task run_phase(uvm_phase phase);
-//  extern virtual task checkForPslverr(inout apbTransferCharStruct structPacket);
 //  extern virtual task taskWrite(inout apbTransferCharStruct structPacket);
 //  extern virtual task taskRead(inout apbTransferCharStruct structPacket);
 endclass : AhbSlaveDriverProxy
@@ -55,9 +54,9 @@ endfunction : new
 //--------------------------------------------------------------------------------------------
 function void AhbSlaveDriverProxy::build_phase(uvm_phase phase);
   super.build_phase(phase);
-  if(!uvm_config_db #(virtual AhbSlaveDriverBFM)::get(this,"","AhbSlaveDriverBFM",
-                                                             ahbSlaveDrvBFM)) begin
-    `uvm_fatal("FATAL SDP CANNOT GET SLAVE DRIVER BFM","cannot get() ahbSlaveDrvBFM");
+  if(!uvm_config_db #(virtual AhbSlaveDriverBFM)::get(this,"","AhbSlaveDriverBFM", ahbSlaveDriverBFM)) 
+    begin
+    `uvm_fatal("FATAL SDP CANNOT GET SLAVE DRIVER BFM","cannot get() ahbSlaveDriverBFM");
   end
 
 endfunction : build_phase
@@ -83,7 +82,7 @@ endfunction : connect_phase
 //-------------------------------------------------------
 function void AhbSlaveDriverProxy::end_of_elaboration_phase(uvm_phase phase);
   super.end_of_elaboration_phase(phase);
-  ahbSlaveDrvBFM.ahbSlaveDrvProxy = this;
+  ahbSlaveDriverBFM.ahbSlaveDriverProxy = this;
 endfunction : end_of_elaboration_phase
 
 //--------------------------------------------------------------------------------------------
@@ -97,7 +96,7 @@ endfunction : end_of_elaboration_phase
 task AhbSlaveDriverProxy::run_phase(uvm_phase phase);
   
   //wait for system reset
-  ahbSlaveDrvBFM.wait_for_preset_n();
+  ahbSlaveDrvBFM.waitForResetn();
   `uvm_info(get_type_name(), $sformatf("INSIDE run phase "),UVM_LOW);
  
   forever begin
@@ -131,16 +130,4 @@ endtask : taskWrite
 endtask : taskRead
     */
 
-//--------------------------------------------------------------------------------------------
-// Task: check_for_pslverr
-// Gets the struct packet and sends it to slave agent config to check the correct address 
-// of the slave is selected
-//
-// Parameters:
-//  struct_packet   - apb_transfer_char_s
-//--------------------------------------------------------------------------------------------
-/*    task AhbSlaveDriverProxy::checkForPslverr(inout apbTransferCharStruct structPacket);
-
-endtask : checkForPslverr 
-*/
 `endif
