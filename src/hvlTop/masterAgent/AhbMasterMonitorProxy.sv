@@ -42,7 +42,7 @@ endclass : AhbMasterMonitorProxy
 //--------------------------------------------------------------------------------------------
 function AhbMasterMonitorProxy::new(string name = "AhbMasterMonitorProxy",uvm_component parent);
   super.new(name, parent);
-  ahb_master_analysis_port = new("ahbMasterAnalysisPort",this);
+  ahbMasterAnalysisPort = new("ahbMasterAnalysisPort",this);
 endfunction : new
 
 //--------------------------------------------------------------------------------------------
