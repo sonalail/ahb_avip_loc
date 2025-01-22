@@ -1,17 +1,17 @@
 
-+incdir+../../src/hvlTop/master/masterSequences/
-+incdir+../../src/hvlTop/master
++incdir+../../src/hvlTop/masterAgent/masterSequences/
++incdir+../../src/hvlTop/masterAgent
 +incdir+../../src/hvlTop/environment/virtualSequencer/
 +incdir+../../src/hvlTop/tb/virtualSequences/
 +incdir+../../src/hvlTop/environment
-+incdir+../../src/hvlTop/slave
-+incdir+../../src/hvlTop/slave/slaveSequences/
++incdir+../../src/hvlTop/slaveAgent
++incdir+../../src/hvlTop/slaveAgent/slaveSequences/
 +incdir+../../src/hvlTop/tb/test/
 ../../src/globals/AhbGlobalPackage.sv
-../../src/hvlTop/master/AhbMasterPackage.sv
-../../src/hvlTop/slave/AhbSlavePackage.sv
-../../src/hvlTop/master/masterSequences/AhbMasterSequencePackage.sv
-../../src/hvlTop/slave/slaveSequences/AhbSlaveSequencePackage.sv
+../../src/hvlTop/masterAgent/AhbMasterPackage.sv
+../../src/hvlTop/slaveAgent/AhbSlavePackage.sv
+../../src/hvlTop/masterAgent/masterSequences/AhbMasterSequencePackage.sv
+../../src/hvlTop/slaveAgent/slaveSequences/AhbSlaveSequencePackage.sv
 ../../src/hvlTop/environment/AhbEnvironmentPackage.sv
 ../../src/hvlTop/tb/virtualSequences/ApbVirtualSequencePackage.sv
 ../../src/hvlTop/tb/test/AhbBaseTestPackage.sv
