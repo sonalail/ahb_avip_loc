@@ -10,11 +10,11 @@ class AhbSlaveBaseSequence extends uvm_sequence#(uvm_sequence_item);
 
   // Variable: seqr
   // Handle for the AHB slave sequencer
-  AhbSlaveSequencer ahbSlaveSeqr;
+  AhbSlaveSequencer ahbSlaveSequencer;
 
   // Variable: item
   // Handle for the AHB slave transaction (sequence item)
-  AhbSlaveTransaction ahbSlaveTx;
+  AhbSlaveTransaction ahbSlaveTransaction;
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
