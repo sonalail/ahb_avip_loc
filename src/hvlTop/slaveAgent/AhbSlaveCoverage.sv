@@ -46,7 +46,7 @@ endfunction : new
 // Parameters:
 //  t - ahb_slave_tx
 //--------------------------------------------------------------------------------------------
-function void AhbMasterCoverage::write(AhbSlaveTransaction t);
+function void AhbSlaveCoverage::write(AhbSlaveTransaction t);
 endfunction : write
 
 //--------------------------------------------------------------------------------------------
