@@ -11,24 +11,24 @@ import AhbGlobalPackage::*;
 //  Used as the HDL driver for ahb
 //  It connects with the HVL driver_proxy for driving the stimulus
 //--------------------------------------------------------------------------------------------
-interface AhbMasterDriverBFM (input  bit  HCLK,
-                              input  bit  HRESETn,
-                              input logic [ADDR_WIDTH-1:0] HADDR;
-                              input logic [2:0] HBURST;
-                              input logic HMASTLOCK;
-                              input logic [HPROT_WIDTH-1:0] HPROT;
-                              input logic [2:0] HSIZE;
-                              input logic HNONSEC;
-                              input logic HEXCL;
-                              input logic [HMASTER_WIDTH-1:0] HMASTER;
-                              input logic [1:0] HTRANS;     
-                              input logic HWRITE;
-                              input logic [DATA_WIDTH-1:0] HWDATA;
-                              output logic [DATA_WIDTH-1:0] HRDATA;
-                              output logic HREADY;
-                              output logic HREADYOUT;
-                              output logic HRESP;
-                              output logic HEXOKAY;
+interface AhbMasterDriverBFM (input  bit  hclk,
+                              input  bit  hresetn,
+                              input logic [ADDR_WIDTH-1:0] haddr;
+                              input logic [2:0] hburst;
+                              input logic hmastlock;
+                              input logic [HPROT_WIDTH-1:0] hprot;
+                              input logic [2:0] hsize;
+                              input logic hnonsec;
+                              input logic hexcl;
+                              input logic [HMASTER_WIDTH-1:0] hmaster;
+                              input logic [1:0] htrans;     
+                              input logic hwrite;
+                              input logic [DATA_WIDTH-1:0] hwdata;
+                              output logic [DATA_WIDTH-1:0] hrdata;
+                              output logic hready;
+                              output logic hreadyout;
+                              output logic hresp;
+                              output logic hexokay;
                               );
 
   //-------------------------------------------------------
@@ -58,16 +58,16 @@ interface AhbMasterDriverBFM (input  bit  HCLK,
   end
  
   //-------------------------------------------------------
-  // Task: waitForHRESETn
+  // Task: waitForHresetn
   //  Waiting for the system reset to be active low
   //-------------------------------------------------------
-  task waitForHRESETn();
-    @(negedge HRESETn);
+  task waitForHresetn();
+    @(negedge hresetn);
     `uvm_info(name ,$sformatf("SYSTEM RESET DETECTED"),UVM_HIGH)
  
    @(posedge HRESETn);
     `uvm_info(name ,$sformatf("SYSTEM RESET DEACTIVATED"),UVM_HIGH)
-  endtask: waitForHRESETn
+  endtask:waitForHresetn
   
   //--------------------------------------------------------------------------------------------
   // Task: driveToBFM
