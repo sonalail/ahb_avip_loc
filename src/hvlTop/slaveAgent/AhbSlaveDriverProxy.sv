@@ -29,9 +29,9 @@ class AhbSlaveDriverProxy extends uvm_driver#(AhbSlaveTransaction);
   extern virtual function void connect_phase(uvm_phase phase);
   extern function void end_of_elaboration_phase(uvm_phase phase);
   extern virtual task run_phase(uvm_phase phase);
-  extern virtual task checkForPslverr(inout apbTransferCharStruct structPacket);
-  extern virtual task taskWrite(inout apbTransferCharStruct structPacket);
-  extern virtual task taskRead(inout apbTransferCharStruct structPacket);
+//  extern virtual task checkForPslverr(inout apbTransferCharStruct structPacket);
+//  extern virtual task taskWrite(inout apbTransferCharStruct structPacket);
+//  extern virtual task taskRead(inout apbTransferCharStruct structPacket);
 endclass : AhbSlaveDriverProxy
   
 //--------------------------------------------------------------------------------------------
