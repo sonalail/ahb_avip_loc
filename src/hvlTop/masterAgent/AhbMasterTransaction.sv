@@ -160,7 +160,7 @@ function bit AhbMasterTransaction::do_compare (uvm_object rhs, uvm_comparer comp
     return 0;
   end
 
- return super.do_compare(ahb_master_tx_compare_obj, comparer) &&
+ return super.do_compare(ahbMasterTransactionCompareObject, comparer) &&
 HADDR    == ahbMasterTransactionCompareObject.HADDR    &&
 HSELx    == ahbMasterTransactionCompareObject.HSELx    &&
 HBURST   == ahbMasterTransactionCompareObject.HBURST   &&
