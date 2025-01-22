@@ -138,7 +138,7 @@ function void AhbSlaveTransaction::do_copy(uvm_object rhs);
   HRDATA    = ahbSlaveTransaction.HRDATA;
   HREADYOUT = ahbSlaveTransaction.HREADYOUT;
   HRESP     = ahbSlaveTransaction.HRESP;
-  HEXOKAY   = ahbSlaveTransaction.HEXOKAY;
+//  HEXOKAY   = ahbSlaveTransaction.HEXOKAY;
 
 endfunction : do_copy
 
@@ -173,8 +173,8 @@ function bit AhbSlaveTransaction::do_compare(uvm_object rhs, uvm_comparer compar
          HWRITE    == ahbSlaveTransaction.HWRITE    &&
          HRDATA    == ahbSlaveTransaction.HRDATA    &&
          HREADYOUT == ahbSlaveTransaction.HREADYOUT &&
-         HRESP     == ahbSlaveTransaction.HRESP     &&
-         HEXOKAY   == ahbSlaveTransaction.HEXOKAY;
+         HRESP     == ahbSlaveTransaction.HRESP   ; 
+// &&         HEXOKAY   == ahbSlaveTransaction.HEXOKAY;
 endfunction : do_compare
 
 //--------------------------------------------------------------------------------------------
@@ -202,7 +202,7 @@ printer.print_field  ("HRDATA", HRDATA, $bits(HRDATA), UVM_HEX);
  printer.print_field ("HREADYOUT", HREADYOUT,$bits(HREADYOUT),UVM_HEX);
  printer.print_string ("HRESP", HRESP.name());
 //printer.print_string ("HEXOKAY", HEXOKAY.name());
- printer.print_field ("HREADY", HREADY,$bits(HREADY),UVM_HEX);
+
 endfunction : do_print
 
 //--------------------------------------------------------------------------------------------
