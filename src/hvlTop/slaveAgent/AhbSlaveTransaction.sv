@@ -185,23 +185,24 @@ endfunction : do_compare
 //  printer - uvm_printer
 //--------------------------------------------------------------------------------------------
 function void AhbSlaveTransaction::do_print(uvm_printer printer);
-  printer.print_field("HADDR", HADDR, $bits(HADDR), UVM_HEX);
-  printer.print_field("HSELx", HSELx, $bits(HSELx), UVM_BIN);
-  printer.print_string("HBURST", HBURST.name());
-  printer.print_string("HMASTLOCK", HMASTLOCK.name());
-  printer.print_string("HPROT", HPROT.name());
-  printer.print_string("HSIZE", HSIZE.name());
-  printer.print_string("HNONSEC", HNONSEC.name());
-  printer.print_string("HEXCL", HEXCL.name());
-  printer.print_field("HMASTER", HMASTER, $bits(HMASTER), UVM_DEC);
-  printer.print_string("HTRANS", HTRANS.name());
-  printer.print_field("HWDATA", HWDATA, $bits(HWDATA), UVM_HEX);
-  printer.print_field("HWSTRB", HWSTRB, $bits(HWSTRB), UVM_BIN);
-  printer.print_string("HWRITE", HWRITE.name());
-  printer.print_field("HRDATA", HRDATA, $bits(HRDATA), UVM_HEX);
-  printer.print_string("HREADYOUT", HREADYOUT.name());
-  printer.print_string("HRESP", HRESP.name());
-  printer.print_string("HEXOKAY", HEXOKAY.name());
+ printer.print_field  ("HADDR", HADDR, $bits(HADDR), UVM_HEX);
+printer.print_field  ("HSELx", HSELx, $bits(HSELx), UVM_BIN);
+ printer.print_string ("HBURST", HBURST.name());
+ printer.print_field ("HMASTLOCK", HMASTLOCK,$bits(HMASTLOCK),UVM_HEX);
+printer.print_string ("HPROT", HPROT.name());
+printer.print_string ("HSIZE", HSIZE.name());
+ printer.print_field ("HNONSEC", HNONSEC,$bits(HNONSEC),UVM_HEX);
+ printer.print_field ("HEXCL", HEXCL,$bits(HEXCL),UVM_HEX);
+printer.print_field  ("HMASTER", HMASTER, $bits(HMASTER), UVM_DEC);
+printer.print_string ("HTRANS", HTRANS.name());
+printer.print_field  ("HWDATA", HWDATA, $bits(HWDATA), UVM_HEX);
+printer.print_field  ("HWSTRB", HWSTRB, $bits(HWSTRB), UVM_BIN);
+printer.print_field ("HWRITE", HWRITE, $bits(HWRITE), UVM_BIN);
+printer.print_field  ("HRDATA", HRDATA, $bits(HRDATA), UVM_HEX);
+ printer.print_field ("HREADYOUT", HREADYOUT,$bits(HREADYOUT),UVM_HEX);
+ printer.print_string ("HRESP", HRESP.name());
+//printer.print_string ("HEXOKAY", HEXOKAY.name());
+ printer.print_field ("HREADY", HREADY,$bits(HREADY),UVM_HEX);
 endfunction : do_print
 
 //--------------------------------------------------------------------------------------------
