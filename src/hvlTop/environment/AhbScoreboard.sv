@@ -107,7 +107,7 @@ endfunction : check_phase
 //--------------------------------------------------------------------------------------------
 function void AhbScoreboard::report_phase(uvm_phase phase);
   super.report_phase(phase);
-endfunction : check_phase
+endfunction : report_phase
 
 //--------------------------------------------------------------------------------------------
 `endif
