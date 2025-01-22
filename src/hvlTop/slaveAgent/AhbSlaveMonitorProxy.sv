@@ -84,7 +84,7 @@ task AhbSlaveMonitorProxy::run_phase(uvm_phase phase);
   `uvm_info(get_type_name(), $sformatf("Inside the slave monitor proxy"), UVM_LOW);
   ahbSlavePacket = AhbSlaveTransaction::type_id::create("slave Packet");
   
-  ahbSlaveMonitorBFM.waitForHRESETn();
+  ahbSlaveMonitorBFM.waitForResetn();
 
   forever begin
     ahbTransferCharStruct structDataPacket;
