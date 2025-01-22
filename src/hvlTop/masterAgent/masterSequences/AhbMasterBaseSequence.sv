@@ -8,11 +8,11 @@
 class AhbMasterBaseSequence extends uvm_sequence#(uvm_sequence_item);
   `uvm_object_utils(AhbMasterBaseSequence)
 
-  // Variable: seqr
+  // Variable: ahbMasterSequencer
   // Handle for the AHB master sequencer
   AhbMasterSequencer ahbMasterSequencer;
 
-  // Variable: item
+  // Variable: ahbMasterTransaction
   // Handle for the AHB master transaction (sequence item)
   AhbMasterTransaction ahbMasterTransaction;
 
