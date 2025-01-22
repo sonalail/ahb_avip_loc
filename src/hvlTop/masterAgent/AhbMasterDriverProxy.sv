@@ -105,7 +105,7 @@ uvm_info(get_type_name(), $sformatf(" run phase inside master driver proxy \n ")
   forever begin
     seq_item_port.get_next_item(req);
 
-        `uvm_info(get_type_name(), $sformatf("AFTER :: inside master driver proxy \n ", UVM_NONE);
+    `uvm_info(get_type_name(), $sformatf("AFTER :: inside master driver proxy \n "), UVM_NONE);
 
     seq_item_port.item_done();
   end
