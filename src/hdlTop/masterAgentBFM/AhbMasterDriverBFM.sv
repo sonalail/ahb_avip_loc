@@ -58,16 +58,16 @@ interface AhbMasterDriverBFM (input  bit  hclk,
   end
  
   //-------------------------------------------------------
-  // Task: waitForHresetn
+  // Task: waitForResetn
   //  Waiting for the system reset to be active low
   //-------------------------------------------------------
-  task waitForHresetn();
+  task waitForResetn();
     @(negedge hresetn);
     `uvm_info(name ,$sformatf("SYSTEM RESET DETECTED"),UVM_HIGH)
  
-   @(posedge HRESETn);
+   @(posedge hresetn);
     `uvm_info(name ,$sformatf("SYSTEM RESET DEACTIVATED"),UVM_HIGH)
-  endtask:waitForHresetn
+  endtask:waitForResetn
   
   //--------------------------------------------------------------------------------------------
   // Task: driveToBFM
