@@ -9,23 +9,23 @@
 class AhbSlaveAgent extends uvm_agent;
   `uvm_component_utils( AhbSlaveAgent)
 
-  //Variable: ahb_slave_agent_cfg_h
+  //Variable: ahbSlaveAgentConfig
   //Declaring handle for AhbSlaveAgentConfig class 
   AhbSlaveAgentConfig ahbSlaveAgentConfig;
 
-  //Varible: ahbSlaveSeqr
+  //Varible: ahbSlaveSequencer
   //Handle for  AhbSlaveSequencer
   AhbSlaveSequencer ahbSlaveSequencer;
   
-  //Variable: ahbSlaveDrvProxy
+  //Variable: ahbSlaveDriverProxy
   //Creating a Handle for AhbSlaveDriverProxy
   AhbSlaveDriverProxy ahbSlaveDriverProxy;
 
-  //Variable: apbSlaveMonProxy
+  //Variable: ahbSlaveMonitorProxy
   //Declaring a handle for AhbSlaveMonitorProxy
   AhbSlaveMonitorProxy ahbSlaveMonitorProxy;
 
-  // Variable: ahbSlaveCov
+  // Variable: ahbSlaveCoverage
   // Decalring a handle for AhbSlaveCoverage
   AhbSlaveCoverage ahbSlaveCoverage;
   
@@ -35,8 +35,6 @@ class AhbSlaveAgent extends uvm_agent;
   extern function new(string name = "AhbSlaveAgent", uvm_component parent = null);
   extern virtual function void build_phase(uvm_phase phase);
   extern virtual function void connect_phase(uvm_phase phase);
- 
-    
 endclass :AhbSlaveAgent
  //-----------------------------------------------------------------------------
 // Construct: new
@@ -65,13 +63,11 @@ function void AhbSlaveAgent::build_phase(uvm_phase phase);
   end
 
   if(ahbSlaveAgentConfig.is_active == UVM_ACTIVE) begin
-    
-    
     ahbSlaveSequencer = AhbSlaveSequencer::type_id::create("ahbSlaveSequencer",this);
     ahbSlaveDriverProxy = AhbSlaveDriverProxy::type_id::create("ahbSlaveDriverProxy",this);
   end
 
-  ahbSlaveMonitorProxy=AhbSlaveMonitorProxy::type_id::create("ahbSlaveMonitorProxy",this);
+  ahbSlaveMonitorProxy = AhbSlaveMonitorProxy::type_id::create("ahbSlaveMonitorProxy",this);
 
   if(ahbSlaveAgentConfig.hasCoverage) begin
     ahbSlaveCoverage = AhbSlaveCoverage::type_id::create("ahbSlaveCoverage",this);
