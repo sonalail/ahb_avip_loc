@@ -29,13 +29,13 @@ function AhbMasterSequenceItemConverter::new(string name = "AhbMasterSequenceIte
 endfunction: new
 
 //--------------------------------------------------------------------------------------------
-// Function: from_class
+// Function: fromClass
 //  Converting seq_item transactions into struct data items
 //
 // Parameters:
 //  name - ahb_master_tx, ahbTransferCharStruct
 //--------------------------------------------------------------------------------------------
-function void AhbMasterSequenceItemConverter::from_class(input AhbMasterTransaction inputConv, output ahbTransferCharStruct outputConv);
+function void AhbMasterSequenceItemConverter::fromClass(input AhbMasterTransaction inputConv, output ahbTransferCharStruct outputConv);
   `uvm_info("AhbMasterSeqItemConvClass",$sformatf("-------------------------------------------------------------"),UVM_HIGH);
 
   $cast(outputConv.HPROT, inputConv.HPROT);
@@ -88,16 +88,16 @@ function void AhbMasterSequenceItemConverter::from_class(input AhbMasterTransact
 
   `uvm_info("AhbMasterSeqItemConvClass", $sformatf("-------------------------------------------------------------"), UVM_HIGH);
 
-endfunction : from_class 
+endfunction : fromClass 
 
 //--------------------------------------------------------------------------------------------
-// Function: to_class
+// Function: toClass
 // Converting struct data items into seq_item transactions
 //
 // Parameters:
 // name - ahb_master_tx, ahbTransferCharStruct
 //--------------------------------------------------------------------------------------------
-function void AhbMasterSequenceItemConverter::to_class(input ahbTransferCharStruct inputConv, ref AhbMasterTransaction outputConv);
+function void AhbMasterSequenceItemConverter::toClass(input ahbTransferCharStruct inputConv, ref AhbMasterTransaction outputConv);
   `uvm_info("AhbMasterSeqItemConv", $sformatf("-------------------------------------------------------------"), UVM_HIGH);
 
   $cast(outputConv.HPROT, inputConv.HPROT);
@@ -150,7 +150,7 @@ function void AhbMasterSequenceItemConverter::to_class(input ahbTransferCharStru
 
   `uvm_info("AhbMasterSeqItemConvClass", $sformatf("-------------------------------------------------------------"), UVM_HIGH);
 
-endfunction : to_class
+endfunction : toClass
 
 //--------------------------------------------------------------------------------------------
 // Function : do_print method
