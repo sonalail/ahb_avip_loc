@@ -80,9 +80,9 @@ function void AhbMasterSequenceItemConverter::fromClass(input AhbMasterTransacti
   $cast(outputConv.HRESP, inputConv.HRESP);
   `uvm_info("AhbMasterSeqItemConvClass", $sformatf("After randomizing HRESP = %b", outputConv.HRESP), UVM_HIGH);
 
-  outputConv.HEXOKAY = inputConv.HEXOKAY;
+ /* outputConv.HEXOKAY = inputConv.HEXOKAY;
   `uvm_info("AhbMasterSeqItemConvClass", $sformatf("After randomizing HEXOKAY = %b", outputConv.HEXOKAY), UVM_HIGH);
-
+*/
   outputConv.HREADY = inputConv.HREADY;
   `uvm_info("AhbMasterSeqItemConvClass", $sformatf("After randomizing HREADY = %b", outputConv.HREADY), UVM_HIGH);
 
@@ -142,9 +142,9 @@ function void AhbMasterSequenceItemConverter::toClass(input ahbTransferCharStruc
   $cast(outputConv.HRESP, inputConv.HRESP);
   `uvm_info("AhbMasterSeqItemConvClass", $sformatf("After randomizing HRESP = %b", outputConv.HRESP), UVM_HIGH);
 
-  outputConv.HEXOKAY = inputConv.HEXOKAY;
+/*  outputConv.HEXOKAY = inputConv.HEXOKAY;
   `uvm_info("AhbMasterSeqItemConvClass", $sformatf("After randomizing HEXOKAY = %b", outputConv.HEXOKAY), UVM_HIGH);
-
+*/
   outputConv.HREADY = inputConv.HREADY;
   `uvm_info("AhbMasterSeqItemConvClass", $sformatf("After randomizing HREADY = %b", outputConv.HREADY), UVM_HIGH);
 
@@ -174,7 +174,7 @@ function void AhbMasterSequenceItemConverter::do_print(uvm_printer printer);
   printer.print_field("HRDATA", ahbStruct.HRDATA, $bits(ahbStruct.HRDATA), UVM_HEX);
   printer.print_field("HREADYOUT", ahbStruct.HREADYOUT, $bits(ahbStruct.HREADYOUT), UVM_BIN);
   printer.print_field("HRESP", ahbStruct.HRESP, $bits(ahbStruct.HRESP), UVM_BIN);
-  printer.print_field("HEXOKAY", ahbStruct.HEXOKAY, $bits(ahbStruct.HEXOKAY), UVM_BIN);
+//  printer.print_field("HEXOKAY", ahbStruct.HEXOKAY, $bits(ahbStruct.HEXOKAY), UVM_BIN);
   printer.print_field("HREADY", ahbStruct.HREADY, $bits(ahbStruct.HREADY), UVM_BIN);
 
 endfunction : do_print  
