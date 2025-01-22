@@ -47,7 +47,7 @@ class AhbSlaveAgentConfig extends uvm_object;
   // Externally defined Tasks and Functions
   //-------------------------------------------------------
   extern function new(string name = "AhbSlaveAgentConfig");
-  extern function void do_print(uvm_printer printer);
+ // extern function void do_print(uvm_printer printer);
 //   extern virtual task slaveMemoryTask(bit [HADDR-1:0]slave_address, bit [DATA_WIDTH-1:0]data); 
 
 endclass : AhbSlaveAgentConfig
