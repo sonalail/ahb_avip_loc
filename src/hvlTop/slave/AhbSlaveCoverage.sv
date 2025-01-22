@@ -1,5 +1,5 @@
-`ifndef AHB_SLAVE_COVERAGE_INCLUDED_
-`define AHB_SLAVE_COVERAGE_INCLUDED_
+`ifndef AHBSLAVECOVERAGE_INCLUDED_
+`define AHBSLAVECOVERAGE_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbMasterCoverage
@@ -10,12 +10,12 @@ class AhbMasterCoverage extends uvm_subscriber #(AhbSlaveTranscation);
  
   //Variable: ahb_slave_agent_cfg_h
   //Declaring handle for slave agent configuration class 
-  AhbSlaveAgentConfig apb_slave_agent_cfg_h;
+  AhbSlaveAgentConfig apbSlaveAgentConfig;
   
   //-------------------------------------------------------
-  Covergroup: ahb_slave_covergroup
+  Covergroup: ahbSlaveCovergroup
   
-  endgroup: apb_master_covergroup
+  endgroup: ahbSlaveCovergroup
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
@@ -31,12 +31,12 @@ endclass : AhbSlaveCoverage
 //  Initializes memory for new object
 //
 // Parameters:
-//  name - ahb_slave_coverage
+//  name - ahbSlaveCoverage
 //  parent - parent under which this component is created
 //--------------------------------------------------------------------------------------------
 function  AhbSlaveCoverage::new(string name = "AhbSlaveCoverage", uvm_component parent = null);
   super.new(name, parent);
-  ahb_slave_covergroup = new();
+  ahbSlaveCovergroup = new();
 endfunction : new
 
 //-------------------------------------------------------------------------------------------
@@ -55,7 +55,7 @@ endfunction : write
 //--------------------------------------------------------------------------------------------
 function void AhbSlaveCoverage::report_phase(uvm_phase phase);
   `uvm_info(get_type_name(), $sformatf("Entered the report_phase of AHB Slave Coverage"), UVM_NONE);
-  `uvm_info(get_type_name(), $sformatf("APB Slave Agent Coverage = %0.2f %%", apb_slave_covergroup.get_coverage()), UVM_NONE);
+  `uvm_info(get_type_name(), $sformatf("APB Slave Agent Coverage = %0.2f %%", apbSlaveCovergroup.get_coverage()), UVM_NONE);
 endfunction: report_phase
 
 `endif
