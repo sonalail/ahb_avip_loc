@@ -11,24 +11,24 @@ import ahb_global_pkg::*;
 //  Connects the slave monitor bfm with the monitor proxy 
 //  to call the tasks and functions from apb monitor bfm to apb monitor proxy
 //--------------------------------------------------------------------------------------------
-interface AhbSlaveMonitorBFM (input  bit   HCLK,
-                              input  bit  HRESETn,
-                              input logic [ADDR_WIDTH-1:0] HADDR;
-                              input logic [2:0] HBURST;
-                              input logic HMASTLOCK;
-                              input logic [HPROT_WIDTH-1:0] HPROT;
-                              input logic [2:0] HSIZE;
-                              input logic HNONSEC;
-                              input logic HEXCL;
-                              input logic [HMASTER_WIDTH-1:0] HMASTER;
-                              input logic [1:0] HTRANS;     
-                              input logic HWRITE;
-                              input logic [DATA_WIDTH-1:0] HWDATA;
-                              output logic [DATA_WIDTH-1:0] HRDATA;
-                              output logic HREADY;
-                              output logic HREADYOUT;
-                              output logic HRESP;
-                              output logic HEXOKAY;
+interface AhbSlaveMonitorBFM (input  bit   hclk,
+                              input  bit  hresetn,
+                              input logic [ADDR_WIDTH-1:0] haddr;
+                              input logic [2:0] hburst;
+                              input logic hmastlock;
+                              input logic [HPROT_WIDTH-1:0] hprot;
+                              input logic [2:0] hsize;
+                              input logic hnonsec;
+                              input logic hexcl;
+                              input logic [HMASTER_WIDTH-1:0] hmaster;
+                              input logic [1:0] htrans;     
+                              input logic hwrite;
+                              input logic [DATA_WIDTH-1:0] hwdata;
+                              output logic [DATA_WIDTH-1:0] hrdata;
+                              output logic hready;
+                              output logic hreadyout;
+                              output logic hresp;
+                              output logic hexokay;
                                );
 
   //-------------------------------------------------------
@@ -61,16 +61,16 @@ interface AhbSlaveMonitorBFM (input  bit   HCLK,
   end
 
   //-------------------------------------------------------
-  // Task: wait_for_HRESETn
+  // Task: waitForResetn
   //  Waiting for the system reset to be active low
   //-------------------------------------------------------
-  task waitForHRESETn();
-    @(negedge HRESETn);
+  task waitForResetn();
+   @(negedge hresetn);
     `uvm_info(name, $sformatf("SYSTEM_RESET_DETECTED"), UVM_HIGH)
     
-    @(posedge HRESETn);
+    @(posedge hresetn);
     `uvm_info(name, $sformatf("SYSTEM_RESET_DEACTIVATED"), UVM_HIGH)
-  endtask : waitForHRESETn
+  endtask : waitForResetn
 
   //-------------------------------------------------------
   // Task: sampleData
