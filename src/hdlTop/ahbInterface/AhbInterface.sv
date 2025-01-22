@@ -8,79 +8,80 @@ import AhbGlobalPackage::*;
 // Declaration of pin level signals for AHB interface
 //--------------------------------------------------------------------------------------------
 
-interface AhbInterface(input HCLK, input HRESETn);
+interface AhbInterface(input hclk, input hresetn);
   
-  // Variable : HADDR
+  // Variable : haddr
   // Byte address of the transfer
-  logic [ADDR_WIDTH-1:0] HADDR;
+  logic [ADDR_WIDTH-1:0] haddr;
 
-  //Variable : HSELx
+  //Variable : hselx
   //Indicates the number of slaves
-  logic [NO_OF_SLAVES-1:0] HSELx;
+  logic [NO_OF_SLAVES-1:0] hselx;
   
-  // Variable : HBURST
+  // Variable : hburst
   // Indicates burst type
-  logic [2:0] HBURST;
+  logic [2:0] hburst;
 
-  // Variable : HMASTLOCK
+  // Variable : hmastlock
   // Indicates a locked sequence
-  logic HMASTLOCK;
+  logic hmastlock;
 
-  // Variable : HPROT
+  // Variable : hprot
   // Protection control signal
-  logic [HPROT_WIDTH-1:0] HPROT;
+  logic [HPROT_WIDTH-1:0] hprot;
 
-  // Variable : HSIZE
+  // Variable : hsize
   // Indicates the size of a transfer
-  logic [2:0] HSIZE;
+  logic [2:0] hsize;
 
-  // Variable : HNONSEC
+  // Variable : hnonsec
   // Indicates whether the transfer is Non-secure or Secure
-  logic HNONSEC;
+  logic hnonsec;
 
-  // Variable : HEXCL
+  // Variable : hexcl
   // Indicates Exclusive Access sequence
-  logic HEXCL;
+  logic hexcl;
 
-  // Variable : HMASTER
+  // Variable : hmaster
   // Manager identifier
-  logic [HMASTER_WIDTH-1:0] HMASTER;
+  logic [HMASTER_WIDTH-1:0] hmaster;
 
-  // Variable : HTRANS
+  // Variable : htrans
   // Indicates the transfer type
-  logic [1:0] HTRANS;
+  logic [1:0] htrans;
 
-  // Variable : HWDATA
+  // Variable : hwdata
   // Write data bus
-  logic [DATA_WIDTH-1:0] HWDATA;
+  logic [DATA_WIDTH-1:0] hwdata;
 
-  // Variable : HWSTRB
+  // Variable : hwstrb
   // Write strobes for active byte lanes
-  logic [(DATA_WIDTH/8)-1:0] HWSTRB;
+  logic [(DATA_WIDTH/8)-1:0] hwstrb;
 
-  // Variable : HWRITE
+  // Variable : hwrite
   // Indicates transfer direction (1 = write, 0 = read)
-  logic HWRITE;
+  logic hwrite;
 
-  // Variable : HRDATA
+  // Variable : hrdata
   // Read data bus
-  logic [DATA_WIDTH-1:0] HRDATA;
+  logic [DATA_WIDTH-1:0] hrdata;
 
-  // Variable : HREADYOUT
+  // Variable : hreadyout
   // Indicates transfer completion for a Subordinate
-  logic HREADYOUT;
+  logic hreadyout;
 
-  // Variable : HRESP
+  // Variable : hresp
   // Transfer response status (0 = OKAY, 1 = ERROR)
-  logic HRESP;
+  logic hresp;
 
-  // Variable : HEXOKAY
+  // Variable : hexokay
   // Indicates Exclusive OKAY status
-  logic HEXOKAY;
+  logic hexokay;
 
-  // Variable : HREADY
+  // Variable : hready
   // Combined transfer completion for Manager and Subordinate
-  logic HREADY;
+  logic hready;
+
 
 endinterface : AhbInterface
 
