@@ -193,7 +193,7 @@ function void AhbMasterTransaction::do_print(uvm_printer printer);
   
 printer.print_field  ("HADDR", HADDR, $bits(HADDR), UVM_HEX);
 printer.print_field  ("HSELx", HSELx, $bits(HSELx), UVM_BIN);
- printer.print_string ("HBURST", ahbBurstEnum.name());
+ printer.print_string ("HBURST", HBURST.name());
 printer.print_string ("HMASTLOCK", HMASTLOCK.name());
 printer.print_string ("HPROT", HPROT.name());
 printer.print_string ("HSIZE", HSIZE.name());
