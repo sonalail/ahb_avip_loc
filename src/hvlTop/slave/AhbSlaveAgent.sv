@@ -1,5 +1,5 @@
-`ifndef AHB_SLAVE_AGENT_INCLUDED_
-`define AHB_SLAVE_AGENT_INCLUDED_
+`ifndef AHBSLAVEAGENT_INCLUDED_
+`define AHBSLAVEAGENT_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbSlaveAgent 
@@ -11,23 +11,23 @@ class AhbSlaveAgent extends uvm_agent;
 
   //Variable: ahb_slave_agent_cfg_h
   //Declaring handle for AhbSlaveAgentConfig class 
-  AhbSlaveAgentConfig ahb_slave_agent_cfg_h;
+  AhbSlaveAgentConfig ahbSlaveAgentConfig;
 
-  //Varible: ahb_slave_seqr_h
+  //Varible: ahbSlaveSeqr
   //Handle for  AhbSlaveSequencer
-  AhbSlaveSequencer ahb_slave_seqr_h;
+  AhbSlaveSequencer ahbSlaveSeqr;
   
-  //Variable: ahb_slave_drv_proxy_h
+  //Variable: ahbSlaveDrvProxy
   //Creating a Handle for AhbSlaveDriverProxy
-  AhbSlaveDriverProxy ahb_slave_drv_proxy_h;
+  AhbSlaveDriverProxy ahbSlaveDrvProxy;
 
-  //Variable: apb_slave_mon_proxy_h
+  //Variable: apbSlaveMonProxy
   //Declaring a handle for AhbSlaveMonitorProxy
-  AhbSlaveMonitorProxy ahb_slave_mon_proxy_h;
+  AhbSlaveMonitorProxy apbSlaveMonProxy;
 
-  // Variable: ahb_slave_cov_h
+  // Variable: ahbSlaveCov
   // Decalring a handle for AhbSlaveCoverage
-  AhbSlaveCoverage ahb_slave_cov_h;
+  AhbSlaveCoverage ahbSlaveCov;
   
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
@@ -61,21 +61,21 @@ endfunction : new
 function void AhbSlaveAgent::build_phase(uvm_phase phase);
   super.build_phase(phase);
 
-  if(!uvm_config_db #(AhbSlaveAgentConfig)::get(this,"","AhbSlaveAgentConfig", ahb_slave_agent_cfg_h)) begin
-    `uvm_fatal("FATAL_MA_CANNOT_GET_AHB_SLAVE_AGENT_CONFIG", "cannot get ahb_master_agent_cfg_h from uvm_config_db");
+  if(!uvm_config_db #(AhbSlaveAgentConfig)::get(this,"","AhbSlaveAgentConfig", ahbSlaveAgentConfig)) begin
+    `uvm_fatal("FATAL_MA_CANNOT_GET_AHB_SLAVE_AGENT_CONFIG", "cannot get ahbMasterAgentConfig from uvm_config_db");
   end
 
-  if(ahb_slave_agent_cfg_h.is_active == UVM_ACTIVE) begin
+  if(ahbSlaveAgentConfig.is_active == UVM_ACTIVE) begin
     
     
-    ahb_slave_seqr_h = AhbSlaveSequencer::type_id::create("ahb_slave_seqr_h",this);
-    ahb_slave_drv_proxy_h = AhbSlaveDriverProxy::type_id::create("ahb_slave_drv_proxy_h",this);
+    ahbSlaveSeqr = AhbSlaveSequencer::type_id::create("ahbSlaveSeqr",this);
+    ahbSlaveDrvProxy = AhbSlaveDriverProxy::type_id::create("ahbSlaveDrvProxy",this);
   end
 
-  ahb_slave_mon_proxy_h=AhbSlaveMonitorProxy::type_id::create("ahb_slave_mon_proxy_h",this);
+  ahbSlaveMonProxy=AhbSlaveMonitorProxy::type_id::create("ahbSlaveMonProxy",this);
 
-  if(ahb_slave_agent_cfg_h.has_coverage) begin
-    ahb_slave_cov_h = AhbSlaveCoverage::type_id::create("ahb_slave_cov_h",this);
+  if(ahbSlaveAgentConfig.has_coverage) begin
+    ahbSlaveCov = AhbSlaveCoverage::type_id::create("ahbSlaveCov",this);
   end
 
 endfunction : build_phase
@@ -88,22 +88,22 @@ endfunction : build_phase
 // phase - uvm phase
 //--------------------------------------------------------------------------------------------
 function void AhbSlaveAgent::connect_phase(uvm_phase phase);
-  if(ahb_slave_agent_cfg_h.is_active == UVM_ACTIVE) begin
-    ahb_slave_drv_proxy_h.ahb_slave_agent_cfg_h = ahb_slave_agent_cfg_h;
-    ahb_slave_seqr_h.ahb_slave_agent_cfg_h = ahb_slave_agent_cfg_h;
+  if(ahbSlaveAgentConfig.is_active == UVM_ACTIVE) begin
+    ahbSlaveDrvProxy.ahbSlaveAgentConfig = ahbSlaveAgentConfig;
+    ahbSlaveSeqr.ahbSlaveAgentConfig = ahbSlaveAgentConfig;
     
     //Connecting AhbSlaveDriverProxy port to AhbSlaveSequencer export
-    ahb_slave_drv_proxy_h.seq_item_port.connect(ahb_slave_seqr_h.seq_item_export);
+    ahbSlaveDrvProxy.seq_item_port.connect(ahbSlaveSeqr.seq_item_export);
   end
-  ahb_slave_mon_proxy_h.ahb_slave_agent_cfg_h = ahb_slave_agent_cfg_h;
+  ahbSlaveMonProxy.ahbSlaveAgentConfig = ahbSlaveAgentConfig;
 
-  if(ahb_slave_agent_cfg_h.has_coverage) begin
-    ahb_slave_cov_h.ahb_slave_agent_cfg_h = ahb_slave_agent_cfg_h;
+  if(ahbSlaveAgentConfig.has_coverage) begin
+    ahbSlaveCov.ahbSlaveAgentConfig = ahbSlaveAgentConfig;
   
     //Connecting AhbSlaveMonitorProxyport to AhbSlaveCoverage export
-    ahb_slave_mon_proxy_h.ahb_slave_analysis_port.connect(ahb_slave_cov_h.analysis_export);
+    ahbSlaveMonProxy.ahbSlave_analysis_port.connect(ahbSlaveCov.analysis_export);
   end
-    ahb_slave_mon_proxy_h.ahb_slave_agent_cfg_h = ahb_slave_agent_cfg_h;
+    ahbSlaveMonProxy.ahbSlaveAgentConfig = ahbSlaveAgentConfig;
 
 endfunction : connect_phase
 
