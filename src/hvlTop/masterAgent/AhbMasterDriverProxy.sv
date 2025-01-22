@@ -14,7 +14,7 @@ class AhbMasterDriverProxy extends uvm_driver #(AhbMasterTransaction);
 
   //Variable: ahbMasterTransaction
   //Declaring handle for ahbMasterTransaction
-  AhbMasterTransaction   ahbMasterTransaction;
+  AhbMasterDriverProxy   ahbMasterDriverProxy;
 
   //Variable: ahbMasterDriverTransaction;
   //Declaring handle for ahbMasterDriverBFM
