@@ -19,7 +19,7 @@ bit [NO_OF_SLAVES-1:0] hselx;
   
 // Variable : hburst
 // Indicates burst type
-ahbburstenum hburst;
+ahbBurstEnum hburst;
 
 // Variable : hmastlock
 // Indicates a locked sequence
@@ -27,11 +27,11 @@ bit hmastlock;
 
 // Variable : hprot
 // Protection control signal
-ahbprotectionenum hprot;
+ahbProtectionEnum hprot;
 
 // Variable : hsize
 // Indicates the size of a transfer
-ahbhsizenum hsize;
+ahbHsizeEnum hsize;
 
 // Variable : hnonsec
 // Indicates whether the transfer is Non-secure or Secure
@@ -47,7 +47,7 @@ bit [HMASTER_WIDTH-1:0] hmaster;
 
 // Variable : htrans
 // Indicates the transfer type
-ahbtransferenum htrans;
+ahbTransferEnum htrans;
 
 // Variable : hwddata
 // Write data bus
@@ -72,7 +72,7 @@ rand bit hreadyout;
 
 // Variable : hresp
 // Transfer response status (0 = OKAY, 1 = ERROR)
-rand ahbrespenum hresp;
+rand ahbRespEnum hresp;
 
 // Variable : hexokay
 // Indicates Exclusive OKAY status
