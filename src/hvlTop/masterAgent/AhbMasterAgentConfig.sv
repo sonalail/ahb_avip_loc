@@ -1,8 +1,8 @@
  // Code your testbench here
 // or browse Examples
 
-`ifndef AhbMasterAgentConfig_INCLUDED_
-`define AhbMasterAgentConfig_INCLUDED_
+`ifndef AHBMASTERAGENTCONFIG_INCLUDED_
+`define AHBMASTERAGENTCONFIG_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbMasterAgentConfig
@@ -14,7 +14,7 @@ class AhbMasterAgentConfig extends uvm_object;
 
   //Variable: is_active
   //Used for creating the agent in either passive or active mode
- // uvm_active_passive_enum is_active = UVM_ACTIVE;  
+ uvm_active_passive_enum is_active = UVM_ACTIVE;  
 
   //Variable: NO_OF_SLAVES
   //Used for specifying the number of slaves connected to this ahb_master over ahb interface
@@ -26,7 +26,7 @@ class AhbMasterAgentConfig extends uvm_object;
 
   //Variable: master_memory
   //Memory decleration for master to store the data of each slave
- bit [ADDR_WIDTH-1:0]HADDR;
+ //bit [ADDR_WIDTH-1:0]HADDR;
 
   //Variable : master_memory
   //Used to store all the data from the slaves
@@ -78,8 +78,8 @@ endfunction : new
 function void AhbMasterAgentConfig::do_print(uvm_printer printer);
   super.do_print(printer);
 
-//  printer.print_field ("is_active",    is_active,    $bits(is_active),    UVM_DEC);
- // printer.print_field ("has_coverage", has_coverage, $bits(has_coverage), UVM_DEC);
+ printer.print_field ("is_active",    is_active,    $bits(is_active),    UVM_DEC);
+ printer.print_field ("hasCoverage", hasCoverage, $bits(has_coverage), UVM_DEC);
  printer.print_field ("NO OF SLAVES", noOfSlaves, $bits(noOfSlaves), UVM_DEC);
 
 endfunction : do_print
