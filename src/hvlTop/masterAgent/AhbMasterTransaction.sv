@@ -206,7 +206,7 @@ printer.print_field  ("HWSTRB", HWSTRB, $bits(HWSTRB), UVM_BIN);
 printer.print_field ("HWRITE", HWRITE, $bits(HWRITE), UVM_BIN);
 printer.print_field  ("HRDATA", HRDATA, $bits(HRDATA), UVM_HEX);
  printer.print_field ("HREADYOUT", HREADYOUT,$bits(HREADYOUT),UVM_HEX);
-printer.print_string ("HRESP", HRESP.name());
+ printer.print_string ("HRESP", HRESP.name());
 //printer.print_string ("HEXOKAY", HEXOKAY.name());
  printer.print_field ("HREADY", HREADY,$bits(HREADY),UVM_HEX);
 
