@@ -5,7 +5,7 @@
 // Class: AhbMasterCoverage
 // This class is used to include covergroups and bins required for functional coverage
 //--------------------------------------------------------------------------------------------
-class AhbMasterCoverage extends uvm_subscriber #(AhbSlaveTransaction);
+class AhbSlaveCoverage extends uvm_subscriber #(AhbSlaveTransaction);
   `uvm_component_utils(AhbSlaveCoverage)
  
   //Variable: ahb_slave_agent_cfg_h
