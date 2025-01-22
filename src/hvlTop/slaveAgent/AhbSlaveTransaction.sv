@@ -179,7 +179,7 @@ hrdata    == ahbSlaveTransaction.hrdata    &&
 hreadyout == ahbSlaveTransaction.hreadyout &&
 hresp     == ahbSlaveTransaction.hresp     &&
 // && hexokay   == ahbSlaveTransaction.hexokay;
-hready    = ahbSlaveTransaction.hready;
+hready    == ahbSlaveTransaction.hready;
 endfunction : do_compare
 
 //--------------------------------------------------------------------------------------------
