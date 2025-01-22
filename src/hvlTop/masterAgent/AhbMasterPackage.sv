@@ -4,7 +4,7 @@
 
 //--------------------------------------------------------------------------------------------
 // Package: AhbMasterPackage
-//  Includes all the files related to ahb_master
+//  Includes all the files related to AhbMaster
 //--------------------------------------------------------------------------------------------
 package AhbMasterPackage;
 
