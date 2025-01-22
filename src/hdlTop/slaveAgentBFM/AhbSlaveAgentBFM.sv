@@ -20,57 +20,57 @@ module AhbSlaveAgentBFM #(parameter int SLAVE_ID=0) (AhbInterface ahbInterface);
   //-------------------------------------------------------
   // slave driver bfm instantiation
   //-------------------------------------------------------
-  AhbSlaveDriverBFM ahbSlaveDriverBFM(.HCLK(ahbInterface.HCLK),
-                                           .HRESETn(ahbInterface.HRESETn),
-                                           .HSELx(ahbInterface.HSELx),
-                                           .HBURST(ahbInterface.HBURST),
-                                           .HMASTLOCK(ahbInterface.HMASTLOCK),
-                                           .HADDR(ahbInterface.HADDR),
-                                           .HPROT(ahbInterface.HPROT),
-                                           .HSIZE(ahbInterface.HSIZE),
-                                           .HNONSEC(ahbInterface.HNONSEC),
-                                           .HEXCL(ahbInterface.HEXCL),
-                                           .HMASTER(ahbInterface.HMASTER),
-                                           .HTRANS(ahbInterface.HTRANS),
-                                           .HWDATA(ahbInterface.HWDATA),
-                                           .HWSTRB(ahbInterface.HWSTRB),
-                                           .HWRITE(ahbInterface.HWRITE),
-                                           .HRDATA(ahbInterface.HRDATA),
-                                           .HREADYOUT(ahbInterface.HREADYOUT),
-                                           .HRESP(ahbInterface.HRESP),
-                                           .HEXOKAY(ahbInterface.HEXOKAY),
-                                           .HREADY(ahbInterface.HREADY),
+  AhbSlaveDriverBFM ahbSlaveDriverBFM(.hclk(ahbInterface.hclk),
+                                           .hresetn(ahbInterface.hresetn),
+                                           .hselx(ahbInterface.hselx),
+                                           .hburst(ahbInterface.hburst),
+                                           .hmastlock(ahbInterface.hmastlock),
+                                           .haddr(ahbInterface.haddr),
+                                           .hprot(ahbInterface.hprot),
+                                           .hsize(ahbInterface.hsize),
+                                           .hnonsec(ahbInterface.hnonsec),
+                                           .hexcl(ahbInterface.hexcl),
+                                           .hmaster(ahbInterface.hmaster),
+                                           .htrans(ahbInterface.htrans),
+                                           .hwdata(ahbInterface.hwdata),
+                                           .hwstrb(ahbInterface.hwstrb),
+                                           .hwrite(ahbInterface.hwrite),
+                                           .hrdata(ahbInterface.hrdata),
+                                           .hreadyout(ahbInterface.hreadyout),
+                                           .hresp(ahbInterface.hresp),
+                                           .hexokay(ahbInterface.hexokay),
+                                           .hready(ahbInterface.hready),
                                           );
 
 
   //-------------------------------------------------------
   // slave monitor bfm instantiation
   //-------------------------------------------------------
-  AhbSlaveMonitorBFM ahbSlaveMonitorBFM(.HCLK(ahbInterface.HCLK),
-                                           .HRESETn(ahbInterface.HRESETn),
-                                           .HSELx(ahbInterface.HSELx),
-                                           .HBURST(ahbInterface.HBURST),
-                                           .HMASTLOCK(ahbInterface.HMASTLOCK),
-                                           .HADDR(ahbInterface.HADDR),
-                                           .HPROT(ahbInterface.HPROT),
-                                           .HSIZE(ahbInterface.HSIZE),
-                                           .HNONSEC(ahbInterface.HNONSEC),
-                                           .HEXCL(ahbInterface.HEXCL),
-                                           .HMASTER(ahbInterface.HMASTER),
-                                           .HTRANS(ahbInterface.HTRANS),
-                                           .HWDATA(ahbInterface.HWDATA),
-                                           .HWSTRB(ahbInterface.HWSTRB),
-                                           .HWRITE(ahbInterface.HWRITE),
-                                           .HRDATA(ahbInterface.HRDATA),
-                                           .HREADYOUT(ahbInterface.HREADYOUT),
-                                           .HRESP(ahbInterface.HRESP),
-                                           .HEXOKAY(ahbInterface.HEXOKAY),
-                                           .HREADY(ahbInterface.HREADY),
+  AhbSlaveMonitorBFM ahbSlaveMonitorBFM(.hclk(ahbInterface.hclk),
+                                           .hresetn(ahbInterface.hresetn),
+                                           .hselx(ahbInterface.hselx),
+                                           .hburst(ahbInterface.hburst),
+                                           .hmastlock(ahbInterface.hmastlock),
+                                           .haddr(ahbInterface.haddr),
+                                           .hprot(ahbInterface.hprot),
+                                           .hsize(ahbInterface.hsize),
+                                           .hnonsec(ahbInterface.hnonsec),
+                                           .hexcl(ahbInterface.hexcl),
+                                           .hmaster(ahbInterface.hmaster),
+                                           .htrans(ahbInterface.htrans),
+                                           .hwdata(ahbInterface.hwdata),
+                                           .hwstrb(ahbInterface.hwstrb),
+                                           .hwrite(ahbInterface.hwrite),
+                                           .hrdata(ahbInterface.hrdata),
+                                           .hreadyout(ahbInterface.hreadyout),
+                                           .hresp(ahbInterface.hresp),
+                                           .hexokay(ahbInterface.hexokay),
+                                           .hready(ahbInterface.hready),
                                           );
   initial begin
     uvm_config_db#(virtual AhbSlaveDriverBFM)::set(null,"*", "ahb_slave_driver_bfm", ahbSlaveDriverBFM); 
     uvm_config_db #(virtual AhbSlaveMonitorBFM)::set(null,"*", "ahb_slave_monitor_bfm", ahbSlaveMonitorBFM); 
-    `uvm_info("SLAVE_AGENT_BFM",$sformatf("HSELx=%0d",intf.HSELx),UVM_HIGH)
+    `uvm_info("SLAVE_AGENT_BFM",$sformatf("HSELx=%0d",intf.hselx),UVM_HIGH)
     `uvm_info("SLAVE_AGENT_BFM",$sformatf("HSELx=%0d",SLAVE_ID),UVM_HIGH)
   end
 
