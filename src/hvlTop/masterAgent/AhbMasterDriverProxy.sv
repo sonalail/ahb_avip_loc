@@ -99,7 +99,7 @@ task AhbMasterDriverProxy::run_phase(uvm_phase phase);
   //wait for system reset
   ahbMasterDriverBFM.waitForHRESETn();
 
-uvm_info(get_type_name(), $sformatf(" run phase inside master driver proxy \n "), UVM_NONE);
+`uvm_info(get_type_name(), $sformatf(" run phase inside master driver proxy \n "), UVM_NONE);
 
 
   forever begin
