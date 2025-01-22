@@ -1,7 +1,5 @@
- // Code your testbench here
-// or browse Example
-`ifndef AhbSlaveAgentConfig_INCLUDED_
-`define AhbSlaveAgentConfig_INCLUDED_
+`ifndef AHBSLAVEAGENTCONFIG_INCLUDED_
+`define AHBSLAVEAGENTCONFIG_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbSlaveAgentConfig
