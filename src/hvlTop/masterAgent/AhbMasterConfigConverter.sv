@@ -36,7 +36,7 @@ endfunction : new
   outputConv.HADDR = inputConv.HADDR;
   `uvm_info("AhbMasterConfigConverter",$sformatf("after randomizing addr = \n %p",outputConv.HADDR),UVM_HIGH);
 
-endfunction : from_class
+endfunction : fromClass
 
 //---------------------------------------------------------------------------------------------
 // Function: do_print method
