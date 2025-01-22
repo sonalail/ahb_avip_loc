@@ -72,11 +72,11 @@ class AhbSlaveTransaction extends uvm_sequence_item;
 
   // Variable : HRESP
   // Transfer response status (0 = OKAY, 1 = ERROR)
-  rand bit HRESP;
+  rand ahbRespEnum HRESP;
 
   // Variable : HEXOKAY
   // Indicates Exclusive OKAY status
-  rand ahbRespEnum HEXOKAY;
+ // rand ahbRespEnum HEXOKAY;
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
