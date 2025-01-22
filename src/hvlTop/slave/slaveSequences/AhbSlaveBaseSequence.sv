@@ -1,5 +1,5 @@
-`ifndef AHB_SLAVE_BASE_SEQUENCE_INCLUDED_
-`define AHB_SLAVE_BASE_SEQUENCE_INCLUDED_
+`ifndef AHBSLAVEBASESEQUENCE_INCLUDED_
+`define AHBSLAVEBASESEQUENCE_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbSlaveBaseSequence
@@ -8,13 +8,13 @@
 class AhbSlaveBaseSequence extends uvm_sequence#(uvm_sequence_item);
   `uvm_object_utils(AhbSlaveBaseSequence)
 
-  // Variable: seqr_h
+  // Variable: seqr
   // Handle for the AHB slave sequencer
-  AhbSlaveSequencer ahb_slave_seqr_h;
+  AhbSlaveSequencer ahbSlaveSeqr;
 
-  // Variable: item_h
+  // Variable: item
   // Handle for the AHB slave transaction (sequence item)
-  AhbSlaveTransaction ahb_slave_tx_h;
+  AhbSlaveTransaction ahbSlaveTx;
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
