@@ -71,7 +71,7 @@ function void AhbMasterAgent::build_phase(uvm_phase phase);
   
   ahbMasterMonitorProxy = AhbMasterMonitorProxy::type_id::create("ahbMasterMonitorProxy",this);
 
-  if(ahbMasterAgentConfig.has_coverage) begin
+  if(ahbMasterAgentConfig.hasCoverage) begin
     ahbMasterCoverage = AhbMasterCoverage::type_id::create("ahbMasterCoverage",this);
   end
   
@@ -94,7 +94,7 @@ function void AhbMasterAgent::connect_phase(uvm_phase phase);
   end
   ahbMasterMonitorProxy.ahbMasterAgentConfig = ahbMasterAgentConfig;
 
-  if(ahbMasterAgentConfig.has_coverage) begin
+  if(ahbMasterAgentConfig.hasCoverage) begin
     ahbMasterCoverage.ahbMasterAgentConfig = ahbMasterAgentConfig;
   
     //Connecting AhbSlaveMonitorProxy port to AhbSlaveSequencerCoverage export
