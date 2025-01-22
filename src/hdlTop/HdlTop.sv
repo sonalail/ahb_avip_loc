@@ -1,5 +1,5 @@
-`ifndef HDL_TOP_INCLUDED
-`define HDL_TOP_INCLUDED
+`ifndef HDLTOP_INCLUDED
+`define HDLTOP_INCLUDED
 
 //--------------------------------------------------------------------------------------------
 // Module      : HDL Top
@@ -56,12 +56,12 @@ module HdlTop;
   //-------------------------------------------------------
   // AHB Interface Instantiation
   //-------------------------------------------------------
-  AhbInterface intf(hclk,hresetn);
+  AhbInterface ahbInterface(hclk,hresetn);
 
   //-------------------------------------------------------
   // AHB Master BFM Agent Instantiation
   //-------------------------------------------------------
-  AhbMasterAgentBFM ahbMasterAgentBFM(intf); 
+  AhbMasterAgentBFM ahbMasterAgentBFM(ahbInterface); 
   
   //-------------------------------------------------------
   // AHB Slave BFM Agent Instantiation
@@ -69,7 +69,7 @@ module HdlTop;
   genvar i;
   generate
     for (i=0; i < NO_OF_SLAVES; i++) begin : AhbSlaveAgentBFM
-      AhbSlaveAgentBFM #(.SLAVE_ID(i)) ahbSlaveAgentBFM(intf);
+      AhbSlaveAgentBFM #(.SLAVE_ID(i)) ahbSlaveAgentBFM(ahbInterface);
       defparam AhbSlaveAgentBFM[i].AhbSlaveAgentBFM.SLAVE_ID = i;
     end
   endgenerate
