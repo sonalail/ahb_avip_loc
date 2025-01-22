@@ -12,24 +12,24 @@ import AhbGlobalPackage::*;
 //  Connects the master monitor bfm with the master monitor proxy
 //--------------------------------------------------------------------------------------------
 interface AhbMasterMonitorBFM(
-    input logic [ADDR_WIDTH-1:0] HADDR,
-    input logic [NO_OF_SLAVES-1:0] HSELx,
-    input logic [2:0] HBURST,
-    input logic HMASTLOCK,
-    input logic [HPROT_WIDTH-1:0] HPROT,
-    input logic [2:0] HSIZE,
-    input logic HNONSEC,
-    input logic HEXCL,
-    input logic [HMASTER_WIDTH-1:0] HMASTER,
-    input logic [1:0] HTRANS,
-    input logic [DATA_WIDTH-1:0] HWDATA,
-    input logic [(DATA_WIDTH/8)-1:0] HWSTRB,
-    input logic HWRITE,
-    input logic [DATA_WIDTH-1:0] HRDATA,
-    input logic HREADYOUT,
-    input logic HRESP,
-    input logic HEXOKAY,
-    input logic HREADY
+    input logic [ADDR_WIDTH-1:0] haddr,
+    input logic [NO_OF_SLAVES-1:0] hselx,
+    input logic [2:0] hburst,
+    input logic hmastlock,
+    input logic [HPROT_WIDTH-1:0] hprot,
+    input logic [2:0] hsize,
+    input logic hnonsec,
+    input logic hexcl,
+    input logic [HMASTER_WIDTH-1:0] hmaster,
+    input logic [1:0] htrans,
+    input logic [DATA_WIDTH-1:0] hwdata,
+    input logic [(DATA_WIDTH/8)-1:0] hwstrb,
+    input logic hwrite,
+    input logic [DATA_WIDTH-1:0] hrdata,
+    input logic hreadyout,
+    input logic hresp,
+    input logic hexokay,
+    input logic hready
 );
   //-------------------------------------------------------
   // Importing uvm package and AhbMasterPackage file
@@ -55,16 +55,16 @@ interface AhbMasterMonitorBFM(
   end
 
   //-------------------------------------------------------
-  // Task: waitForRESETn
+  // Task: waitForResetn
   //  Waiting for the system reset to be active low
   //-------------------------------------------------------
-  task waitForRESETn();
-    @(negedge HRESETn);
+  task waitForResetn();
+      @(negedge hresetn);
     `uvm_info(name, $sformatf("system reset detected"), UVM_HIGH)
     
-    @(posedge HRESETn);
+    @(posedge hresetn);
     `uvm_info(name, $sformatf("system reset deactivated"), UVM_HIGH)
-  endtask : waitForRESETn
+  endtask : waitForResetn
   
   //-------------------------------------------------------
   // Task: sampleData
