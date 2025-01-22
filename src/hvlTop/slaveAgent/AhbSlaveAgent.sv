@@ -23,7 +23,7 @@ class AhbSlaveAgent extends uvm_agent;
 
   //Variable: apbSlaveMonProxy
   //Declaring a handle for AhbSlaveMonitorProxy
-  AhbSlaveMonitorProxy apbSlaveMonProxy;
+  AhbSlaveMonitorProxy ahbSlaveMonProxy;
 
   // Variable: ahbSlaveCov
   // Decalring a handle for AhbSlaveCoverage
