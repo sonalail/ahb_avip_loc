@@ -1,5 +1,5 @@
-`ifndef AHB_SLAVE_CFG_CONVERTER_INCLUDED_
-`define AHB_SLAVE_CFG_CONVERTER_INCLUDED_
+`ifndef AHBSLAVECONFIGCONVERTER_INCLUDED_
+`define AHBSLAVECONFIGCONVERTER_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbSlaveConfigConverter
@@ -12,7 +12,7 @@ class AhbSlaveConfigConverter extends uvm_object;
   // Externally defined Tasks and Functions
   //-------------------------------------------------------
   extern function new(string name = "AhbSlaveConfigConverter");
-    extern static function void from_class(input AhbSlaveAgentConfig input_conv_h, output ahb_transfer_cfg_s output_conv_h);
+    extern static function void fromClass(input AhbSlaveAgentConfig inputConv, output ahbTransferConfigStruct outputConv);
   extern function void do_print(uvm_printer printer);
 
 endclass : AhbSlaveConfigConverter
@@ -31,8 +31,8 @@ endfunction : new
 // Function: from_class
 //  Converting AhbSlaveAgentConfig configurations into structure configutrations
 //--------------------------------------------------------------------------------------------
-function void AhbSlaveConfigConverter::from_class(input AhbSlaveAgentConfig input_conv_h, 
-                                                  output apb_transfer_cfg_s output_conv_h);
+    function void AhbSlaveConfigConverter::fromClass(input AhbSlaveAgentConfig inputConv, 
+                                                  output ahbTransferConfigStruct outputConv);
   
   `uvm_info("Ahb_seq_item_conv_from_class",$sformatf("--\n----------------------------------------SLAVE_CFG_CONVERTER_FROM_CLASS--------------------------------------"),UVM_HIGH);
   
@@ -49,7 +49,7 @@ function void AhbSlaveConfigConverter::from_class(input AhbSlaveAgentConfig inpu
   
   `uvm_info("Ahb_slave_config_converter","--\n------------------------------------------------------------EOP---------------------------------------------------- ",UVM_HIGH);
 
-endfunction : from_class
+endfunction : fromClass
 
 //---------------------------------------------------------------------------------------------
 // Function: do_print method
@@ -60,7 +60,7 @@ endfunction : from_class
 //---------------------------------------------------------------------------------------------
 function void AhbSlaveConfigConverter::do_print(uvm_printer printer);
   
-  ahb_transfer_cfg_s apb_st;
+  ahbTransferConfigStruct ahbStruct;
   super.do_print(printer);
  
   /* printer.print_field( "min_address", apb_st.min_address, $bits(apb_st.min_address),UVM_HEX);
