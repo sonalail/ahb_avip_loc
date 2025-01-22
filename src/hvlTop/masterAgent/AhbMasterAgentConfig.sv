@@ -79,7 +79,7 @@ function void AhbMasterAgentConfig::do_print(uvm_printer printer);
   super.do_print(printer);
 
  printer.print_field ("is_active",    is_active,    $bits(is_active),    UVM_DEC);
- printer.print_field ("hasCoverage", hasCoverage, $bits(has_coverage), UVM_DEC);
+ printer.print_field ("hasCoverage", hasCoverage, $bits(hasCoverage), UVM_DEC);
  printer.print_field ("NO OF SLAVES", noOfSlaves, $bits(noOfSlaves), UVM_DEC);
 
 endfunction : do_print
