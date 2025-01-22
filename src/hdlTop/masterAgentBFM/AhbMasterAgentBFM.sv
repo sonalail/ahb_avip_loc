@@ -5,7 +5,7 @@
 // Module      : AHB Master Agent BFM
 // Description : Instantiates driver and monitor for AHB interface
 //--------------------------------------------------------------------------------------------
-module AhbMasterAgentBFM(AhbInterface intf); // Change interface to AhbInterface
+module AhbMasterAgentBFM(AhbInterface ahbInterface); // Change interface to AhbInterface
 
   //-------------------------------------------------------
   // Importing uvm package file
@@ -21,52 +21,52 @@ module AhbMasterAgentBFM(AhbInterface intf); // Change interface to AhbInterface
   // master driver bfm instantiation
   //-------------------------------------------------------
   AhbMasterDriverBFM ahbMasterDriverBFM (
-    .HCLK(intf.HCLK),
-    .HRESETn(intf.HRESETn),
-    .HADDR(intf.HADDR),
-    .HBURST(intf.HBURST),
-    .HMASTLOCK(intf.HMASTLOCK),
-    .HPROT(intf.HPROT),
-    .HSIZE(intf.HSIZE),
-    .HNONSEC(intf.HNONSEC),
-    .HEXCL(intf.HEXCL),
-    .HMASTER(intf.HMASTER),
-    .HTRANS(intf.HTRANS),
-    .HWDATA(intf.HWDATA),
-    .HWSTRB(intf.HWSTRB),
-    .HWRITE(intf.HWRITE),
-    .HRDATA(intf.HRDATA),
-    .HREADYOUT(intf.HREADYOUT),
-    .HRESP(intf.HRESP),
-    .HEXOKAY(intf.HEXOKAY),
-    .HREADY(intf.HREADY),
-    .HSELx(intf.HSELx)
+    .HCLK(ahbInterface.HCLK),
+    .HRESETn(ahbInterface.HRESETn),
+    .HADDR(ahbInterface.HADDR),
+    .HBURST(ahbInterface.HBURST),
+    .HMASTLOCK(ahbInterface.HMASTLOCK),
+    .HPROT(ahbInterface.HPROT),
+    .HSIZE(ahbInterface.HSIZE),
+    .HNONSEC(ahbInterface.HNONSEC),
+    .HEXCL(ahbInterface.HEXCL),
+    .HMASTER(ahbInterface.HMASTER),
+    .HTRANS(ahbInterface.HTRANS),
+    .HWDATA(ahbInterface.HWDATA),
+    .HWSTRB(ahbInterface.HWSTRB),
+    .HWRITE(ahbInterface.HWRITE),
+    .HRDATA(ahbInterface.HRDATA),
+    .HREADYOUT(ahbInterface.HREADYOUT),
+    .HRESP(ahbInterface.HRESP),
+    .HEXOKAY(ahbInterface.HEXOKAY),
+    .HREADY(ahbInterface.HREADY),
+    .HSELx(ahbInterface.HSELx)
   );
 
   //-------------------------------------------------------
   // master monitor bfm instantiation
   //-------------------------------------------------------
   AhbMasterMonitorBFM ahbMasterMonitorBFM (
-    .HCLK(intf.HCLK),
-    .HRESETn(intf.HRESETn),
-    .HADDR(intf.HADDR),
-    .HBURST(intf.HBURST),
-    .HMASTLOCK(intf.HMASTLOCK),
-    .HPROT(intf.HPROT),
-    .HSIZE(intf.HSIZE),
-    .HNONSEC(intf.HNONSEC),
-    .HEXCL(intf.HEXCL),
-    .HMASTER(intf.HMASTER),
-    .HTRANS(intf.HTRANS),
-    .HWDATA(intf.HWDATA),
-    .HWSTRB(intf.HWSTRB),
-    .HWRITE(intf.HWRITE),
-    .HRDATA(intf.HRDATA),
-    .HREADYOUT(intf.HREADYOUT),
-    .HRESP(intf.HRESP),
-    .HEXOKAY(intf.HEXOKAY),
-    .HREADY(intf.HREADY),
-    .HSELx(intf.HSELx)
+    .HCLK(ahbInterface.HCLK),
+    .HRESETn(ahbInterface.HRESETn),
+    .HADDR(ahbInterface.HADDR),
+    .HBURST(ahbInterface.HBURST),
+    .HMASTLOCK(ahbInterface.HMASTLOCK),
+    .HPROT(ahbInterface.HPROT),
+    .HSIZE(ahbInterface.HSIZE),
+    .HNONSEC(ahbInterface.HNONSEC),
+    .HEXCL(ahbInterface.HEXCL),
+    .HMASTER(ahbInterface.HMASTER),
+    .HTRANS(ahbInterface.HTRANS),
+    .HWDATA(ahbInterface.HWDATA),
+    .HWSTRB(ahbInterface.HWSTRB),
+    .HWRITE(ahbInterface.HWRITE),
+    .HRDATA(ahbInterface.HRDATA),
+    .HREADYOUT(ahbInterface.HREADYOUT),
+    .HRESP(ahbInterface.HRESP),
+    .HEXOKAY(ahbInterface.HEXOKAY),
+    .HREADY(ahbInterface.HREADY),
+    .HSELx(ahbInterface.HSELx)
   );
 
   //-------------------------------------------------------
