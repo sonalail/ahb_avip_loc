@@ -203,7 +203,7 @@ printer.print_field  ("HMASTER", HMASTER, $bits(HMASTER), UVM_DEC);
 printer.print_string ("HTRANS", HTRANS.name());
 printer.print_field  ("HWDATA", HWDATA, $bits(HWDATA), UVM_HEX);
 printer.print_field  ("HWSTRB", HWSTRB, $bits(HWSTRB), UVM_BIN);
-printer.print_string ("HWRITE", HWRITE, $bits(HWRITE), UVM_BIN);
+printer.print_field ("HWRITE", HWRITE, $bits(HWRITE), UVM_BIN);
 printer.print_field  ("HRDATA", HRDATA, $bits(HRDATA), UVM_HEX);
  printer.print_field ("HREADYOUT", HREADYOUT,$bits(HREADYOUT),UVM_HEX);
 printer.print_string ("HRESP", HRESP.name());
