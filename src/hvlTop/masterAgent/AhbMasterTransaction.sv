@@ -9,78 +9,78 @@
  class AhbMasterTransaction extends uvm_sequence_item;
   `uvm_object_utils(AhbMasterTransaction)
 
-  // Variable : HADDR
+  // Variable : haddr
   // Byte address of the transfer
-  rand bit [ADDR_WIDTH-1:0] HADDR;
+  rand bit [ADDR_WIDTH-1:0] haddr;
 
-  //Variable : HSELx
+  //Variable : hselx
   //Indicates the number of slaves
-  rand bit [NO_OF_SLAVES-1:0] HSELx;
+  rand bit [NO_OF_SLAVES-1:0] hselx;
   
-  // Variable : HBURST
+  // Variable : hburst
   // Indicates burst type
-  rand ahbBurstEnum HBURST;
+  rand ahbBurstEnum hburst;
 
-  // Variable : HMASTLOCK
+  // Variable : hmastlock
   // Indicates a locked sequence
-  rand bit HMASTLOCK;
+  rand bit hmastlock;
 
-  // Variable : HPROT
+  // Variable : hprot
   // Protection control signal
-  rand ahbProtectionEnum HPROT;
+  rand ahbProtectionEnum hprot;
 
-  // Variable : HSIZE
+  // Variable : hsize
   // Indicates the size of a transfer
-  rand ahbHsizeEnum HSIZE;
+  rand ahbHsizeEnum hsize;
 
-  // Variable : HNONSEC
+  // Variable : hnonsec
   // Indicates whether the transfer is Non-secure or Secure
-  rand bit HNONSEC;
+  rand bit hnonsec;
 
-  // Variable : HEXCL
+  // Variable : hexcl
   // Indicates Exclusive Access sequence
-  rand bit HEXCL;
+  rand bit hexcl;
 
-  // Variable : HMASTER
+  // Variable : hmaster
   // Manager identifier
-  rand bit [HMASTER_WIDTH-1:0] HMASTER;
+  rand bit [HMASTER_WIDTH-1:0] hmaster;
 
-  // Variable : HTRANS
+  // Variable : htrans
   // Indicates the transfer type
-  rand ahbTransferEnum HTRANS;
+  rand ahbTransferEnum htrans;
 
-  // Variable : HWDATA
+  // Variable : hwdata
   // Write data bus
-  rand bit [DATA_WIDTH-1:0] HWDATA;
+  rand bit [DATA_WIDTH-1:0] hwdata;
 
-  // Variable : HWSTRB
+  // Variable : hwstrb
   // Write strobes for active byte lanes
-  rand bit [(DATA_WIDTH/8)-1:0] HWSTRB;
+  rand bit [(DATA_WIDTH/8)-1:0] hwstrb;
 
-  // Variable : HWRITE
+  // Variable : hwrite
   // Indicates transfer direction (1 = write, 0 = read)
-  rand bit HWRITE;
+  rand bit hwrite;
 
-  // Variable : HRDATA
+  // Variable : hrdata
   // Read data bus
-  bit [DATA_WIDTH-1:0] HRDATA;
+  bit [DATA_WIDTH-1:0] hrdata;
 
-  // Variable : HREADYOUT
+  // Variable : hreadyout
   // Indicates transfer completion for a Subordinate
-  bit HREADYOUT;
+  bit hreadyout;
 
-  // Variable : HRESP
+  // Variable : hresp
   // Transfer response status (0 = OKAY, 1 = ERROR)
-  rand ahbRespEnum HRESP;
+  rand ahbRespEnum hresp;
 
-  // Variable : HEXOKAY
+  // Variable : hexokay
   // Indicates Exclusive OKAY status
- // ahbRespEnum HEXOKAY;
+ // ahbRespEnum hexokay;
 
-  // Variable : HREADY
+  // Variable : hready
   // Combined transfer completion for Manager and Subordinate
-  bit HREADY;
-
+  bit hready;
+  
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
   //-------------------------------------------------------
@@ -115,33 +115,33 @@ endfunction : new
 //  rhs - uvm_object
 //--------------------------------------------------------------------------------------------
 function void AhbMasterTransaction::do_copy (uvm_object rhs);
- AhbMasterTransaction ahbMasterTransactionCopyObject;
+ AhbMasterTransaction ahbMasterTransaction;
 
-  if(!$cast(ahbMasterTransactionCopyObject,rhs)) begin
+  if(!$cast(ahbMasterTransaction,rhs)) begin
     `uvm_fatal("do_copy","cast of the rhs object failed")
   end
   super.do_copy(rhs);
 
-HADDR      = ahbMasterTransactionCopyObject.HADDR;
-HSELx      = ahbMasterTransactionCopyObject.HSELx;
-HBURST     = ahbMasterTransactionCopyObject.HBURST;
-HMASTLOCK  = ahbMasterTransactionCopyObject.HMASTLOCK;
-HPROT      = ahbMasterTransactionCopyObject.HPROT;
-HSIZE      = ahbMasterTransactionCopyObject.HSIZE;
-HNONSEC    = ahbMasterTransactionCopyObject.HNONSEC;
-HEXCL      = ahbMasterTransactionCopyObject.HEXCL;
-HMASTER    = ahbMasterTransactionCopyObject.HMASTER;
-HTRANS     = ahbMasterTransactionCopyObject.HTRANS;
-HWDATA     = ahbMasterTransactionCopyObject.HWDATA;
-HWSTRB     = ahbMasterTransactionCopyObject.HWSTRB;
-HWRITE     = ahbMasterTransactionCopyObject.HWRITE;
+haddr      = ahbMasterTransaction.haddr;
+hselx      = ahbMasterTransaction.hselx;
+hburst     = ahbMasterTransaction.hburst;
+hmastlock  = ahbMasterTransaction.hmastlock;
+hprot      = ahbMasterTransaction.hprot;
+hsize      = ahbMasterTransaction.hsize;
+hnonsec    = ahbMasterTransaction.hnonsec;
+hexcl      = ahbMasterTransaction.hexcl;
+hmaster    = ahbMasterTransaction.hmaster;
+htrans     = ahbMasterTransaction.htrans;
+hwdata     = ahbMasterTransaction.hwdata;
+hwstrb     = ahbMasterTransaction.hwstrb;
+hwrite     = ahbMasterTransaction.hwrite;
 
 // Outputs for read transactions
-HRDATA     = ahbMasterTransactionCopyObject.HRDATA;
-HREADYOUT  = ahbMasterTransactionCopyObject.HREADYOUT;
-HRESP      = ahbMasterTransactionCopyObject.HRESP;
-//HEXOKAY    = ahbMasterTransactionCopyObject.HEXOKAY;
-HREADY     = ahbMasterTransactionCopyObject.HREADY;
+hrdata     = ahbMasterTransaction.hrdata;
+hreadyout  = ahbMasterTransaction.hreadyout;
+hresp      = ahbMasterTransaction.hresp;
+//hexokay    = ahbMasterTransaction.hexokay;
+hready     = ahbMasterTransaction.hready;
 
 endfunction : do_copy
 
@@ -153,35 +153,34 @@ endfunction : do_copy
 //  phase - uvm phase
 //--------------------------------------------------------------------------------------------
 function bit AhbMasterTransaction::do_compare (uvm_object rhs, uvm_comparer comparer);
-  AhbMasterTransaction ahbMasterTransactionCompareObject;
+  AhbMasterTransaction ahbMasterTransaction;
 
- if(!$cast(ahbMasterTransactionCompareObject,rhs)) begin
+ if(!$cast(ahbMasterTransaction,rhs)) begin
   `uvm_fatal("FATAL_AHB_MASTER_TX_DO_COMPARE_FAILED","cast of the rhs object failed")
     return 0;
   end
 
- return super.do_compare(ahbMasterTransactionCompareObject, comparer) &&
-HADDR    == ahbMasterTransactionCompareObject.HADDR    &&
-HSELx    == ahbMasterTransactionCompareObject.HSELx    &&
-HBURST   == ahbMasterTransactionCompareObject.HBURST   &&
-HMASTLOCK == ahbMasterTransactionCompareObject.HMASTLOCK &&
-HPROT    ==ahbMasterTransactionCompareObject.HPROT    &&
-HSIZE    == ahbMasterTransactionCompareObject.HSIZE    &&
-HNONSEC  == ahbMasterTransactionCompareObject.HNONSEC  &&
-HEXCL    == ahbMasterTransactionCompareObject.HEXCL    &&
-HMASTER  == ahbMasterTransactionCompareObject.HMASTER  &&
-HTRANS   == ahbMasterTransactionCompareObject.HTRANS   &&
-HWDATA   == ahbMasterTransactionCompareObject.HWDATA   &&
-HWSTRB   == ahbMasterTransactionCompareObject.HWSTRB   &&
-HWRITE   == ahbMasterTransactionCompareObject.HWRITE   &&
-HRDATA   == ahbMasterTransactionCompareObject.HRDATA   &&
-HREADYOUT == ahbMasterTransactionCompareObject.HREADYOUT &&
-HRESP    == ahbMasterTransactionCompareObject.HRESP    &&
-//HEXOKAY  == ahbMasterTransactionCompareObject.HEXOKAY  &&
-HREADY   == ahbMasterTransactionCompareObject.HREADY;
+ return super.do_compare(ahbMasterTransaction, comparer) &&
+haddr    == ahbMasterTransaction.haddr    &&
+hselx    == ahbMasterTransaction.hselx    &&
+hburst   == ahbMasterTransaction.hburst   &&
+hmastlock == ahbMasterTransaction.hmastlock &&
+hprot    == ahbMasterTransaction.hprot    &&
+hsize    == ahbMasterTransaction.hsize    &&
+hnonsec  == ahbMasterTransaction.hnonsec  &&
+hexcl    == ahbMasterTransaction.hexcl    &&
+hmaster  == ahbMasterTransaction.hmaster  &&
+htrans   == ahbMasterTransaction.htrans   &&
+hwdata   == ahbMasterTransaction.hwdata   &&
+hwstrb   == ahbMasterTransaction.hwstrb   &&
+hwrite   == ahbMasterTransaction.hwrite   &&
+hrdata   == ahbMasterTransaction.hrdata   &&
+hreadyout == ahbMasterTransaction.hreadyout &&
+hresp    == ahbMasterTransaction.hresp    &&
+//hexokay  == ahbMasterTransaction.hexokay  &&
+hready   == ahbMasterTransaction.hready;
 
 endfunction : do_compare
-
 //--------------------------------------------------------------------------------------------
 // Function: do_print method
 //  Print method can be added to display the data members values
@@ -191,27 +190,28 @@ endfunction : do_compare
 //--------------------------------------------------------------------------------------------
 function void AhbMasterTransaction::do_print(uvm_printer printer);
   
-printer.print_field  ("HADDR", HADDR, $bits(HADDR), UVM_HEX);
-printer.print_field  ("HSELx", HSELx, $bits(HSELx), UVM_BIN);
- printer.print_string ("HBURST", HBURST.name());
- printer.print_field ("HMASTLOCK", HMASTLOCK,$bits(HMASTLOCK),UVM_HEX);
-printer.print_string ("HPROT", HPROT.name());
-printer.print_string ("HSIZE", HSIZE.name());
- printer.print_field ("HNONSEC", HNONSEC,$bits(HNONSEC),UVM_HEX);
- printer.print_field ("HEXCL", HEXCL,$bits(HEXCL),UVM_HEX);
-printer.print_field  ("HMASTER", HMASTER, $bits(HMASTER), UVM_DEC);
-printer.print_string ("HTRANS", HTRANS.name());
-printer.print_field  ("HWDATA", HWDATA, $bits(HWDATA), UVM_HEX);
-printer.print_field  ("HWSTRB", HWSTRB, $bits(HWSTRB), UVM_BIN);
-printer.print_field ("HWRITE", HWRITE, $bits(HWRITE), UVM_BIN);
-printer.print_field  ("HRDATA", HRDATA, $bits(HRDATA), UVM_HEX);
- printer.print_field ("HREADYOUT", HREADYOUT,$bits(HREADYOUT),UVM_HEX);
- printer.print_string ("HRESP", HRESP.name());
-//printer.print_string ("HEXOKAY", HEXOKAY.name());
- printer.print_field ("HREADY", HREADY,$bits(HREADY),UVM_HEX);
+printer.print_field  ("haddr", haddr, $bits(haddr), UVM_HEX);
+printer.print_field  ("hselx", hselx, $bits(hselx), UVM_BIN);
+printer.print_string ("hburst", hburst.name());
+printer.print_field ("hmastlock", hmastlock, $bits(hmastlock), UVM_HEX);
+printer.print_string ("hprot", hprot.name());
+printer.print_string ("hsize", hsize.name());
+printer.print_field ("hnonsec", hnonsec, $bits(hnonsec), UVM_HEX);
+printer.print_field ("hexcl", hexcl, $bits(hexcl), UVM_HEX);
+printer.print_field  ("hmaster", hmaster, $bits(hmaster), UVM_DEC);
+printer.print_string ("htrans", htrans.name());
+printer.print_field  ("hwdata", hwdata, $bits(hwdata), UVM_HEX);
+printer.print_field  ("hwstrb", hwstrb, $bits(hwstrb), UVM_BIN);
+printer.print_field ("hwrite", hwrite, $bits(hwrite), UVM_BIN);
+printer.print_field  ("hrdata", hrdata, $bits(hrdata), UVM_HEX);
+printer.print_field ("hreadyout", hreadyout, $bits(hreadyout), UVM_HEX);
+printer.print_string ("hresp", hresp.name());
+//printer.print_string ("hexokay", hexokay.name());
+printer.print_field ("hready", hready, $bits(hready), UVM_HEX);
 
 
 endfunction : do_print
+
 
 //--------------------------------------------------------------------------------------------
 // Function : post_randomize
