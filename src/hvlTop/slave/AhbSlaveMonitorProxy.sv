@@ -1,5 +1,5 @@
-`ifndef APBSLAVEMONITORPROXY_INCLUDED_
-`define APBSLAVEMONITORPROXY_INCLUDED_
+`ifndef AHBSLAVEMONITORPROXY_INCLUDED_
+`define AHBSLAVEMONITORPROXY_INCLUDED_
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbSlaveMonitorProxy
