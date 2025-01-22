@@ -15,19 +15,19 @@ class AhbSlaveAgent extends uvm_agent;
 
   //Varible: ahbSlaveSeqr
   //Handle for  AhbSlaveSequencer
-  AhbSlaveSequencer ahbSlaveSeqr;
+  AhbSlaveSequencer ahbSlaveSequencer;
   
   //Variable: ahbSlaveDrvProxy
   //Creating a Handle for AhbSlaveDriverProxy
-  AhbSlaveDriverProxy ahbSlaveDrvProxy;
+  AhbSlaveDriverProxy ahbSlaveDriverProxy;
 
   //Variable: apbSlaveMonProxy
   //Declaring a handle for AhbSlaveMonitorProxy
-  AhbSlaveMonitorProxy ahbSlaveMonProxy;
+  AhbSlaveMonitorProxy ahbSlaveMonitorProxy;
 
   // Variable: ahbSlaveCov
   // Decalring a handle for AhbSlaveCoverage
-  AhbSlaveCoverage ahbSlaveCov;
+  AhbSlaveCoverage ahbSlaveCoverage;
   
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
@@ -46,8 +46,7 @@ endclass :AhbSlaveAgent
 //  name - instance name of the AhbSlaveAgent
 //  parent - parent under which this component is created
 //-------------------------------------------------------------------------
-    function AhbSlaveAgent::new(string name = "AhbSlaveAgent",
-                                    uvm_component parent = null);
+    function AhbSlaveAgent::new(string name = "AhbSlaveAgent",uvm_component parent = null);
   super.new(name, parent);
 endfunction : new
     
@@ -68,14 +67,14 @@ function void AhbSlaveAgent::build_phase(uvm_phase phase);
   if(ahbSlaveAgentConfig.is_active == UVM_ACTIVE) begin
     
     
-    ahbSlaveSeqr = AhbSlaveSequencer::type_id::create("ahbSlaveSeqr",this);
-    ahbSlaveDrvProxy = AhbSlaveDriverProxy::type_id::create("ahbSlaveDrvProxy",this);
+    ahbSlaveSequencer = AhbSlaveSequencer::type_id::create("ahbSlaveSequencer",this);
+    ahbSlaveDriverProxy = AhbSlaveDriverProxy::type_id::create("ahbSlaveDriverProxy",this);
   end
 
-  ahbSlaveMonProxy=AhbSlaveMonitorProxy::type_id::create("ahbSlaveMonProxy",this);
+  ahbSlaveMonitorProxy=AhbSlaveMonitorProxy::type_id::create("ahbSlaveMonitorProxy",this);
 
-  if(ahbSlaveAgentConfig.has_coverage) begin
-    ahbSlaveCov = AhbSlaveCoverage::type_id::create("ahbSlaveCov",this);
+  if(ahbSlaveAgentConfig.hasCoverage) begin
+    ahbSlaveCoverage = AhbSlaveCoverage::type_id::create("ahbSlaveCoverage",this);
   end
 
 endfunction : build_phase
@@ -89,21 +88,21 @@ endfunction : build_phase
 //--------------------------------------------------------------------------------------------
 function void AhbSlaveAgent::connect_phase(uvm_phase phase);
   if(ahbSlaveAgentConfig.is_active == UVM_ACTIVE) begin
-    ahbSlaveDrvProxy.ahbSlaveAgentConfig = ahbSlaveAgentConfig;
-    ahbSlaveSeqr.ahbSlaveAgentConfig = ahbSlaveAgentConfig;
+    ahbSlaveDriverProxy.ahbSlaveAgentConfig = ahbSlaveAgentConfig;
+    ahbSlaveSequencer.ahbSlaveAgentConfig = ahbSlaveAgentConfig;
     
     //Connecting AhbSlaveDriverProxy port to AhbSlaveSequencer export
-    ahbSlaveDrvProxy.seq_item_port.connect(ahbSlaveSeqr.seq_item_export);
+    ahbSlaveDriverProxy.seq_item_port.connect(ahbSlaveSequencer.seq_item_export);
   end
-  ahbSlaveMonProxy.ahbSlaveAgentConfig = ahbSlaveAgentConfig;
+  ahbSlaveMonitorProxy.ahbSlaveAgentConfig = ahbSlaveAgentConfig;
 
-  if(ahbSlaveAgentConfig.has_coverage) begin
-    ahbSlaveCov.ahbSlaveAgentConfig = ahbSlaveAgentConfig;
+  if(ahbSlaveAgentConfig.hasCoverage) begin
+    ahbSlaveCoverage.ahbSlaveAgentConfig = ahbSlaveAgentConfig;
   
     //Connecting AhbSlaveMonitorProxyport to AhbSlaveCoverage export
-    ahbSlaveMonProxy.ahbSlaveAnalysisPort.connect(ahbSlaveCov.analysis_export);
+    ahbSlaveMonitorProxy.ahbSlaveAnalysisPort.connect(ahbSlaveCoverage.analysis_export);
   end
-    ahbSlaveMonProxy.ahbSlaveAgentConfig = ahbSlaveAgentConfig;
+    ahbSlaveMonitorProxy.ahbSlaveAgentConfig = ahbSlaveAgentConfig;
 
 endfunction : connect_phase
 
