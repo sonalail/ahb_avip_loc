@@ -3,7 +3,7 @@
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbSlaveConfigConverter
-//  Class for converting apb_slave_cfg configurations into struct configurations
+//  Class for converting AhbSlaveConfig configurations into struct configurations
 //--------------------------------------------------------------------------------------------
 class AhbSlaveConfigConverter extends uvm_object;
   `uvm_object_utils(AhbSlaveConfigConverter)
