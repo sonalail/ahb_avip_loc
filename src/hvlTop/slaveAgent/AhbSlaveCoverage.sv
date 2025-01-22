@@ -13,7 +13,7 @@ class AhbSlaveCoverage extends uvm_subscriber #(AhbSlaveTransaction);
   AhbSlaveAgentConfig apbSlaveAgentConfig;
   
   //-------------------------------------------------------
-  covergroup ahbSlaveCovergroup
+  covergroup ahbSlaveCovergroup;
   
   endgroup: ahbSlaveCovergroup
 
