@@ -84,7 +84,7 @@ interface AhbSlaveDriverBFM (input  bit   hclk,
   //-------------------------------------------------------
   // Task: wait_for_access_state
   // Samples the data or drives the data to master based
-  // on pwrite signal
+  // on hwrite signal
   //-------------------------------------------------------
   task waitForAccessState(inout ahbTransferCharStruct dataPacket);
    //logic
