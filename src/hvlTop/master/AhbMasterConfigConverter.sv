@@ -44,9 +44,9 @@ endfunction : from_class
 //---------------------------------------------------------------------------------------------
 function void AhbMasterConfigConverter::do_print(uvm_printer printer);
 
-  ahbTransferConfigStruct ahbSt;
+  ahbTransferConfigStruct ahbStruct;
   super.do_print(printer);
-  printer.print_field( "haddr", ahbSt.HADDR , $bits(ahbSt.HADDR),UVM_DEC);
+  printer.print_field( "haddr", ahbStruct.HADDR , $bits(ahbStruct.HADDR),UVM_DEC);
 
 endfunction : do_print
 
