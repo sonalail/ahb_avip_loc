@@ -71,7 +71,7 @@
 
   // Variable : HRESP
   // Transfer response status (0 = OKAY, 1 = ERROR)
-  bit HRESP;
+  rand ahbRespEnum HRESP;
 
   // Variable : HEXOKAY
   // Indicates Exclusive OKAY status
