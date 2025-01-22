@@ -22,20 +22,20 @@ module HdlTop;
     `uvm_info("HDL_TOP","HDL_TOP",UVM_LOW);
   end
 
-  //Variable : HCLK
+  //Variable : hclk
   //Declaration of system clock
-  bit HCLK;
+  bit hclk;
 
-  //Variable : HRESETn
+  //Variable : hresetn
   //Declaration of system reset
-  bit HRESETn;
+  bit hresetn;
 
   //-------------------------------------------------------
   // Generation of system clock at frequency rate of 20ns
   //-------------------------------------------------------
   initial begin
-    HCLK = 1'b0;
-    forever #10 HCLK =!HCLK;
+   hclk = 1'b0;
+    forever #10 hclk =!hclk;
   end
 
   //-------------------------------------------------------
@@ -44,36 +44,36 @@ module HdlTop;
   //  but system reset de-assertion is synchronous.
   //-------------------------------------------------------
   initial begin
-    HRESETn = 1'b1;
-    #15 HRESETn= 1'b0;
+    hresetn = 1'b1;
+    #15 hresetn= 1'b0;
 
     repeat(1) begin
-      @(posedge HCLK);
+      @(posedge hclk);
     end
-    HRESETn = 1'b1;
+    hresetn = 1'b1;
   end
 
   //-------------------------------------------------------
   // AHB Interface Instantiation
   //-------------------------------------------------------
-  AhbInterface intf(HCLK,HRESETn);
+  AhbInterface intf(hclk,hresetn);
 
   //-------------------------------------------------------
   // AHB Master BFM Agent Instantiation
   //-------------------------------------------------------
-  AhbMasterAgentBfm apb_master_agent_bfm_h(intf); 
+  AhbMasterAgentBFM ahbMasterAgentBFM(intf); 
   
   //-------------------------------------------------------
   // AHB Slave BFM Agent Instantiation
   //-------------------------------------------------------
   genvar i;
   generate
-    for (i=0; i < NO_OF_SLAVES; i++) begin : AhbSlaveAgentBfm
-      AhbSlaveAgentBfm #(.SLAVE_ID(i)) apb_slave_agent_bfm_h(intf);
-      defparam AhbSlaveAgentBfm[i].apb_slave_agent_bfm_h.SLAVE_ID = i;
+    for (i=0; i < NO_OF_SLAVES; i++) begin : AhbSlaveAgentBFM
+      AhbSlaveAgentBFM #(.SLAVE_ID(i)) ahbSlaveAgentBFM(intf);
+      defparam AhbSlaveAgentBFM[i].AhbSlaveAgentBFM.SLAVE_ID = i;
     end
   endgenerate
 
-endmodule : hdl_top
+endmodule : HdlTop
 
 `endif
