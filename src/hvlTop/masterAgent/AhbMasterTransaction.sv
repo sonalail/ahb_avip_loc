@@ -75,7 +75,7 @@
 
   // Variable : HEXOKAY
   // Indicates Exclusive OKAY status
-  ahbRespEnum HEXOKAY;
+ // ahbRespEnum HEXOKAY;
 
   // Variable : HREADY
   // Combined transfer completion for Manager and Subordinate
@@ -140,7 +140,7 @@ HWRITE     = ahbMasterTransactionCopyObject.HWRITE;
 HRDATA     = ahbMasterTransactionCopyObject.HRDATA;
 HREADYOUT  = ahbMasterTransactionCopyObject.HREADYOUT;
 HRESP      = ahbMasterTransactionCopyObject.HRESP;
-HEXOKAY    = ahbMasterTransactionCopyObject.HEXOKAY;
+//HEXOKAY    = ahbMasterTransactionCopyObject.HEXOKAY;
 HREADY     = ahbMasterTransactionCopyObject.HREADY;
 
 endfunction : do_copy
@@ -177,7 +177,7 @@ HWRITE   == ahbMasterTransactionCompareObject.HWRITE   &&
 HRDATA   == ahbMasterTransactionCompareObject.HRDATA   &&
 HREADYOUT == ahbMasterTransactionCompareObject.HREADYOUT &&
 HRESP    == ahbMasterTransactionCompareObject.HRESP    &&
-HEXOKAY  == ahbMasterTransactionCompareObject.HEXOKAY  &&
+//HEXOKAY  == ahbMasterTransactionCompareObject.HEXOKAY  &&
 HREADY   == ahbMasterTransactionCompareObject.HREADY;
 
 endfunction : do_compare
@@ -203,11 +203,11 @@ printer.print_field  ("HMASTER", HMASTER, $bits(HMASTER), UVM_DEC);
 printer.print_string ("HTRANS", HTRANS.name());
 printer.print_field  ("HWDATA", HWDATA, $bits(HWDATA), UVM_HEX);
 printer.print_field  ("HWSTRB", HWSTRB, $bits(HWSTRB), UVM_BIN);
-printer.print_string ("HWRITE", HWRITE.name());
+printer.print_string ("HWRITE", HWRITE, $bits(HWRITE), UVM_BIN);
 printer.print_field  ("HRDATA", HRDATA, $bits(HRDATA), UVM_HEX);
  printer.print_field ("HREADYOUT", HREADYOUT,$bits(HREADYOUT),UVM_HEX);
 printer.print_string ("HRESP", HRESP.name());
-printer.print_string ("HEXOKAY", HEXOKAY.name());
+//printer.print_string ("HEXOKAY", HEXOKAY.name());
  printer.print_field ("HREADY", HREADY,$bits(HREADY),UVM_HEX);
 
 
