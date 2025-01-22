@@ -21,7 +21,7 @@ class AhbSlaveCoverage extends uvm_subscriber #(AhbSlaveTransaction);
   // Externally defined Tasks and Functions
   //-------------------------------------------------------
   extern function new(string name = "AhbSlaveCoverage", uvm_component parent = null);
-  extern function void write(AhbSlaveTranscation t);
+    extern function void write(AhbSlaveTransaction t);
   extern virtual function void report_phase(uvm_phase phase);
 
 endclass : AhbSlaveCoverage
