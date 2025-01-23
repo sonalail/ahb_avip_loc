@@ -28,7 +28,7 @@ interface AhbSlaveDriverBFM (input  bit   hclk,
                               output logic hready,
                               output logic hreadyout,
                               output logic hresp,
-                              output logic hexokay,
+                              output logic hexokay
                                );
 
   //-------------------------------------------------------
