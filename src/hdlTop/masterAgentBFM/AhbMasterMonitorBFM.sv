@@ -11,7 +11,8 @@ import AhbGlobalPackage::*;
 // Interface: AhbMasterMonitorBFM
 //  Connects the master monitor bfm with the master monitor proxy
 //--------------------------------------------------------------------------------------------
-interface AhbMasterMonitorBFM(
+interface AhbMasterMonitorBFM(input  bit   hclk,
+                              input  bit  hresetn,
     input logic [ADDR_WIDTH-1:0] haddr,
     input logic [NO_OF_SLAVES-1:0] hselx,
     input logic [2:0] hburst,
