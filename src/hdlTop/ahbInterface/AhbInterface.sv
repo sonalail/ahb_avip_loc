@@ -8,7 +8,7 @@ import AhbGlobalPackage::*;
 // Declaration of pin level signals for AHB interface
 //--------------------------------------------------------------------------------------------
 
-interface AhbInterface(input hclk, input hresetn);
+interface AhbInterface(input logic hclk, input logic hresetn);
   
   // Variable : haddr
   // Byte address of the transfer
