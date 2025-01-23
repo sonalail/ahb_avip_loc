@@ -26,7 +26,7 @@ class AhbMasterAgentConfig extends uvm_object;
 
   //Variable: master_memory
   //Memory decleration for master to store the data of each slave
- //bit [ADDR_WIDTH-1:0]HADDR;
+ bit [ADDR_WIDTH-1:0]haddr;
 
   //Variable : master_memory
   //Used to store all the data from the slaves
