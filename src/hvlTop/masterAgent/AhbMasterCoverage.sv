@@ -56,7 +56,7 @@ endfunction : write
 //--------------------------------------------------------------------------------------------
 function void AhbMasterCoverage::report_phase(uvm_phase phase);
   `uvm_info(get_type_name(), $sformatf("Entered the report_phase of AHB Master Coverage"), UVM_NONE);
-  `uvm_info(get_type_name(), $sformatf("AHB Master Agent Coverage = %0.2f %%", ahbMasterCovergroup.get_coverage()), UVM_NONE);
+  //`uvm_info(get_type_name(), $sformatf("AHB Master Agent Coverage = %0.2f %%", ahbMasterCovergroup.get_coverage()), UVM_NONE);
 endfunction: report_phase
 
 `endif
