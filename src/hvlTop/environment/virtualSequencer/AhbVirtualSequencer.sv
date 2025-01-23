@@ -8,14 +8,6 @@
 class AhbVirtualSequencer extends uvm_sequencer#(uvm_sequence_item);
   `uvm_component_utils(AhbVirtualSequencer)
 
-  // Variable: ahbMasterVirtualSequencer
-  // Declaring master virtual sequencer handle
-  AhbMasterVirtualSequencer ahbMasterVirtualSequencer;
-
-  // Variable: ahbSlaveVirtualSequencer
-  // Declaring slave virtual sequencer handle
-  AhbSlaveVirtualSequencer ahbSlaveVirtualSequencer;
-
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
   //-------------------------------------------------------
