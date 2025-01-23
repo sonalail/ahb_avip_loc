@@ -14,7 +14,7 @@ class AhbEnvironment extends uvm_env;
 
   //Variable: ahbSlaveAgent
   //Declaring ahb slave agent handle
-  AhbSlaveAgent  ahbSlaveAgent;
+  AhbSlaveAgent  ahbSlaveAgent[];
 
   //Variable: ahbScoreboard
   //Declaring ahb scoreboard handle
@@ -26,7 +26,7 @@ class AhbEnvironment extends uvm_env;
   
   //Variable: ahbEnvironmentConfig
   //Declaring handle for ahb_env_config_object
-  AhbEnvironmentConfig ahbEnvironmentConfig[];  
+  AhbEnvironmentConfig ahbEnvironmentConfig;  
   
   //Variable: ahbSlaveAgentConfig;
   //Handle for ahb_slave agent configuration
@@ -74,7 +74,7 @@ function void AhbEnvironment::build_phase(uvm_phase phase);
   
   ahbMasterAgent = AhbMasterAgent::type_id::create("ahbMasterAgent",this);
   
-  ahbSlaveAgent = new[ahbEnvironmentConfig.noOfSlaves];
+  ahbSlaveAgent[] = new[ahbEnvironmentConfig.noOfSlaves];
 
   ahbSlaveAgent = AhbSlaveAgent::type_id::create("ahbSlaveAgent",this);
  
