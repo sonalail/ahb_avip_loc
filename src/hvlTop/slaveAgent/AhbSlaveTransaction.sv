@@ -133,7 +133,7 @@ hnonsec   = ahbSlaveTransaction.hnonsec;
 hexcl     = ahbSlaveTransaction.hexcl;
 hmaster   = ahbSlaveTransaction.hmaster;
 htrans    = ahbSlaveTransaction.htrans;
-hwddata   = ahbSlaveTransaction.hwddata;
+hwdata   = ahbSlaveTransaction.hwdata;
 hwstrb    = ahbSlaveTransaction.hwstrb;
 hwrite    = ahbSlaveTransaction.hwrite;
 
@@ -172,7 +172,7 @@ hnonsec   == ahbSlaveTransaction.hnonsec   &&
 hexcl     == ahbSlaveTransaction.hexcl     &&
 hmaster   == ahbSlaveTransaction.hmaster   &&
 htrans    == ahbSlaveTransaction.htrans    &&
-hwddata   == ahbSlaveTransaction.hwddata   &&
+hwdata   == ahbSlaveTransaction.hwdata   &&
 hwstrb    == ahbSlaveTransaction.hwstrb    &&
 hwrite    == ahbSlaveTransaction.hwrite    &&
 hrdata    == ahbSlaveTransaction.hrdata    &&
@@ -200,7 +200,7 @@ printer.print_field ("hnonsec", hnonsec, $bits(hnonsec), UVM_HEX);
 printer.print_field ("hexcl", hexcl, $bits(hexcl), UVM_HEX);
 printer.print_field  ("hmaster", hmaster, $bits(hmaster), UVM_DEC);
 printer.print_string ("htrans", htrans.name());
-printer.print_field  ("hwddata", hwddata, $bits(hwddata), UVM_HEX);
+printer.print_field  ("hwddata", hwdata, $bits(hwddata), UVM_HEX);
 printer.print_field  ("hwstrb", hwstrb, $bits(hwstrb), UVM_BIN);
 printer.print_field ("hwrite", hwrite, $bits(hwrite), UVM_BIN);
 printer.print_field  ("hrdata", hrdata, $bits(hrdata), UVM_HEX);
