@@ -53,7 +53,7 @@ endclass : AhbScoreboard
 //--------------------------------------------------------------------------------------------
 function AhbScoreboard::new(string name = "AhbScoreboard",uvm_component parent = null);
   super.new(name, parent);
-  ahbMasterAnalysisFifo = new(NO_OF_MASTERS);
+  ahbMasterAnalysisFifo = new[NO_OF_MASTERS];
   ahbSlaveAnalysisFifo = new[NO_OF_SLAVES];
 
   foreach(ahbMasterAnalysisFifo[i]) begin
