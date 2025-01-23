@@ -88,7 +88,7 @@ function void AhbEnvironment::build_phase(uvm_phase phase);
   end
 
   
-    ahbSlaveAgent.ahbSlaveAgentConfig = ahbSlaveAgentConfig;
+    // ahbSlaveAgent.ahbSlaveAgentConfig = ahbSlaveAgentConfig;
   
 
 endfunction : build_phase
