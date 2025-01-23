@@ -18,11 +18,11 @@ class AhbEnvironmentConfig extends uvm_object;
 
 //Variable: noOfMasters
   //Number of Masters connected to the SPI interface
-  int noOfMasters;
+  int noOfMasters=1;
 
   //Variable: noOfSlaves
   //Number of slaves connected to the SPI interface
-  int noOfSlaves;
+  int noOfSlaves=1;
 
   //Variable: ahbMasterAgentConfig
   //Handle for master agent configuration
