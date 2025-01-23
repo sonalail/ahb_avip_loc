@@ -79,7 +79,7 @@ function void AhbEnvironment::build_phase(uvm_phase phase);
   ahbSlaveAgent = AhbSlaveAgent::type_id::create("ahbSlaveAgent",this);
  
 
-  if(ahbEnvConfig.hasVirtualSequencer) begin
+  if(ahbEnvironmentConfig.hasVirtualSequencer) begin
     ahbVirtualSequencer = AhbVirtualSequencer::type_id::create("ahbVirtualSequencer",this);
   end
 
