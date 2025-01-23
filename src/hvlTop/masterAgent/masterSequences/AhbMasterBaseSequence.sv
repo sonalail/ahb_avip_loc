@@ -20,7 +20,6 @@ class AhbMasterBaseSequence extends uvm_sequence#(uvm_sequence_item);
   // Externally defined Tasks and Functions
   //-------------------------------------------------------
   extern function new(string name = "AhbMasterBaseSequence");
-  extern virtual function void build_phase(uvm_phase phase);
   extern task body();  
   
 endclass : AhbMasterBaseSequence
