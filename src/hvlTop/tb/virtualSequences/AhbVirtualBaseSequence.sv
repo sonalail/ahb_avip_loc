@@ -1,12 +1,12 @@
-`ifndef AHBVIRTUALBASESEQ_INCLUDED_
-`define AHBVIRTUALBASESEQ_INCLUDED_
+`ifndef AHBVIRTUALBASESEQUENCE_INCLUDED_
+`define AHBVIRTUALBASESEQUENCE_INCLUDED_
 `include "uvm_macros.svh"
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbVirtualBaseSequence
 // Holds the handle of actual sequencer.
 //--------------------------------------------------------------------------------------------
-class AhbVirtualBaseSequence extends uvm_sequence #(uvm_seq_item); 
+class AhbVirtualBaseSequence extends uvm_sequence; 
   `uvm_object_utils(AhbVirtualBaseSequence)
   
   //Declaring p_sequencer
