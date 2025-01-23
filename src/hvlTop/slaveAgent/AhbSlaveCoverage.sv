@@ -55,7 +55,7 @@ endfunction : write
 //--------------------------------------------------------------------------------------------
 function void AhbSlaveCoverage::report_phase(uvm_phase phase);
   `uvm_info(get_type_name(), $sformatf("Entered the report_phase of AHB Slave Coverage"), UVM_NONE);
-  `uvm_info(get_type_name(), $sformatf("APB Slave Agent Coverage = %0.2f %%", apbSlaveCovergroup.get_coverage()), UVM_NONE);
+  //`uvm_info(get_type_name(), $sformatf("APB Slave Agent Coverage = %0.2f %%", apbSlaveCovergroup.get_coverage()), UVM_NONE);
 endfunction: report_phase
 
 `endif
