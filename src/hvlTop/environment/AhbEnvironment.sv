@@ -129,11 +129,11 @@ function void AhbEnvironment::connect_phase(uvm_phase phase);
   end
   
   foreach(ahbMasterAgent[i]) begin
-    ahbMasterAgent[i].ahbMasterMonitorProxy.ahbMasterAnalysisPort.connect(ahbScoreboard.ahbMasterAnalysisFifo.analysisExport);
+    ahbMasterAgent[i].ahbMasterMonitorProxy.ahbMasterAnalysisPort.connect(ahbScoreboard.ahbMasterAnalysisFifo[i].analysisExport);
   end
 
   foreach(ahbSlaveAgent[i]) begin
-    ahbSlaveAgent[i].ahbSlaveMonitorProxy.ahbSlaveAnalysisPort.connect(ahbScoreboard.ahbSlaveAnalysisFifo.analysisExport);
+    ahbSlaveAgent[i].ahbSlaveMonitorProxy.ahbSlaveAnalysisPort.connect(ahbScoreboard.ahbSlaveAnalysisFifo[i].analysisExport);
   end
   
 endfunction : connect_phase
