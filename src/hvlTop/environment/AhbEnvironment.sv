@@ -26,7 +26,7 @@ class AhbEnvironment extends uvm_env;
   
   //Variable: ahbEnvironmentConfig
   //Declaring handle for ahb_env_config_object
-  AhbEnvironmentConfig ahbEnvironmentConfig[];  
+  AhbEnvironmentConfig ahbEnvironmentConfig;  
 
   //Variable: ahbMasterAgentConfig;
   //Handle for AhbMasterAgent agent configuration
