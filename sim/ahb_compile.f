@@ -14,7 +14,7 @@
 ../../src/hvlTop/masterAgent/masterSequences/AhbMasterSequencePackage.sv
 ../../src/hvlTop/slaveAgent/slaveSequences/AhbSlaveSequencePackage.sv
 ../../src/hvlTop/environment/AhbEnvironmentPackage.sv
-../../src/hvlTop/tb/virtualSequences/
+../../src/hvlTop/tb/virtualSequences
 ../../src/hvlTop/tb/test/AhbBaseTestPackage.sv
 ../../src/hdlTop/ahbInterface/AhbInterface.sv
 ../../src/hdlTop/masterAgentBFM/AhbMasterDriverBFM.sv
