@@ -96,7 +96,7 @@ endfunction : end_of_elaboration_phase
 task AhbSlaveDriverProxy::run_phase(uvm_phase phase);
   
   //wait for system reset
-  ahbSlaveDrvBFM.waitForResetn();
+  ahbSlaveDriverBFM.waitForResetn();
   `uvm_info(get_type_name(), $sformatf("INSIDE run phase "),UVM_LOW);
  
   forever begin
