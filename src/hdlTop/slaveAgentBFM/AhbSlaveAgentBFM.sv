@@ -39,7 +39,7 @@ module AhbSlaveAgentBFM #(parameter int SLAVE_ID=0) (AhbInterface ahbInterface);
                                            .hreadyout(ahbInterface.hreadyout),
                                            .hresp(ahbInterface.hresp),
                                            .hexokay(ahbInterface.hexokay),
-                                           .hready(ahbInterface.hready),
+                                           .hready(ahbInterface.hready)
                                           );
 
 
@@ -65,7 +65,7 @@ module AhbSlaveAgentBFM #(parameter int SLAVE_ID=0) (AhbInterface ahbInterface);
                                            .hreadyout(ahbInterface.hreadyout),
                                            .hresp(ahbInterface.hresp),
                                            .hexokay(ahbInterface.hexokay),
-                                           .hready(ahbInterface.hready),
+                                           .hready(ahbInterface.hready)
                                           );
   initial begin
     uvm_config_db#(virtual AhbSlaveDriverBFM)::set(null,"*", "AhbSlaveDriverBFM", ahbSlaveDriverBFM); 
