@@ -8,6 +8,11 @@
 class AhbVirtualSequencer extends uvm_sequencer#(uvm_sequence_item);
   `uvm_component_utils(AhbVirtualSequencer)
 
+AhbMasterSequencer ahbMasterSequencer;
+
+AhbSlaveSequencer  ahbSlaveSequencer;  
+
+
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
   //-------------------------------------------------------
@@ -31,6 +36,8 @@ endclass : AhbVirtualSequencer
 function AhbVirtualSequencer::new(string name = "AhbVirtualSequencer",
                                     uvm_component parent = null);
   super.new(name, parent);
+  ahbMasterSequencer=AhbMasterSequencer::type_id::create("ahbMasterSequencer",this);
+  ahbSlaveSequencer=AhbSlaveSequencer::type_id::create("ahbSlaveSequencer",this);
 endfunction : new
 
 //--------------------------------------------------------------------------------------------
