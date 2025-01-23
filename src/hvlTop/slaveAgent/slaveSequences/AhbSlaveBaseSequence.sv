@@ -7,7 +7,7 @@
 //--------------------------------------------------------------------------------------------
 class AhbSlaveBaseSequence extends uvm_sequence#(uvm_sequence_item);
   `uvm_object_utils(AhbSlaveBaseSequence)
-
+  `uvm_declare_p_sequencer(AhbSlaveSequencer)
   // Variable: seqr
   // Handle for the AHB slave sequencer
   AhbSlaveSequencer ahbSlaveSequencer;
