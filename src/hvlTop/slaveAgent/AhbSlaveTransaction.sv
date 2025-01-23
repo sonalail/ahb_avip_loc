@@ -51,7 +51,7 @@ ahbTransferEnum htrans;
 
 // Variable : hwddata
 // Write data bus
-bit [DATA_WIDTH-1:0] hwddata;
+bit [DATA_WIDTH-1:0] hwdata;
 
 // Variable : hwstrb
 // Write strobes for active byte lanes
