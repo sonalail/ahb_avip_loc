@@ -85,10 +85,10 @@ endfunction : build_phase
 task AhbScoreboard::run_phase(uvm_phase phase);
   super.run_phase(phase);
   `uvm_info(get_type_name(),$sformatf("Entering the run phases of scoreboard"),UVM_HIGH)
-  forever begin
-    ahbMasterAnalysisFifo.get(ahbMasterTransaction);
-    ahbMasterAnalysisFifo.get(ahbSlaveTransaction);
-  end
+  // forever begin
+  //   ahbMasterAnalysisFifo.get(ahbMasterTransaction);
+  //   ahbMasterAnalysisFifo.get(ahbSlaveTransaction);
+  // end
 endtask : run_phase
 
 //--------------------------------------------------------------------------------------------
