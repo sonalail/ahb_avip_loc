@@ -120,15 +120,21 @@ endfunction : build_phase
 function void AhbEnvironment::connect_phase(uvm_phase phase);
   super.connect_phase(phase);
   if(ahbEnvironmentConfig.hasVirtualSequencer) begin
-    ahbVirtualSequencer.ahbMasterSequencer = ahbMasterAgent.ahbMasterSequencer;
-    ahbVirtualSequencer.ahbSlaveSequencer = ahbSlaveAgent.ahbSlaveSequencer;
+    foreach(ahbMasterAgent[i]) begin
+      ahbVirtualSequencer.ahbMasterSequencer = ahbMasterAgent[i].ahbMasterSequencer;
     end
+    foreach(ahbSlaveAgent[i]) begin
+      ahbVirtualSequencer.ahbSlaveSequencer = ahbSlaveAgent[i].ahbSlaveSequencer;
+    end
+  end
   
-  
-  ahbMasterAgent.ahbMasterMonitorProxy.ahbMasterAnalysisPort.connect(ahbScoreboard.ahbMasterAnalysisFifo.analysisExport);
-  
-  ahbSlaveAgent.ahbSlaveMonitorProxy.ahbSlaveAnalysisPort.connect(ahbScoreboard.ahbSlaveAnalysisFifo.analysisExport);
-  
+  foreach(ahbMasterAgent[i]) begin
+    ahbMasterAgent[i].ahbMasterMonitorProxy.ahbMasterAnalysisPort.connect(ahbScoreboard.ahbMasterAnalysisFifo.analysisExport);
+  end
+
+  foreach(ahbSlaveAgent[i]) begin
+    ahbSlaveAgent[i].ahbSlaveMonitorProxy.ahbSlaveAnalysisPort.connect(ahbScoreboard.ahbSlaveAnalysisFifo.analysisExport);
+  end
   
 endfunction : connect_phase
 
