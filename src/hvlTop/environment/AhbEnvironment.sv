@@ -10,7 +10,7 @@ class AhbEnvironment extends uvm_env;
 
   //Variable: ahbMasterAgent
   //Declaring ahb master agent handle
-  AhbMasterAgent ahbMasterAgent;
+  AhbMasterAgent ahbMasterAgent[];
 
   //Variable: ahbSlaveAgent
   //Declaring ahb slave agent handle
@@ -26,7 +26,7 @@ class AhbEnvironment extends uvm_env;
   
   //Variable: ahbEnvironmentConfig
   //Declaring handle for ahb_env_config_object
-  AhbEnvironmentConfig ahbEnvironmentConfig;  
+  AhbEnvironmentConfig ahbEnvironmentConfig[];  
   
   //Variable: ahbSlaveAgentConfig;
   //Handle for ahb_slave agent configuration
@@ -64,20 +64,33 @@ function void AhbEnvironment::build_phase(uvm_phase phase);
   if(!uvm_config_db #(AhbEnvironmentConfig)::get(this,"","AhbEnvironmentConfig",ahbEnvironmentConfig)) begin
    `uvm_fatal("FATAL_ENV_CONFIG", $sformatf("Couldn't get the ahbEnvironmentConfig from config_db"))
   end
-  ahbSlaveAgentConfig= new[ahbEnvironmentConfig.noOfSlaves];
-  
 
+  ahbMasterAgentConfig= new[ahbEnvironmentConfig.noOfMasters];
+  
+  foreach(ahbMasterAgentConfig[i]) begin
   if(!uvm_config_db #(AhbSlaveAgentConfig)::get(this,"","AhbSlaveAgentConfig",ahbSlaveAgentConfig)) begin
     `uvm_fatal("FATAL_SA_AGENT_CONFIG", $sformatf("Couldn't get the ahbSlaveAgentConfig from config_db"))
     end
- 
+  end
+
   
+  ahbSlaveAgentConfig= new[ahbEnvironmentConfig.noOfSlaves];
+  
+  foreach(ahbSlaveAgentConfig[i]) begin
+  if(!uvm_config_db #(AhbSlaveAgentConfig)::get(this,"","AhbSlaveAgentConfig",ahbSlaveAgentConfig)) begin
+    `uvm_fatal("FATAL_SA_AGENT_CONFIG", $sformatf("Couldn't get the ahbSlaveAgentConfig from config_db"))
+    end
+  end
+ 
+  ahbMasterAgent = new[ahbEnvironmentConfig.noOfMasters];
+  foreach(ahbMasterAgent[i]) begin
   ahbMasterAgent = AhbMasterAgent::type_id::create("ahbMasterAgent",this);
+  end
   
   ahbSlaveAgent = new[ahbEnvironmentConfig.noOfSlaves];
-
+  foreach(ahbSlaveAgent[i]) begin
   ahbSlaveAgent = AhbSlaveAgent::type_id::create("ahbSlaveAgent",this);
- 
+  end
 
   if(ahbEnvironmentConfig.hasVirtualSequencer) begin
     ahbVirtualSequencer = AhbVirtualSequencer::type_id::create("ahbVirtualSequencer",this);
@@ -87,9 +100,13 @@ function void AhbEnvironment::build_phase(uvm_phase phase);
     ahbScoreboard = AhbScoreboard::type_id::create("ahbScoreboard",this);
   end
 
+  foreach(ahbMasterAgent[i]) begin
+    ahbMasterAgent[i].ahbMasterAgentConfig=ahbMasterAgentConfig[i];
+  end
   
-     ahbSlaveAgent.ahbSlaveAgentConfig = ahbSlaveAgentConfig;
-  
+  foreach(ahbSlaveAgent[i]) begin
+    ahbSlaveAgent[i].ahbSlaveAgentConfig=ahbSlaveAgentConfig[i];
+  end
 
 endfunction : build_phase
 
