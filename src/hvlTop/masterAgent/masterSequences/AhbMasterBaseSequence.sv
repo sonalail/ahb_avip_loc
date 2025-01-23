@@ -7,7 +7,8 @@
 //--------------------------------------------------------------------------------------------
 class AhbMasterBaseSequence extends uvm_sequence#(uvm_sequence_item);
   `uvm_object_utils(AhbMasterBaseSequence)
-
+  
+  `uvm_declare_p_sequencer(AhbMasterSequencer) 
   // Variable: ahbMasterSequencer
   // Handle for the AHB master sequencer
   AhbMasterSequencer ahbMasterSequencer;
