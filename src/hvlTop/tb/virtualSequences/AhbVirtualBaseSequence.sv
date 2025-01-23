@@ -13,11 +13,11 @@ class AhbVirtualBaseSequence extends uvm_sequence;
  
   //Variable : apbMasterSequencer
   //Declaring handle to the virtual sequencer
-  ApbMasterSequencer apbMasterSequencer;
+  AhbMasterSequencer  apbMasterSequencer;
  
-  //Variable : apbMasterSequencer
+  //Variable : ahbSlaveSequencer
   //Declaring handle to the virtual sequencer
-  ApbSlaveSequencer apbSlaveSequencer;
+  AhbSlaveSequencer ahbSlaveSequencer;
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
@@ -48,8 +48,8 @@ task AhbVirtualBaseSequence::body();
   if(!$cast(p_sequencer,m_sequencer))begin
     `uvm_error(get_full_name(),"Virtual sequencer pointer cast failed")
   end
-  apbSlaveSequencer  = p_sequencer.apbSlaveSequencer;
-  apbMasterSequencer = p_sequencer.apbMasterSequencer;
+  ahbSlaveSequencer  = p_sequencer.ahbSlaveSequencer;
+  ahbMasterSequencer = p_sequencer.ahbMasterSequencer;
 
 endtask : body
 
