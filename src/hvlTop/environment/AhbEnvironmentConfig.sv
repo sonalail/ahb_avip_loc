@@ -16,6 +16,10 @@ class AhbEnvironmentConfig extends uvm_object;
   //Enables the virtual sequencer. Default value is 1
   bit hasVirtualSequencer = 1;
 
+//Variable: noOfMasters
+  //Number of Masters connected to the SPI interface
+  int noOfMasters;
+
   //Variable: noOfSlaves
   //Number of slaves connected to the SPI interface
   int noOfSlaves;
