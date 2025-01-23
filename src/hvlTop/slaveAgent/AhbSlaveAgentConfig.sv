@@ -39,7 +39,7 @@ class AhbSlaveAgentConfig extends uvm_object;
   
   //Variable: paddr
   //Used to indicate the slave address
-  //bit [DATA_WIDTH-1:0]paddr;
+  bit [DATA_WIDTH-1:0]haddr;
   
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
