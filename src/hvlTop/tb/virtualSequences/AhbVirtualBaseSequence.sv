@@ -9,7 +9,8 @@ class AhbVirtualBaseSequence extends uvm_sequence#(uvm_seq_item);
   `uvm_object_utils(AhbVirtualBaseSequence)
   
   //Declaring p_sequencer
-  `uvm_declare_p_sequencer(AhbVirtualSequencer);
+  `uvm_declare_p_sequencer(AhbMasterSequencer);
+  `uvm_declare_p_sequencer(AhbSlaveSequencer);
  
   //Variable : apbMasterSequencer
   //Declaring handle to the virtual sequencer
