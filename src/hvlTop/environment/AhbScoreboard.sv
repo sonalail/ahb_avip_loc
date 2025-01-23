@@ -35,7 +35,7 @@ class AhbScoreboard extends uvm_scoreboard;
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
   //-------------------------------------------------------
-  extern function new(string name = "ApbScoreboard", uvm_component parent = null);
+  extern function new(string name = "AhbScoreboard", uvm_component parent = null);
   extern virtual function void build_phase(uvm_phase phase);
   extern virtual task run_phase(uvm_phase phase);
   extern virtual function void check_phase (uvm_phase phase);
