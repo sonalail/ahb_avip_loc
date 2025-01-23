@@ -1,7 +1,7 @@
 
 +incdir+../../src/hvlTop/masterAgent/masterSequences/
 +incdir+../../src/hvlTop/masterAgent
-+incdir+../../src/hvlTop/environment/virtualSequencer/
++incdir+../../src/hvlTop/environment/virtualSequencer
 +incdir+../../src/hvlTop/tb/virtualSequences/
 +incdir+../../src/hvlTop/environment
 +incdir+../../src/hvlTop/slaveAgent
