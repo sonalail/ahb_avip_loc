@@ -70,9 +70,6 @@ usage:
 all:
 	make clean; make compile; make simulate;
 
-clean:
-      rm -rf work/ ahb_compile.log
-
 # For Assertions use +acc options
 #  +cover=becstf
 compile:
