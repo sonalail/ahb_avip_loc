@@ -125,7 +125,7 @@ endfunction : setupAhbMasterAgentConfig
     
 function void AhbBaseTest::setupAhbSlaveAgentConfig();
   // ahbEnvironmentConfig.ahb_slave_agent_cfg_h = new[ahbEnvironmentConfig.no_of_slaves];
-  // foreach(ahbEnvironmentConfig.ahbSlaveAgentConfig[i]) begin
+   foreach(ahbEnvironmentConfig.ahbSlaveAgentConfig[i]) begin
   //   ahbEnvironmentConfig.ahbSlaveAgentConfig[i] = AhbSlaveAgentConfig::type_id::create($sformatf("AhbSlaveAgentConfig[%0d]",i));
   //   ahbEnvironmentConfig.ahbSlaveAgentConfig[i].slave_id       = i;
   //   ahbEnvironmentConfig.ahbSlaveAgentConfig[i].slave_selected = 0;
