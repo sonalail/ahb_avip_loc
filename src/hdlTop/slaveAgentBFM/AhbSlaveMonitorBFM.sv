@@ -84,6 +84,6 @@ interface AhbSlaveMonitorBFM (input  bit   hclk,
     //logic to be written
   endtask : sampleData
 
-endinterface : AhbSlaveMonitorBfm 
+endinterface : AhbSlaveMonitorBFM
 
 `endif
