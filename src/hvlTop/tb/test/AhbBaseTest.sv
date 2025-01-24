@@ -66,7 +66,7 @@ function void AhbBaseTest::setupAhbMasterAgentConfig();
   end
 
    ahbEnvironmentConfig.ahbMasterAgentConfig[i].hasCoverage = 1; 
-  uvm_config_db #(AhbMasterAgentConfig)::set(this,$sformatf("*env*"),$sformatf("AhbMasterAgentConfig[%0d]",i),
+    uvm_config_db #(AhbMasterAgentConfig)::set(this,"*",$sformatf("AhbMasterAgentConfig[%0d]",i),
     ahbEnvironmentConfig.ahbMasterAgentConfig[i]);
   `uvm_info(get_type_name(),$sformatf("\nAHB_MASTER_CONFIG[%0d]\n%s",i,ahbEnvironmentConfig.ahbMasterAgentConfig[i].sprint()),UVM_LOW);
    end
