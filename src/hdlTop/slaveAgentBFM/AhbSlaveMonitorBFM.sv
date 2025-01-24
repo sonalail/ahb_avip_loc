@@ -82,7 +82,7 @@ interface AhbSlaveMonitorBFM (input  bit   hclk,
   //  ahbDataPacket - Handle for ahbTransferCharStruct class 
   //  ahbConfigPacket  - Handle for ahbTransferCharStruct class
   //-------------------------------------------------------
-  task sampleData (output ahbTransferCharStruct ahbDataPacket, input ahbTransferCharStruct ahbConfigPacket);
+ task sampleData (output ahbTransferCharStruct ahbDataPacket, input ahbTransferConfigStruct ahbConfigPacket);
     //logic to be written
   endtask : sampleData
 
