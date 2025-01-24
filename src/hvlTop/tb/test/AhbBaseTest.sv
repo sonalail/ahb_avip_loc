@@ -31,6 +31,7 @@ endfunction : build_phase
 function void AhbBaseTest::setupAhbEnvironmentConfig();
   ahbEnvironmentConfig = AhbEnvironmentConfig::type_id::create("ahbEnvironmentConfig");
   ahbEnvironmentConfig.noOfSlaves      = NO_OF_SLAVES;
+  ahbEnvironmentConfig.noOfMasters     = NO_OF_MASTERS;
   ahbEnvironmentConfig.hasScoreboard    = 1;
   ahbEnvironmentConfig.hasVirtualSequencer  = 1;
 
