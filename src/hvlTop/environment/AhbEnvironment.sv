@@ -82,7 +82,7 @@ function void AhbEnvironment::build_phase(uvm_phase phase);
   
   foreach(ahbSlaveAgentConfig[i]) begin
     if(!uvm_config_db #(AhbSlaveAgentConfig)::get(this,"",$sformatf("AhbSlaveAgentConfig[%0d]",i),ahbSlaveAgentConfig[i])) begin
-    `uvm_fatal("FATAL_SA_AGENT_CONFIG", $sformatf("Couldn't get the ahbSlaveAgentConfig from config_db"))
+    `uvm_error("FATAL_SA_AGENT_CONFIG", $sformatf("Couldn't get the ahbSlaveAgentConfig from config_db"))
     end
   end
  
