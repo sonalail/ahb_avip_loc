@@ -26,7 +26,7 @@ class AhbEnvironmentConfig extends uvm_object;
 
   //Variable: ahbMasterAgentConfig
   //Handle for master agent configuration
-  AhbMasterAgentConfig ahbMasterAgentConfig;
+  AhbMasterAgentConfig ahbMasterAgentConfig[];
 
   //Variable: ahbSlaveAgentConfig
   //Dynamic array of slave agnet configuration handles
