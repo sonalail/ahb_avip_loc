@@ -1,0 +1,409 @@
+# vsim -vopt work.HvlTop work.HdlTop -voptargs="+acc=npr" -assertdebug "+UVM_TESTNAME=AhbBaseTest" "+UVM_VERBOSITY=UVM_HIGH" "+define+AhbBaseTest" -l AhbBaseTest/AhbBaseTest.log -sva -coverage -c -do "log -r /*; add wave -r /*; coverage save -onexit -assert -directive -cvg -codeAll AhbBaseTest/AhbBaseTest_coverage.ucdb; run -all; exit" -wlf AhbBaseTest/waveform.wlf 
+# Start time: 21:23:55 on Jan 24,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# //  Questa Sim
+# //  Version 10.6c linux Jul 25 2017
+# //
+# //  Copyright 1991-2017 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.AhbSlaveDriverBFM(fast)
+# Loading work.AhbSlaveMonitorBFM(fast)
+# Loading work.AhbGlobalPackage(fast)
+# Loading mtiUvm.uvm_pkg
+# Loading work.AhbSlavePackage(fast)
+# Loading work.AhbMasterDriverBFM(fast)
+# Loading work.AhbMasterMonitorBFM(fast)
+# Loading work.AhbMasterPackage(fast)
+# Loading work.AhbEnvironmentPackage(fast)
+# Loading work.AhbSlaveSequencePackage(fast)
+# Loading work.AhbMasterSequencePackage(fast)
+# Loading work.AhbVirtualSequencePackage(fast)
+# Loading work.AhbBaseTestPackage(fast)
+# Loading work.HvlTop(fast)
+# Loading work.HdlTop(fast)
+# Loading work.AhbInterface_sv_unit(fast)
+# Loading work.AhbInterface(fast)
+# Loading work.AhbMasterAgentBFM(fast)
+# Loading work.AhbMasterDriverBFM_sv_unit(fast)
+# Loading work.AhbMasterDriverBFM(fast)
+# Loading work.AhbMasterMonitorBFM_sv_unit(fast)
+# Loading work.AhbMasterMonitorBFM(fast)
+# Loading work.AhbSlaveAgentBFM(fast)
+# Loading work.AhbSlaveDriverBFM_sv_unit(fast)
+# Loading work.AhbSlaveDriverBFM(fast)
+# Loading work.AhbSlaveMonitorBFM_sv_unit(fast)
+# Loading work.AhbSlaveMonitorBFM(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# ** Warning: (vsim-3839) ../../src/hdlTop/slaveAgentBFM/AhbSlaveAgentBFM.sv(23): Variable '/HdlTop/ahbInterface/hrdata', driven via a port connection, is multiply driven. See ../../src/hdlTop/masterAgentBFM/AhbMasterAgentBFM.sv(23).
+#    Time: 0 ns  Iteration: 0  Instance: /HdlTop/ahbSlaveAgentBFM/ahbSlaveDriverBFM File: ../../src/hdlTop/slaveAgentBFM/AhbSlaveDriverBFM.sv
+# ** Warning: (vsim-3839) ../../src/hdlTop/slaveAgentBFM/AhbSlaveAgentBFM.sv(23): Variable '/HdlTop/ahbInterface/hready', driven via a port connection, is multiply driven. See ../../src/hdlTop/masterAgentBFM/AhbMasterAgentBFM.sv(23).
+#    Time: 0 ns  Iteration: 0  Instance: /HdlTop/ahbSlaveAgentBFM/ahbSlaveDriverBFM File: ../../src/hdlTop/slaveAgentBFM/AhbSlaveDriverBFM.sv
+# ** Warning: (vsim-3839) ../../src/hdlTop/slaveAgentBFM/AhbSlaveAgentBFM.sv(23): Variable '/HdlTop/ahbInterface/hreadyout', driven via a port connection, is multiply driven. See ../../src/hdlTop/masterAgentBFM/AhbMasterAgentBFM.sv(23).
+#    Time: 0 ns  Iteration: 0  Instance: /HdlTop/ahbSlaveAgentBFM/ahbSlaveDriverBFM File: ../../src/hdlTop/slaveAgentBFM/AhbSlaveDriverBFM.sv
+# ** Warning: (vsim-3839) ../../src/hdlTop/slaveAgentBFM/AhbSlaveAgentBFM.sv(23): Variable '/HdlTop/ahbInterface/hresp', driven via a port connection, is multiply driven. See ../../src/hdlTop/masterAgentBFM/AhbMasterAgentBFM.sv(23).
+#    Time: 0 ns  Iteration: 0  Instance: /HdlTop/ahbSlaveAgentBFM/ahbSlaveDriverBFM File: ../../src/hdlTop/slaveAgentBFM/AhbSlaveDriverBFM.sv
+# ** Warning: (vsim-3839) ../../src/hdlTop/slaveAgentBFM/AhbSlaveAgentBFM.sv(23): Variable '/HdlTop/ahbInterface/hexokay', driven via a port connection, is multiply driven. See ../../src/hdlTop/masterAgentBFM/AhbMasterAgentBFM.sv(23).
+#    Time: 0 ns  Iteration: 0  Instance: /HdlTop/ahbSlaveAgentBFM/ahbSlaveDriverBFM File: ../../src/hdlTop/slaveAgentBFM/AhbSlaveDriverBFM.sv
+# ** Warning: (vsim-3839) ../../src/hdlTop/slaveAgentBFM/AhbSlaveAgentBFM.sv(49): Variable '/HdlTop/ahbInterface/hrdata', driven via a port connection, is multiply driven. See ../../src/hdlTop/masterAgentBFM/AhbMasterAgentBFM.sv(23).
+#    Time: 0 ns  Iteration: 0  Instance: /HdlTop/ahbSlaveAgentBFM/ahbSlaveMonitorBFM File: ../../src/hdlTop/slaveAgentBFM/AhbSlaveMonitorBFM.sv
+# ** Warning: (vsim-3839) ../../src/hdlTop/slaveAgentBFM/AhbSlaveAgentBFM.sv(49): Variable '/HdlTop/ahbInterface/hready', driven via a port connection, is multiply driven. See ../../src/hdlTop/masterAgentBFM/AhbMasterAgentBFM.sv(23).
+#    Time: 0 ns  Iteration: 0  Instance: /HdlTop/ahbSlaveAgentBFM/ahbSlaveMonitorBFM File: ../../src/hdlTop/slaveAgentBFM/AhbSlaveMonitorBFM.sv
+# ** Warning: (vsim-3839) ../../src/hdlTop/slaveAgentBFM/AhbSlaveAgentBFM.sv(49): Variable '/HdlTop/ahbInterface/hreadyout', driven via a port connection, is multiply driven. See ../../src/hdlTop/masterAgentBFM/AhbMasterAgentBFM.sv(23).
+#    Time: 0 ns  Iteration: 0  Instance: /HdlTop/ahbSlaveAgentBFM/ahbSlaveMonitorBFM File: ../../src/hdlTop/slaveAgentBFM/AhbSlaveMonitorBFM.sv
+# ** Warning: (vsim-3839) ../../src/hdlTop/slaveAgentBFM/AhbSlaveAgentBFM.sv(49): Variable '/HdlTop/ahbInterface/hresp', driven via a port connection, is multiply driven. See ../../src/hdlTop/masterAgentBFM/AhbMasterAgentBFM.sv(23).
+#    Time: 0 ns  Iteration: 0  Instance: /HdlTop/ahbSlaveAgentBFM/ahbSlaveMonitorBFM File: ../../src/hdlTop/slaveAgentBFM/AhbSlaveMonitorBFM.sv
+# ** Warning: (vsim-3839) ../../src/hdlTop/slaveAgentBFM/AhbSlaveAgentBFM.sv(49): Variable '/HdlTop/ahbInterface/hexokay', driven via a port connection, is multiply driven. See ../../src/hdlTop/masterAgentBFM/AhbMasterAgentBFM.sv(23).
+#    Time: 0 ns  Iteration: 0  Instance: /HdlTop/ahbSlaveAgentBFM/ahbSlaveMonitorBFM File: ../../src/hdlTop/slaveAgentBFM/AhbSlaveMonitorBFM.sv
+# Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
+# log -r /*
+#  add wave -r /*
+#  coverage save -onexit -assert -directive -cvg -codeAll AhbBaseTest/AhbBaseTest_coverage.ucdb
+#  run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test AhbBaseTest...
+# UVM_INFO ../../src/hdlTop/HdlTop.sv(22) @ 0: reporter [HDL_TOP] HDL_TOP
+# UVM_INFO ../../src/hdlTop/masterAgentBFM/AhbMasterAgentBFM.sv(17) @ 0: reporter [ahb master agent bfm] AHB MASTER AGENT BFM
+# UVM_INFO ../../src/hdlTop/masterAgentBFM/AhbMasterDriverBFM.sv(59) @ 0: reporter [AHB_MASTER_DRIVER_BFM] AHB_MASTER_DRIVER_BFM
+# UVM_INFO ../../src/hdlTop/masterAgentBFM/AhbMasterMonitorBFM.sv(55) @ 0: reporter [AHB_MASTER_MONITOR_BFM] AHB MASTER MONITOR BFM
+# UVM_INFO ../../src/hdlTop/slaveAgentBFM/AhbSlaveAgentBFM.sv(17) @ 0: reporter [ahb slave agent bfm] AHB SLAVE AGENT BFM
+# UVM_INFO ../../src/hdlTop/slaveAgentBFM/AhbSlaveDriverBFM.sv(62) @ 0: reporter [AHB_SLAVE_DRIVER_BFM] AHB_SLAVE_DRIVER_BFM
+# UVM_INFO ../../src/hdlTop/slaveAgentBFM/AhbSlaveMonitorBFM.sv(62) @ 0: reporter [AHB_SLAVE_MONITOR_BFM] AHB_SLAVE_MONITOR_BFM
+# UVM_INFO ../../src/hdlTop/slaveAgentBFM/AhbSlaveAgentBFM.sv(73) @ 0: reporter [SLAVE_AGENT_BFM] hselx=x
+# UVM_INFO ../../src/hdlTop/slaveAgentBFM/AhbSlaveAgentBFM.sv(74) @ 0: reporter [SLAVE_AGENT_BFM] hselx=0
+# UVM_INFO ../../src/hvlTop/tb/test/AhbBaseTest.sv(71) @ 0: uvm_test_top [AhbBaseTest] 
+# AHB_MASTER_CONFIG[0]
+# ----------------------------------------------------------
+# Name                     Type                  Size  Value
+# ----------------------------------------------------------
+# AhbMasterAgentConfig[0]  AhbMasterAgentConfig  -     @497 
+#   is_active              integral              1     1    
+#   hasCoverage            integral              1     1    
+#   NO OF SLAVES           integral              32    'd0  
+# ----------------------------------------------------------
+# 
+# UVM_INFO ../../src/hvlTop/tb/test/AhbBaseTest.sv(112) @ 0: uvm_test_top [AhbBaseTest] 
+# AHB_SLAVE_CONFIG[0]
+# -------------------------------------------------------------
+# Name                    Type                 Size  Value     
+# -------------------------------------------------------------
+# AhbSlaveAgentConfig[0]  AhbSlaveAgentConfig  -     @502      
+#   is_active             string               10    UVM_ACTIVE
+#   hasCoverage           integral             1     1         
+# -------------------------------------------------------------
+# 
+# UVM_INFO ../../src/hvlTop/tb/test/AhbBaseTest.sv(49) @ 0: uvm_test_top [AhbBaseTest] 
+# AHB_ENV_CONFIG
+# --------------------------------------------------------
+# Name                   Type                  Size  Value
+# --------------------------------------------------------
+# ahbEnvironmentConfig   AhbEnvironmentConfig  -     @496 
+#   hasScoreboard        integral              1     1    
+#   hasVirtualSequencer  integral              1     1    
+#   noOfMasters          integral              32    'd1  
+#   noOfSlaves           integral              32    'd1  
+# --------------------------------------------------------
+# 
+# ** Warning: (vsim-PLI-3070) ../../src/hvlTop/environment/AhbEnvironment.sv(91): $sformatf : Too many arguments.
+#    Time: 0 ns  Iteration: 7  Region: /uvm_pkg::uvm_phase::m_run_phases
+# ** Warning: (vsim-PLI-3070) ../../src/hvlTop/environment/AhbEnvironment.sv(96): $sformatf : Too many arguments.
+#    Time: 0 ns  Iteration: 7  Region: /uvm_pkg::uvm_phase::m_run_phases
+# UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+# -------------------------------------------------------------------------
+# Name                              Type                        Size  Value
+# -------------------------------------------------------------------------
+# uvm_test_top                      AhbBaseTest                 -     @473 
+#   ahbEnvironment                  AhbEnvironment              -     @511 
+#     ahbMasterAgent[i]          0  AhbMasterAgent              -     @521 
+#       ahbMasterCoverage           AhbMasterCoverage           -     @1111
+#         analysis_imp              uvm_analysis_imp            -     @1118
+#       ahbMasterDriverProxy        AhbMasterDriverProxy        -     @1073
+#         rsp_port                  uvm_analysis_port           -     @1088
+#         seq_item_port             uvm_seq_item_pull_port      -     @1080
+#       ahbMasterMonitorProxy       AhbMasterMonitorProxy       -     @1096
+#         ahbMasterAnalysisPort     uvm_analysis_port           -     @1103
+#       ahbMasterSequencer          AhbMasterSequencer          -     @964 
+#         rsp_export                uvm_analysis_export         -     @971 
+#         seq_item_export           uvm_seq_item_pull_imp       -     @1065
+#         arbitration_queue         array                       0     -    
+#         lock_queue                array                       0     -    
+#         num_last_reqs             integral                    32    'd1  
+#         num_last_rsps             integral                    32    'd1  
+#     ahbScoreboard                 AhbScoreboard               -     @862 
+#       ahbMasterAnalysisFifo[0]    uvm_tlm_analysis_fifo #(T)  -     @869 
+#         analysis_export           uvm_analysis_imp            -     @908 
+#         get_ap                    uvm_analysis_port           -     @900 
+#         get_peek_export           uvm_get_peek_imp            -     @884 
+#         put_ap                    uvm_analysis_port           -     @892 
+#         put_export                uvm_put_imp                 -     @876 
+#       ahbSlaveAnalysisFifo[0]     uvm_tlm_analysis_fifo #(T)  -     @916 
+#         analysis_export           uvm_analysis_imp            -     @955 
+#         get_ap                    uvm_analysis_port           -     @947 
+#         get_peek_export           uvm_get_peek_imp            -     @931 
+#         put_ap                    uvm_analysis_port           -     @939 
+#         put_export                uvm_put_imp                 -     @923 
+#     ahbSlaveAgent[i]          0   AhbSlaveAgent               -     @528 
+#       ahbSlaveCoverage            AhbSlaveCoverage            -     @1281
+#         analysis_imp              uvm_analysis_imp            -     @1288
+#       ahbSlaveDriverProxy         AhbSlaveDriverProxy         -     @1243
+#         rsp_port                  uvm_analysis_port           -     @1258
+#         seq_item_port             uvm_seq_item_pull_port      -     @1250
+#       ahbSlaveMonitorProxy        AhbSlaveMonitorProxy        -     @1266
+#         ahbSlaveAnalysisPort      uvm_analysis_port           -     @1273
+#       ahbSlaveSequencer           AhbSlaveSequencer           -     @1134
+#         rsp_export                uvm_analysis_export         -     @1141
+#         seq_item_export           uvm_seq_item_pull_imp       -     @1235
+#         arbitration_queue         array                       0     -    
+#         lock_queue                array                       0     -    
+#         num_last_reqs             integral                    32    'd1  
+#         num_last_rsps             integral                    32    'd1  
+#     ahbVirtualSequencer           AhbVirtualSequencer         -     @535 
+#       ahbMasterSequencer          AhbMasterSequencer          -     @644 
+#         rsp_export                uvm_analysis_export         -     @651 
+#         seq_item_export           uvm_seq_item_pull_imp       -     @745 
+#         arbitration_queue         array                       0     -    
+#         lock_queue                array                       0     -    
+#         num_last_reqs             integral                    32    'd1  
+#         num_last_rsps             integral                    32    'd1  
+#       ahbSlaveSequencer           AhbSlaveSequencer           -     @753 
+#         rsp_export                uvm_analysis_export         -     @760 
+#         seq_item_export           uvm_seq_item_pull_imp       -     @854 
+#         arbitration_queue         array                       0     -    
+#         lock_queue                array                       0     -    
+#         num_last_reqs             integral                    32    'd1  
+#         num_last_rsps             integral                    32    'd1  
+#       rsp_export                  uvm_analysis_export         -     @542 
+#       seq_item_export             uvm_seq_item_pull_imp       -     @636 
+#       arbitration_queue           array                       0     -    
+#       lock_queue                  array                       0     -    
+#       num_last_reqs               integral                    32    'd1  
+#       num_last_rsps               integral                    32    'd1  
+# -------------------------------------------------------------------------
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] End Of Elaboration
+# UVM_INFO ../../src/hvlTop/tb/test/AhbBaseTest.sv(123) @ 0: uvm_test_top [AhbBaseTest] Inside run phase of test
+# UVM_INFO ../../src/hvlTop/environment/virtualSequencer/AhbVirtualSequencer.sv(98) @ 0: uvm_test_top.ahbEnvironment.ahbVirtualSequencer [virtual sequencer] virtual sequencer
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveMonitorProxy.sv(84) @ 0: uvm_test_top.ahbEnvironment.ahbSlaveAgent[i]          0.ahbSlaveMonitorProxy [AhbSlaveMonitorProxy] Inside the slave monitor proxy
+# UVM_INFO ../../src/hvlTop/environment/AhbScoreboard.sv(87) @ 0: uvm_test_top.ahbEnvironment.ahbScoreboard [AhbScoreboard] Entering the run phases of scoreboard
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterMonitorProxy.sv(85) @ 0: uvm_test_top.ahbEnvironment.ahbMasterAgent[i]          0.ahbMasterMonitorProxy [AhbMasterMonitorProxy] Inside the master_monitor_proxy
+# UVM_INFO ../../src/hdlTop/masterAgentBFM/AhbMasterDriverBFM.sv(68) @ 15: reporter [AHB_MASTER_DRIVER_BFM] SYSTEM RESET DETECTED
+# UVM_INFO ../../src/hdlTop/masterAgentBFM/AhbMasterMonitorBFM.sv(64) @ 15: reporter [AHB_MASTER_MONITOR_BFM] system reset detected
+# UVM_INFO ../../src/hdlTop/slaveAgentBFM/AhbSlaveDriverBFM.sv(72) @ 15: reporter [AHB_SLAVE_DRIVER_BFM] SYSTEM RESET DETECTED
+# UVM_INFO ../../src/hdlTop/slaveAgentBFM/AhbSlaveMonitorBFM.sv(71) @ 15: reporter [AHB_SLAVE_MONITOR_BFM] SYSTEM_RESET_DETECTED
+# UVM_INFO ../../src/hdlTop/masterAgentBFM/AhbMasterDriverBFM.sv(71) @ 30: reporter [AHB_MASTER_DRIVER_BFM] SYSTEM RESET DEACTIVATED
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterDriverProxy.sv(102) @ 30: uvm_test_top.ahbEnvironment.ahbMasterAgent[i]          0.ahbMasterDriverProxy [AhbMasterDriverProxy]  run phase inside master driver proxy 
+#  
+# UVM_INFO ../../src/hdlTop/masterAgentBFM/AhbMasterMonitorBFM.sv(67) @ 30: reporter [AHB_MASTER_MONITOR_BFM] system reset deactivated
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterConfigConverter.sv(37) @ 30: reporter [AhbMasterConfigConverter] after randomizing addr = 
+#  0
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterSequenceItemConverter.sv(102) @ 30: reporter [AhbMasterSequenceItemConverterClass] -------------------------------------------------------------
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterSequenceItemConverter.sv(105) @ 30: reporter [AhbMasterSequenceItemConverterClass] After randomizing hprot = xxxx
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterSequenceItemConverter.sv(108) @ 30: reporter [AhbMasterSequenceItemConverterClass] After randomizing hburst = xxx
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterSequenceItemConverter.sv(111) @ 30: reporter [AhbMasterSequenceItemConverterClass] After randomizing hmastlock = 0
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterSequenceItemConverter.sv(114) @ 30: reporter [AhbMasterSequenceItemConverterClass] After randomizing hsize = xxx
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterSequenceItemConverter.sv(117) @ 30: reporter [AhbMasterSequenceItemConverterClass] After randomizing hnonsec = 0
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterSequenceItemConverter.sv(120) @ 30: reporter [AhbMasterSequenceItemConverterClass] After randomizing hexcl = 0
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterSequenceItemConverter.sv(123) @ 30: reporter [AhbMasterSequenceItemConverterClass] After randomizing hmaster = 0000
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterSequenceItemConverter.sv(126) @ 30: reporter [AhbMasterSequenceItemConverterClass] After randomizing htrans = xx
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterSequenceItemConverter.sv(129) @ 30: reporter [AhbMasterSequenceItemConverterClass] After randomizing hwdata = 0
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterSequenceItemConverter.sv(132) @ 30: reporter [AhbMasterSequenceItemConverterClass] After randomizing hwstrb = 0000
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterSequenceItemConverter.sv(135) @ 30: reporter [AhbMasterSequenceItemConverterClass] After randomizing hwrite = 0
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterSequenceItemConverter.sv(138) @ 30: reporter [AhbMasterSequenceItemConverterClass] After randomizing hrdata = 0
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterSequenceItemConverter.sv(141) @ 30: reporter [AhbMasterSequenceItemConverterClass] After randomizing hreadyout = 0
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterSequenceItemConverter.sv(144) @ 30: reporter [AhbMasterSequenceItemConverterClass] After randomizing hresp = x
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterSequenceItemConverter.sv(150) @ 30: reporter [AhbMasterSequenceItemConverterClass] After randomizing hready = 0
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterSequenceItemConverter.sv(152) @ 30: reporter [AhbMasterSequenceItemConverterClass] -------------------------------------------------------------
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterMonitorProxy.sv(99) @ 30: uvm_test_top.ahbEnvironment.ahbMasterAgent[i]          0.ahbMasterMonitorProxy [AhbMasterMonitorProxy] Received packet from master monitor bfm: , 
+#  --------------------------------------------------
+# Name             Type                  Size  Value
+# --------------------------------------------------
+# ahbMasterPacket  AhbMasterTransaction  -     @1332
+#   haddr          integral              32    'h0  
+#   hselx          integral              1     'b0  
+#   hburst         string                0     ""   
+#   hmastlock      integral              1     'h0  
+#   hprot          string                0     ""   
+#   hsize          string                0     ""   
+#   hnonsec        integral              1     'h0  
+#   hexcl          integral              1     'h0  
+#   hmaster        integral              4     'd0  
+#   htrans         string                0     ""   
+#   hwdata         integral              32    'h0  
+#   hwstrb         integral              4     'b0  
+#   hwrite         integral              1     'b0  
+#   hrdata         integral              32    'h0  
+#   hreadyout      integral              1     'h0  
+#   hresp          string                0     ""   
+#   hready         integral              1     'h0  
+# --------------------------------------------------
+# 
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterMonitorProxy.sv(103) @ 30: uvm_test_top.ahbEnvironment.ahbMasterAgent[i]          0.ahbMasterMonitorProxy [AhbMasterMonitorProxy] Sending packet via analysis_port: , 
+#  --------------------------------------------------
+# Name             Type                  Size  Value
+# --------------------------------------------------
+# ahbMasterPacket  AhbMasterTransaction  -     @1456
+#   haddr          integral              32    'h0  
+#   hselx          integral              1     'b0  
+#   hburst         string                0     ""   
+#   hmastlock      integral              1     'h0  
+#   hprot          string                0     ""   
+#   hsize          string                0     ""   
+#   hnonsec        integral              1     'h0  
+#   hexcl          integral              1     'h0  
+#   hmaster        integral              4     'd0  
+#   htrans         string                0     ""   
+#   hwdata         integral              32    'h0  
+#   hwstrb         integral              4     'b0  
+#   hwrite         integral              1     'b0  
+#   hrdata         integral              32    'h0  
+#   hreadyout      integral              1     'h0  
+#   hresp          string                0     ""   
+#   hready         integral              1     'h0  
+# --------------------------------------------------
+# 
+# UVM_INFO ../../src/hdlTop/slaveAgentBFM/AhbSlaveDriverBFM.sv(74) @ 30: reporter [AHB_SLAVE_DRIVER_BFM] SYSTEM RESET DEACTIVATED
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveDriverProxy.sv(100) @ 30: uvm_test_top.ahbEnvironment.ahbSlaveAgent[i]          0.ahbSlaveDriverProxy [AhbSlaveDriverProxy] INSIDE run phase 
+# UVM_INFO ../../src/hdlTop/slaveAgentBFM/AhbSlaveMonitorBFM.sv(74) @ 30: reporter [AHB_SLAVE_MONITOR_BFM] SYSTEM_RESET_DEACTIVATED
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveConfigConverter.sv(37) @ 30: reporter [Ahb_seq_item_conv_from_class] --
+# ----------------------------------------SLAVE_CFG_CONVERTER_FROM_CLASS--------------------------------------
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveConfigConverter.sv(50) @ 30: reporter [Ahb_slave_config_converter] --
+# ------------------------------------------------------------EOP---------------------------------------------------- 
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveSequenceItemConverter.sv(101) @ 30: reporter [AhbSlaveSequenceItemConverterClass] -------------------------------------------------------------
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveSequenceItemConverter.sv(104) @ 30: reporter [ahbSlaveSequeceItemconverterClass] After randomizing hprot = xxxx
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveSequenceItemConverter.sv(107) @ 30: reporter [ahbSlaveSequeceItemconverterClass] After randomizing hburst = xxx
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveSequenceItemConverter.sv(110) @ 30: reporter [ahbSlaveSequeceItemconverterClass] After randomizing hmastlock = 0
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveSequenceItemConverter.sv(113) @ 30: reporter [ahbSlaveSequeceItemconverterClass] After randomizing hsize = xxx
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveSequenceItemConverter.sv(116) @ 30: reporter [ahbSlaveSequeceItemconverterClass] After randomizing hnonsec = 0
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveSequenceItemConverter.sv(119) @ 30: reporter [ahbSlaveSequeceItemconverterClass] After randomizing hexcl = 0
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveSequenceItemConverter.sv(122) @ 30: reporter [ahbSlaveSequeceItemconverterClass] After randomizing hmaster = 0000
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveSequenceItemConverter.sv(125) @ 30: reporter [ahbSlaveSequeceItemconverterClass] After randomizing htrans = xx
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveSequenceItemConverter.sv(128) @ 30: reporter [ahbSlaveSequeceItemconverterClass] After randomizing hwdata = 0
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveSequenceItemConverter.sv(131) @ 30: reporter [ahbSlaveSequeceItemconverterClass] After randomizing hwstrb = 0000
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveSequenceItemConverter.sv(134) @ 30: reporter [ahbSlaveSequeceItemconverterClass] After randomizing hwrite = 0
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveSequenceItemConverter.sv(137) @ 30: reporter [ahbSlaveSequeceItemconverterClass] After randomizing hrdata = 0
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveSequenceItemConverter.sv(140) @ 30: reporter [ahbSlaveSequeceItemconverterClass] After randomizing hreadyout = 0
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveSequenceItemConverter.sv(143) @ 30: reporter [ahbSlaveSequeceItemconverterClass] After randomizing hresp = x
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveSequenceItemConverter.sv(149) @ 30: reporter [ahbSlaveSequeceItemconverterClass] After randomizing hready = 0
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveSequenceItemConverter.sv(151) @ 30: reporter [ahbSlaveSequeceItemconverterClass] -------------------------------------------------------------
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveMonitorProxy.sv(98) @ 30: uvm_test_top.ahbEnvironment.ahbSlaveAgent[i]          0.ahbSlaveMonitorProxy [AhbSlaveMonitorProxy] Received packet from slave monitor BFM: , 
+#  ----------------------------------------------
+# Name          Type                 Size  Value
+# ----------------------------------------------
+# slave Packet  AhbSlaveTransaction  -     @1326
+#   haddr       integral             32    'h0  
+#   hselx       integral             1     'b0  
+#   hburst      string               0     ""   
+#   hmastlock   integral             1     'h0  
+#   hprot       string               0     ""   
+#   hsize       string               0     ""   
+#   hnonsec     integral             1     'h0  
+#   hexcl       integral             1     'h0  
+#   hmaster     integral             4     'd0  
+#   htrans      string               0     ""   
+#   hwdata      integral             32    'h0  
+#   hwstrb      integral             4     'b0  
+#   hwrite      integral             1     'b0  
+#   hrdata      integral             32    'h0  
+#   hreadyout   integral             1     'h0  
+#   hresp       string               0     ""   
+#   hready      integral             1     'h0  
+# ----------------------------------------------
+# 
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveMonitorProxy.sv(102) @ 30: uvm_test_top.ahbEnvironment.ahbSlaveAgent[i]          0.ahbSlaveMonitorProxy [AhbSlaveMonitorProxy] Sending packet via analysis port: , 
+#  ----------------------------------------------
+# Name          Type                 Size  Value
+# ----------------------------------------------
+# slave Packet  AhbSlaveTransaction  -     @1460
+#   haddr       integral             32    'h0  
+#   hselx       integral             1     'b0  
+#   hburst      string               0     ""   
+#   hmastlock   integral             1     'h0  
+#   hprot       string               0     ""   
+#   hsize       string               0     ""   
+#   hnonsec     integral             1     'h0  
+#   hexcl       integral             1     'h0  
+#   hmaster     integral             4     'd0  
+#   htrans      string               0     ""   
+#   hwdata      integral             32    'h0  
+#   hwstrb      integral             4     'b0  
+#   hwrite      integral             1     'b0  
+#   hrdata      integral             32    'h0  
+#   hreadyout   integral             1     'h0  
+#   hresp       string               0     ""   
+#   hready      integral             1     'h0  
+# ----------------------------------------------
+# 
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 100: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO ../../src/hvlTop/masterAgent/AhbMasterCoverage.sv(58) @ 100: uvm_test_top.ahbEnvironment.ahbMasterAgent[i]          0.ahbMasterCoverage [AhbMasterCoverage] Entered the report_phase of AHB Master Coverage
+# UVM_INFO ../../src/hvlTop/slaveAgent/AhbSlaveCoverage.sv(57) @ 100: uvm_test_top.ahbEnvironment.ahbSlaveAgent[i]          0.ahbSlaveCoverage [AhbSlaveCoverage] Entered the report_phase of AHB Slave Coverage
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   76
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [AHB_MASTER_DRIVER_BFM]     3
+# [AHB_MASTER_MONITOR_BFM]     3
+# [AHB_SLAVE_DRIVER_BFM]     3
+# [AHB_SLAVE_MONITOR_BFM]     3
+# [AhbBaseTest]     4
+# [AhbMasterConfigConverter]     1
+# [AhbMasterCoverage]     1
+# [AhbMasterDriverProxy]     1
+# [AhbMasterMonitorProxy]     3
+# [AhbMasterSequenceItemConverterClass]    17
+# [AhbScoreboard]     1
+# [AhbSlaveCoverage]     1
+# [AhbSlaveDriverProxy]     1
+# [AhbSlaveMonitorProxy]     3
+# [AhbSlaveSequenceItemConverterClass]     1
+# [Ahb_seq_item_conv_from_class]     1
+# [Ahb_slave_config_converter]     1
+# [HDL_TOP]     1
+# [Questa UVM]     3
+# [RNTST]     1
+# [SLAVE_AGENT_BFM]     2
+# [TEST_DONE]     1
+# [UVMTOP]     1
+# [ahb master agent bfm]     1
+# [ahb slave agent bfm]     1
+# [ahbSlaveSequeceItemconverterClass]    16
+# [virtual sequencer]     1
+# ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 100 ns  Iteration: 54  Instance: /HvlTop
+# Saving coverage database on exit...
+# End time: 21:24:00 on Jan 24,2025, Elapsed time: 0:00:05
+# Errors: 0, Warnings: 12
