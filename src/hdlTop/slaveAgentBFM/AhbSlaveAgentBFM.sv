@@ -38,7 +38,7 @@ module AhbSlaveAgentBFM #(parameter int SLAVE_ID=0) (AhbInterface ahbInterface);
                                            .hreadyout(ahbInterface.hreadyout),
                                            .hresp(ahbInterface.hresp),
                                            .hexokay(ahbInterface.hexokay),
-                                           .hready(ahbInterface.hready)
+                                           .hready(ahbInterface.hready),
                                            .hselx(ahbInterface.hselx)
                                           );
 
