@@ -61,7 +61,7 @@ function void AhbMasterAgent::build_phase(uvm_phase phase);
   super.build_phase(phase);
 
   if(!uvm_config_db #(AhbMasterAgentConfig)::get(this,"","AhbMasterAgentConfig", ahbMasterAgentConfig)) begin
-    `uvm_fatal("FATAL MASTER CANNOT GET AHBMASTERAGENTCONFIG", "cannot get ahbMasterAgentConfig from uvm_config_db");
+    `uvm_error("FATAL MASTER CANNOT GET AHBMASTERAGENTCONFIG", "cannot get ahbMasterAgentConfig from uvm_config_db");
   end
 
   if(ahbMasterAgentConfig.is_active == UVM_ACTIVE) begin
