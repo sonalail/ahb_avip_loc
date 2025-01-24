@@ -11,7 +11,7 @@ class AhbMasterAgent extends uvm_agent;
 
   //Variable: ahbMasterAgentConfig
   //Declaring handle for AhbMasterAgentConfig class 
-  AhbMasterAgentConfig ahbMasterAgentConfig[];
+  AhbMasterAgentConfig ahbMasterAgentConfig;
 
   //Varible: ahbMasterSequencer
   //Handle for  AhbMasterSequencer
@@ -60,22 +60,22 @@ endfunction : new
 function void AhbMasterAgent::build_phase(uvm_phase phase);
   super.build_phase(phase);
 
- foreach(ahbMasterAgentConfig[i]) begin
+ 
     if(!uvm_config_db #(AhbMasterAgentConfig)::get(this,"",$sformatf("AhbMasterAgentConfig[%0d]",i),ahbMasterAgentConfig[i])) begin
       `uvm_fatal("FATAL_MA_AGENT_CONFIG", $sformatf("Couldn't get the ahbMasterAgentConfig from config_db"))
     end
 
-   if(ahbMasterAgentConfig[i].is_active == UVM_ACTIVE) begin
+   if(ahbMasterAgentConfig.is_active == UVM_ACTIVE) begin
         ahbMasterSequencer = AhbMasterSequencer::type_id::create("ahbMasterSequencer",this);
         ahbMasterDriverProxy = AhbMasterDriverProxy::type_id::create("ahbMasterDriverProxy",this);
   end
   
   ahbMasterMonitorProxy = AhbMasterMonitorProxy::type_id::create("ahbMasterMonitorProxy",this);
 
-   if(ahbMasterAgentConfig[i].hasCoverage) begin
+   if(ahbMasterAgentConfig.hasCoverage) begin
     ahbMasterCoverage = AhbMasterCoverage::type_id::create("ahbMasterCoverage",this);
   end
- end
+
   
 endfunction : build_phase
 
