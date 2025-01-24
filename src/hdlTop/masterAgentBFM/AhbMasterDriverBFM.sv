@@ -30,7 +30,7 @@ interface AhbMasterDriverBFM (input  bit  hclk,
                               output logic hreadyout,
                               output logic hresp,
                               output logic hexokay,
-                              input logic [NO_OF_SLAVES-1:0]heslx
+                              input logic [NO_OF_SLAVES-1:0]hselx
                               );
 
   //-------------------------------------------------------
