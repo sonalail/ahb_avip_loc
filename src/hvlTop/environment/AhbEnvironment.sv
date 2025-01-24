@@ -88,12 +88,12 @@ function void AhbEnvironment::build_phase(uvm_phase phase);
  
   ahbMasterAgent = new[ahbEnvironmentConfig.noOfMasters];
   foreach(ahbMasterAgent[i]) begin
-  ahbMasterAgent = AhbMasterAgent::type_id::create("ahbMasterAgent",this);
+    ahbMasterAgent[i] = AhbMasterAgent::type_id::create($sformatf("ahbMasterAgent[i]",i),this);
   end
   
   ahbSlaveAgent = new[ahbEnvironmentConfig.noOfSlaves];
   foreach(ahbSlaveAgent[i]) begin
-  ahbSlaveAgent = AhbSlaveAgent::type_id::create("ahbSlaveAgent",this);
+    ahbSlaveAgent[i] = AhbSlaveAgent::type_id::create($sformatf("ahbSlaveAgent[i]",i),this);
   end
 
   if(ahbEnvironmentConfig.hasVirtualSequencer) begin
