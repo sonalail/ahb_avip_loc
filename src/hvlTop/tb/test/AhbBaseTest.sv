@@ -107,7 +107,7 @@ function void AhbBaseTest::setupAhbSlaveAgentConfig();
       ahbEnvironmentConfig.ahbSlaveAgentConfig[i].is_active = uvm_active_passive_enum'(UVM_PASSIVE);
     end
     ahbEnvironmentConfig.ahbSlaveAgentConfig[i].hasCoverage = 1; 
-    uvm_config_db #(AhbSlaveAgentConfig)::set(this,$sformatf("*env*"),$sformatf("AhbSlaveAgentConfig[%0d]",i),
+     uvm_config_db #(AhbSlaveAgentConfig)::set(this,"*",$sformatf("AhbSlaveAgentConfig[%0d]",i),
     ahbEnvironmentConfig.ahbSlaveAgentConfig[i]);
     `uvm_info(get_type_name(),$sformatf("\nAHB_SLAVE_CONFIG[%0d]\n%s",i,ahbEnvironmentConfig.ahbSlaveAgentConfig[i].sprint()),UVM_LOW);
   end
