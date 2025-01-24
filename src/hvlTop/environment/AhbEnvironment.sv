@@ -72,8 +72,8 @@ function void AhbEnvironment::build_phase(uvm_phase phase);
   ahbMasterAgentConfig= new[ahbEnvironmentConfig.noOfMasters];
   
   foreach(ahbMasterAgentConfig[i]) begin
-    if(!uvm_config_db #(AhbMasterAgentConfig)::get(this,"",$sformatf("AhbMasterConfig[%0d]",i),ahbMasterConfig[i])) begin
-    `uvm_fatal("FATAL_SA_AGENT_CONFIG", $sformatf("Couldn't get the ahbSlaveAgentConfig from config_db"))
+    if(!uvm_config_db #(AhbMasterAgentConfig)::get(this,"",$sformatf("AhbMasterAgentConfig[%0d]",i),ahbMasterAgentConfig[i])) begin
+      `uvm_fatal("FATAL_SA_AGENT_CONFIG", $sformatf("Couldn't get the ahbMasterAgentConfig from config_db"))
     end
   end
 
@@ -81,7 +81,7 @@ function void AhbEnvironment::build_phase(uvm_phase phase);
   ahbSlaveAgentConfig= new[ahbEnvironmentConfig.noOfSlaves];
   
   foreach(ahbSlaveAgentConfig[i]) begin
-    if(!uvm_config_db #(AhbSlaveAgentConfig)::get(this,"",$sformatf("AhbSlaveConfig[%0d]",i),ahbSlaveConfig[i])) begin
+    if(!uvm_config_db #(AhbSlaveAgentConfig)::get(this,"",$sformatf("AhbSlaveAgentConfig[%0d]",i),ahbSlaveAgentConfig[i])) begin
     `uvm_fatal("FATAL_SA_AGENT_CONFIG", $sformatf("Couldn't get the ahbSlaveAgentConfig from config_db"))
     end
   end
