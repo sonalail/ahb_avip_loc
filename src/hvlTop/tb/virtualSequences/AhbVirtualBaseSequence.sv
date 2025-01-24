@@ -1,6 +1,5 @@
 `ifndef AHBVIRTUALBASESEQUENCE_INCLUDED_
 `define AHBVIRTUALBASESEQUENCE_INCLUDED_
-`include "uvm_macros.svh"
 
 //--------------------------------------------------------------------------------------------
 // Class: AhbVirtualBaseSequence
