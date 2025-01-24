@@ -37,7 +37,7 @@ function void AhbBaseTest::setupAhbEnvironmentConfig();
    setupAhbMasterAgentConfig();
 
    uvm_config_db#(AhbMasterAgentConfig)::set(this,"*MasterAgent*","AhbMasterAgentConfig",ahbEnvironmentConfig.ahbMasterAgentConfig);
-  `uvm_info(get_type_name(),$sformatf("\nAHB_MASTER_AGENT_CONFIG\n%s",ahbEnvironmentConfig.ahbMasterAgentConfig.sprint()),UVM_LOW);
+ // `uvm_info(get_type_name(),$sformatf("\nAHB_MASTER_AGENT_CONFIG\n%s",ahbEnvironmentConfig.ahbMasterAgentConfig.sprint()),UVM_LOW);
  
 // ahbEnvironmentConfig.ahbSlaveAgentConfig = new[ahbEnvironmentConfig.ahbSlaveAgentConfig.noOfSlaves];
  //  foreach(ahbEnvironmentConfig.ahbSlaveAgentConfig[i]) begin
@@ -56,7 +56,7 @@ function void AhbBaseTest::setupAhbMasterAgentConfig();
   // bit [63:0]local_max_address;
   
   ahbEnvironmentConfig.ahbMasterAgentConfig = new[ahbEnvironmentConfig.noOfMasters];
-  foreach(ahbEnvironmentConfig.ahbMAsterAgentConfig[i]) begin
+  foreach(ahbEnvironmentConfig.ahbMasterAgentConfig[i]) begin
     ahbEnvironmentConfig.ahbMasterAgentConfig[i] = AhbMasterAgentConfig::type_id::create($sformatf("AhbMasterAgentConfig[%0d]",i));
  
    if(MASTER_AGENT_ACTIVE === 1) begin
