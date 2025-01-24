@@ -8,6 +8,8 @@
 +incdir+../../src/hvlTop/slaveAgent
 +incdir+../../src/hvlTop/slaveAgent/slaveSequences/
 +incdir+../../src/hvlTop/tb/test
++incdir+../../src/hvlTop/
++incdir+../../src/hdlTop/
 ../../src/globals/AhbGlobalPackage.sv
 ../../src/hvlTop/masterAgent/AhbMasterPackage.sv
 ../../src/hvlTop/slaveAgent/AhbSlavePackage.sv
@@ -23,5 +25,5 @@
 ../../src/hdlTop/slaveAgentBFM/AhbSlaveDriverBFM.sv
 ../../src/hdlTop/slaveAgentBFM/AhbSlaveMonitorBFM.sv
 ../../src/hdlTop/slaveAgentBFM/AhbSlaveAgentBFM.sv
-../../src/hdlTop/hdlTop.sv
-../../src/hdlTop/hvlTop.sv 
+../../src/hdlTop/HdlTop.sv
+../../src/hvlTop/HvlTop.sv 

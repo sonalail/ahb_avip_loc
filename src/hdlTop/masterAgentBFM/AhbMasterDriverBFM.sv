@@ -36,7 +36,7 @@ interface AhbMasterDriverBFM (input  bit  hclk,
   //-------------------------------------------------------
   import AhbMasterPackage::*;
   `include "uvm_macros.svh"
-  
+  import uvm_pkg::*; 
   //-------------------------------------------------------
   // Importing the master package file
   //-------------------------------------------------------

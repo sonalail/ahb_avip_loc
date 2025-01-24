@@ -30,7 +30,7 @@ class AhbEnvironmentConfig extends uvm_object;
 
   //Variable: ahbSlaveAgentConfig
   //Dynamic array of slave agnet configuration handles
-  AhbSlaveAgentConfig ahbSlaveAgentConfig;
+  AhbSlaveAgentConfig ahbSlaveAgentConfig[];
 
   //-------------------------------------------------------
   // Externally defined Tasks and Functions
