@@ -66,7 +66,7 @@ module HdlTop;
   //-------------------------------------------------------
   // AHB Slave BFM Agent Instantiation
   //-------------------------------------------------------
- 
+ AhbSlaveAgentBFM ahbSlaveAgentBFM(ahbInterface); 
 
 endmodule : HdlTop
 
