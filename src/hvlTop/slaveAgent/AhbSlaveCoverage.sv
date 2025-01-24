@@ -10,7 +10,7 @@ class AhbSlaveCoverage extends uvm_subscriber #(AhbSlaveTransaction);
  
   //Variable: apbSlaveAgentConfig
   //Declaring handle for slave agent configuration class 
-  AhbSlaveAgentConfig apbSlaveAgentConfig;
+  AhbSlaveAgentConfig ahbSlaveAgentConfig;
   
   //-------------------------------------------------------
   covergroup ahbSlaveCovergroup;
