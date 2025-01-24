@@ -36,9 +36,7 @@ function void AhbBaseTest::setupAhbEnvironmentConfig();
 
    setupAhbMasterAgentConfig();
 
-   uvm_config_db#(AhbMasterAgentConfig)::set(this,"*MasterAgent*","AhbMasterAgentConfig",ahbEnvironmentConfig.ahbMasterAgentConfig);
-  `uvm_info(get_type_name(),$sformatf("\nAHB_MASTER_AGENT_CONFIG\n%s",ahbEnvironmentConfig.ahbMasterAgentConfig.sprint()),UVM_LOW);
- 
+  
 // ahbEnvironmentConfig.ahbSlaveAgentConfig = new[ahbEnvironmentConfig.ahbSlaveAgentConfig.noOfSlaves];
  //  foreach(ahbEnvironmentConfig.ahbSlaveAgentConfig[i]) begin
  // 	 ahbEnvironmentConfig.ahbSlaveAgentConfig[i] = AhbSlaveAgentConfig::type_id::create($sformatf("AhbSlaveAgentConfig[%0d]",i));
