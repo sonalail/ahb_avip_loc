@@ -86,7 +86,7 @@ task AhbSlaveMonitorProxy::run_phase(uvm_phase phase);
   
   ahbSlaveMonitorBFM.waitForResetn();
 
-  forever begin
+ // forever begin
     ahbTransferCharStruct structDataPacket;
     ahbTransferConfigStruct  structConfigPacket; 
     AhbSlaveTransaction  ahbSlaveClonePacket;
@@ -101,7 +101,7 @@ task AhbSlaveMonitorProxy::run_phase(uvm_phase phase);
     $cast(ahbSlaveClonePacket, ahbSlavePacket.clone());
     `uvm_info(get_type_name(),$sformatf("Sending packet via analysis port: , \n %s", ahbSlaveClonePacket.sprint()),UVM_HIGH)
     ahbSlaveAnalysisPort.write(ahbSlaveClonePacket);
-  end
+ // end
 
 endtask : run_phase
 
