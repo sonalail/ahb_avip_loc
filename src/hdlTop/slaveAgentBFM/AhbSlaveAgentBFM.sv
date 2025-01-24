@@ -22,7 +22,6 @@ module AhbSlaveAgentBFM #(parameter int SLAVE_ID=0) (AhbInterface ahbInterface);
   //-------------------------------------------------------
   AhbSlaveDriverBFM ahbSlaveDriverBFM(.hclk(ahbInterface.hclk),
                                            .hresetn(ahbInterface.hresetn),
-                                           .hselx(ahbInterface.hselx),
                                            .hburst(ahbInterface.hburst),
                                            .hmastlock(ahbInterface.hmastlock),
                                            .haddr(ahbInterface.haddr),
@@ -40,6 +39,7 @@ module AhbSlaveAgentBFM #(parameter int SLAVE_ID=0) (AhbInterface ahbInterface);
                                            .hresp(ahbInterface.hresp),
                                            .hexokay(ahbInterface.hexokay),
                                            .hready(ahbInterface.hready)
+                                           .hselx(ahbInterface.hselx),
                                           );
 
 
