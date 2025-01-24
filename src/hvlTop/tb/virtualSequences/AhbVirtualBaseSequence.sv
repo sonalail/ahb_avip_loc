@@ -3,10 +3,9 @@
 
 class AhbVirtualBaseSequence extends uvm_sequence; 
   `uvm_object_utils(AhbVirtualBaseSequence)
-  
-  `uvm_declare_p_sequencer(AhbVirtualSequencer);
-	 
-  AhbEnvironmentConfig ahbEnvironmentConfig;
+  `uvm_declare_p_sequencer(AhbVirtualSequencer)
+
+   AhbEnvironmentConfig ahbEnvironmentConfig;
 
   extern function new(string name = "AhbVirtualBaseSequence");
   extern task body();
