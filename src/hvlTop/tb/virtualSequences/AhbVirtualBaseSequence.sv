@@ -5,7 +5,7 @@
 // Class: AhbVirtualBaseSequence
 // Holds the handle of actual sequencer.
 //--------------------------------------------------------------------------------------------
-class AhbVirtualBaseSequence extends uvm_sequence#(uvm_seq_item); 
+class AhbVirtualBaseSequence extends uvm_sequence#(uvm_sequence_item); 
   `uvm_object_utils(AhbVirtualBaseSequence)
   
   //Declaring p_sequencer
