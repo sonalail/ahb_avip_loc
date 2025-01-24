@@ -21,6 +21,7 @@ interface AhbSlaveDriverBFM (input  bit   hclk,
                               input logic hnonsec,
                               input logic hexcl,
                               input logic [HMASTER_WIDTH-1:0] hmaster,
+                              input logic [(DATA_WIDTH/8)-1:0]hwstrb,
                               input logic [1:0] htrans,    
                               input logic hwrite,
                               input logic [DATA_WIDTH-1:0] hwdata,
@@ -28,8 +29,10 @@ interface AhbSlaveDriverBFM (input  bit   hclk,
                               output logic hready,
                               output logic hreadyout,
                               output logic hresp,
-                              output logic hexokay
-                               );
+                              output logic hexokay,
+                             input logic [(DATA_WIDTH/8)-1:0]hwstrb,
+                             input logic [NO_OF_SLAVES-1:0]hselx
+                            );
 
   //-------------------------------------------------------
   // Importing uvm package
