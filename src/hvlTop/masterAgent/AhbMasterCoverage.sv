@@ -10,7 +10,7 @@ class AhbMasterCoverage extends uvm_subscriber #(AhbMasterTransaction);
 
   //Variable: apbMasterAgentConfig
   //Declaring handle for master agent configuration class
-  AhbMasterAgentConfig apbMasterAgentConfig;
+  AhbMasterAgentConfig ahbMasterAgentConfig;
 
   //-------------------------------------------------------
   covergroup ahbMasterCovergroup;
