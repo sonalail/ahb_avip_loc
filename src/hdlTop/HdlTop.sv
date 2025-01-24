@@ -66,13 +66,7 @@ module HdlTop;
   //-------------------------------------------------------
   // AHB Slave BFM Agent Instantiation
   //-------------------------------------------------------
-  genvar i;
-  generate
-    for (i=0; i < NO_OF_SLAVES; i++) begin : AhbSlaveAgentBFM
-      AhbSlaveAgentBFM #(.SLAVE_ID(i)) ahbSlaveAgentBFM(ahbInterface);
-      defparam AhbSlaveAgentBFM[i].AhbSlaveAgentBFM.SLAVE_ID = i;
-    end
-  endgenerate
+ 
 
 endmodule : HdlTop
 
