@@ -61,9 +61,9 @@ function void AhbMasterAgent::build_phase(uvm_phase phase);
   super.build_phase(phase);
 
  
-    if(!uvm_config_db #(AhbMasterAgentConfig)::get(this,"",$sformatf("AhbMasterAgentConfig[%0d]",i),ahbMasterAgentConfig[i])) begin
-      `uvm_fatal("FATAL_MA_AGENT_CONFIG", $sformatf("Couldn't get the ahbMasterAgentConfig from config_db"))
-    end
+    // if(!uvm_config_db #(AhbMasterAgentConfig)::get(this,"",$sformatf("AhbMasterAgentConfig[%0d]",i),ahbMasterAgentConfig[i])) begin
+    //   `uvm_fatal("FATAL_MA_AGENT_CONFIG", $sformatf("Couldn't get the ahbMasterAgentConfig from config_db"))
+    // end
 
    if(ahbMasterAgentConfig.is_active == UVM_ACTIVE) begin
         ahbMasterSequencer = AhbMasterSequencer::type_id::create("ahbMasterSequencer",this);
