@@ -1,4 +1,4 @@
-
++incdir+../../src/globals/
 +incdir+../../src/hvlTop/masterAgent/masterSequences
 +incdir+../../src/hvlTop/masterAgent
 +incdir+../../src/hvlTop/environment/virtualSequencer
@@ -14,7 +14,7 @@
 ../../src/hvlTop/masterAgent/masterSequences/AhbMasterSequencePackage.sv
 ../../src/hvlTop/slaveAgent/slaveSequences/AhbSlaveSequencePackage.sv
 ../../src/hvlTop/environment/AhbEnvironmentPackage.sv
-../../src/hvlTop/tb/virtualSequences/AhbVirtualBaseSequence.sv
+../../src/hvlTop/tb/virtualSequences/AhbVirtualSequencePackage.sv
 ../../src/hvlTop/tb/test/AhbBaseTestPackage.sv
 ../../src/hdlTop/ahbInterface/AhbInterface.sv
 ../../src/hdlTop/masterAgentBFM/AhbMasterDriverBFM.sv

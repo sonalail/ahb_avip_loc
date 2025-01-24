@@ -1,58 +1,30 @@
 `ifndef AHBVIRTUALBASESEQUENCE_INCLUDED_
 `define AHBVIRTUALBASESEQUENCE_INCLUDED_
-`include "uvm_macros.svh"
 
-//--------------------------------------------------------------------------------------------
-// Class: AhbVirtualBaseSequence
-// Holds the handle of actual sequencer.
-//--------------------------------------------------------------------------------------------
-class AhbVirtualBaseSequence extends uvm_sequence#(uvm_seq_item); 
+class AhbVirtualBaseSequence extends uvm_sequence; 
   `uvm_object_utils(AhbVirtualBaseSequence)
   
-  //Declaring p_sequencer
-  `uvm_declare_p_sequencer(AhbMasterSequencer);
-  `uvm_declare_p_sequencer(AhbSlaveSequencer);
- 
-  //Variable : apbMasterSequencer
-  //Declaring handle to the virtual sequencer
-  AhbMasterSequencer  apbMasterSequencer;
- 
-  //Variable : ahbSlaveSequencer
-  //Declaring handle to the virtual sequencer
-  AhbSlaveSequencer ahbSlaveSequencer;
+  `uvm_declare_p_sequencer(AhbVirtualSequencer);
+	 
+  AhbEnvironmentConfig ahbEnvironmentConfig;
 
-  //-------------------------------------------------------
-  // Externally defined Tasks and Functions
-  //-------------------------------------------------------
   extern function new(string name = "AhbVirtualBaseSequence");
   extern task body();
 
 endclass : AhbVirtualBaseSequence
 
-//--------------------------------------------------------------------------------------------
-// Construct: new
-//
-// Parameters:
-//  name - AhbVirtualBaseSequence
-//--------------------------------------------------------------------------------------------
 function AhbVirtualBaseSequence::new(string name = "AhbVirtualBaseSequence");
   super.new(name);
 endfunction : new
 
-//--------------------------------------------------------------------------------------------
-// Task : body
-// Used to connect the master virtual seqr to master seqr
-//
-// Parameters:
-//  name - AhbVirtualBaseSequence
-//--------------------------------------------------------------------------------------------
 task AhbVirtualBaseSequence::body();
-  if(!$cast(p_sequencer,m_sequencer))begin
-    `uvm_error(get_full_name(),"Virtual sequencer pointer cast failed")
-  end
-  ahbSlaveSequencer  = p_sequencer.ahbSlaveSequencer;
-  ahbMasterSequencer = p_sequencer.ahbMasterSequencer;
+	if (!uvm_config_db#(AhbEnvironmentConfig)::get(null, get_full_name(), "AhbEnvironmentConfig", ahbEnvironmentConfig )) begin
+		`uvm_fatal("AHBENVIRONMENTCONFIG", "cannot get() ENV_cfg from uvm_config_db.Have you set() it?")
+	end
 
+ 	if (!$cast(p_sequencer, m_sequencer)) begin
+		`uvm_error(get_full_name(), "Virtual sequencer pointer cast failed")
+	end
 endtask : body
 
 `endif

@@ -1,14 +1,6 @@
- // Code your testbench here
-// or browse Examples
-
 `ifndef AHBMASTERAGENTCONFIG_INCLUDED_
 `define AHBMASTERAGENTCONFIG_INCLUDED_
 
-//--------------------------------------------------------------------------------------------
-// Class: AhbMasterAgentConfig
-// Used as the configuration class for ahb_master agent, for configuring number of slaves and number
-// of active passive agents to be created
-//--------------------------------------------------------------------------------------------
 class AhbMasterAgentConfig extends uvm_object;
   `uvm_object_utils(AhbMasterAgentConfig)
 
