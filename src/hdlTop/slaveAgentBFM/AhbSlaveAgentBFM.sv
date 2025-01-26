@@ -1,25 +1,15 @@
 `ifndef AHBSLAVEAGENTBFM_INCLUDED_
 `define AHBSLAVEAGENTBFM_INCLUDED_
 
-//--------------------------------------------------------------------------------------------
-// Module      : AhbSlaveAgentBFM
-// Description : Instantiates driver and monitor
-//--------------------------------------------------------------------------------------------
 module AhbSlaveAgentBFM #(parameter int SLAVE_ID=0) (AhbInterface ahbInterface);
 
-  //-------------------------------------------------------
-  // Importing uvm_pkg file
-  //-------------------------------------------------------
   import uvm_pkg::*;
   `include "uvm_macros.svh"
 
   initial begin
     `uvm_info("ahb slave agent bfm",$sformatf("AHB SLAVE AGENT BFM"),UVM_LOW);
   end
-  
-  //-------------------------------------------------------
-  // slave driver bfm instantiation
-  //-------------------------------------------------------
+ 
   AhbSlaveDriverBFM ahbSlaveDriverBFM(.hclk(ahbInterface.hclk),
                                            .hresetn(ahbInterface.hresetn),
                                            .hburst(ahbInterface.hburst),
@@ -42,10 +32,6 @@ module AhbSlaveAgentBFM #(parameter int SLAVE_ID=0) (AhbInterface ahbInterface);
                                            .hselx(ahbInterface.hselx)
                                           );
 
-
-  //-------------------------------------------------------
-  // slave monitor bfm instantiation
-  //-------------------------------------------------------
   AhbSlaveMonitorBFM ahbSlaveMonitorBFM(.hclk(ahbInterface.hclk),
                                            .hresetn(ahbInterface.hresetn),
                                            .hburst(ahbInterface.hburst),
