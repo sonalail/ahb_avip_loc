@@ -71,7 +71,7 @@
 
   // Variable : hresp
   // Transfer response status (0 = OKAY, 1 = ERROR)
-  rand ahbRespEnum hresp;
+  ahbRespEnum hresp;
 
   // Variable : hexokay
   // Indicates Exclusive OKAY status
