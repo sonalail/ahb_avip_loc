@@ -1,12 +1,11 @@
 +incdir+($basepath)/tb/
 +incdir+($basepath)/masterAgent/
 +incdir+($basepath)/slaveAgent/
-+incdir+($basepath)/tb/Test/
 +incdir+src/globals/
 
-$basepath/ahbMasterAgent/AhbMasterCoverParameter.sv
-$basepath/ahbSlaveAgent/AhbSlaveCoverParameter.sv
-$basepath/ahbMasterAgent/AhbMasterAssertions.sv
-$basepath/ahbSlaveAgent/AhbSlaveAssertions.sv
-$basepath/tb/ahbLocalAssertionTest/AhbMasterAssertionTB.sv
-$basepath/tb/ahbLocalAssertionTest/AhbSlaveAssertionTB.sv
+$basepath/masterAgent/AhbMasterCoverParameter.sv
+$basepath/slaveAgent/AhbSlaveCoverParameter.sv
+$basepath/masterAgent/AhbMasterAssertions.sv
+$basepath/slaveAgent/AhbSlaveAssertions.sv
+$basepath/tb/AhbMasterAssertionTB.sv
+$basepath/tb/AhbSlaveAssertionTB.sv
