@@ -1,3 +1,4 @@
+
 `ifndef AHBMASTERCOVERAGE_INCLUDED_
 `define AHBMASTERCOVERAGE_INCLUDED_
 
@@ -60,4 +61,5 @@ function void AhbMasterCoverage::report_phase(uvm_phase phase);
 endfunction: report_phase
 
 `endif
+
 

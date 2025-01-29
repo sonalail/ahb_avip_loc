@@ -92,7 +92,7 @@ compile:
 
 # Setting a default test as base_test
 ifndef test
-override test = base_test
+override test = AhbBaseTest
 endif
 
 # Setting the default uvm_verbosity to UVM_MEDIUM
@@ -127,7 +127,7 @@ simulate:
 	-assertdebug \
 	+UVM_TESTNAME=$(test) \
 	+UVM_VERBOSITY=$(uvm_verbosity) \
-	+define+$(ahb_type) \
+	+define+$(apb_type) \
 	-l $(test_folder)/$(test).log \
 	-sva \
   -coverage \

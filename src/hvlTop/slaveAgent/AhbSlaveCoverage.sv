@@ -1,3 +1,4 @@
+
 `ifndef AHBSLAVECOVERAGE_INCLUDED_
 `define AHBSLAVECOVERAGE_INCLUDED_
 
@@ -59,3 +60,4 @@ function void AhbSlaveCoverage::report_phase(uvm_phase phase);
 endfunction: report_phase
 
 `endif
+
