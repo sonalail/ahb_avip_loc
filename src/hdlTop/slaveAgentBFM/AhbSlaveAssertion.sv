@@ -14,9 +14,9 @@ interface ahbSlaveAssertions (
   input        hclk,          // Clock signal
   input        hresetn,       // Active-low reset signal
   input        hreadyout,     // Slave ready output
-  input [31:0] hrdata,        // Read data bus (32 bits)
-  input [1:0]  hresp,         // Response from slave (OKAY, ERROR)
-  input [31:0] haddr,         // Address bus (32 bits)
+  input [DATA_WIDTH-1:0] hrdata,        // Read data bus (32 bits)
+  input   hresp,         // Response from slave (OKAY, ERROR)
+  input [ADDR_WIDTH-1:0] haddr,         // Address bus (32 bits)
   input [1:0]  htrans,        // Transaction type (IDLE, BUSY, NONSEQ, SEQ)
   input        hwrite,        // Write signal (1 for write, 0 for read)
   input [2:0]  hsize,         // Transfer size (byte, half-word, word, etc.)
