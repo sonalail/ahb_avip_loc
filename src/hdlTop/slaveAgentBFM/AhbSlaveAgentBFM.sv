@@ -75,7 +75,7 @@ module AhbSlaveAgentBFM #(parameter int SLAVE_ID=0) (AhbInterface ahbInterface);
                                                          .hwdata(ahbInterface.hwdata),
                                                          .hprot(ahbInterface.hprot),
                                                          .hexokay(ahbInterface.hexokay),
-                                                         .hstrb(ahbInterface.hwstrb)
+                                                         .hstrb(ahbInterface.hstrb)
                                                         );
 
 
