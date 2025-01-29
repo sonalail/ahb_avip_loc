@@ -1,5 +1,5 @@
 `include "uvm_macros.svh"
-`include "../hdlTop/AhbMasterAssertions.sv"
+`include "../../hdlTop/masterAgentBFM/AhbMasterAssertions.sv"
 
 module TbAhbMaster;
 
