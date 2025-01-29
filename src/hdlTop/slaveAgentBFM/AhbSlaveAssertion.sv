@@ -43,7 +43,7 @@ assert property (checkHreadyoutValid)
 // Check that HRESP is ERROR for invalid transfers (htrans == IDLE)
 property checkHrespErrorOnInvalid;
   @(posedge hclk) disable iff (!hresetn)
-  (hreadyout && (htrans == 2'b00)) |-> (hresp == 2'b01);  // ERROR response for IDLE state
+  (hreadyout && (htrans == 2'b00)) |-> (hresp == 1'b1);  // ERROR response for IDLE state
 endproperty
 assert property (checkHrespErrorOnInvalid)
   else $error("HRESP is not ERROR for invalid transfers!");
@@ -51,7 +51,7 @@ assert property (checkHrespErrorOnInvalid)
 // Check that HRESP is OKAY for valid transactions (htrans != IDLE)
 property checkHrespOkayForValid;
   @(posedge hclk) disable iff (!hresetn)
-  (hreadyout && (htrans != 2'b00)) |-> (hresp == 2'b00);  // OKAY response for valid transactions
+  (hreadyout && (htrans != 2'b00)) |-> (hresp == 1'b0);  // OKAY response for valid transactions
 endproperty
 assert property (checkHrespOkayForValid)
   else $error("HRESP is not OKAY for valid transactions!");
