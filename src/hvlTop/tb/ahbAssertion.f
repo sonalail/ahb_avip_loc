@@ -1,6 +1,6 @@
 +incdir+($basepath)/tb/
-+incdir+($basepath)/ahbMasterAgent/
-+incdir+($basepath)/ahbSlaveAgent/
++incdir+($basepath)/masterAgent/
++incdir+($basepath)/slaveAgent/
 +incdir+($basepath)/tb/ahbLocalAssertionTest/
 +incdir+src/globals/
 
