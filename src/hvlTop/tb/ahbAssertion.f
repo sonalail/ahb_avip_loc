@@ -1,7 +1,7 @@
 +incdir+($basepath)/tb/
 +incdir+($basepath)/masterAgent/
 +incdir+($basepath)/slaveAgent/
-+incdir+($basepath)/tb/ahbLocalAssertionTest/
++incdir+($basepath)/tb/Test/
 +incdir+src/globals/
 
 $basepath/ahbMasterAgent/AhbMasterCoverParameter.sv
