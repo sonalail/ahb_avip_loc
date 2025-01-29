@@ -60,6 +60,25 @@ module AhbSlaveAgentBFM #(parameter int SLAVE_ID=0) (AhbInterface ahbInterface);
     `uvm_info("SLAVE_AGENT_BFM",$sformatf("hselx=%0d",SLAVE_ID),UVM_HIGH)
   end
 
+  // Bind AHB Slave Assertions to the Monitor BFM
+  bind AhbSlaveMonitorBFM ahbSlaveAssertions ahb_assert (.hclk(ahbInterface.hclk),
+                                                         .hresetn(ahbInterface.hresetn),
+                                                         .hreadyout(ahbInterface.hreadyout),
+                                                         .hrdata(ahbInterface.hrdata),
+                                                         .hresp(ahbInterface.hresp),
+                                                         .haddr(ahbInterface.haddr),
+                                                         .htrans(ahbInterface.htrans),
+                                                         .hwrite(ahbInterface.hwrite),
+                                                         .hsize(ahbInterface.hsize),
+                                                         .hburst(ahbInterface.hburst),
+                                                         .hselx(ahbInterface.hselx),
+                                                         .hwdata(ahbInterface.hwdata),
+                                                         .hprot(ahbInterface.hprot),
+                                                         .hexokay(ahbInterface.hexokay),
+                                                         .hstrb(ahbInterface.hwstrb)
+                                                        );
+
+
 endmodule : AhbSlaveAgentBFM
 
 `endif
