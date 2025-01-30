@@ -88,7 +88,6 @@ rand ahbRespEnum hresp;
   extern function void do_copy(uvm_object rhs);
   extern function bit do_compare(uvm_object rhs, uvm_comparer comparer);
   extern function void do_print(uvm_printer printer);
-  extern function void post_randomize();
 
   constraint c_hreadyout_timing {
     if (hready == 1) {
@@ -102,12 +101,6 @@ constraint c_hresp_valid {
   }
 }
 
-constraint c_hresp_error {
-  if (hresp == ERROR) {
-    hreadyout == 0;
-    ##1 hreadyout == 1;
-  }
-}
 
 constraint c_hexokay_valid {
   if (hexcl == 1) {
@@ -119,6 +112,13 @@ constraint c_hexokay_valid {
     hexokay == 0;
   }
 }
+
+task apply_hreadyout_delay();
+        if (hresp == ERROR) begin
+            #1;  
+            hreadyout = 1;
+        end
+    endtask
 
 endclass : AhbSlaveTransaction
 
@@ -236,13 +236,5 @@ printer.print_string ("hresp", hresp.name());
 printer.print_field ("hready", hready, $bits(hready), UVM_HEX);
 
 endfunction : do_print
-
-//--------------------------------------------------------------------------------------------
-// Function : post_randomize
-// Handles post-randomization logic for the slave transaction
-//--------------------------------------------------------------------------------------------
-function void AhbSlaveTransaction::post_randomize();
-  //Logic
-endfunction : post_randomize
 
 `endif
