@@ -121,6 +121,8 @@ constraint addr_8beat_wrap {
 }
 
 
+
+
 endclass : AhbMasterTransaction
 
 function AhbMasterTransaction::new(string name = "AhbMasterTransaction");
@@ -209,5 +211,4 @@ printer.print_field ("hready", hready, $bits(hready), UVM_HEX);
 endfunction : do_print
 
 `endif
-
 
