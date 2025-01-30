@@ -76,7 +76,7 @@ rand ahbRespEnum hresp;
 
 // Variable : hexokay
 // Indicates Exclusive OKAY status
-// rand ahbrespenum hexokay;
+ rand bit hexokay;
   
   // Variable : hready
   // Combined transfer completion for Manager and Subordinate
@@ -90,9 +90,35 @@ rand ahbRespEnum hresp;
   extern function void do_print(uvm_printer printer);
   extern function void post_randomize();
 
-  //-------------------------------------------------------
-  // Constraints
-  //-------------------------------------------------------
+  constraint c_hreadyout_timing {
+    if (hready == 1) {
+      hreadyout == 1;
+  }
+}
+
+constraint c_hresp_valid {
+  if (hreadyout == 1) {
+    hresp == OKAY;
+  }
+}
+
+constraint c_hresp_error {
+  if (hresp == ERROR) {
+    hreadyout == 0;
+    ##1 hreadyout == 1;
+  }
+}
+
+constraint c_hexokay_valid {
+  if (hexcl == 1) {
+    hexokay == OKAY;
+  } else {
+    hexokay == 0;
+  }
+  if (hresp == ERROR) {
+    hexokay == 0;
+  }
+}
 
 endclass : AhbSlaveTransaction
 
