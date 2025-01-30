@@ -48,6 +48,7 @@ property checkHwdataValid;
   (hwrite && hready && (htrans != 2'b00)) |-> (!$isunknown(hwdata));
 endproperty
 assert property (checkHwdataValid)
+    $info("HWDATA is Valid When HWRITE IS HIGH");
   else $error("HWDATA contains X when HWRITE is asserted!");
 
 // Ensure valid HTRANS values (NONSEQ or SEQ) occur only with HREADY
@@ -56,17 +57,19 @@ property checkHtransValidity;
   (htrans == 2'b10 || htrans == 2'b11) |-> hready;
 endproperty
 assert property (checkHtransValidity)
+    $info("HTRANS is Valid ");
   else $error("HTRANS has an invalid value or transition!");
 
 // Ensure HADDR is aligned based on HSIZE
 property checkHaddrAlignment;
   @(posedge hclk) disable iff (!hresetn)
   (hready && (htrans != 2'b00)) |-> 
-  ((hsize == 3'b001) |-> (haddr[0] == 1'b0)) &&
-  ((hsize == 3'b010) |-> (haddr[1:0] == 2'b00));
+  ((hsize == 3'b001) && (haddr[0] == 1'b0)) &&
+  ((hsize == 3'b010) && (haddr[1:0] == 2'b00));
 endproperty
 assert property (checkHaddrAlignment)
-  else $error("HADDR is not aligned based on HSIZE!");
+     $info("HADDR is aligned based on HSIZE"); 
+else $error("HADDR is not aligned based on HSIZE!");
 
 // Check if HADDR is within the valid range
 property ifHaddrValidAndWithinRange;

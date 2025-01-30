@@ -12,6 +12,8 @@ parameter int ADDR_WIDTH = 32;
 parameter int DATA_WIDTH = 32;
 parameter int HMASTER_WIDTH = 4;
 parameter int HPROT_WIDTH = 4;
+parameter int AHB_ADDR_MIN = 32'h00000000;
+parameter int AHB_ADDR_MAX = 32'hffffffff;
 
  typedef enum logic [2:0] {
     SINGLE      = 3'b000,

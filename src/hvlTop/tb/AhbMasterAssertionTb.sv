@@ -3,9 +3,8 @@
 
 import AhbGlobalPackage::*;
 
-`include "uvm_macros.svh"
 import uvm_pkg::*;
-
+`include "uvm_macros.svh"
 
 module AhbMasterAssertionTb;
 
@@ -32,14 +31,7 @@ module AhbMasterAssertionTb;
   //-------------------------------------------------------
   // Instantiate the Assertions Interface
   //-------------------------------------------------------
-  AhbMasterAssertions #(
-    .ADDR_WIDTH(32),
-    .DATA_WIDTH(32),
-    .HPROT_WIDTH(4),
-    .HMASTER_WIDTH(4),
-    .AHB_ADDR_MIN(32'h00000000),
-    .AHB_ADDR_MAX(32'hFFFFFFFF)
-  ) master_assertions_inst (
+  AhbMasterAssertions ahbmasterassertions_u (
     .hclk(hclk),
     .hresetn(hresetn),
     .haddr(haddr),
@@ -221,3 +213,4 @@ module AhbMasterAssertionTb;
   end
 
 endmodule
+`endif

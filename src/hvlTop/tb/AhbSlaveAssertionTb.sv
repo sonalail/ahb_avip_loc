@@ -1,28 +1,32 @@
-`include "uvm_macros.svh"
-`include "../../hdlTop/slaveAgentBFM/AhbSlaveAssertions.sv"   // Include Slave Assertions for Slave side
+`ifndef AHBSLAVEASSERTIONSTB_INCLUDED_
+`define AHBSLAVEASSERTIONSTB_INCLUDED_
 
-module tb_ahbSlaveAssertions;
+import AhbGlobalPackage::*;
+
+import uvm_pkg::*;
+`include "uvm_macros.svh"
+
+module AhbSlaveAssertionsTb;
 
   // Testbench signals (these will drive the interface signals)
   reg         hclk;
   reg         hresetn;
   reg         hreadyout;
-  reg [31:0]  hrdata;
+  reg [DATA_WIDTH-1:0]  hrdata;
   reg [1:0]   hresp;
-  reg [31:0]  haddr;
+  reg [ADDR_WIDTH-1:0]  haddr;
   reg [1:0]   htrans;
   reg         hwrite;
   reg [2:0]   hsize;
   reg [2:0]   hburst;
   reg         hselx;
-  reg [31:0]  hwdata;
+  reg [DATA_WIDTH-1:0]  hwdata;
   reg [3:0]   hprot;
   reg         hexokay;
   reg [3:0]   hstrb;
 
   // Instantiate the interface for Slave Assertions
-  ahbSlaveAssertions u_ahbSlaveAssertions (
-    .hclk(hclk),
+  ahbSlaveAssertions ahbslaveassertions_u (.hclk(hclk),
     .hresetn(hresetn),
     .hreadyout(hreadyout),
     .hrdata(hrdata),
@@ -128,3 +132,4 @@ module tb_ahbSlaveAssertions;
   end
 
 endmodule
+`endif
