@@ -1,15 +1,21 @@
-`include "uvm_macros.svh"
-`include "../../hdlTop/masterAgentBFM/AhbMasterAssertions.sv"
+`ifndef AHBMASTERASSERTIONTB_INCLUDED_
+`define AHBMASTERASSERTIONTB_INCLUDED_
 
-module TbAhbMaster;
+import AhbGlobalPackage::*;
+
+`include "uvm_macros.svh"
+import uvm_pkg::*;
+
+
+module AhbMasterAssertionTb;
 
   //-------------------------------------------------------
   // Testbench Signals
   //-------------------------------------------------------
   reg         hclk;
   reg         hresetn;
-  reg [31:0]  haddr;
-  reg [31:0]  hwdata;
+  reg [ADDR_WIDTH-1:0]  haddr;
+  reg [DATA_WIDTH-1:0]  hwdata;
   reg [2:0]   hsize;
   reg [2:0]   hburst;
   reg [1:0]   htrans;
@@ -17,11 +23,11 @@ module TbAhbMaster;
   reg         hready;
   reg         hresp;
   reg         hexcl;
-  reg [3:0]   hprot;
-  reg [3:0]   hmaster;
+  reg [HPROT_WIDTH-1:0]   hprot;
+  reg [HMASTER_WIDTH-1:0]   hmaster;
   reg         hmastlock;
   reg         htrans_valid;
-  reg [31:0]  hwdata_valid;
+  reg [DATA_WIDTH-1:0]  hwdata_valid;
 
   //-------------------------------------------------------
   // Instantiate the Assertions Interface

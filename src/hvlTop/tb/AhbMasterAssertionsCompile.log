@@ -1,0 +1,7 @@
+QuestaSim vlog 10.6c Compiler 2017.07 Jul 25 2017
+Start time: 11:04:52 on Jan 30,2025
+vlog -sv "+acc" "+cover" "+fcover" -l AhbMasterAssertionsCompile.log -f ./ahbAssertion.f 
+** Error: (vlog-7) Failed to open design unit file "(/fetools/work_area/frontend/zishanmanna/ahb_avip_loc/src/)globals/AhbGlobalPackage.sv" in read mode.
+No such file or directory. (errno = ENOENT)
+End time: 11:04:52 on Jan 30,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 2

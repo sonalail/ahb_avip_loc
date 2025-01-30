@@ -42,12 +42,12 @@ compile:
 	+fcover \
 	$(comp_args) \
 	-l AhbMasterAssertionsCompile.log \
-	-f ./AhbMasterAssertions.f;
+	-f ./ahbAssertion.f;
 	make compile_war_err;
 
 # Default test configuration
 ifndef test
-override test = AhbMasterAssertionsTb
+override test = AhbMasterAssertionTb
 endif
 
 # Default verbosity level
