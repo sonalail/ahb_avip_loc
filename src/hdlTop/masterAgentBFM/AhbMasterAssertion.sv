@@ -4,7 +4,7 @@
 //-------------------------------------------------------
 // Importing Global Package
 //-------------------------------------------------------
-import AhbGlobalsPackage::*;
+import AhbGlobalPackage::*;
 
 //-------------------------------------------------------
 // Interface: AhbMasterAssertions
@@ -127,6 +127,6 @@ endproperty
 assert property (checkBurstWrap)
   else $error("WRAP burst type failed: Address wrapping incorrect!");
 
-endinterface : ahb_master_assertions
+endinterface : AhbMasterAssertions
 
 `endif
