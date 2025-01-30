@@ -26,7 +26,7 @@ module AhbSlaveAssertionsTb;
   reg [3:0]   hstrb;
 
   // Instantiate the interface for Slave Assertions
-  ahbSlaveAssertions ahbslaveassertions_u (.hclk(hclk),
+  AhbSlaveAssertions ahbslaveassertions_u (.hclk(hclk),
     .hresetn(hresetn),
     .hreadyout(hreadyout),
     .hrdata(hrdata),

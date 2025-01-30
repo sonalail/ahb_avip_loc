@@ -1,9 +1,9 @@
 # vsim -vopt work.HvlTop work.HdlTop -voptargs="+acc=npr" -assertdebug "+UVM_TESTNAME=AhbBaseTest" "+UVM_VERBOSITY=UVM_MEDIUM" "+define+" -l AhbBaseTest/AhbBaseTest.log -sva -coverage -c -do "log -r /*; add wave -r /*; coverage save -onexit -assert -directive -cvg -codeAll AhbBaseTest/AhbBaseTest_coverage.ucdb; run -all; exit" -wlf AhbBaseTest/waveform.wlf 
-# Start time: 17:30:12 on Jan 29,2025
+# Start time: 12:37:57 on Jan 30,2025
 # ** Note: (vsim-3812) Design is being optimized...
-# ** Error: ../../src/hdlTop/slaveAgentBFM/AhbSlaveAgentBFM.sv(64): Module 'ahbSlaveAssertions' is not defined.
+# ** Error: ../../src/hdlTop/slaveAgentBFM/AhbSlaveAgentBFM.sv(64): Module 'AhbSlaveAssertions' is not defined.
 # ** Error: ../../src/hdlTop/masterAgentBFM/AhbMasterAgentBFM.sv(64): Module 'AhbMasterAssertions' is not defined.
 # Optimization failed
 # Error loading design
-# End time: 17:30:13 on Jan 29,2025, Elapsed time: 0:00:01
+# End time: 12:37:58 on Jan 30,2025, Elapsed time: 0:00:01
 # Errors: 2, Warnings: 0

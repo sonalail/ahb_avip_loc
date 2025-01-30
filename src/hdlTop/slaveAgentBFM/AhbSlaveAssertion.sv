@@ -10,7 +10,7 @@ import AhbGlobalPackage::*;
 //-------------------------------------------------------
 // Interface: ahb_slave_assertions
 //-------------------------------------------------------
-interface ahbSlaveAssertions (
+interface AhbSlaveAssertions (
   input        hclk,          // Clock signal
   input        hresetn,       // Active-low reset signal
   input        hreadyout,     // Slave ready output
