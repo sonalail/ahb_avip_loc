@@ -7,6 +7,7 @@
 +incdir+../../src/hvlTop/environment
 +incdir+../../src/hvlTop/slaveAgent
 +incdir+../../src/hvlTop/slaveAgent/slaveSequences/
++incdir+../../src/hvlTop/tb/
 +incdir+../../src/hvlTop/tb/test
 +incdir+../../src/hvlTop/
 +incdir+../../src/hdlTop/
@@ -18,12 +19,16 @@
 ../../src/hvlTop/environment/AhbEnvironmentPackage.sv
 ../../src/hvlTop/tb/virtualSequences/AhbVirtualSequencePackage.sv
 ../../src/hvlTop/tb/test/AhbBaseTestPackage.sv
+../../src/hvlTop/tb/AhbMasterAssertionTb.sv
+../../src/hvlTop/tb/AhbSlaveAssertionTb.sv
 ../../src/hdlTop/ahbInterface/AhbInterface.sv
 ../../src/hdlTop/masterAgentBFM/AhbMasterDriverBFM.sv
 ../../src/hdlTop/masterAgentBFM/AhbMasterMonitorBFM.sv
 ../../src/hdlTop/masterAgentBFM/AhbMasterAgentBFM.sv
+../../src/hdlTop/masterAgentBFM/AhbMasterAssertion.sv
 ../../src/hdlTop/slaveAgentBFM/AhbSlaveDriverBFM.sv
 ../../src/hdlTop/slaveAgentBFM/AhbSlaveMonitorBFM.sv
 ../../src/hdlTop/slaveAgentBFM/AhbSlaveAgentBFM.sv
+../../src/hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv
 ../../src/hdlTop/HdlTop.sv
 ../../src/hvlTop/HvlTop.sv 

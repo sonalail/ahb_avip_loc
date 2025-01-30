@@ -1,5 +1,5 @@
-`ifndef AHBMASTERASSERTIONS_INCLUDED_
-`define AHBMASTERASSERTIONS_INCLUDED_
+`ifndef AHBMASTERASSERTION_INCLUDED_
+`define AHBMASTERASSERTION_INCLUDED_
 
 //-------------------------------------------------------
 // Importing Global Package
@@ -9,7 +9,7 @@ import AhbGlobalPackage::*;
 //-------------------------------------------------------
 // Interface: AhbMasterAssertions
 //-------------------------------------------------------
-interface AhbMasterAssertions (
+interface AhbMasterAssertion (
   input        hclk,          // Clock signal
   input        hresetn,       // Active-low reset
   input [ADDR_WIDTH-1:0] haddr,         // Address bus (32 bits)
@@ -24,8 +24,8 @@ interface AhbMasterAssertions (
   input [HPROT_WIDTH-1:0]  hprot,         // Protection type (User/Supervisor, etc.)
   input [HMASTER_WIDTH -1:0]  hmaster,       // Master identifier (if multiple masters)
   input        hmastlock,     // Master lock signal
-  input        htrans_valid,  // Signal indicating valid transaction
-  input [DATA_WIDTH-1:0] hwdata_valid   // Write data valid signal
+  input        htransValid,  // Signal indicating valid transaction
+  input [DATA_WIDTH-1:0] hwdataValid   // Write data valid signal
 );
 
 //-------------------------------------------------------
@@ -130,6 +130,6 @@ endproperty
 assert property (checkBurstWrap)
   else $error("WRAP burst type failed: Address wrapping incorrect!");
 
-endinterface : AhbMasterAssertions
+endinterface : AhbMasterAssertion
 
 `endif

@@ -25,13 +25,13 @@ module AhbMasterAssertionTb;
   reg [HPROT_WIDTH-1:0]   hprot;
   reg [HMASTER_WIDTH-1:0]   hmaster;
   reg         hmastlock;
-  reg         htrans_valid;
-  reg [DATA_WIDTH-1:0]  hwdata_valid;
+  reg         htransValid;
+  reg [DATA_WIDTH-1:0]  hwdataValid;
 
   //-------------------------------------------------------
   // Instantiate the Assertions Interface
   //-------------------------------------------------------
-  AhbMasterAssertions ahbmasterassertions_u (
+  AhbMasterAssertion ahbmasterassertions_u (
     .hclk(hclk),
     .hresetn(hresetn),
     .haddr(haddr),
@@ -46,8 +46,8 @@ module AhbMasterAssertionTb;
     .hprot(hprot),
     .hmaster(hmaster),
     .hmastlock(hmastlock),
-    .htrans_valid(htrans_valid),
-    .hwdata_valid(hwdata_valid)
+    .htransValid(htransValid),
+    .hwdataValid(hwdataValid)
   );
 
   //-------------------------------------------------------
@@ -83,8 +83,8 @@ module AhbMasterAssertionTb;
     hprot = 4'b0000;
     hmaster = 4'b0001;
     hmastlock = 0;
-    htrans_valid = 1;
-    hwdata_valid = 1;
+    htransValid = 1;
+    hwdataValid = 1;
 
     // Stimulus 1: **Valid Write Transaction** (Passing Test for Assertions)
     #10;

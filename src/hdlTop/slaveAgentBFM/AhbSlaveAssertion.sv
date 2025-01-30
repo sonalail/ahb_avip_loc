@@ -1,6 +1,6 @@
 
-`ifndef AHBSLAVEASSERTIONS_INCLUDED_
-`define AHBSLAVEASSERTIONS_INCLUDED_
+`ifndef AHBSLAVEASSERTION_INCLUDED_
+`define AHBSLAVEASSERTION_INCLUDED_
 
 //-------------------------------------------------------
 // Importing Global Package
@@ -10,7 +10,7 @@ import AhbGlobalPackage::*;
 //-------------------------------------------------------
 // Interface: ahb_slave_assertions
 //-------------------------------------------------------
-interface AhbSlaveAssertions (
+interface AhbSlaveAssertion (
   input        hclk,          // Clock signal
   input        hresetn,       // Active-low reset signal
   input        hreadyout,     // Slave ready output
@@ -25,7 +25,7 @@ interface AhbSlaveAssertions (
   input [31:0] hwdata,        // Write data bus (32 bits)
   input [3:0]  hprot,         // Protection type (User/Supervisor, etc.)
   input        hexokay,       // Exclusive access response
-  input [3:0]  hstrb          // Byte-enable signals (4 bits)
+  input [3:0]  hwstrb          // Byte-enable signals (4 bits)
 );
 
 //-------------------------------------------------------
@@ -88,7 +88,7 @@ endproperty
 assert property (checkBurstTypeValid)
   else $error("Invalid burst type detected!");
 
-endinterface : ahbSlaveAssertions
+endinterface : AhbSlaveAssertion
 
 `endif
 

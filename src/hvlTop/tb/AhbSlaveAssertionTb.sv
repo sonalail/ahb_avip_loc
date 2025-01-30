@@ -1,12 +1,12 @@
-`ifndef AHBSLAVEASSERTIONSTB_INCLUDED_
-`define AHBSLAVEASSERTIONSTB_INCLUDED_
+`ifndef AHBSLAVEASSERTIONTB_INCLUDED_
+`define AHBSLAVEASSERTIONTB_INCLUDED_
 
 import AhbGlobalPackage::*;
 
 import uvm_pkg::*;
 `include "uvm_macros.svh"
 
-module AhbSlaveAssertionsTb;
+module AhbSlaveAssertionTb;
 
   // Testbench signals (these will drive the interface signals)
   reg         hclk;
@@ -23,10 +23,10 @@ module AhbSlaveAssertionsTb;
   reg [DATA_WIDTH-1:0]  hwdata;
   reg [3:0]   hprot;
   reg         hexokay;
-  reg [3:0]   hstrb;
+  reg [3:0]   hwstrb;
 
   // Instantiate the interface for Slave Assertions
-  AhbSlaveAssertions ahbslaveassertions_u (.hclk(hclk),
+  AhbSlaveAssertion ahbslaveassertions_u (.hclk(hclk),
     .hresetn(hresetn),
     .hreadyout(hreadyout),
     .hrdata(hrdata),
@@ -40,7 +40,7 @@ module AhbSlaveAssertionsTb;
     .hwdata(hwdata),
     .hprot(hprot),
     .hexokay(hexokay),
-    .hstrb(hstrb)
+    .hwstrb(hstrb)
   );
 
   // Clock generation
@@ -65,7 +65,7 @@ module AhbSlaveAssertionsTb;
     hwdata = 32'b0;
     hprot = 4'b0000;
     hexokay = 1'b0;
-    hstrb = 4'b1111;
+    hwstrb = 4'b1111;
 
     // Apply reset
     #10 hresetn = 1'b1;

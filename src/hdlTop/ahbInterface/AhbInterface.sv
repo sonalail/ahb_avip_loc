@@ -41,6 +41,10 @@ interface AhbInterface(input logic hclk, input logic hresetn);
 
   logic hready;
 
+  logic htransValid;
+
+  logic [DATA_WIDTH-1:0] hwdataValid;
+
 endinterface : AhbInterface
 
 `endif

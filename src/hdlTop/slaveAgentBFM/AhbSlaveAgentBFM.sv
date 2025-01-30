@@ -61,7 +61,7 @@ module AhbSlaveAgentBFM #(parameter int SLAVE_ID=0) (AhbInterface ahbInterface);
   end
 
   // Bind AHB Slave Assertions to the Monitor BFM
-  bind AhbSlaveMonitorBFM AhbSlaveAssertions ahb_assert (.hclk(ahbInterface.hclk),
+  bind AhbSlaveMonitorBFM AhbSlaveAssertion ahb_assert (.hclk(ahbInterface.hclk),
                                                          .hresetn(ahbInterface.hresetn),
                                                          .hreadyout(ahbInterface.hreadyout),
                                                          .hrdata(ahbInterface.hrdata),
@@ -75,7 +75,7 @@ module AhbSlaveAgentBFM #(parameter int SLAVE_ID=0) (AhbInterface ahbInterface);
                                                          .hwdata(ahbInterface.hwdata),
                                                          .hprot(ahbInterface.hprot),
                                                          .hexokay(ahbInterface.hexokay),
-                                                         .hstrb(ahbInterface.hstrb)
+                                                         .hwstrb(ahbInterface.hwstrb)
                                                         );
 
 
