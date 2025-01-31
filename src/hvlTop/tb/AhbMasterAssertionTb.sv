@@ -136,7 +136,7 @@ module AhbMasterAssertionTb;
 
     // Stimulus 4: **HADDR out of range** (Failing the Address Range Assertion)
     #10;
-    haddr = 32'hFFFFFFFFF; // Invalid address out of range
+    haddr = 40'hFFFFFFFFF00; // Invalid address out of range
     hwdata = 32'hC0FFEE;
     hsize = 3'b010;        // 32-bit transfer
     htrans = 2'b10;        // Non-sequential transfer
