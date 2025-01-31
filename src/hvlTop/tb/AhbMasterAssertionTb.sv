@@ -214,7 +214,9 @@ module AhbMasterAssertionTb;
     htrans = 2'b11; // Sequential transfer
     hwrite = 1;
     hready = 1;
-     #20;
+     #10;
+    hmastlock = 0;
+    #20;
 
     // Stimulus 11: **Invalid INCR Burst Address**
     #10;
