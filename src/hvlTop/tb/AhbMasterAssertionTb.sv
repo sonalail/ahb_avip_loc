@@ -123,6 +123,7 @@ module AhbMasterAssertionTb;
     htrans = 2'b11;
     hwrite = 1;
     hready = 1;
+    #20;
 
     // Stimulus 3: **Valid HADDR within range**
     #10;

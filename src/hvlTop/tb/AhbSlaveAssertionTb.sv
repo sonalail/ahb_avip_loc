@@ -97,13 +97,6 @@ module AhbSlaveAssertionTb;
     hresp = 2'b00;   // OKAY response
     #20;
 
-    //Test 3.1: Write Transaction( Fail Assertion)
-    #10;
-    htrans = 2'b01; //BUSY transaction
-    hreadyout = 1;
-    hwrite = 1;
-    hwdata = 32'hx;
-    haddr =3\
 
     // Test 4: Burst Transaction (INCR)
     #10;
