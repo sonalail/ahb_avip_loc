@@ -140,7 +140,7 @@ printer.print_field ("hwrite", hwrite, $bits(hwrite), UVM_BIN);
 printer.print_field  ("hrdata", hrdata, $bits(hrdata), UVM_HEX);
 printer.print_field ("hreadyout", hreadyout, $bits(hreadyout), UVM_HEX);
 printer.print_string ("hresp", hresp.name());
-printer.print_string ("hexokay", hexokay.name());
+printer.print_field ("hexokay",  hexokay, $bits(hexokay), UVM_HEX);
 printer.print_field ("hready", hready, $bits(hready), UVM_HEX);
 endfunction : do_print
 
