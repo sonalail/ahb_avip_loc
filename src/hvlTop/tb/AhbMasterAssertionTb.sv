@@ -96,16 +96,16 @@ module AhbMasterAssertionTb;
     hready = 1;
     #20;
 
-    /*// Stimulus 2: **Invalid HADDR Alignment** (Failing the HADDR Alignment Assertion)
+    // Stimulus 2: **Invalid HADDR Alignment** (Failing the HADDR Alignment Assertion)
     #10;
     haddr = 32'h00000003; // Misaligned address (not divisible by 4 for 32-bit transfer)
     hwdata = 32'hDEADBEEF;
     hwrite = 1;
     hready = 1;
     htrans = 2'b10;  // Non-sequential transfer
-    #20;*/
+    #20;
   
-    //Stimulus 2.1: **Vlid HADDR Alignment** (Passing Assertion)
+    //Stimulus 2.1: **Valid HADDR Alignment** (Passing Assertion)
     #10;
     haddr = 32'h10000000;
     hsize = 3'b001;
