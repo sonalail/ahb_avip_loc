@@ -100,7 +100,6 @@ module AhbMasterAssertionTb;
     #10;
     haddr = 32'h00000003; // Misaligned address (not divisible by 4 for 32-bit transfer)
     hwdata = 32'hDEADBEEF;
-    hsize = 3'b010;  // 32-bit transfer
     hwrite = 1;
     hready = 1;
     htrans = 2'b10;  // Non-sequential transfer

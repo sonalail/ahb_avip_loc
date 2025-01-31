@@ -77,6 +77,7 @@ property ifHaddrValidAndWithinRange;
   (hready && (htrans != 2'b00)) |-> ((haddr >= AHB_ADDR_MIN) && (haddr <= AHB_ADDR_MAX));
 endproperty
 assert property (ifHaddrValidAndWithinRange)
+       $info("HADDR is within the valid range");
   else $error("HADDR is not within the valid range!");
 
 // Ensure HRESP is OKAY (0) during successful transfers
@@ -85,6 +86,7 @@ property checkHrespOkay;
   (hready && (htrans != 2'b00)) |-> (hresp == 1'b0);
 endproperty
 assert property (checkHrespOkay)
+       $info("HRESP is OKAY during a successful transfer");
   else $error("HRESP is not OKAY for a successful transfer!");
 
 // Ensure HRESP is ERROR (1) during error conditions
@@ -93,6 +95,7 @@ property checkHrespErrorFixed;
   (hready && hresp) |-> (htrans != 2'b00);
 endproperty
 assert property (checkHrespErrorFixed)
+       $info("HRESP is ERROR during error conditions");
   else $error("Unexpected HRESP ERROR when transfer is IDLE!");
 
 // Ensure HREADY remains stable during wait states
@@ -101,6 +104,7 @@ property checkHreadyStability;
   (!hready) |-> ##1 !hready;
 endproperty
 assert property (checkHreadyStability)
+       $info("HREADY remains stable during wait states");
   else $error("HREADY unexpectedly changed when slave was not ready!");
 
 // Ensure HMASTLOCK is asserted correctly during locked transfers
@@ -109,6 +113,7 @@ property checkHmastlockCheck;
   (hready && htrans != 2'b00 && hmastlock) |-> (hmastlock == 1);
 endproperty
 assert property (checkHmastlockCheck)
+       $info("HMASTLOCK is asserted during a locked transfer");
   else $error("HMASTLOCK is not asserted during a locked transfer!");
 
 // Burst type: Check for INCR (incrementing burst)
@@ -118,6 +123,7 @@ property checkBurstIncr;
   (haddr == $past(haddr) + (1 << hsize));
 endproperty
 assert property (checkBurstIncr)
+       $info("INCR burst type passed: Address incremented correctly");
   else $error("INCR burst type failed: Address not incremented correctly!");
 
 // Burst type: Check for WRAP (wrapping burst)
@@ -128,6 +134,7 @@ property checkBurstWrap;
   (haddr == $past(haddr) + (1 << hsize)));
 endproperty
 assert property (checkBurstWrap)
+       $info("WRAP burst type passed: Address wrapping is done correctly");
   else $error("WRAP burst type failed: Address wrapping incorrect!");
 
 endinterface : AhbMasterAssertion
