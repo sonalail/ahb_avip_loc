@@ -95,6 +95,16 @@ module AhbMasterAssertionTb;
     hwrite = 1;
     hready = 1;
     #20;
+   
+    //Stimulus 1.1: **Invalid Write Transaction** (Fail Test for Assertions)
+    #10;
+    haddr = 32'h00000004;
+    hwdata =32'hx;
+    hsize = 3'b010;
+    htrans = 2'b11;
+    hwrite = 1;
+    hready = 1;
+    #20; 
 
     // Stimulus 2: **Invalid HADDR Alignment** (Failing the HADDR Alignment Assertion)
     #10;
