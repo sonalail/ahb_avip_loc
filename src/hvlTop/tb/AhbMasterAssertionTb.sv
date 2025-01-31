@@ -108,7 +108,7 @@ module AhbMasterAssertionTb;
     //Stimulus 2.1: **Valid HADDR Alignment** (Passing Assertion)
     #10;
     haddr = 32'h10000000;
-    hsize = 3'b001;
+    hsize = 3'b010;
     hready = 1;
     htrans = 2'b11;
     hwrite = 1;

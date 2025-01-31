@@ -64,7 +64,7 @@ assert property (checkHtransValidity)
 property checkHaddrAlignment;
   @(posedge hclk) disable iff (!hresetn)
   (hready && (htrans != 2'b00)) |-> 
-  ((hsize == 3'b001) && (haddr[0] == 1'b0)) &&
+  ((hsize == 3'b001) && (haddr[0] == 1'b0)) ||
   ((hsize == 3'b010) && (haddr[1:0] == 2'b00));
 endproperty
 assert property (checkHaddrAlignment)
