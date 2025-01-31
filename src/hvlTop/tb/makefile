@@ -105,6 +105,8 @@ compile_war_err:
 	echo "";
 	grep "^Error" AhbMasterAssertionsCompile.log;
 	echo "";
+        grep "^Info" AhbMasterAssertionsCompile.log;
+        echo "";
 	echo "Log file path: AhbMasterAssertionsCompile.log";
 	echo "";
 	echo "-----------------------------------------------------------------";
