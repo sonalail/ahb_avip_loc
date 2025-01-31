@@ -206,6 +206,15 @@ module AhbMasterAssertionTb;
     hwrite = 1;
     hready = 1;
     #20;
+    
+    //Stimulus 10.1: **HMASTLOCK** (Invalid)
+    #10;
+    hmastlock = 0;  // Deassert HMASTLOCK during a transfer
+    haddr = 32'h00000010;
+    htrans = 2'b11; // Sequential transfer
+    hwrite = 1;
+    hready = 1;
+     #20;
 
     // Stimulus 11: **Invalid INCR Burst Address**
     #10;
