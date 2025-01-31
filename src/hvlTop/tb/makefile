@@ -122,6 +122,8 @@ simulate_war_err:
 	echo "Simulator Errors";
 	grep "Error" $(test_folder)/$(test).log;
 	echo "";
+	grep "Info" $(test_folder)/$(test).log;
+	echo "";
 	echo "UVM Fatal";
 	grep "UVM_FATAL" $(test_folder)/$(test).log;
 	echo "";
