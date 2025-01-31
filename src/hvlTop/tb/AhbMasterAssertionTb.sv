@@ -247,11 +247,12 @@ module AhbMasterAssertionTb;
     hwrite = 1;
     hready = 1;
     #20;
+    
     //Stimulus 13.1 **Burst wrapping fail**
     #10;
     haddr = 32'h00000010; // Address for WRAP burst type, but it doesn't align
     hburst = 3'b010;      // WRAP burst type
-    hsize = 3'b001;       // 8-bit transfer
+    hsize = 3'b011;       // 8-bit transfer
     htrans = 2'b11;       // Sequential transfer
     hwrite = 1;
     hready = 1;
