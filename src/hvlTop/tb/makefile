@@ -41,13 +41,13 @@ compile:
 	+cover \
 	+fcover \
 	$(comp_args) \
-	-l AhbMasterAssertionsCompile.log \
+	-l AhbSlaveAssertionsCompile.log \
 	-f ./ahbAssertion.f;
 	make compile_war_err;
 
 # Default test configuration
 ifndef test
-override test = AhbMasterAssertionTb
+override test = AhbSlaveAssertionTb
 endif
 
 # Default verbosity level
@@ -101,13 +101,13 @@ compile_war_err:
 	echo "-----------------------------------------------------------------";
 	echo "------------------- Compilation Report --------------------------";
 	echo "";
-	grep "^** " AhbMasterAssertionsCompile.log;
+	grep "^** " AhbSlaveAssertionsCompile.log;
 	echo "";
-	grep "^Error" AhbMasterAssertionsCompile.log;
+	grep "^Error" AhbSlaveAssertionsCompile.log;
 	echo "";
-	grep "^Info" AhbMasterAssertionsCompile.log;
+	grep "^Info" AhbSlaveAssertionsCompile.log;
 	echo "";
-	echo "Log file path: AhbMasterAssertionsCompile.log";
+	echo "Log file path: AhbSlaveAssertionsCompile.log";
 	echo "";
 	echo "-----------------------------------------------------------------";
 	echo "-----------------------------------------------------------------";
