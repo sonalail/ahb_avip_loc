@@ -21,7 +21,7 @@ usage:
 	echo "make simulate test=<test_name> uvm_verbosity=<VERBOSITY_LEVEL>";
 	echo "";
 	echo "Example:";
-	echo "make simulate test=ahb_master_test uvm_verbosity=UVM_HIGH";
+	echo "make simulate test=ahb_slave_test uvm_verbosity=UVM_HIGH";
 	echo "";
 	echo "-----------------------------------------------------------------";
 	echo "-----------------------------------------------------------------";
