@@ -79,15 +79,19 @@ module AhbSlaveAssertionTb;
     haddr = 32'h0000_1000;   // Example address
     hresp = 2'b00;   // OKAY response
     #20;
-
-    // Test 2: Invalid Read with HRESP Error
+    
+    // Test 1.1: Invalid Read Transaction(Fail Assertion)
     #10;
-    htrans = 2'b00;  // IDLE
+    htrans = 2'b10;  // NONSEQ transaction
     hreadyout = 1;
-    hresp = 2'b01;   // ERROR response
+    hwrite = 0;      // Read
+    hrdata = 32'hx;  // Read data
+    haddr = 32'h0000_1000;   // Example address
+    hresp = 2'b00;   // OKAY response
     #20;
+    
 
-    // Test 3: Write Transaction (Pass Assertion)
+    // Test 2: Write Transaction (Pass Assertion)
     #10;
     htrans = 2'b01;  // BUSY transaction
     hreadyout = 1;
@@ -98,7 +102,7 @@ module AhbSlaveAssertionTb;
     #20;
 
 
-    // Test 4: Burst Transaction (INCR)
+    // Test 3: Burst Transaction (INCR)
     #10;
     htrans = 2'b10;  // NONSEQ
     hburst = 3'b001; // INCR burst
@@ -107,7 +111,7 @@ module AhbSlaveAssertionTb;
     hresp = 2'b00;
     #20;
 
-    // Test 5: Invalid Burst Type
+    // Test 3.1: Invalid Burst Type (Fail Assertion)
     #10;
     htrans = 2'b10;  // NONSEQ
     hburst = 3'b101; // Invalid burst type
@@ -115,13 +119,49 @@ module AhbSlaveAssertionTb;
     hresp = 2'b00;
     #20;
 
-    // Test 6: Idle State with HRESP ERROR
+    // Test 4: Idle State with HRESP ERROR
     #10;
     htrans = 2'b00;  // IDLE
     hreadyout = 1;
     hresp = 2'b01;   // ERROR response
     #20;
-
+   
+    // Test 4.1: Idle State with HRESP ERROR(Fail assertion)
+    #10;
+    htrans = 2'b00;  // IDLE
+    hreadyout = 1;
+    hresp = 2'b00;   // OKAY  response
+    #20;
+    
+    //Test 5 :HSIZE matches data width
+    #10;
+    hreadyout = 1;
+    htrans = 2'b10; //NONSEQ
+    hsize = 3'b101;
+    #20;
+    
+   //Test 5.1 :HSIZE does not matche data width)(Fail Assertion)
+    #10;
+    hreadyout = 1;
+    htrans = 2'b10; //NONSEQ
+    hsize = 3'b110;
+    #20;
+    
+    //Test 6 :HRESP is OKAY for valid transaction (Pass assertion)
+    #10;
+    hreadyout = 1; // Ready signal is high
+    htrans = 2'b10; // NONSEQ (valid transaction)
+    hresp = 1'b0; // OKAY response
+    #20;
+   
+    //Test 6.1 :HRESP is OKAY for valid transaction (Fail assertion)
+    #10;
+    hreadyout = 1; // Ready signal is high
+    htrans = 2'b10; // NONSEQ (valid transaction)
+    hresp = 1'b1; // ERROR response
+    #20;       
+     
+    
     // End simulation
     $finish;
   end

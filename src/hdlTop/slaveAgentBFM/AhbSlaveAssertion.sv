@@ -65,7 +65,7 @@ property checkSlaveHrdataValid;
   (!hwrite && hreadyout && (htrans != 2'b00)) |-> (!$isunknown(hrdata));  // HRDATA must be valid during read transfers
 endproperty
 assert property (checkSlaveHrdataValid)
-       $infor("HRDATA is valid during read transfer!");
+       $info("HRDATA is valid during read transfer!");
   else $error("HRDATA is invalid during read transfer!");
 
 // Check slave does not alter HADDR during transfer
