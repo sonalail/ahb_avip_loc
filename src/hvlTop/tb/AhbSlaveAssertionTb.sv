@@ -58,17 +58,24 @@ module AhbSlaveAssertionTb;
 
   initial begin
     InitialSignals();
+    
     ValidReadTransaction();
     ValidReadTransactionFail();
+    
     InvalidReadwithHRESPError();
+    HrespIsOkayForValidTransactionFail();
+    
     WriteTransactionPassAssertion();
-    InvalidBurstTypeFail();
+    
     BurstTransactionIncrement();
     InvalidBurstType();
-    IdleStatewithHrespErrorFail();
+    InvalidBurstTypeFail();
+    
     IdleStatewithHrsepError();
+    IdleStatewithHrespErrorFail();
+    
     HsizeDoesNotMatcheDataWidthFail();
-    HrespIsOkayForValidTransactionFail();
+    
     $finish;
   end
   
