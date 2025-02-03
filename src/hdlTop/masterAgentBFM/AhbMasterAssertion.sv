@@ -101,7 +101,7 @@ assert property (checkHrespErrorFixed)
 // Ensure HREADY remains stable during wait states
 property checkHreadyStability;
   @(posedge hclk) disable iff (!hresetn)
-  (!hready) |-> ##1 !hready;
+  (hready) |=> hready;
 endproperty
 assert property (checkHreadyStability)
        $info("HREADY remains stable during wait states");

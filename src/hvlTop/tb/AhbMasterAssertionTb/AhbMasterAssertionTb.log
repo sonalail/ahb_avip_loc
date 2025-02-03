@@ -1,5 +1,5 @@
 # vsim -vopt work.AhbMasterAssertionTb -voptargs="+acc=npr" -assertdebug "+UVM_TESTNAME=AhbMasterAssertionTb" "+UVM_VERBOSITY=UVM_MEDIUM" -l AhbMasterAssertionTb/AhbMasterAssertionTb.log -sva -coverage -c -do "log -r /*; add wave -r /*; coverage save -onexit -assert -directive -cvg -codeAll AhbMasterAssertionTb/AhbMasterAssertionTb_coverage.ucdb; run -all; exit" -wlf AhbMasterAssertionTb/waveform.wlf 
-# Start time: 16:02:35 on Feb 01,2025
+# Start time: 12:50:33 on Feb 03,2025
 # ** Note: (vsim-3812) Design is being optimized...
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
@@ -51,6 +51,9 @@
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
 # UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv(38) @ 0: reporter [MASTER_ASSERTIONS] MASTER_ASSERTIONS
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(109) @ 0: reporter [AhbMasterAssertionTb] Initializing signals started
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(125) @ 5: reporter [AhbMasterAssertionTb] Initializing signals ended
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(130) @ 5: reporter [AhbMasterAssertionTb] Check that HWDATA is valid when HWRITE is HIGH AssertionPass Task started
 # ** Info: HADDR is aligned based on HSIZE
 #    Time: 15 ns Started: 15 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HADDR is within the valid range
@@ -59,10 +62,10 @@
 #    Time: 15 ns Started: 15 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 89
 # ** Info: HTRANS is Valid
 #    Time: 15 ns Started: 15 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: INCR burst type passed: Address incremented correctly
-#    Time: 15 ns Started: 15 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 126
 # ** Info: HWDATA is Valid When HWRITE IS HIGH
 #    Time: 15 ns Started: 15 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
+# ** Info: INCR burst type passed: Address incremented correctly
+#    Time: 25 ns Started: 25 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 126
 # ** Info: HADDR is aligned based on HSIZE
 #    Time: 25 ns Started: 25 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HADDR is within the valid range
@@ -71,10 +74,14 @@
 #    Time: 25 ns Started: 25 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 89
 # ** Info: HTRANS is Valid
 #    Time: 25 ns Started: 25 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Error: INCR burst type failed: Address not incremented correctly!
-#    Time: 25 ns Started: 25 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
 # ** Info: HWDATA is Valid When HWRITE IS HIGH
 #    Time: 25 ns Started: 25 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
+# ** Info: HREADY remains stable during wait states
+#    Time: 25 ns Started: 15 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(139) @ 35: reporter [AhbMasterAssertionTb] Check that HWDATA is valid when HWRITE is HIGH AssertionPass Task ended
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(144) @ 35: reporter [AhbMasterAssertionTb] Check that HWDATA is valid when HWRITE is HIGH AssertionFail Task started
+# ** Error: INCR burst type failed: Address not incremented correctly!
+#    Time: 35 ns Started: 35 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
 # ** Info: HADDR is aligned based on HSIZE
 #    Time: 35 ns Started: 35 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HADDR is within the valid range
@@ -83,10 +90,12 @@
 #    Time: 35 ns Started: 35 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 89
 # ** Info: HTRANS is Valid
 #    Time: 35 ns Started: 35 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Error: INCR burst type failed: Address not incremented correctly!
-#    Time: 35 ns Started: 35 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
 # ** Info: HWDATA is Valid When HWRITE IS HIGH
 #    Time: 35 ns Started: 35 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
+# ** Info: HREADY remains stable during wait states
+#    Time: 35 ns Started: 25 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# ** Error: INCR burst type failed: Address not incremented correctly!
+#    Time: 45 ns Started: 45 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
 # ** Info: HADDR is aligned based on HSIZE
 #    Time: 45 ns Started: 45 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HADDR is within the valid range
@@ -95,10 +104,14 @@
 #    Time: 45 ns Started: 45 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 89
 # ** Info: HTRANS is Valid
 #    Time: 45 ns Started: 45 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Error: INCR burst type failed: Address not incremented correctly!
-#    Time: 45 ns Started: 45 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
 # ** Error: HWDATA contains X when HWRITE is asserted!
 #    Time: 45 ns Started: 45 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 52 Expr: ~$isunknown(hwdata)
+# ** Info: HREADY remains stable during wait states
+#    Time: 45 ns Started: 35 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(153) @ 55: reporter [AhbMasterAssertionTb] Check that HWDATA is valid when HWRITE is HIGH AssertionFail Task ended
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(158) @ 55: reporter [AhbMasterAssertionTb] Ensure HADDR is aligned based on HSIZE AssertionFail task started
+# ** Error: INCR burst type failed: Address not incremented correctly!
+#    Time: 55 ns Started: 55 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
 # ** Info: HADDR is aligned based on HSIZE
 #    Time: 55 ns Started: 55 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HADDR is within the valid range
@@ -107,630 +120,473 @@
 #    Time: 55 ns Started: 55 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 89
 # ** Info: HTRANS is Valid
 #    Time: 55 ns Started: 55 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Error: INCR burst type failed: Address not incremented correctly!
-#    Time: 55 ns Started: 55 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
 # ** Error: HWDATA contains X when HWRITE is asserted!
 #    Time: 55 ns Started: 55 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 52 Expr: ~$isunknown(hwdata)
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 65 ns Started: 65 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
+# ** Info: HREADY remains stable during wait states
+#    Time: 55 ns Started: 45 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# ** Error: HADDR is not aligned based on HSIZE!
+#    Time: 65 ns Started: 65 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 72 Expr: haddr[1:0]==0
 # ** Info: HADDR is within the valid range
 #    Time: 65 ns Started: 65 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
 # ** Info: HRESP is OKAY during a successful transfer
 #    Time: 65 ns Started: 65 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 89
 # ** Info: HTRANS is Valid
 #    Time: 65 ns Started: 65 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Error: INCR burst type failed: Address not incremented correctly!
-#    Time: 65 ns Started: 65 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
-# ** Error: HWDATA contains X when HWRITE is asserted!
-#    Time: 65 ns Started: 65 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 52 Expr: ~$isunknown(hwdata)
+# ** Info: HWDATA is Valid When HWRITE IS HIGH
+#    Time: 65 ns Started: 65 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
+# ** Info: HREADY remains stable during wait states
+#    Time: 65 ns Started: 55 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(166) @ 75: reporter [AhbMasterAssertionTb] Ensure HADDR is aligned based on HSIZE AssertionFail Task ended
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(173) @ 75: reporter [AhbMasterAssertionTb] Ensure HADDR is aligned based on HSIZE AssertionPass task started
+# ** Error: HADDR is not aligned based on HSIZE!
+#    Time: 75 ns Started: 75 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 72 Expr: haddr[1:0]==0
 # ** Info: HADDR is within the valid range
 #    Time: 75 ns Started: 75 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
 # ** Info: HRESP is OKAY during a successful transfer
 #    Time: 75 ns Started: 75 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 89
 # ** Info: HTRANS is Valid
 #    Time: 75 ns Started: 75 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Error: HADDR is not aligned based on HSIZE!
-#    Time: 75 ns Started: 75 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 72 Expr: haddr[1:0]==0
 # ** Info: HWDATA is Valid When HWRITE IS HIGH
 #    Time: 75 ns Started: 75 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
+# ** Info: HREADY remains stable during wait states
+#    Time: 75 ns Started: 65 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# ** Error: INCR burst type failed: Address not incremented correctly!
+#    Time: 85 ns Started: 85 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
+# ** Info: HADDR is aligned based on HSIZE
+#    Time: 85 ns Started: 85 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HADDR is within the valid range
 #    Time: 85 ns Started: 85 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
 # ** Info: HRESP is OKAY during a successful transfer
 #    Time: 85 ns Started: 85 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 89
 # ** Info: HTRANS is Valid
 #    Time: 85 ns Started: 85 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Error: HADDR is not aligned based on HSIZE!
-#    Time: 85 ns Started: 85 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 72 Expr: haddr[1:0]==0
 # ** Info: HWDATA is Valid When HWRITE IS HIGH
 #    Time: 85 ns Started: 85 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
+# ** Info: HREADY remains stable during wait states
+#    Time: 85 ns Started: 75 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(182) @ 95: reporter [AhbMasterAssertionTb] Ensure HADDR is aligned based on HSIZE AssertionPass Task ended
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(187) @ 95: reporter [AhbMasterAssertionTb] Check if HADDR is within the valid range AssertionPass Task started
+# ** Error: INCR burst type failed: Address not incremented correctly!
+#    Time: 95 ns Started: 95 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
+# ** Info: HADDR is aligned based on HSIZE
+#    Time: 95 ns Started: 95 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HADDR is within the valid range
 #    Time: 95 ns Started: 95 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
 # ** Info: HRESP is OKAY during a successful transfer
 #    Time: 95 ns Started: 95 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 89
 # ** Info: HTRANS is Valid
 #    Time: 95 ns Started: 95 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Error: HADDR is not aligned based on HSIZE!
-#    Time: 95 ns Started: 95 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 72 Expr: haddr[1:0]==0
 # ** Info: HWDATA is Valid When HWRITE IS HIGH
 #    Time: 95 ns Started: 95 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
+# ** Info: HREADY remains stable during wait states
+#    Time: 95 ns Started: 85 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
 # ** Error: INCR burst type failed: Address not incremented correctly!
 #    Time: 105 ns Started: 105 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
+# ** Info: HADDR is aligned based on HSIZE
+#    Time: 105 ns Started: 105 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HADDR is within the valid range
 #    Time: 105 ns Started: 105 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
 # ** Info: HRESP is OKAY during a successful transfer
 #    Time: 105 ns Started: 105 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 89
 # ** Info: HTRANS is Valid
 #    Time: 105 ns Started: 105 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 105 ns Started: 105 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HWDATA is Valid When HWRITE IS HIGH
 #    Time: 105 ns Started: 105 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
+# ** Info: HREADY remains stable during wait states
+#    Time: 105 ns Started: 95 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(195) @ 115: reporter [AhbMasterAssertionTb] Check if HADDR is within the valid range AssertionPass Task ended
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(200) @ 115: reporter [AhbMasterAssertionTb] Check if HADDR is within the valid range AssertionFail Task started
 # ** Error: INCR burst type failed: Address not incremented correctly!
 #    Time: 115 ns Started: 115 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
+# ** Info: HADDR is aligned based on HSIZE
+#    Time: 115 ns Started: 115 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HADDR is within the valid range
 #    Time: 115 ns Started: 115 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
 # ** Info: HRESP is OKAY during a successful transfer
 #    Time: 115 ns Started: 115 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 89
 # ** Info: HTRANS is Valid
 #    Time: 115 ns Started: 115 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 115 ns Started: 115 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HWDATA is Valid When HWRITE IS HIGH
 #    Time: 115 ns Started: 115 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Error: INCR burst type failed: Address not incremented correctly!
-#    Time: 125 ns Started: 125 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
+# ** Info: HREADY remains stable during wait states
+#    Time: 115 ns Started: 105 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# ** Error: HADDR is not aligned based on HSIZE!
+#    Time: 125 ns Started: 125 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 72 Expr: haddr[1:0]==0
 # ** Info: HADDR is within the valid range
 #    Time: 125 ns Started: 125 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
 # ** Info: HRESP is OKAY during a successful transfer
 #    Time: 125 ns Started: 125 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 89
 # ** Info: HTRANS is Valid
 #    Time: 125 ns Started: 125 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 125 ns Started: 125 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HWDATA is Valid When HWRITE IS HIGH
 #    Time: 125 ns Started: 125 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Error: INCR burst type failed: Address not incremented correctly!
-#    Time: 135 ns Started: 135 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
+# ** Info: HREADY remains stable during wait states
+#    Time: 125 ns Started: 115 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(209) @ 135: reporter [AhbMasterAssertionTb] Check if HADDR is within the valid range AssertionFail Task ended
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(215) @ 135: reporter [AhbMasterAssertionTb] Ensure HRESP is OKAY (0) during successful transfers AssertionPass Task started
+# ** Error: HADDR is not aligned based on HSIZE!
+#    Time: 135 ns Started: 135 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 72 Expr: haddr[1:0]==0
 # ** Info: HADDR is within the valid range
 #    Time: 135 ns Started: 135 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
 # ** Info: HRESP is OKAY during a successful transfer
 #    Time: 135 ns Started: 135 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 89
 # ** Info: HTRANS is Valid
 #    Time: 135 ns Started: 135 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 135 ns Started: 135 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HWDATA is Valid When HWRITE IS HIGH
 #    Time: 135 ns Started: 135 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
+# ** Info: HREADY remains stable during wait states
+#    Time: 135 ns Started: 125 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
 # ** Error: INCR burst type failed: Address not incremented correctly!
 #    Time: 145 ns Started: 145 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
+# ** Info: HADDR is aligned based on HSIZE
+#    Time: 145 ns Started: 145 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HADDR is within the valid range
 #    Time: 145 ns Started: 145 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
 # ** Info: HRESP is OKAY during a successful transfer
 #    Time: 145 ns Started: 145 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 89
 # ** Info: HTRANS is Valid
 #    Time: 145 ns Started: 145 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 145 ns Started: 145 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HWDATA is Valid When HWRITE IS HIGH
 #    Time: 145 ns Started: 145 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
+# ** Info: HREADY remains stable during wait states
+#    Time: 145 ns Started: 135 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(224) @ 155: reporter [AhbMasterAssertionTb] Ensure HRESP is OKAY (0) during successful transfers AssertionPass Task ended
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(229) @ 155: reporter [AhbMasterAssertionTb] Ensure HRESP is OKAY (0) during successful transfers AssertionFail Task started
 # ** Error: INCR burst type failed: Address not incremented correctly!
 #    Time: 155 ns Started: 155 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
+# ** Info: HADDR is aligned based on HSIZE
+#    Time: 155 ns Started: 155 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HADDR is within the valid range
 #    Time: 155 ns Started: 155 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
 # ** Info: HRESP is OKAY during a successful transfer
 #    Time: 155 ns Started: 155 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 89
 # ** Info: HTRANS is Valid
 #    Time: 155 ns Started: 155 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 155 ns Started: 155 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HWDATA is Valid When HWRITE IS HIGH
 #    Time: 155 ns Started: 155 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
+# ** Info: HREADY remains stable during wait states
+#    Time: 155 ns Started: 145 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# ** Info: HRESP is ERROR during error conditions
+#    Time: 165 ns Started: 165 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
+# ** Error: INCR burst type failed: Address not incremented correctly!
+#    Time: 165 ns Started: 165 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
+# ** Info: HADDR is aligned based on HSIZE
+#    Time: 165 ns Started: 165 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HADDR is within the valid range
 #    Time: 165 ns Started: 165 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Info: HRESP is OKAY during a successful transfer
-#    Time: 165 ns Started: 165 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 89
+# ** Error: HRESP is not OKAY for a successful transfer!
+#    Time: 165 ns Started: 165 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
 # ** Info: HTRANS is Valid
 #    Time: 165 ns Started: 165 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Error: HADDR is not aligned based on HSIZE!
-#    Time: 165 ns Started: 165 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 72 Expr: haddr[1:0]==0
 # ** Info: HWDATA is Valid When HWRITE IS HIGH
 #    Time: 165 ns Started: 165 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
+# ** Info: HREADY remains stable during wait states
+#    Time: 165 ns Started: 155 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(236) @ 175: reporter [AhbMasterAssertionTb] Ensure HRESP is OKAY (0) during successful transfers AssertionFail Task ended
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(241) @ 175: reporter [AhbMasterAssertionTb] Ensure HRESP is ERROR (1) during successful transfers AssertionPass Task started
+# ** Info: HRESP is ERROR during error conditions
+#    Time: 175 ns Started: 175 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
+# ** Error: INCR burst type failed: Address not incremented correctly!
+#    Time: 175 ns Started: 175 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
+# ** Info: HADDR is aligned based on HSIZE
+#    Time: 175 ns Started: 175 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HADDR is within the valid range
 #    Time: 175 ns Started: 175 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Info: HRESP is OKAY during a successful transfer
-#    Time: 175 ns Started: 175 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 89
+# ** Error: HRESP is not OKAY for a successful transfer!
+#    Time: 175 ns Started: 175 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
 # ** Info: HTRANS is Valid
 #    Time: 175 ns Started: 175 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Error: HADDR is not aligned based on HSIZE!
-#    Time: 175 ns Started: 175 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 72 Expr: haddr[1:0]==0
 # ** Info: HWDATA is Valid When HWRITE IS HIGH
 #    Time: 175 ns Started: 175 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Info: HADDR is within the valid range
-#    Time: 185 ns Started: 185 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Info: HRESP is OKAY during a successful transfer
-#    Time: 185 ns Started: 185 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 89
-# ** Info: HTRANS is Valid
-#    Time: 185 ns Started: 185 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Error: HADDR is not aligned based on HSIZE!
-#    Time: 185 ns Started: 185 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 72 Expr: haddr[1:0]==0
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 185 ns Started: 185 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Error: INCR burst type failed: Address not incremented correctly!
-#    Time: 195 ns Started: 195 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
-# ** Info: HADDR is within the valid range
-#    Time: 195 ns Started: 195 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Info: HRESP is OKAY during a successful transfer
-#    Time: 195 ns Started: 195 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 89
-# ** Info: HTRANS is Valid
-#    Time: 195 ns Started: 195 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 195 ns Started: 195 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 195 ns Started: 195 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Error: INCR burst type failed: Address not incremented correctly!
-#    Time: 205 ns Started: 205 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
-# ** Info: HADDR is within the valid range
-#    Time: 205 ns Started: 205 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Info: HRESP is OKAY during a successful transfer
-#    Time: 205 ns Started: 205 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 89
-# ** Info: HTRANS is Valid
-#    Time: 205 ns Started: 205 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
+# ** Info: HREADY remains stable during wait states
+#    Time: 175 ns Started: 165 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# ** Error: Unexpected HRESP ERROR when transfer is IDLE!
+#    Time: 185 ns Started: 185 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 99 Expr: htrans!=0
+# ** Info: HREADY remains stable during wait states
+#    Time: 185 ns Started: 175 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(248) @ 195: reporter [AhbMasterAssertionTb] Ensure HRESP is ERROR (1) during successful transfers AssertionPass Task ended
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(254) @ 195: reporter [AhbMasterAssertionTb] Check for INCR (incrementing burst) AssertionPass Task started
+# ** Error: Unexpected HRESP ERROR when transfer is IDLE!
+#    Time: 195 ns Started: 195 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 99 Expr: htrans!=0
+# ** Info: HREADY remains stable during wait states
+#    Time: 195 ns Started: 185 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
 # ** Info: HADDR is aligned based on HSIZE
 #    Time: 205 ns Started: 205 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
+# ** Info: HADDR is within the valid range
+#    Time: 205 ns Started: 205 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
+# ** Error: HRESP is not OKAY for a successful transfer!
+#    Time: 205 ns Started: 205 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
+# ** Info: HTRANS is Valid
+#    Time: 205 ns Started: 205 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
+# ** Error: INCR burst type failed: Address not incremented correctly!
+#    Time: 205 ns Started: 205 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
 # ** Info: HWDATA is Valid When HWRITE IS HIGH
 #    Time: 205 ns Started: 205 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Error: INCR burst type failed: Address not incremented correctly!
-#    Time: 215 ns Started: 215 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
-# ** Info: HADDR is within the valid range
-#    Time: 215 ns Started: 215 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Info: HRESP is OKAY during a successful transfer
-#    Time: 215 ns Started: 215 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 89
-# ** Info: HTRANS is Valid
-#    Time: 215 ns Started: 215 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
+# ** Info: HRESP is ERROR during error conditions
+#    Time: 205 ns Started: 205 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
+# ** Info: HREADY remains stable during wait states
+#    Time: 205 ns Started: 195 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(263) @ 215: reporter [AhbMasterAssertionTb] Check for INCR (incrementing burst) AssertionPass Task ended
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(268) @ 215: reporter [AhbMasterAssertionTb] Check for INCR (incrementing burst) AssertionFail Task started
 # ** Info: HADDR is aligned based on HSIZE
 #    Time: 215 ns Started: 215 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
+# ** Info: HADDR is within the valid range
+#    Time: 215 ns Started: 215 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
+# ** Error: HRESP is not OKAY for a successful transfer!
+#    Time: 215 ns Started: 215 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
+# ** Info: HTRANS is Valid
+#    Time: 215 ns Started: 215 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
+# ** Error: INCR burst type failed: Address not incremented correctly!
+#    Time: 215 ns Started: 215 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
 # ** Info: HWDATA is Valid When HWRITE IS HIGH
 #    Time: 215 ns Started: 215 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
 # ** Info: HRESP is ERROR during error conditions
-#    Time: 225 ns Started: 225 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Error: INCR burst type failed: Address not incremented correctly!
-#    Time: 225 ns Started: 225 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
+#    Time: 215 ns Started: 215 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
+# ** Info: HREADY remains stable during wait states
+#    Time: 215 ns Started: 205 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# ** Error: HADDR is not aligned based on HSIZE!
+#    Time: 225 ns Started: 225 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 72 Expr: hsize==2
 # ** Info: HADDR is within the valid range
 #    Time: 225 ns Started: 225 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
 # ** Error: HRESP is not OKAY for a successful transfer!
 #    Time: 225 ns Started: 225 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
 # ** Info: HTRANS is Valid
 #    Time: 225 ns Started: 225 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 225 ns Started: 225 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
+# ** Error: INCR burst type failed: Address not incremented correctly!
+#    Time: 225 ns Started: 225 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
 # ** Info: HWDATA is Valid When HWRITE IS HIGH
 #    Time: 225 ns Started: 225 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
 # ** Info: HRESP is ERROR during error conditions
-#    Time: 235 ns Started: 235 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Error: INCR burst type failed: Address not incremented correctly!
-#    Time: 235 ns Started: 235 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
+#    Time: 225 ns Started: 225 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
+# ** Info: HREADY remains stable during wait states
+#    Time: 225 ns Started: 215 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(277) @ 235: reporter [AhbMasterAssertionTb] Check for INCR (incrementing burst) AssertionFail Task ended
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(292) @ 235: reporter [AhbMasterAssertionTb] Ensure HREADY remains stable during wait states Assertion Pass Task started
+# ** Error: HADDR is not aligned based on HSIZE!
+#    Time: 235 ns Started: 235 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 72 Expr: hsize==2
 # ** Info: HADDR is within the valid range
 #    Time: 235 ns Started: 235 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
 # ** Error: HRESP is not OKAY for a successful transfer!
 #    Time: 235 ns Started: 235 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
 # ** Info: HTRANS is Valid
 #    Time: 235 ns Started: 235 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 235 ns Started: 235 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
+# ** Error: INCR burst type failed: Address not incremented correctly!
+#    Time: 235 ns Started: 235 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
 # ** Info: HWDATA is Valid When HWRITE IS HIGH
 #    Time: 235 ns Started: 235 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
 # ** Info: HRESP is ERROR during error conditions
-#    Time: 245 ns Started: 245 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
+#    Time: 235 ns Started: 235 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
+# ** Info: HREADY remains stable during wait states
+#    Time: 235 ns Started: 225 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
 # ** Error: INCR burst type failed: Address not incremented correctly!
 #    Time: 245 ns Started: 245 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
+# ** Error: HTRANS has an invalid value or transition!
+#    Time: 245 ns Started: 245 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 61 Expr: hready
+# ** Error: HREADY unexpectedly changed when slave was not ready!
+#    Time: 245 ns Started: 235 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 108 Expr: hready
+# ** Error: HADDR is not aligned based on HSIZE!
+#    Time: 255 ns Started: 255 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 72 Expr: hsize==2
 # ** Info: HADDR is within the valid range
-#    Time: 245 ns Started: 245 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
+#    Time: 255 ns Started: 255 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
 # ** Error: HRESP is not OKAY for a successful transfer!
-#    Time: 245 ns Started: 245 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HTRANS is Valid
-#    Time: 245 ns Started: 245 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 245 ns Started: 245 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
+#    Time: 255 ns Started: 255 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
+# ** Info: HRESP is ERROR during error conditions
+#    Time: 255 ns Started: 255 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
 # ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 245 ns Started: 245 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Error: Unexpected HRESP ERROR when transfer is IDLE!
-#    Time: 255 ns Started: 255 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 99 Expr: htrans!=0
-# ** Error: Unexpected HRESP ERROR when transfer is IDLE!
-#    Time: 265 ns Started: 265 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 99 Expr: htrans!=0
-# ** Error: Unexpected HRESP ERROR when transfer is IDLE!
-#    Time: 275 ns Started: 275 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 99 Expr: htrans!=0
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 285 ns Started: 285 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
-# ** Info: HADDR is within the valid range
-#    Time: 285 ns Started: 285 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Error: HRESP is not OKAY for a successful transfer!
-#    Time: 285 ns Started: 285 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
+#    Time: 255 ns Started: 255 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
+# ** Error: INCR burst type failed: Address not incremented correctly!
+#    Time: 255 ns Started: 255 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
 # ** Info: HTRANS is Valid
-#    Time: 285 ns Started: 285 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
+#    Time: 255 ns Started: 255 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(298) @ 265: reporter [AhbMasterAssertionTb] Ensure HREADY remains stable during wait states Assertion Pass Task ended
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(303) @ 265: reporter [AhbMasterAssertionTb] Ensure HREADY remains stable during wait states Assertion Fail Task started
+# ** Error: HADDR is not aligned based on HSIZE!
+#    Time: 265 ns Started: 265 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 72 Expr: hsize==2
+# ** Info: HADDR is within the valid range
+#    Time: 265 ns Started: 265 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
+# ** Error: HRESP is not OKAY for a successful transfer!
+#    Time: 265 ns Started: 265 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
+# ** Info: HRESP is ERROR during error conditions
+#    Time: 265 ns Started: 265 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
+# ** Info: HREADY remains stable during wait states
+#    Time: 265 ns Started: 255 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# ** Info: HWDATA is Valid When HWRITE IS HIGH
+#    Time: 265 ns Started: 265 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
+# ** Error: INCR burst type failed: Address not incremented correctly!
+#    Time: 265 ns Started: 265 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
+# ** Info: HTRANS is Valid
+#    Time: 265 ns Started: 265 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
+# ** Error: HREADY unexpectedly changed when slave was not ready!
+#    Time: 275 ns Started: 265 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 108 Expr: hready
+# ** Error: INCR burst type failed: Address not incremented correctly!
+#    Time: 275 ns Started: 275 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
+# ** Error: HTRANS has an invalid value or transition!
+#    Time: 275 ns Started: 275 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 61 Expr: hready
 # ** Error: INCR burst type failed: Address not incremented correctly!
 #    Time: 285 ns Started: 285 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 285 ns Started: 285 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Info: HRESP is ERROR during error conditions
-#    Time: 285 ns Started: 285 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 295 ns Started: 295 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
-# ** Info: HADDR is within the valid range
-#    Time: 295 ns Started: 295 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Error: HRESP is not OKAY for a successful transfer!
-#    Time: 295 ns Started: 295 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HTRANS is Valid
-#    Time: 295 ns Started: 295 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
+# ** Error: HTRANS has an invalid value or transition!
+#    Time: 285 ns Started: 285 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 61 Expr: hready
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(309) @ 295: reporter [AhbMasterAssertionTb] Ensure HREADY remains stable during wait states Assertion Fail Task ended
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(315) @ 295: reporter [AhbMasterAssertionTb]  Ensure HMASTLOCK is asserted correctly during locked transfers Assertion Pass Task started
 # ** Error: INCR burst type failed: Address not incremented correctly!
 #    Time: 295 ns Started: 295 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
+# ** Error: HTRANS has an invalid value or transition!
+#    Time: 295 ns Started: 295 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 61 Expr: hready
 # ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 295 ns Started: 295 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Info: HRESP is ERROR during error conditions
-#    Time: 295 ns Started: 295 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
+#    Time: 305 ns Started: 305 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
 # ** Info: HADDR is aligned based on HSIZE
 #    Time: 305 ns Started: 305 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HADDR is within the valid range
 #    Time: 305 ns Started: 305 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
 # ** Error: HRESP is not OKAY for a successful transfer!
 #    Time: 305 ns Started: 305 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HTRANS is Valid
-#    Time: 305 ns Started: 305 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Error: INCR burst type failed: Address not incremented correctly!
-#    Time: 305 ns Started: 305 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 305 ns Started: 305 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
 # ** Info: HRESP is ERROR during error conditions
 #    Time: 305 ns Started: 305 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
+# ** Info: HMASTLOCK is asserted during a locked transfer
+#    Time: 305 ns Started: 305 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 116
+# ** Error: INCR burst type failed: Address not incremented correctly!
+#    Time: 305 ns Started: 305 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
+# ** Info: HTRANS is Valid
+#    Time: 305 ns Started: 305 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(323) @ 315: reporter [AhbMasterAssertionTb]  Ensure HMASTLOCK is asserted correctly during locked transfers Assertion Pass Task ended
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(328) @ 315: reporter [AhbMasterAssertionTb]  Ensure HMASTLOCK is asserted correctly during locked transfers Assertion Fail Task started
+# ** Info: HWDATA is Valid When HWRITE IS HIGH
+#    Time: 315 ns Started: 315 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
 # ** Info: HADDR is aligned based on HSIZE
 #    Time: 315 ns Started: 315 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HADDR is within the valid range
 #    Time: 315 ns Started: 315 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
 # ** Error: HRESP is not OKAY for a successful transfer!
 #    Time: 315 ns Started: 315 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HTRANS is Valid
-#    Time: 315 ns Started: 315 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: WRAP burst type passed: Address wrapping is done correctly
-#    Time: 315 ns Started: 315 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 137
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 315 ns Started: 315 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
 # ** Info: HRESP is ERROR during error conditions
 #    Time: 315 ns Started: 315 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
+# ** Info: HREADY remains stable during wait states
+#    Time: 315 ns Started: 305 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# ** Info: HMASTLOCK is asserted during a locked transfer
+#    Time: 315 ns Started: 315 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 116
+# ** Error: INCR burst type failed: Address not incremented correctly!
+#    Time: 315 ns Started: 315 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
+# ** Info: HTRANS is Valid
+#    Time: 315 ns Started: 315 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
 # ** Info: HADDR is aligned based on HSIZE
 #    Time: 325 ns Started: 325 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HADDR is within the valid range
 #    Time: 325 ns Started: 325 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
 # ** Error: HRESP is not OKAY for a successful transfer!
 #    Time: 325 ns Started: 325 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HTRANS is Valid
-#    Time: 325 ns Started: 325 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: WRAP burst type passed: Address wrapping is done correctly
-#    Time: 325 ns Started: 325 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 137
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 325 ns Started: 325 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
 # ** Info: HRESP is ERROR during error conditions
 #    Time: 325 ns Started: 325 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
+# ** Info: HREADY remains stable during wait states
+#    Time: 325 ns Started: 315 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# ** Info: HWDATA is Valid When HWRITE IS HIGH
+#    Time: 325 ns Started: 325 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
+# ** Error: INCR burst type failed: Address not incremented correctly!
+#    Time: 325 ns Started: 325 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
+# ** Info: HTRANS is Valid
+#    Time: 325 ns Started: 325 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
 # ** Info: HADDR is aligned based on HSIZE
 #    Time: 335 ns Started: 335 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HADDR is within the valid range
 #    Time: 335 ns Started: 335 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
 # ** Error: HRESP is not OKAY for a successful transfer!
 #    Time: 335 ns Started: 335 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HTRANS is Valid
-#    Time: 335 ns Started: 335 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: WRAP burst type passed: Address wrapping is done correctly
-#    Time: 335 ns Started: 335 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 137
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 335 ns Started: 335 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
 # ** Info: HRESP is ERROR during error conditions
 #    Time: 335 ns Started: 335 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Info: WRAP burst type passed: Address wrapping is done correctly
-#    Time: 345 ns Started: 345 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 137
-# ** Error: HTRANS has an invalid value or transition!
-#    Time: 345 ns Started: 345 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 61 Expr: hready
+# ** Info: HREADY remains stable during wait states
+#    Time: 335 ns Started: 325 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# ** Info: HWDATA is Valid When HWRITE IS HIGH
+#    Time: 335 ns Started: 335 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
+# ** Error: INCR burst type failed: Address not incremented correctly!
+#    Time: 335 ns Started: 335 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
+# ** Info: HTRANS is Valid
+#    Time: 335 ns Started: 335 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(338) @ 345: reporter [AhbMasterAssertionTb]  Ensure HMASTLOCK is asserted correctly during locked transfers Assertion Fail Task ended
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(355) @ 345: reporter [AhbMasterAssertionTb] Check for WRAP (wrapping burst) AssertionPass Task started
+# ** Info: HADDR is aligned based on HSIZE
+#    Time: 345 ns Started: 345 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
+# ** Info: HADDR is within the valid range
+#    Time: 345 ns Started: 345 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
+# ** Error: HRESP is not OKAY for a successful transfer!
+#    Time: 345 ns Started: 345 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
+# ** Info: HRESP is ERROR during error conditions
+#    Time: 345 ns Started: 345 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
+# ** Info: HREADY remains stable during wait states
+#    Time: 345 ns Started: 335 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# ** Info: HWDATA is Valid When HWRITE IS HIGH
+#    Time: 345 ns Started: 345 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
+# ** Error: INCR burst type failed: Address not incremented correctly!
+#    Time: 345 ns Started: 345 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
+# ** Info: HTRANS is Valid
+#    Time: 345 ns Started: 345 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
+# ** Info: HADDR is aligned based on HSIZE
+#    Time: 355 ns Started: 355 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HADDR is within the valid range
 #    Time: 355 ns Started: 355 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
 # ** Error: HRESP is not OKAY for a successful transfer!
 #    Time: 355 ns Started: 355 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
 # ** Info: HRESP is ERROR during error conditions
 #    Time: 355 ns Started: 355 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 355 ns Started: 355 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
+# ** Info: HREADY remains stable during wait states
+#    Time: 355 ns Started: 345 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# ** Info: HWDATA is Valid When HWRITE IS HIGH
+#    Time: 355 ns Started: 355 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
 # ** Info: WRAP burst type passed: Address wrapping is done correctly
 #    Time: 355 ns Started: 355 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 137
 # ** Info: HTRANS is Valid
 #    Time: 355 ns Started: 355 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 355 ns Started: 355 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Error: HREADY unexpectedly changed when slave was not ready!
-#    Time: 355 ns Started: 345 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 108 Expr: ~hready
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(364) @ 365: reporter [AhbMasterAssertionTb] Check for WRAP (wrapping burst) AssertionPass Task ended
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(370) @ 365: reporter [AhbMasterAssertionTb] Check for WRAP (wrapping burst) AssertionFail Task started
+# ** Info: HADDR is aligned based on HSIZE
+#    Time: 365 ns Started: 365 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HADDR is within the valid range
 #    Time: 365 ns Started: 365 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
 # ** Error: HRESP is not OKAY for a successful transfer!
 #    Time: 365 ns Started: 365 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
 # ** Info: HRESP is ERROR during error conditions
 #    Time: 365 ns Started: 365 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 365 ns Started: 365 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
+# ** Info: HREADY remains stable during wait states
+#    Time: 365 ns Started: 355 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# ** Info: HWDATA is Valid When HWRITE IS HIGH
+#    Time: 365 ns Started: 365 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
 # ** Info: WRAP burst type passed: Address wrapping is done correctly
 #    Time: 365 ns Started: 365 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 137
 # ** Info: HTRANS is Valid
 #    Time: 365 ns Started: 365 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 365 ns Started: 365 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
+# ** Info: HADDR is aligned based on HSIZE
+#    Time: 375 ns Started: 375 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
 # ** Info: HADDR is within the valid range
 #    Time: 375 ns Started: 375 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
 # ** Error: HRESP is not OKAY for a successful transfer!
 #    Time: 375 ns Started: 375 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
 # ** Info: HRESP is ERROR during error conditions
 #    Time: 375 ns Started: 375 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 375 ns Started: 375 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
+# ** Info: HREADY remains stable during wait states
+#    Time: 375 ns Started: 365 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
+# ** Info: HWDATA is Valid When HWRITE IS HIGH
+#    Time: 375 ns Started: 375 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
 # ** Info: WRAP burst type passed: Address wrapping is done correctly
 #    Time: 375 ns Started: 375 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 137
 # ** Info: HTRANS is Valid
 #    Time: 375 ns Started: 375 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 375 ns Started: 375 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Info: HMASTLOCK is asserted during a locked transfer
-#    Time: 385 ns Started: 385 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 116
+# ** Error: HADDR is not aligned based on HSIZE!
+#    Time: 385 ns Started: 385 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 72 Expr: hsize==2
 # ** Info: HADDR is within the valid range
 #    Time: 385 ns Started: 385 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
 # ** Error: HRESP is not OKAY for a successful transfer!
 #    Time: 385 ns Started: 385 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
 # ** Info: HRESP is ERROR during error conditions
 #    Time: 385 ns Started: 385 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 385 ns Started: 385 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
-# ** Info: WRAP burst type passed: Address wrapping is done correctly
-#    Time: 385 ns Started: 385 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 137
-# ** Info: HTRANS is Valid
-#    Time: 385 ns Started: 385 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
+# ** Info: HREADY remains stable during wait states
+#    Time: 385 ns Started: 375 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 107
 # ** Info: HWDATA is Valid When HWRITE IS HIGH
 #    Time: 385 ns Started: 385 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Info: HMASTLOCK is asserted during a locked transfer
-#    Time: 395 ns Started: 395 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 116
-# ** Info: HADDR is within the valid range
-#    Time: 395 ns Started: 395 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Error: HRESP is not OKAY for a successful transfer!
-#    Time: 395 ns Started: 395 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HRESP is ERROR during error conditions
-#    Time: 395 ns Started: 395 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 395 ns Started: 395 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
-# ** Info: WRAP burst type passed: Address wrapping is done correctly
-#    Time: 395 ns Started: 395 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 137
-# ** Info: HTRANS is Valid
-#    Time: 395 ns Started: 395 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 395 ns Started: 395 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Info: HMASTLOCK is asserted during a locked transfer
-#    Time: 405 ns Started: 405 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 116
-# ** Info: HADDR is within the valid range
-#    Time: 405 ns Started: 405 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Error: HRESP is not OKAY for a successful transfer!
-#    Time: 405 ns Started: 405 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HRESP is ERROR during error conditions
-#    Time: 405 ns Started: 405 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 405 ns Started: 405 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
-# ** Info: WRAP burst type passed: Address wrapping is done correctly
-#    Time: 405 ns Started: 405 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 137
-# ** Info: HTRANS is Valid
-#    Time: 405 ns Started: 405 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 405 ns Started: 405 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Info: HADDR is within the valid range
-#    Time: 415 ns Started: 415 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Error: HRESP is not OKAY for a successful transfer!
-#    Time: 415 ns Started: 415 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HRESP is ERROR during error conditions
-#    Time: 415 ns Started: 415 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 415 ns Started: 415 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
-# ** Info: WRAP burst type passed: Address wrapping is done correctly
-#    Time: 415 ns Started: 415 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 137
-# ** Info: HTRANS is Valid
-#    Time: 415 ns Started: 415 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 415 ns Started: 415 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Info: HADDR is within the valid range
-#    Time: 425 ns Started: 425 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Error: HRESP is not OKAY for a successful transfer!
-#    Time: 425 ns Started: 425 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HRESP is ERROR during error conditions
-#    Time: 425 ns Started: 425 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 425 ns Started: 425 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
-# ** Info: WRAP burst type passed: Address wrapping is done correctly
-#    Time: 425 ns Started: 425 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 137
-# ** Info: HTRANS is Valid
-#    Time: 425 ns Started: 425 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 425 ns Started: 425 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Info: HADDR is within the valid range
-#    Time: 435 ns Started: 435 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Error: HRESP is not OKAY for a successful transfer!
-#    Time: 435 ns Started: 435 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HRESP is ERROR during error conditions
-#    Time: 435 ns Started: 435 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 435 ns Started: 435 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
-# ** Info: WRAP burst type passed: Address wrapping is done correctly
-#    Time: 435 ns Started: 435 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 137
-# ** Info: HTRANS is Valid
-#    Time: 435 ns Started: 435 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 435 ns Started: 435 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Info: HADDR is within the valid range
-#    Time: 445 ns Started: 445 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Error: HRESP is not OKAY for a successful transfer!
-#    Time: 445 ns Started: 445 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HRESP is ERROR during error conditions
-#    Time: 445 ns Started: 445 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 445 ns Started: 445 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
-# ** Info: WRAP burst type passed: Address wrapping is done correctly
-#    Time: 445 ns Started: 445 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 137
-# ** Info: HTRANS is Valid
-#    Time: 445 ns Started: 445 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 445 ns Started: 445 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Info: HADDR is within the valid range
-#    Time: 455 ns Started: 455 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Error: HRESP is not OKAY for a successful transfer!
-#    Time: 455 ns Started: 455 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HRESP is ERROR during error conditions
-#    Time: 455 ns Started: 455 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Error: HADDR is not aligned based on HSIZE!
-#    Time: 455 ns Started: 455 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 72 Expr: hsize==2
-# ** Error: INCR burst type failed: Address not incremented correctly!
-#    Time: 455 ns Started: 455 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
-# ** Info: HTRANS is Valid
-#    Time: 455 ns Started: 455 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 455 ns Started: 455 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Info: HADDR is within the valid range
-#    Time: 465 ns Started: 465 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Error: HRESP is not OKAY for a successful transfer!
-#    Time: 465 ns Started: 465 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HRESP is ERROR during error conditions
-#    Time: 465 ns Started: 465 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Error: HADDR is not aligned based on HSIZE!
-#    Time: 465 ns Started: 465 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 72 Expr: hsize==2
-# ** Error: INCR burst type failed: Address not incremented correctly!
-#    Time: 465 ns Started: 465 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
-# ** Info: HTRANS is Valid
-#    Time: 465 ns Started: 465 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 465 ns Started: 465 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Info: HADDR is within the valid range
-#    Time: 475 ns Started: 475 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Error: HRESP is not OKAY for a successful transfer!
-#    Time: 475 ns Started: 475 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HRESP is ERROR during error conditions
-#    Time: 475 ns Started: 475 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Error: HADDR is not aligned based on HSIZE!
-#    Time: 475 ns Started: 475 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 72 Expr: hsize==2
-# ** Error: INCR burst type failed: Address not incremented correctly!
-#    Time: 475 ns Started: 475 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
-# ** Info: HTRANS is Valid
-#    Time: 475 ns Started: 475 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 475 ns Started: 475 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Info: HADDR is within the valid range
-#    Time: 485 ns Started: 485 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Error: HRESP is not OKAY for a successful transfer!
-#    Time: 485 ns Started: 485 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HRESP is ERROR during error conditions
-#    Time: 485 ns Started: 485 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 485 ns Started: 485 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
-# ** Error: INCR burst type failed: Address not incremented correctly!
-#    Time: 485 ns Started: 485 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
-# ** Info: HTRANS is Valid
-#    Time: 485 ns Started: 485 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 485 ns Started: 485 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Info: HADDR is within the valid range
-#    Time: 495 ns Started: 495 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Error: HRESP is not OKAY for a successful transfer!
-#    Time: 495 ns Started: 495 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HRESP is ERROR during error conditions
-#    Time: 495 ns Started: 495 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 495 ns Started: 495 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
-# ** Error: INCR burst type failed: Address not incremented correctly!
-#    Time: 495 ns Started: 495 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
-# ** Info: HTRANS is Valid
-#    Time: 495 ns Started: 495 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 495 ns Started: 495 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Info: HADDR is within the valid range
-#    Time: 505 ns Started: 505 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Error: HRESP is not OKAY for a successful transfer!
-#    Time: 505 ns Started: 505 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HRESP is ERROR during error conditions
-#    Time: 505 ns Started: 505 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 505 ns Started: 505 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
-# ** Error: INCR burst type failed: Address not incremented correctly!
-#    Time: 505 ns Started: 505 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 127 Expr: haddr==$past(haddr)+(1<<hsize)
-# ** Info: HTRANS is Valid
-#    Time: 505 ns Started: 505 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 505 ns Started: 505 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Info: HADDR is within the valid range
-#    Time: 515 ns Started: 515 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Error: HRESP is not OKAY for a successful transfer!
-#    Time: 515 ns Started: 515 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HRESP is ERROR during error conditions
-#    Time: 515 ns Started: 515 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 515 ns Started: 515 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
-# ** Info: WRAP burst type passed: Address wrapping is done correctly
-#    Time: 515 ns Started: 515 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 137
-# ** Info: HTRANS is Valid
-#    Time: 515 ns Started: 515 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 515 ns Started: 515 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Info: HADDR is within the valid range
-#    Time: 525 ns Started: 525 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Error: HRESP is not OKAY for a successful transfer!
-#    Time: 525 ns Started: 525 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HRESP is ERROR during error conditions
-#    Time: 525 ns Started: 525 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 525 ns Started: 525 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
-# ** Info: WRAP burst type passed: Address wrapping is done correctly
-#    Time: 525 ns Started: 525 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 137
-# ** Info: HTRANS is Valid
-#    Time: 525 ns Started: 525 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 525 ns Started: 525 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Info: HADDR is within the valid range
-#    Time: 535 ns Started: 535 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Error: HRESP is not OKAY for a successful transfer!
-#    Time: 535 ns Started: 535 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HRESP is ERROR during error conditions
-#    Time: 535 ns Started: 535 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Info: HADDR is aligned based on HSIZE
-#    Time: 535 ns Started: 535 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 71
-# ** Info: WRAP burst type passed: Address wrapping is done correctly
-#    Time: 535 ns Started: 535 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 137
-# ** Info: HTRANS is Valid
-#    Time: 535 ns Started: 535 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 535 ns Started: 535 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Info: HADDR is within the valid range
-#    Time: 545 ns Started: 545 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Error: HRESP is not OKAY for a successful transfer!
-#    Time: 545 ns Started: 545 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HRESP is ERROR during error conditions
-#    Time: 545 ns Started: 545 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Error: HADDR is not aligned based on HSIZE!
-#    Time: 545 ns Started: 545 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 72 Expr: hsize==2
 # ** Error: WRAP burst type failed: Address wrapping incorrect!
-#    Time: 545 ns Started: 545 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 138 Expr: haddr==$past(haddr)+(1<<hsize)
+#    Time: 385 ns Started: 385 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 138 Expr: haddr==$past(haddr)+(1<<hsize)
 # ** Info: HTRANS is Valid
-#    Time: 545 ns Started: 545 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 545 ns Started: 545 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Info: HADDR is within the valid range
-#    Time: 555 ns Started: 555 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 80
-# ** Error: HRESP is not OKAY for a successful transfer!
-#    Time: 555 ns Started: 555 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 90 Expr: ~hresp
-# ** Info: HRESP is ERROR during error conditions
-#    Time: 555 ns Started: 555 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 98
-# ** Error: HADDR is not aligned based on HSIZE!
-#    Time: 555 ns Started: 555 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 72 Expr: hsize==2
-# ** Error: WRAP burst type failed: Address wrapping incorrect!
-#    Time: 555 ns Started: 555 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 138 Expr: haddr==$past(haddr)+(1<<hsize)
-# ** Info: HTRANS is Valid
-#    Time: 555 ns Started: 555 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
-# ** Info: HWDATA is Valid When HWRITE IS HIGH
-#    Time: 555 ns Started: 555 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 51
-# ** Note: $finish    : /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(261)
-#    Time: 560 ns  Iteration: 0  Instance: /AhbMasterAssertionTb
+#    Time: 385 ns Started: 385 ns  Scope: AhbMasterAssertionTb.ahbmasterassertions_u File: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv Line: 60
+# UVM_INFO /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(380) @ 395: reporter [AhbMasterAssertionTb] Check for WRAP (wrapping burst) AssertionPass Task ended
+# ** Note: $finish    : /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(99)
+#    Time: 395 ns  Iteration: 0  Instance: /AhbMasterAssertionTb
 # Saving coverage database on exit...
-# End time: 16:02:40 on Feb 01,2025, Elapsed time: 0:00:05
-# Errors: 77, Warnings: 0
+# End time: 12:50:37 on Feb 03,2025, Elapsed time: 0:00:04
+# Errors: 63, Warnings: 0

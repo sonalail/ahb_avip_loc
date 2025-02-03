@@ -89,6 +89,8 @@ module AhbMasterAssertionTb;
     CheckForINCRAssertionFail();
     
     EnsureHREADYRemainsStableDuringWaitStatesAssertionPass();
+     EnsureHREADYRemainsStableDuringWaitStatesAssertionFail();
+    
     EnsureHMASTLOCKIsAssertedCorrectlyDuringLockedTransfersAssertionPass();
     EnsureHMASTLOCKIsAssertedCorrectlyDuringLockedTransfersAssertionFail();
     
@@ -294,6 +296,19 @@ module AhbMasterAssertionTb;
        hready = 1; // HREADY must stay stable until slave is ready
        #20;
       `uvm_info(name,$sformatf("Ensure HREADY remains stable during wait states Assertion Pass Task ended"),UVM_NONE);
+    endtask
+
+    // Stimulus 9.1: **HREADY Stability Test** (Failing HREADY Stability Test)
+    task EnsureHREADYRemainsStableDuringWaitStatesAssertionFail();
+      `uvm_info(name,$sformatf("Ensure HREADY remains stable during wait states Assertion Fail Task started"),UVM_NONE);
+       @(posedge hclk);
+       hready = 0; // Simulating slave not ready
+       #10;
+       hready = 0; // HREADY must stay stable until slave is ready
+       #20;
+      `uvm_info(name,$sformatf("Ensure HREADY remains stable during wait states Assertion Fail Task ended"),UVM_NONE);
+    endtask
+
 
     // Stimulus 10: **HMASTLOCK** (Valid locked transfer)
       task EnsureHMASTLOCKIsAssertedCorrectlyDuringLockedTransfersAssertionPass();
@@ -336,7 +351,7 @@ module AhbMasterAssertionTb;
 //     #20;
 
     // Stimulus 13: **Burst wrapping error**(pass assertion)
-    task CheckForWRAPAssertionPass():
+    task CheckForWRAPAssertionPass();
       `uvm_info(name,$sformatf("Check for WRAP (wrapping burst) AssertionPass Task started"),UVM_NONE);
       @(posedge hclk);
       haddr = 32'h00000010; // Address for WRAP burst type, but it doesn't align
@@ -351,7 +366,7 @@ module AhbMasterAssertionTb;
           
 
     //Stimulus 13.1 **Burst wrapping fail**
-    task CheckForWRAPAssertionFail():
+    task CheckForWRAPAssertionFail();
       `uvm_info(name,$sformatf("Check for WRAP (wrapping burst) AssertionFail Task started"),UVM_NONE);
       @(posedge hclk);
     #10;
