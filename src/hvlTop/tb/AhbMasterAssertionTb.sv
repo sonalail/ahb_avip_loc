@@ -74,9 +74,10 @@ module AhbMasterAssertionTb;
     Initialize();
     CheckThatHWDATAIsValidWhenHWRITEIsHIGHAssertionPass();
     CheckThatHWDATAIsValidWhenHWRITEIsHIGHAssertionFail(); 
-    
-    EnsureHADDRIsAlignedBasedOnHSIZEAssertionFail(); 
+
     EnsureHADDRIsAlignedBasedOnHSIZEAssertionPass(); 
+    EnsureHADDRIsAlignedBasedOnHSIZEAssertionFail(); 
+    
     
     CheckIfHADDRIsWithinTheValidRrangeAssertionPass();
     CheckIfHADDRIsWithinTheValidRrangeAssertionFail();
@@ -89,7 +90,7 @@ module AhbMasterAssertionTb;
     CheckForINCRAssertionFail();
     
     EnsureHREADYRemainsStableDuringWaitStatesAssertionPass();
-     EnsureHREADYRemainsStableDuringWaitStatesAssertionFail();
+    EnsureHREADYRemainsStableDuringWaitStatesAssertionFail();
     
     EnsureHMASTLOCKIsAssertedCorrectlyDuringLockedTransfersAssertionPass();
     EnsureHMASTLOCKIsAssertedCorrectlyDuringLockedTransfersAssertionFail();
@@ -125,7 +126,7 @@ module AhbMasterAssertionTb;
       `uvm_info(name,$sformatf("Initializing signals ended"),UVM_NONE);
     endtask
 
-    // Stimulus 1: **Valid Write Transaction** (Passing Test for Assertions)
+  // Stimulus 1: **Valid Write Transaction** (Passing Test for Assertions)
     task CheckThatHWDATAIsValidWhenHWRITEIsHIGHAssertionPass();     
       `uvm_info(name,$sformatf("Check that HWDATA is valid when HWRITE is HIGH AssertionPass Task started"),UVM_NONE);
       @(posedge hclk);
@@ -139,7 +140,7 @@ module AhbMasterAssertionTb;
      `uvm_info(name,$sformatf("Check that HWDATA is valid when HWRITE is HIGH AssertionPass Task ended"),UVM_NONE);   
    endtask
 
-    //Stimulus 1.1: **Invalid Write Transaction** (Fail Test for Assertions)
+    //Stimulus 2: **Invalid Write Transaction** (Fail Test for Assertions)
     task CheckThatHWDATAIsValidWhenHWRITEIsHIGHAssertionFail(); 
       `uvm_info(name,$sformatf("Check that HWDATA is valid when HWRITE is HIGH AssertionFail Task started"),UVM_NONE);
       @(posedge hclk);
@@ -152,23 +153,8 @@ module AhbMasterAssertionTb;
       #20;
      `uvm_info(name,$sformatf("Check that HWDATA is valid when HWRITE is HIGH AssertionFail Task ended"),UVM_NONE);
     endtask
-
-     // Stimulus 2: **Invalid HADDR Alignment** (Failing the HADDR Alignment Assertion
-     task EnsureHADDRIsAlignedBasedOnHSIZEAssertionFail();   
-       `uvm_info(name,$sformatf("Ensure HADDR is aligned based on HSIZE AssertionFail task started"),UVM_NONE);
-        @(posedge hclk);
-        haddr = 32'h00000003; // Misaligned address (not divisible by 4 for 32-bit transfer)
-        hwdata = 32'hDEADBEEF;
-        hwrite = 1;
-        hready = 1;
-        htrans = 2'b10;  // Non-sequential transfer
-        #20;
-       `uvm_info(name,$sformatf("Ensure HADDR is aligned based on HSIZE AssertionFail Task ended"),UVM_NONE);
-       
-     endtask
-    
-
-    //Stimulus 2.1: **Valid HADDR Alignment** (Passing Assertion)
+  
+  //Stimulus 3: **Valid HADDR Alignment** (Passing the HADDR Alignment Assertion)
     task EnsureHADDRIsAlignedBasedOnHSIZEAssertionPass();   
       `uvm_info(name,$sformatf("Ensure HADDR is aligned based on HSIZE AssertionPass task started"),UVM_NONE);
        @(posedge hclk);
@@ -181,8 +167,23 @@ module AhbMasterAssertionTb;
        #20;
       `uvm_info(name,$sformatf("Ensure HADDR is aligned based on HSIZE AssertionPass Task ended"),UVM_NONE);    
     endtask
+  
+  // Stimulus 4: **Invalid HADDR Alignment** (Failing the HADDR Alignment Assertion)
+     task EnsureHADDRIsAlignedBasedOnHSIZEAssertionFail();   
+       `uvm_info(name,$sformatf("Ensure HADDR is aligned based on HSIZE AssertionFail task started"),UVM_NONE);
+        @(posedge hclk);
+        haddr = 32'h00000003; // Misaligned address (not divisible by 4 for 32-bit transfer)
+        hwdata = 32'hDEADBEEF;
+        hwrite = 1;
+        hready = 1;
+        htrans = 2'b10;  // Non-sequential transfer
+        #20;
+       `uvm_info(name,$sformatf("Ensure HADDR is aligned based on HSIZE AssertionFail Task ended"),UVM_NONE);
+       
+     endtask
+  
       
-    // Stimulus 3: **Valid HADDR within range**
+  // Stimulus 5: **Valid HADDR within range**  (Passing the Address Range Assertion)
     task CheckIfHADDRIsWithinTheValidRrangeAssertionPass();
       `uvm_info(name,$sformatf("Check if HADDR is within the valid range AssertionPass Task started"),UVM_NONE);
       @(posedge hclk);
@@ -195,7 +196,7 @@ module AhbMasterAssertionTb;
       `uvm_info(name,$sformatf("Check if HADDR is within the valid range AssertionPass Task ended"),UVM_NONE);
     endtask
 
-    // Stimulus 4: **HADDR out of range** (Failing the Address Range Assertion)
+    // Stimulus 6: **HADDR out of range** (Failing the Address Range Assertion)
      task CheckIfHADDRIsWithinTheValidRrangeAssertionFail();
        `uvm_info(name,$sformatf("Check if HADDR is within the valid range AssertionFail Task started"),UVM_NONE);
        @(posedge hclk);
@@ -224,7 +225,7 @@ module AhbMasterAssertionTb;
       `uvm_info(name,$sformatf("Ensure HRESP is OKAY (0) during successful transfers AssertionPass Task ended"),UVM_NONE);
     endtask
 
-    // Stimulus 6: **Invalid HRESP** (Failing the HRESP Error Assertion)
+  // Stimulus 6: **Invalid HRESP** (Failing Test for HRESP Error Assertion)
     task EnsureHRESPIsOKAYDuringSuccessfulTransfersAssertionFail();
       `uvm_info(name,$sformatf("Ensure HRESP is OKAY (0) during successful transfers AssertionFail Task started"),UVM_NONE);
        @(posedge hclk);
@@ -236,7 +237,7 @@ module AhbMasterAssertionTb;
       `uvm_info(name,$sformatf("Ensure HRESP is OKAY (0) during successful transfers AssertionFail Task ended"),UVM_NONE);
     endtask
 
-    //Stimuls 6.1 : **HRESP is ERROR**(Failing Assertion)
+  //Stimulus 7: **HRESP is ERROR**(Failing Assertion)
     task EnsureHRESPIsERRORDuringSuccessfulTransfersAssertionPass();
       `uvm_info(name,$sformatf("Ensure HRESP is ERROR (1) during successful transfers AssertionPass Task started"),UVM_NONE);
        @(posedge hclk);
@@ -247,9 +248,10 @@ module AhbMasterAssertionTb;
        #20;
       `uvm_info(name,$sformatf("Ensure HRESP is ERROR (1) during successful transfers AssertionPass Task ended"),UVM_NONE);
     endtask
+  
 
-
-    // Stimulus 7: **Burst Transfer (INCR)**
+    
+    // Stimulus 8: **Burst Transfer (INCR)**
     task CheckForINCRAssertionPass();
      `uvm_info(name,$sformatf("Check for INCR (incrementing burst) AssertionPass Task started"),UVM_NONE);
       @(posedge hclk);
@@ -263,7 +265,7 @@ module AhbMasterAssertionTb;
       `uvm_info(name,$sformatf("Check for INCR (incrementing burst) AssertionPass Task ended"),UVM_NONE);
     endtask
     
-     // Stimulus 7.1: **Invalid INCR Burst Address**
+     // Stimulus 9: **Invalid INCR Burst Address**
     task CheckForINCRAssertionFail();
       `uvm_info(name,$sformatf("Check for INCR (incrementing burst) AssertionFail Task started"),UVM_NONE);
        @(posedge hclk);
@@ -287,7 +289,7 @@ module AhbMasterAssertionTb;
 //     hready = 1;
 //     #20;
 
-    // Stimulus 9: **HREADY Stability Test** (Passing HREADY Stability Test)
+    // Stimulus 10: **HREADY Stability Test** (Passing HREADY Stability Test)
     task EnsureHREADYRemainsStableDuringWaitStatesAssertionPass();
       `uvm_info(name,$sformatf("Ensure HREADY remains stable during wait states Assertion Pass Task started"),UVM_NONE);
        @(posedge hclk);
@@ -298,7 +300,7 @@ module AhbMasterAssertionTb;
       `uvm_info(name,$sformatf("Ensure HREADY remains stable during wait states Assertion Pass Task ended"),UVM_NONE);
     endtask
 
-    // Stimulus 9.1: **HREADY Stability Test** (Failing HREADY Stability Test)
+    // Stimulus 11: **HREADY Stability Test** (Failing HREADY Stability Test)
     task EnsureHREADYRemainsStableDuringWaitStatesAssertionFail();
       `uvm_info(name,$sformatf("Ensure HREADY remains stable during wait states Assertion Fail Task started"),UVM_NONE);
        @(posedge hclk);
@@ -310,7 +312,7 @@ module AhbMasterAssertionTb;
     endtask
 
 
-    // Stimulus 10: **HMASTLOCK** (Valid locked transfer)
+    // Stimulus 12: **HMASTLOCK** (Valid locked transfer)
       task EnsureHMASTLOCKIsAssertedCorrectlyDuringLockedTransfersAssertionPass();
         `uvm_info(name,$sformatf(" Ensure HMASTLOCK is asserted correctly during locked transfers Assertion Pass Task started"),UVM_NONE);
         @(posedge hclk);
@@ -323,7 +325,7 @@ module AhbMasterAssertionTb;
         `uvm_info(name,$sformatf(" Ensure HMASTLOCK is asserted correctly during locked transfers Assertion Pass Task ended"),UVM_NONE);
       endtask
 
-    //Stimulus 10.1: **HMASTLOCK** (Invalid)
+    //Stimulus 13: **HMASTLOCK** (Invalid)
       task EnsureHMASTLOCKIsAssertedCorrectlyDuringLockedTransfersAssertionFail();
        `uvm_info(name,$sformatf(" Ensure HMASTLOCK is asserted correctly during locked transfers Assertion Fail Task started"),UVM_NONE);
          @(posedge hclk);
@@ -350,7 +352,7 @@ module AhbMasterAssertionTb;
 //     hready = 1;
 //     #20;
 
-    // Stimulus 13: **Burst wrapping error**(pass assertion)
+    // Stimulus 14: **Burst wrapping error**(pass assertion)
     task CheckForWRAPAssertionPass();
       `uvm_info(name,$sformatf("Check for WRAP (wrapping burst) AssertionPass Task started"),UVM_NONE);
       @(posedge hclk);
@@ -365,7 +367,7 @@ module AhbMasterAssertionTb;
     endtask
           
 
-    //Stimulus 13.1 **Burst wrapping fail**
+    //Stimulus 15: **Burst wrapping fail**
     task CheckForWRAPAssertionFail();
       `uvm_info(name,$sformatf("Check for WRAP (wrapping burst) AssertionFail Task started"),UVM_NONE);
       @(posedge hclk);
