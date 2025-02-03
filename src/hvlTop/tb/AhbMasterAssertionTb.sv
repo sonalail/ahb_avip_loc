@@ -30,6 +30,7 @@ module AhbMasterAssertionTb;
   reg         hmastlock;
   reg         htransValid;
   reg [DATA_WIDTH-1:0]  hwdataValid;
+  string name = "AhbMasterAssertionTb";
 
   //-------------------------------------------------------
   // Instantiate the Assertions Interface
@@ -91,8 +92,9 @@ module AhbMasterAssertionTb;
     EnsureHMASTLOCKIsAssertedCorrectlyDuringLockedTransfersAssertionPass();
     EnsureHMASTLOCKIsAssertedCorrectlyDuringLockedTransfersAssertionFail();
     
-     CheckForWRAPAssertionPass():
-     CheckForWRAPAssertionFail():
+    CheckForWRAPAssertionPass();
+    CheckForWRAPAssertionFail();
+      $finish;
     
   end
     
@@ -100,9 +102,7 @@ module AhbMasterAssertionTb;
   //-------------------------------------------------------
   // Stimulus Generation
   //-------------------------------------------------------
-  initial begin
-    // Initializing signals
-    
+
     task Initialize();     
       `uvm_info(name,$sformatf("Initializing signals started"),UVM_NONE);
       @(posedge hclk)
@@ -365,8 +365,7 @@ module AhbMasterAssertionTb;
     `uvm_info(name,$sformatf("Check for WRAP (wrapping burst) AssertionPass Task ended"),UVM_NONE);
     endtask
 
-  $finish;
-  end
+
 
 endmodule
 `endif
