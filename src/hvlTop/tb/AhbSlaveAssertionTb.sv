@@ -103,7 +103,7 @@ module AhbSlaveAssertionTb;
      `uvm_info(name,$sformatf("When_arvalidIsAsserted_Then_sameClkAraddrIsNotUnknown_Expect_AssertionPass Task Ended"),UVM_NONE);
    endtask
 
-    // Test 1: Valid Read Transaction
+  // Test 1: Valid Read Transaction
   task ValidReadTransaction();
     `uvm_info(name,$sformatf("Valid Read Transaction Started "),UVM_NONE);
     @(posedge hclk);
@@ -117,7 +117,7 @@ module AhbSlaveAssertionTb;
     `uvm_info(name,$sformatf("Valid Read Transaction Ended "),UVM_NONE);
   endtask
 
-  // Test 1.1: Invalid Read Transaction(Fail Assertion)
+  // Test 2: Invalid Read Transaction(Fail Assertion)
   task ValidReadTransactionFail();
     `uvm_info(name,$sformatf("Invalid Read Transaction (Fail Assertion) Started "),UVM_NONE);
     @(posedge hclk);
@@ -131,7 +131,7 @@ module AhbSlaveAssertionTb;
     `uvm_info(name,$sformatf("Invalid Read Transaction (Fail Assertion) Ended "),UVM_NONE);
   endtask
   
-    // Test 2: Invalid Read with HRESP Error
+  // Test 3: Invalid Read with HRESP Error
   task InvalidReadwithHRESPError();
     `uvm_info(name,$sformatf("Invalid Read with HRESP Error Started "),UVM_NONE);
     @(posedge hclk);
@@ -142,7 +142,7 @@ module AhbSlaveAssertionTb;
     `uvm_info(name,$sformatf("Invalid Read with HRESP Error Ended"),UVM_NONE);
   endtask
     
-  // Test 3: Write Transaction (Pass Assertion)
+  // Test 4: Write Transaction (Pass Assertion)
   task WriteTransactionPassAssertion();
     `uvm_info(name,$sformatf("Write Transaction Pass Assertion Started "),UVM_NONE);
     @(posedge hclk);
@@ -156,8 +156,7 @@ module AhbSlaveAssertionTb;
     `uvm_info(name,$sformatf("Write Transaction Pass Assertion Ended"),UVM_NONE);
   endtask
     
-  
-  // Test 3.1: Invalid Burst Type (Fail Assertion)
+  // Test 5: Invalid Burst Type (Fail Assertion)
   task InvalidBurstTypeFail();
     `uvm_info(name,$sformatf("Invalid Burst Type Fail Started "),UVM_NONE);
     @(posedge hclk);
@@ -170,7 +169,7 @@ module AhbSlaveAssertionTb;
   endtask
   
   
-  // Test 4: Burst Transaction (INCR)
+  // Test 6: Burst Transaction (INCR)
   task BurstTransactionIncrement();
     `uvm_info(name,$sformatf("Burst Transaction (INCR) Started "),UVM_NONE);
     @(posedge hclk);
@@ -184,7 +183,7 @@ module AhbSlaveAssertionTb;
   endtask
    
   
-  // Test 4.1: Idle State with HRESP ERROR(Fail assertion)
+  // Test 7: Idle State with HRESP ERROR(Fail assertion)
   task IdleStatewithHrespErrorFail();
     `uvm_info(name,$sformatf("Idle State with HRESP ERROR Fail Started "),UVM_NONE);
     @(posedge hclk);
@@ -195,7 +194,7 @@ module AhbSlaveAssertionTb;
     `uvm_info(name,$sformatf("Idle State with HRESP ERROR Fail Ended"),UVM_NONE);
   endtask
   
-  // Test 5: Invalid Burst Type
+  // Test 8: Invalid Burst Type
   task InvalidBurstType();
     `uvm_info(name,$sformatf("Invalid Burst Type Started "),UVM_NONE);
     @(posedge hclk);
@@ -206,9 +205,8 @@ module AhbSlaveAssertionTb;
     #20;
     `uvm_info(name,$sformatf("Invalid Burst Type Ended"),UVM_NONE);
   endtask
-  
-  
-  //Test 5.1 :HSIZE does not matche data width)(Fail Assertion)
+
+  //Test 9 :HSIZE does not matche data width)(Fail Assertion)
   task HsizeDoesNotMatcheDataWidthFail();
     `uvm_info(name,$sformatf("HSIZE does not matche data width Fail Started "),UVM_NONE);
     @(posedge hclk);
@@ -219,7 +217,7 @@ module AhbSlaveAssertionTb;
     `uvm_info(name,$sformatf("HSIZE does not matche data width Fail Ended"),UVM_NONE);
   endtask
   
-  // Test 6: Idle State with HRESP ERROR
+  // Test 10: Idle State with HRESP ERROR
   task IdleStatewithHrsepError();
     `uvm_info(name,$sformatf("Idle State with HRESP ERROR Started "),UVM_NONE);
     @(posedge hclk);
@@ -230,7 +228,7 @@ module AhbSlaveAssertionTb;
    `uvm_info(name,$sformatf("Idle State with HRESP ERROR Ended"),UVM_NONE);
   endtask
    
-   //Test 6.1 :HRESP is OKAY for valid transaction (Fail assertion)
+   //Test 11:HRESP is OKAY for valid transaction (Fail assertion)
   task HrespIsOkayForValidTransactionFail();
     `uvm_info(name,$sformatf("HRESP is OKAY for valid transaction Fail Started "),UVM_NONE);
     @(posedge hclk);
