@@ -21,7 +21,7 @@ usage:
 	echo "make simulate test=<test_name> uvm_verbosity=<VERBOSITY_LEVEL>";
 	echo "";
 	echo "Example:";
-	echo "make simulate test=ahb_slave_test uvm_verbosity=UVM_HIGH";
+	echo "make simulate test=ahb_master_test uvm_verbosity=UVM_HIGH";
 	echo "";
 	echo "-----------------------------------------------------------------";
 	echo "-----------------------------------------------------------------";
@@ -41,13 +41,13 @@ compile:
 	+cover \
 	+fcover \
 	$(comp_args) \
-	-l AhbSlaveAssertionsCompile.log \
+	-l AhbMasterAssertionsCompile.log \
 	-f ./ahbAssertion.f;
 	make compile_war_err;
 
 # Default test configuration
 ifndef test
-override test = AhbSlaveAssertionTb
+override test = AhbMasterAssertionTb
 endif
 
 # Default verbosity level
@@ -101,13 +101,13 @@ compile_war_err:
 	echo "-----------------------------------------------------------------";
 	echo "------------------- Compilation Report --------------------------";
 	echo "";
-	grep "^** " AhbSlaveAssertionsCompile.log;
+	grep "^** " AhbMasterAssertionsCompile.log;
 	echo "";
-	grep "^Error" AhbSlaveAssertionsCompile.log;
+	grep "^Error" AhbMasterAssertionsCompile.log;
 	echo "";
-	grep "^Info" AhbSlaveAssertionsCompile.log;
+	grep "^Info" AhbMasterAssertionsCompile.log;
 	echo "";
-	echo "Log file path: AhbSlaveAssertionsCompile.log";
+	echo "Log file path: AhbMasterAssertionsCompile.log";
 	echo "";
 	echo "-----------------------------------------------------------------";
 	echo "-----------------------------------------------------------------";
