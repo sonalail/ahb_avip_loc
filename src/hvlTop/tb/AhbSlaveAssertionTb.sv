@@ -43,6 +43,7 @@ module AhbSlaveAssertionTb;
     .hwstrb(hstrb)
   );
 
+  string name = "AhbSlaveAssertionTb";
   // Clock generation
   always begin
     #5 hclk = ~hclk;  // 100 MHz clock (10ns period)
@@ -51,8 +52,8 @@ module AhbSlaveAssertionTb;
   // Initial block to apply stimulus and reset
   initial begin
     hclk = 0;
-    hrsetn = 0;
-    #15 hrsetn = 1;
+    hresetn = 0;
+    #15 hresetn = 1;
   end
 
   initial begin
@@ -68,6 +69,7 @@ module AhbSlaveAssertionTb;
     IdleStatewithHrsepError();
     HsizeDoesNotMatcheDataWidthFail();
     HrespIsOkayForValidTransactionFail();
+    $finish;
   end
   
 
@@ -88,7 +90,7 @@ module AhbSlaveAssertionTb;
          hselx = 1'b0;
          hwdata = 32'b0;
          hprot = 4'b0000;
-         hexokay = 1'b0
+         hexokay = 1'b0;
          hwstrb = 4'b1111;
        end
      `uvm_info(name,$sformatf("When_arvalidIsAsserted_Then_sameClkAraddrIsNotUnknown_Expect_AssertionPass Task Ended"),UVM_NONE);
