@@ -107,23 +107,26 @@ module AhbMasterAssertionTb;
   //-------------------------------------------------------
 
     task Initialize();     
-      `uvm_info(name,$sformatf("Initializing signals started"),UVM_NONE);
+      `uvm_info(name,$sformatf("Initializing signals when resetn is deasserted started"),UVM_NONE);
       @(posedge hclk)
-    haddr = 32'h00000000;
-    hwdata = 32'h12345678;
-    hsize = 3'b010;  // Word (32-bit)
-    hburst = 3'b001; // INCR burst type
-    htrans = 2'b10;  // Non-sequential transfer
-    hwrite = 1;
-    hready = 1;
-    hresp = 1'b0;    // OKAY response
-    hexcl = 0;
-    hprot = 4'b0000;
-    hmaster = 4'b0001;
-    hmastlock = 0;
-    htransValid = 1;
-    hwdataValid = 1;
-      `uvm_info(name,$sformatf("Initializing signals ended"),UVM_NONE);
+      if(hresetn==0) 
+        begin
+        haddr = 32'h00000000;
+        hwdata = 32'hxxxx_xxxx;
+        hsize = 3'b010;  // Word (32-bit)
+        hburst = 3'b001; // INCR burst type
+        htrans = 2'b10;  // Non-sequential transfer
+        hwrite = 1;
+        hready = 1;
+        hresp = 1'b0;    // OKAY response
+        hexcl = 0;
+        hprot = 4'b0000;
+        hmaster = 4'b0001;
+        hmastlock = 0;
+        htransValid = 1;
+        hwdataValid = 1;
+        end
+        `uvm_info(name,$sformatf("Initializing signals ended"),UVM_NONE);
     endtask
 
   // Stimulus 1: **Valid Write Transaction** (Passing Test for Assertions)
@@ -136,7 +139,7 @@ module AhbMasterAssertionTb;
       htrans = 2'b11;  // Sequential transfer
       hwrite = 1;
       hready = 1;
-      #20;                                                  
+      @(posedge hclk);                                                
      `uvm_info(name,$sformatf("Check that HWDATA is valid when HWRITE is HIGH AssertionPass Task ended"),UVM_NONE);   
    endtask
 
@@ -150,7 +153,7 @@ module AhbMasterAssertionTb;
       htrans = 2'b11;
       hwrite = 1;
       hready = 1;
-      #20;
+      @(posedge hclk);
      `uvm_info(name,$sformatf("Check that HWDATA is valid when HWRITE is HIGH AssertionFail Task ended"),UVM_NONE);
     endtask
   
@@ -164,7 +167,7 @@ module AhbMasterAssertionTb;
        htrans = 2'b11;
        hwrite = 1;
        hready = 1;
-       #20;
+       @(posedge hclk);
       `uvm_info(name,$sformatf("Ensure HADDR is aligned based on HSIZE AssertionPass Task ended"),UVM_NONE);    
     endtask
   
@@ -177,7 +180,7 @@ module AhbMasterAssertionTb;
         hwrite = 1;
         hready = 1;
         htrans = 2'b10;  // Non-sequential transfer
-        #20;
+        @(posedge hclk);
        `uvm_info(name,$sformatf("Ensure HADDR is aligned based on HSIZE AssertionFail Task ended"),UVM_NONE);
        
      endtask
@@ -192,7 +195,7 @@ module AhbMasterAssertionTb;
       htrans = 2'b11;        // Sequential transfer
       hwrite = 1;
       hready = 1;
-      #20;
+      @(posedge hclk);
       `uvm_info(name,$sformatf("Check if HADDR is within the valid range AssertionPass Task ended"),UVM_NONE);
     endtask
 
@@ -206,7 +209,7 @@ module AhbMasterAssertionTb;
        htrans = 2'b10;        // Non-sequential transfer
        hwrite = 1;
        hready = 1;
-       #20;
+       @(posedge hclk);
        `uvm_info(name,$sformatf("Check if HADDR is within the valid range AssertionFail Task ended"),UVM_NONE);
      endtask
     
@@ -221,7 +224,7 @@ module AhbMasterAssertionTb;
        htrans = 2'b11; // Sequential transfer
        hready = 1;
        hwrite = 1;
-       #20;
+       @(posedge hclk);
       `uvm_info(name,$sformatf("Ensure HRESP is OKAY (0) during successful transfers AssertionPass Task ended"),UVM_NONE);
     endtask
 
@@ -233,7 +236,7 @@ module AhbMasterAssertionTb;
        hready = 1;
        hwrite = 1;
        htrans = 2'b11; // Sequential transfer
-       #20;
+       @(posedge hclk);
       `uvm_info(name,$sformatf("Ensure HRESP is OKAY (0) during successful transfers AssertionFail Task ended"),UVM_NONE);
     endtask
 
@@ -245,7 +248,7 @@ module AhbMasterAssertionTb;
        hresp = 1;
        htrans = 2'b00;
        hwrite = 1;
-       #20;
+       @(posedge hclk);
       `uvm_info(name,$sformatf("Ensure HRESP is ERROR (1) during successful transfers AssertionPass Task ended"),UVM_NONE);
     endtask
   
@@ -261,7 +264,7 @@ module AhbMasterAssertionTb;
       htrans = 2'b11;  // Sequential transfer
       hwrite = 1;
       hready = 1;
-      #20;
+      @(posedge hclk);
       `uvm_info(name,$sformatf("Check for INCR (incrementing burst) AssertionPass Task ended"),UVM_NONE);
     endtask
     
@@ -275,7 +278,7 @@ module AhbMasterAssertionTb;
        htrans = 2'b11;        // Sequential transfer
        hwrite = 1;
        hready = 1;
-       #20;
+       @(posedge hclk);
       `uvm_info(name,$sformatf("Check for INCR (incrementing burst) AssertionFail Task ended"),UVM_NONE);
     endtask
 
@@ -296,7 +299,7 @@ module AhbMasterAssertionTb;
        hready = 0; // Simulating slave not ready
        #10;
        hready = 1; // HREADY must stay stable until slave is ready
-       #20;
+       @(posedge hclk);
       `uvm_info(name,$sformatf("Ensure HREADY remains stable during wait states Assertion Pass Task ended"),UVM_NONE);
     endtask
 
@@ -307,7 +310,7 @@ module AhbMasterAssertionTb;
        hready = 0; // Simulating slave not ready
        #10;
        hready = 0; // HREADY must stay stable until slave is ready
-       #20;
+       @(posedge hclk);
       `uvm_info(name,$sformatf("Ensure HREADY remains stable during wait states Assertion Fail Task ended"),UVM_NONE);
     endtask
 
@@ -321,7 +324,7 @@ module AhbMasterAssertionTb;
         htrans = 2'b11; // Sequential transfer
         hwrite = 1;
         hready = 1;
-        #20;
+        @(posedge hclk);
         `uvm_info(name,$sformatf(" Ensure HMASTLOCK is asserted correctly during locked transfers Assertion Pass Task ended"),UVM_NONE);
       endtask
 
@@ -334,23 +337,15 @@ module AhbMasterAssertionTb;
         htrans = 2'b11; // Sequential transfer
         hwrite = 1;
         hready = 1;
-        #10;
+        @(posedge hclk);
         hmastlock = 0;
-        #20;
+        @(posedge hclk);
         `uvm_info(name,$sformatf(" Ensure HMASTLOCK is asserted correctly during locked transfers Assertion Fail Task ended"),UVM_NONE);
       endtask
 
    
 
-//     // Stimulus 12: **Valid INCR Burst Address**
-//     #10;
-//     haddr = 32'h00000000;  // Valid address for INCR burst type
-//     hburst = 3'b001;       // INCR burst type
-//     hsize = 3'b010;        // 16-bit transfer
-//     htrans = 2'b11;        // Sequential transfer
-//     hwrite = 1;
-//     hready = 1;
-//     #20;
+
 
     // Stimulus 14: **Burst wrapping error**(pass assertion)
     task CheckForWRAPAssertionPass();
@@ -362,7 +357,7 @@ module AhbMasterAssertionTb;
       htrans = 2'b11;       // Sequential transfer
       hwrite = 1;
       hready = 1;
-      #20;
+      @(posedge hclk);
       `uvm_info(name,$sformatf("Check for WRAP (wrapping burst) AssertionPass Task ended"),UVM_NONE);
     endtask
           
@@ -371,15 +366,14 @@ module AhbMasterAssertionTb;
     task CheckForWRAPAssertionFail();
       `uvm_info(name,$sformatf("Check for WRAP (wrapping burst) AssertionFail Task started"),UVM_NONE);
       @(posedge hclk);
-    #10;
-    haddr = 32'h00001111; // Misaligned address
-    hburst = 3'b010;      // WRAP burst type
-    hsize = 3'b001;       // 8-bit transfer
-    htrans = 2'b11;       // Sequential transfer
-    hwrite = 1;
-    hready = 1;
-    #20;
-    `uvm_info(name,$sformatf("Check for WRAP (wrapping burst) AssertionPass Task ended"),UVM_NONE);
+      haddr = 32'h00001111; // Misaligned address
+      hburst = 3'b010;      // WRAP burst type
+      hsize = 3'b001;       // 8-bit transfer
+      htrans = 2'b11;       // Sequential transfer
+      hwrite = 1;
+      hready = 1;
+      @(posedge hclk);
+      `uvm_info(name,$sformatf("Check for WRAP (wrapping burst) AssertionPass Task ended"),UVM_NONE);
     endtask
 
 
