@@ -27,6 +27,11 @@ module AhbCoverPropertyTb;
   reg [HMASTER_WIDTH-1:0]   hmaster;
   reg         hmastlock;
   reg         htransValid;
+  reg hreadyout;
+  reg[DATA_WIDTH-1:0] hrdata;
+  reg [NO_OF_SLAVES-1:0] hslex;
+  reg hexokay;
+  reg[(DATA_WIDTH/8)-1:0] hwstrb ; 
   reg [DATA_WIDTH-1:0]  hwdataValid;
   string name = "AhbCoverPropertyTb";
 
