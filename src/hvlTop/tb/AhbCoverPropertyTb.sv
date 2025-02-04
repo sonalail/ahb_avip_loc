@@ -49,7 +49,7 @@ module AhbCoverPropertyTb;
   .hrdata(hrdata),
   .hreadyout(hreadyout),
   .hresp(hresp),
-  .hexokay(hexokay)
+  .hexokay(hexokay),
   .hready(hready),
   .htransValid(htransValid),
   .hwdataValid(hwdataValid)
