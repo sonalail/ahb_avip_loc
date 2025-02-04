@@ -3,9 +3,9 @@
 
 import AhbGlobalPackage::*;
 
-interface AhbCoverProperty (input hclk,
-                            input hresetn,
-                            input [ADDR_WIDTH-1:0] haddr, 
+interface AhbCoverProperty (input hclk;
+                            input hresetn;
+                            input [ADDR_WIDTH-1:0] haddr;
                             input [NO_OF_SLAVES-1:0] hselx;
                             input [2:0] hburst;
                             input hmastlock;
