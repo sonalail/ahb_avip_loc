@@ -113,7 +113,7 @@ module AhbSlaveAssertionTb;
     hrdata = 32'hA5A5A5A5;  // Read data
     haddr = 32'h0000_1000;   // Example address
     hresp = 2'b00;   // OKAY response
-    #20;
+    @(posedge hclk);
     `uvm_info(name,$sformatf("Valid Read Transaction Ended "),UVM_NONE);
   endtask
 
@@ -127,7 +127,7 @@ module AhbSlaveAssertionTb;
     hrdata = 32'hx;  // Read data
     haddr = 32'h0000_1000;   // Example address
     hresp = 2'b00;   // OKAY response
-    #20;
+    @(posedge hclk);
     `uvm_info(name,$sformatf("Invalid Read Transaction (Fail Assertion) Ended "),UVM_NONE);
   endtask
   
@@ -138,7 +138,7 @@ module AhbSlaveAssertionTb;
     htrans = 2'b00;  // IDLE
     hreadyout = 1;
     hresp = 2'b01;   // ERROR response
-    #20;
+    @(posedge hclk);
     `uvm_info(name,$sformatf("Invalid Read with HRESP Error Ended"),UVM_NONE);
   endtask
     
@@ -152,7 +152,7 @@ module AhbSlaveAssertionTb;
     hwdata = 32'hDEAD_BEEF;  // Write data
     haddr = 32'h0000_2000;   // Example address
     hresp = 2'b00;   // OKAY response
-    #20;
+    @(posedge hclk);
     `uvm_info(name,$sformatf("Write Transaction Pass Assertion Ended"),UVM_NONE);
   endtask
     
@@ -164,7 +164,7 @@ module AhbSlaveAssertionTb;
     hburst = 3'b101; // Invalid burst type
     hreadyout = 1;
     hresp = 2'b00;
-    #20;
+    @(posedge hclk);
     `uvm_info(name,$sformatf("Invalid Burst Type Fail Ended"),UVM_NONE);
   endtask
   
@@ -178,7 +178,7 @@ module AhbSlaveAssertionTb;
     hreadyout = 1;
     haddr = 32'h0000_3000;
     hresp = 2'b00;
-    #20;
+    @(posedge hclk);
     `uvm_info(name,$sformatf("Burst Transaction (INCR) Ended"),UVM_NONE);
   endtask
    
@@ -190,7 +190,7 @@ module AhbSlaveAssertionTb;
     htrans = 2'b00;  // IDLE
     hreadyout = 1;
     hresp = 2'b00;   // OKAY  response
-    #20;
+    @(posedge hclk);
     `uvm_info(name,$sformatf("Idle State with HRESP ERROR Fail Ended"),UVM_NONE);
   endtask
   
@@ -202,7 +202,7 @@ module AhbSlaveAssertionTb;
     hburst = 3'b101; // Invalid burst type
     hreadyout = 1;
     hresp = 2'b00;
-    #20;
+    @(posedge hclk);
     `uvm_info(name,$sformatf("Invalid Burst Type Ended"),UVM_NONE);
   endtask
 
@@ -213,7 +213,7 @@ module AhbSlaveAssertionTb;
     hreadyout = 1;
     htrans = 2'b10; //NONSEQ
     hsize = 3'b110;
-    #20;
+    @(posedge hclk);
     `uvm_info(name,$sformatf("HSIZE does not matche data width Fail Ended"),UVM_NONE);
   endtask
   
@@ -224,7 +224,7 @@ module AhbSlaveAssertionTb;
     htrans = 2'b00;  // IDLE
     hreadyout = 1;
     hresp = 2'b01;   // ERROR response
-    #20;
+    @(posedge hclk);
    `uvm_info(name,$sformatf("Idle State with HRESP ERROR Ended"),UVM_NONE);
   endtask
    
@@ -235,7 +235,7 @@ module AhbSlaveAssertionTb;
     hreadyout = 1; // Ready signal is high
     htrans = 2'b10; // NONSEQ (valid transaction)
     hresp = 1'b1; // ERROR response
-    #20;       
+    @(posedge hclk);      
     `uvm_info(name,$sformatf("HRESP is OKAY for valid transaction Fail Ended"),UVM_NONE);
   endtask
   
