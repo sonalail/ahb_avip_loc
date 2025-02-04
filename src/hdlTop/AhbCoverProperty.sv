@@ -150,7 +150,7 @@ interface AhbCoverProperty (input hclk,
 
 
   IFWRITEADDRANDDATAISEQUATOREADADDRANDDATANONSEQ : cover property
-    (WriteDataIsEqualToReadDataAndBothTheAddressIsSameInonSeqState)
+    (WriteDataIsEqualToReadDataAndBothTheAddressIsSameInNonSeqState)
     $info("WRITE ADDRESS AND DATA IS EQUAL TO MASTER READ ADDRESS AND DATA NON SEQ : COVERED");
 
   IFWRITEADDRANDDATAISNOTEQUALTOMASTERREADADDRANDDATANONSEQ : cover property
@@ -174,11 +174,11 @@ interface AhbCoverProperty (input hclk,
     $info("WRITE ADDRESS AND DATA IS NOT EQUAL TO READ ADDRESS AND DATA IN SEQ STATE FOR WRAP4 BURST : COVERED");
      
   IFWRITEADDRANDDATAISEQUATOREADADDRANDDATASEQINCR4 : cover property
-    (WriteDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncr4Burst)
+    (WriteDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement4Burst)
     $info("WRITE ADDRESS AND DATA IS EQUAL TO MASTER READ ADDRESS AND DATA IN SEQ STATE FOR INCR4 BURST : COVERED");
 
   IFWRITEADDRANDDATAISNOTEQUALTOMASTERREADADDRANDDATASEQINCR4 : cover property
-    (WriteDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncr4Burst)
+    (WriteDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement4Burst)
     $info("WRITE ADDRESS AND DATA IS NOT EQUAL TO READ ADDRESS AND DATA IN SEQ STATE FOR INCR4 BURST : COVERED");
      
   IFWRITEADDRANDDATAISEQUATOREADADDRANDDATASEQWRAP8 : cover property
@@ -190,11 +190,11 @@ interface AhbCoverProperty (input hclk,
     $info("WRITE ADDRESS AND DATA IS NOT EQUAL TO READ ADDRESS AND DATA IN SEQ STATE FOR WRAP8 BURST : COVERED");
       
   IFWRITEADDRANDDATAISEQUATOREADADDRANDDATASEQINCR8 : cover property
-    (WriteDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncr8Burst)
+    (WriteDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement8Burst)
     $info("WRITE ADDRESS AND DATA IS EQUAL TO MASTER READ ADDRESS AND DATA IN SEQ STATE FOR INCR8 BURST : COVERED");
     
   IFWRITEADDRANDDATAISNOTEQUALTOMASTERREADADDRANDDATASEQINCR8 : cover property
-    (WriteDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncr8Burst)
+    (WriteDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement8Burst)
     $info("WRITE ADDRESS AND DATA IS NOT EQUAL TO READ ADDRESS AND DATA IN SEQ STATE FOR INCR8 BURST : COVERED");
       
   IFWRITEADDRANDDATAISEQUATOREADADDRANDDATASEQWRAP16 : cover property
@@ -206,11 +206,11 @@ interface AhbCoverProperty (input hclk,
     $info("WRITE ADDRESS AND DATA IS NOT EQUAL TO READ ADDRESS AND DATA IN SEQ STATE FOR WRAP16 BURST : COVERED");
           
   IFWRITEADDRANDDATAISEQUATOREADADDRANDDATASEQINCR16 : cover property
-    (WriteDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncr16Burst)
+    (WriteDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement16Burst)
     $info("WRITE ADDRESS AND DATA IS EQUAL TO MASTER READ ADDRESS AND DATA IN SEQ STATE FOR INCR16 BURST : COVERED");
 
   IFWRITEADDRANDDATAISNOTEQUALTOMASTERREADADDRANDDATASEQINCR16 : cover property
-    (WriteDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncr16Burst)
+    (WriteDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement16Burst)
     $info("WRITE ADDRESS AND DATA IS NOT EQUAL TO READ ADDRESS AND DATA IN SEQ STATE FOR INCR16 BURST : COVERED");
      
 endinterface : AhbCoverProperty
