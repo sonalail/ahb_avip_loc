@@ -29,7 +29,7 @@ module AhbCoverPropertyTb;
   reg         htransValid;
   reg hreadyout;
   reg[DATA_WIDTH-1:0] hrdata;
-  reg [NO_OF_SLAVES-1:0] hslex;
+ reg [NO_OF_SLAVES-1:0] hselx;
   reg hexokay;
   reg[(DATA_WIDTH/8)-1:0] hwstrb ; 
   reg [DATA_WIDTH-1:0]  hwdataValid;
