@@ -6,22 +6,22 @@ usage:
 	echo "-----------------------------------------------------------------";
 	echo "------------------------- Usage ---------------------------------";
 	echo "";
-	echo "Make target <options> <variable>=<value>";
+	echo "make target <options> <variable>=<value>";
 	echo "";
 	echo "To compile use:";
-	echo "Make compile";
+	echo "make compile";
 	echo "";
 	echo "To provide compilation arguments:";
-	echo "Make compile comp_args=\"+define+<macro_name>=<value>\"";
+	echo "make compile comp_args=\"+define+<macro_name>=<value>\"";
 	echo "";
 	echo "Example:";
-	echo "Make compile comp_args=\"+define+ADDR_WIDTH=64 +define+DATA_WIDTH=64\"";
+	echo "make compile comp_args=\"+define+ADDR_WIDTH=64 +define+DATA_WIDTH=64\"";
 	echo "";
 	echo "To simulate a test:";
-	echo "Make simulate test=<test_name> uvm_verbosity=<VERBOSITY_LEVEL>";
+	echo "make simulate test=<test_name> uvm_verbosity=<VERBOSITY_LEVEL>";
 	echo "";
 	echo "Example:";
-	echo "Make simulate test=ahb_master_test uvm_verbosity=UVM_HIGH";
+	echo "make simulate test=ahb_master_test uvm_verbosity=UVM_HIGH";
 	echo "";
 	echo "-----------------------------------------------------------------";
 	echo "-----------------------------------------------------------------";
@@ -29,12 +29,12 @@ usage:
 
 # Default action
 all:
-	Make clean; Make compile; Make simulate;
+	make clean; make compile; make simulate;
 
 # Compilation target
 compile:
-	Make clean_compile;
-	Make clean_simulate;
+	make clean_compile;
+	make clean_simulate;
 	vlib work;
 	vlog -sv \
 	+acc \
