@@ -39,7 +39,7 @@ module AhbCoverPropertyTb;
   .hmastlock(hmastlock),
   .hprot(hprot),
   .hsize(hsize),
-  .hnonsec(hnonsec);
+  .hnonsec(hnonsec),
   .hexcl(hexcl),
   .hmaster(hmaster),
   .htrans(htrans),
