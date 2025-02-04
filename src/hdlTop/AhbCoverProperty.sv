@@ -23,8 +23,7 @@ interface AhbCoverProperty (input hclk,
                             input hresp,
                             input hexokay,
                             input hready,
-                            input htransValid,
-                            input [DATA_WIDTH-1:0] hwdataValid
+                          
                            );
   
   import uvm_pkg::*;
