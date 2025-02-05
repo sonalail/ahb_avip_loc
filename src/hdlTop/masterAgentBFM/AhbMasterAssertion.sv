@@ -144,7 +144,7 @@ assert property (checkBurstWrap)
 property checkTransBusyToSeq;
   @(posedge hclk) disable iff(!hresetn)
   ($past(htrans) == 2'b01 && htrans == 2'b11) |->
-  (!$past(hready) && (hburst inside {3'b010, 3'b011, 3'b100, 3'b101, 3'b110, 3'b111}) && $stable(haddr) && (htrans == 2'b11 throughout (!$past(hready))));
+  (!$past(hready) && (hburst inside {3'b010, 3'b011, 3'b100, 3'b101, 3'b110, 3'b111}) && $stable(haddr) && (htrans == 2'b11 throughout (hready==0)));
 endproperty
 
 assert property (checkTransBusyToSeq)
