@@ -375,7 +375,23 @@ module AhbMasterAssertionTb;
       @(posedge hclk);
       `uvm_info(name,$sformatf("Check for WRAP (wrapping burst) AssertionPass Task ended"),UVM_NONE);
     endtask
+  
+    task CheckTransBusyToSeqAssertionPass();
+      `uvm_info(name,$sformatf("Check Trans Busy To Seq AssertionPass Task started"),UVM_NONE);
 
+    @(posedge hclk);
+    htrans = 2'b01;  // BUSY
+    hready = 0;
+    hburst = 3'b011; // Incrementing burst
+    haddr  = 32'hDEADBEEF;
+
+    @(posedge hclk);
+    htrans = 2'b11;  // SEQ
+
+    @(posedge hclk);
+      `uvm_info(name,$sformatf("Check Trans Busy To Seq AssertionPass Task ended"),UVM_NONE);
+
+ endtask 
 
 
 endmodule
