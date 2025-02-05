@@ -137,6 +137,46 @@ assert property (checkBurstWrap)
        $info("WRAP burst type passed: Address wrapping is done correctly");
   else $error("WRAP burst type failed: Address wrapping incorrect!");
 
+
+  
+
+// Check for transition from BUSY to SEQ
+property checkTransBusyToSeq;
+  @(posedge hclk) disable iff(!hresetn)
+  ($past(htrans) == 2'b01 && htrans == 2'b11) |->
+  (!$past(hready) && (hburst inside {3'b010, 3'b011, 3'b100, 3'b101, 3'b110, 3'b111}) && $stable(haddr) && (htrans == 2'b11 throughout (!$past(hready))));
+endproperty
+
+assert property (checkTransBusyToSeq)
+       $info("Transition from BUSY to SEQ passed");
+  else $error("Transition from BUSY to SEQ failed: Conditions not met!");
+
+// Check for transition from BUSY to NONSEQ
+property checkTransBusyToNonSeq;
+  @(posedge hclk) disable iff (!hresetn)
+  ($past(htrans) == 2'b01 && htrans == 2'b10 && $past(hburst) inside {3'b000, 3'b001} && !$past(hready))
+   ((hburst inside {3'b010, 3'b011, 3'b100, 3'b101, 3'b110, 3'b111}) && !$stable(haddr) && (htrans == 2'b10 throughout (!$past(hready))));
+endproperty
+
+assert property (checkTransBusyToNonSeq)
+       $info("Transition from BUSY to NONSEQ passed");
+  else $error("Transition from BUSY to NONSEQ failed: Conditions not met!");
+  
+ // Check for transition from IDLE to NONSEQ 
+property checkTransIdleToNonSeq;
+  @(posedge hclk)  disable iff (!hresetn)
+  ($past(htrans) == 2'b00 && htrans == 2'b10 !$past(hready)) |-> 
+  ((hburst inside {3'b010, 3'b011, 3'b100, 3'b101, 3'b110, 3'b111}) && $stable(haddr) && 
+   (htrans == $past(htrans) throughout (!$past(hready))));
+endproperty
+  
+assert property (checkTransIdleToNonSeq)
+    $info("Transition from IDLE to NONSEQ passed");
+  else $error("Transition from IDLE to NONSEQ failed: Conditions not met!");
+  
+
+
+
 endinterface : AhbMasterAssertion
 
 `endif
