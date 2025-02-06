@@ -1,0 +1,138 @@
+# vsim -vopt work.AhbCoverPropertyTb -voptargs="+acc=npr" -assertdebug "+UVM_TESTNAME=AhbCoverPropertyTb" "+UVM_VERBOSITY=UVM_MEDIUM" -l AhbCoverPropertyTb/AhbCoverPropertyTb.log -sva -coverage -c -do "log -r /*; add wave -r /*; coverage save -onexit -assert -directive -cvg -codeAll AhbCoverPropertyTb/AhbCoverPropertyTb_coverage.ucdb; run -all; exit" -wlf AhbCoverPropertyTb/waveform.wlf 
+# Start time: 22:51:23 on Feb 06,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# //  Questa Sim
+# //  Version 10.6c linux Jul 25 2017
+# //
+# //  Copyright 1991-2017 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg
+# Loading work.AhbGlobalPackage(fast)
+# Loading work.AhbCoverPropertyTb_sv_unit(fast)
+# Loading work.AhbCoverPropertyTb(fast)
+# Loading work.AhbCoverProperty_sv_unit(fast)
+# Loading work.AhbCoverProperty(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
+# log -r /*
+#  add wave -r /*
+#  coverage save -onexit -assert -directive -cvg -codeAll AhbCoverPropertyTb/AhbCoverPropertyTb_coverage.ucdb
+#  run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/AhbCoverProperty.sv(32) @ 0: reporter [AhbCoverProperty] AhbCoverProperty
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv(107) @ 0: reporter [AhbCoverPropertyTb] write Data Is Equal To Read Data And Both The Address Is Same In Non-Seq State task Started
+# Time=0, htrans=xx, hresp=x, hreadyout=x, hsize = xxx , hwdata =xxxxxxxx, hrdata=xxxxxxxx, haddr=xxxxxxxx, hwrite=x, hburst=xxx
+# Time=5, htrans=00, hresp=x, hreadyout=x, hsize = 010 , hwdata =xxxxxxxx, hrdata=xxxxxxxx, haddr=xxxxxxxx, hwrite=0, hburst=000
+# Time=25, htrans=10, hresp=x, hreadyout=x, hsize = 010 , hwdata =1234abcd, hrdata=xxxxxxxx, haddr=10001004, hwrite=1, hburst=000
+# Time=35, htrans=10, hresp=0, hreadyout=x, hsize = 010 , hwdata =1234abcd, hrdata=1234abcd, haddr=10001004, hwrite=0, hburst=000
+# ** Info: WRITE ADDRESS AND DATA IS EQUAL TO MASTER READ ADDRESS AND DATA NON SEQ : COVERED
+#    Time: 45 ns Started: 35 ns  Scope: AhbCoverPropertyTb.ahbcoverproperty_u.IFWRITEADDRANDDATAISEQUATOREADADDRANDDATANONSEQ File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/AhbCoverProperty.sv Line: 152
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv(146) @ 55: reporter [AhbCoverPropertyTb] write Data Is Equal To Read Data And Both The Address Is Same In Non-Seq State task ended
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv(151) @ 55: reporter [AhbCoverPropertyTb] write Data Is Equal To Read Data And Both The Address Is Not Same In Non-Seq State task Started
+# Time=65, htrans=00, hresp=0, hreadyout=x, hsize = 010 , hwdata =xxxxxxxx, hrdata=xxxxxxxx, haddr=xxxxxxxx, hwrite=0, hburst=000
+# Time=85, htrans=10, hresp=0, hreadyout=x, hsize = 010 , hwdata =1234abcd, hrdata=xxxxxxxx, haddr=10001004, hwrite=1, hburst=000
+# Time=95, htrans=10, hresp=0, hreadyout=x, hsize = 010 , hwdata =1234abcd, hrdata=1234ffff, haddr=10001005, hwrite=0, hburst=000
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv(192) @ 115: reporter [AhbCoverPropertyTb] write Data Is Equal To Read Data And Both The Address Is Not Same In Non-Seq State task ended
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv(199) @ 115: reporter [AhbCoverPropertyTb] write Data Is Equal To Read Data And Both The Address Is Same In Seq State Increment Burst task Started
+# Time=125, htrans=00, hresp=0, hreadyout=x, hsize = 010 , hwdata =xxxxxxxx, hrdata=xxxxxxxx, haddr=xxxxxxxx, hwrite=0, hburst=000
+# Time=145, htrans=11, hresp=0, hreadyout=x, hsize = 001 , hwdata =1234abcd, hrdata=xxxxxxxx, haddr=10001004, hwrite=1, hburst=000
+# Time=155, htrans=11, hresp=0, hreadyout=x, hsize = 001 , hwdata =1234abcd, hrdata=1234abcd, haddr=10001005, hwrite=0, hburst=001
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv(238) @ 175: reporter [AhbCoverPropertyTb] write Data Is Equal To Read Data And Both The Address Is Same In Seq State Increment Burst task ended
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv(287) @ 175: reporter [AhbCoverPropertyTb] write Data Is Equal To Read Data And Both The Address Is Same In Seq State Wrap4 Burst task Started
+# Time=185, htrans=11, hresp=0, hreadyout=x, hsize = 001 , hwdata =a5a5a5a5, hrdata=zzzzzzzz, haddr=10000000, hwrite=1, hburst=010
+# Time=195, htrans=11, hresp=0, hreadyout=x, hsize = 001 , hwdata =a5a5a5a5, hrdata=zzzzzzzz, haddr=10000004, hwrite=1, hburst=010
+# Time=205, htrans=11, hresp=0, hreadyout=x, hsize = 001 , hwdata =5a5a5a5a, hrdata=zzzzzzzz, haddr=10000008, hwrite=1, hburst=010
+# Time=215, htrans=11, hresp=0, hreadyout=x, hsize = 001 , hwdata =a5a5a5a5, hrdata=zzzzzzzz, haddr=1000000c, hwrite=1, hburst=010
+# Time=225, htrans=11, hresp=0, hreadyout=x, hsize = 001 , hwdata =a5a5a5a5, hrdata=a5a5a5a5, haddr=10000000, hwrite=0, hburst=010
+# ** Info: WRITE ADDRESS AND DATA IS EQUAL TO MASTER READ ADDRESS AND DATA IN SEQ STATE FOR WRAP4 BURST : COVERED
+#    Time: 235 ns Started: 225 ns  Scope: AhbCoverPropertyTb.ahbcoverproperty_u.IFWRITEADDRANDDATAISEQUATOREADADDRANDDATASEQWRAP4 File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/AhbCoverProperty.sv Line: 168
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv(325) @ 245: reporter [AhbCoverPropertyTb] write Data Is Equal To Read Data And Both The Address Is Same In Seq State Wrap4 Burst task ended
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv(373) @ 245: reporter [AhbCoverPropertyTb] write Data Is Equal To Read Data And Both The Address Is Same In Seq State Increment4 Burst task Started
+# Time=255, htrans=00, hresp=0, hreadyout=x, hsize = 010 , hwdata =xxxxxxxx, hrdata=xxxxxxxx, haddr=xxxxxxxx, hwrite=0, hburst=000
+# Time=275, htrans=11, hresp=0, hreadyout=x, hsize = 001 , hwdata =1234abcd, hrdata=xxxxxxxx, haddr=10001004, hwrite=1, hburst=000
+# Time=285, htrans=11, hresp=0, hreadyout=x, hsize = 001 , hwdata =1234abcd, hrdata=1234abcd, haddr=10001008, hwrite=0, hburst=001
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv(412) @ 305: reporter [AhbCoverPropertyTb] write Data Is Equal To Read Data And Both The Address Is Same In Seq State Increment4 Burst task ended
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv(462) @ 305: reporter [AhbCoverPropertyTb] write Data Is Equal To Read Data And Both The Address Is Same In Seq State Wrap8 Burst task Started
+# Time=315, htrans=11, hresp=0, hreadyout=x, hsize = 001 , hwdata =a5a5a5a5, hrdata=zzzzzzzz, haddr=10000000, hwrite=1, hburst=100
+# Time=325, htrans=11, hresp=0, hreadyout=x, hsize = 001 , hwdata =a5a5a5a5, hrdata=zzzzzzzz, haddr=10000004, hwrite=1, hburst=100
+# Time=335, htrans=11, hresp=0, hreadyout=x, hsize = 001 , hwdata =5a5a5a5a, hrdata=zzzzzzzz, haddr=10000008, hwrite=1, hburst=100
+# Time=345, htrans=11, hresp=0, hreadyout=x, hsize = 001 , hwdata =a5a5a5a5, hrdata=zzzzzzzz, haddr=1000000c, hwrite=1, hburst=100
+# Time=355, htrans=11, hresp=0, hreadyout=x, hsize = 001 , hwdata =5a5a5a5a, hrdata=zzzzzzzz, haddr=10000010, hwrite=1, hburst=100
+# Time=365, htrans=11, hresp=0, hreadyout=x, hsize = 001 , hwdata =a5a5a5a5, hrdata=zzzzzzzz, haddr=10000014, hwrite=1, hburst=100
+# Time=375, htrans=11, hresp=0, hreadyout=x, hsize = 001 , hwdata =5a5a5a5a, hrdata=zzzzzzzz, haddr=10000018, hwrite=1, hburst=100
+# Time=385, htrans=11, hresp=0, hreadyout=x, hsize = 001 , hwdata =a5a5a5a5, hrdata=zzzzzzzz, haddr=1000001c, hwrite=1, hburst=100
+# Time=395, htrans=11, hresp=0, hreadyout=x, hsize = 001 , hwdata =a5a5a5a5, hrdata=a5a5a5a5, haddr=10000000, hwrite=0, hburst=100
+# ** Info: WRITE ADDRESS AND DATA IS EQUAL TO MASTER READ ADDRESS AND DATA IN SEQ STATE FOR WRAP8 BURST : COVERED
+#    Time: 405 ns Started: 395 ns  Scope: AhbCoverPropertyTb.ahbcoverproperty_u.IFWRITEADDRANDDATAISEQUATOREADADDRANDDATASEQWRAP8 File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/AhbCoverProperty.sv Line: 184
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv(524) @ 415: reporter [AhbCoverPropertyTb] write Data Is Equal To Read Data And Both The Address Is Same In Seq State Wrap8 Burst task ended
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv(596) @ 415: reporter [AhbCoverPropertyTb] write Data Is Equal To Read Data And Both The Address Is Same In Seq State Increment8 Burst task Started
+# Time=415, htrans=11, hresp=0, hreadyout=x, hsize = 010 , hwdata =0c0ffee0, hrdata=a5a5a5a5, haddr=00000004, hwrite=1, hburst=101
+# Time=425, htrans=11, hresp=0, hreadyout=x, hsize = 010 , hwdata =0c0ffee0, hrdata=0c0ffee0, haddr=0000000c, hwrite=1, hburst=101
+# ** Info: WRITE ADDRESS AND DATA IS EQUAL TO MASTER READ ADDRESS AND DATA IN SEQ STATE FOR INCR8 BURST : COVERED
+#    Time: 435 ns Started: 425 ns  Scope: AhbCoverPropertyTb.ahbcoverproperty_u.IFWRITEADDRANDDATAISEQUATOREADADDRANDDATASEQINCR8 File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/AhbCoverProperty.sv Line: 192
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv(609) @ 445: reporter [AhbCoverPropertyTb] write Data Is Equal To Read Data And Both The Address Is Same In Seq State Increment8 Burst task ended
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv(634) @ 445: reporter [AhbCoverPropertyTb] write Data Is Equal To Read Data And Both The Address Is Same In Seq State Wrap16 Burst task Started
+# ** Info: WRITE ADDRESS AND DATA IS NOT EQUAL TO READ ADDRESS AND DATA IN SEQ STATE FOR INCR8 BURST : COVERED
+#    Time: 445 ns Started: 435 ns  Scope: AhbCoverPropertyTb.ahbcoverproperty_u.IFWRITEADDRANDDATAISNOTEQUALTOMASTERREADADDRANDDATASEQINCR8 File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/AhbCoverProperty.sv Line: 196
+# Time=445, htrans=11, hresp=0, hreadyout=x, hsize = 010 , hwdata =a5a5a5a5, hrdata=zzzzzzzz, haddr=10000000, hwrite=1, hburst=110
+# Time=455, htrans=11, hresp=0, hreadyout=x, hsize = 010 , hwdata =a5a5a5a5, hrdata=zzzzzzzz, haddr=10000004, hwrite=1, hburst=110
+# Time=465, htrans=11, hresp=0, hreadyout=x, hsize = 010 , hwdata =5a5a5a5a, hrdata=zzzzzzzz, haddr=10000008, hwrite=1, hburst=110
+# Time=475, htrans=11, hresp=0, hreadyout=x, hsize = 010 , hwdata =a5a5a5a5, hrdata=zzzzzzzz, haddr=1000000c, hwrite=1, hburst=110
+# Time=485, htrans=11, hresp=0, hreadyout=x, hsize = 010 , hwdata =5a5a5a5a, hrdata=zzzzzzzz, haddr=10000010, hwrite=1, hburst=110
+# Time=495, htrans=11, hresp=0, hreadyout=x, hsize = 010 , hwdata =a5a5a5a5, hrdata=zzzzzzzz, haddr=10000014, hwrite=1, hburst=110
+# Time=505, htrans=11, hresp=0, hreadyout=x, hsize = 010 , hwdata =5a5a5a5a, hrdata=zzzzzzzz, haddr=10000018, hwrite=1, hburst=110
+# Time=515, htrans=11, hresp=0, hreadyout=x, hsize = 010 , hwdata =a5a5a5a5, hrdata=zzzzzzzz, haddr=1000001c, hwrite=1, hburst=110
+# Time=525, htrans=11, hresp=0, hreadyout=x, hsize = 010 , hwdata =5a5a5a5a, hrdata=zzzzzzzz, haddr=10000020, hwrite=1, hburst=110
+# Time=535, htrans=11, hresp=0, hreadyout=x, hsize = 010 , hwdata =a5a5a5a5, hrdata=zzzzzzzz, haddr=10000024, hwrite=1, hburst=110
+# Time=545, htrans=11, hresp=0, hreadyout=x, hsize = 010 , hwdata =5a5a5a5a, hrdata=zzzzzzzz, haddr=10000028, hwrite=1, hburst=110
+# Time=555, htrans=11, hresp=0, hreadyout=x, hsize = 010 , hwdata =a5a5a5a5, hrdata=zzzzzzzz, haddr=1000002c, hwrite=1, hburst=110
+# Time=565, htrans=11, hresp=0, hreadyout=x, hsize = 010 , hwdata =5a5a5a5a, hrdata=zzzzzzzz, haddr=10000030, hwrite=1, hburst=110
+# Time=575, htrans=11, hresp=0, hreadyout=x, hsize = 010 , hwdata =a5a5a5a5, hrdata=zzzzzzzz, haddr=10000034, hwrite=1, hburst=110
+# Time=585, htrans=11, hresp=0, hreadyout=x, hsize = 010 , hwdata =5a5a5a5a, hrdata=zzzzzzzz, haddr=10000038, hwrite=1, hburst=110
+# Time=595, htrans=11, hresp=0, hreadyout=x, hsize = 010 , hwdata =a5a5a5a5, hrdata=zzzzzzzz, haddr=1000003c, hwrite=1, hburst=110
+# Time=605, htrans=11, hresp=0, hreadyout=x, hsize = 010 , hwdata =a5a5a5a5, hrdata=a5a5a5a5, haddr=10000000, hwrite=0, hburst=110
+# ** Info: WRITE ADDRESS AND DATA IS EQUAL TO MASTER READ ADDRESS AND DATA IN SEQ STATE FOR WRAP16 BURST : COVERED
+#    Time: 615 ns Started: 605 ns  Scope: AhbCoverPropertyTb.ahbcoverproperty_u.IFWRITEADDRANDDATAISEQUATOREADADDRANDDATASEQWRAP16 File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/AhbCoverProperty.sv Line: 200
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv(744) @ 625: reporter [AhbCoverPropertyTb] write Data Is Equal To Read Data And Both The Address Is Same In Seq State Wrap16 Burst task ended
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv(767) @ 625: reporter [AhbCoverPropertyTb] write Data Is Equal To Read Data And Both The Address Is Same In Seq State Increment16 Burst task Started
+# Time=625, htrans=11, hresp=0, hreadyout=x, hsize = 010 , hwdata =0c0ffee0, hrdata=a5a5a5a5, haddr=00000000, hwrite=1, hburst=111
+# Time=635, htrans=11, hresp=0, hreadyout=x, hsize = 010 , hwdata =0c0ffee0, hrdata=0c0ffee0, haddr=00000010, hwrite=1, hburst=111
+# ** Info: WRITE ADDRESS AND DATA IS EQUAL TO MASTER READ ADDRESS AND DATA IN SEQ STATE FOR INCR16 BURST : COVERED
+#    Time: 645 ns Started: 635 ns  Scope: AhbCoverPropertyTb.ahbcoverproperty_u.IFWRITEADDRANDDATAISEQUATOREADADDRANDDATASEQINCR16 File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/AhbCoverProperty.sv Line: 208
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv(780) @ 655: reporter [AhbCoverPropertyTb] write Data Is Equal To Read Data And Both The Address Is Same In Seq State Increment16 Burst task ended
+# ** Note: $finish    : /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv(101)
+#    Time: 655 ns  Iteration: 0  Instance: /AhbCoverPropertyTb
+# Saving coverage database on exit...
+# End time: 22:51:27 on Feb 06,2025, Elapsed time: 0:00:04
+# Errors: 0, Warnings: 0

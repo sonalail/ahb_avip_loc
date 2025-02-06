@@ -41,13 +41,13 @@ compile:
 	+cover \
 	+fcover \
 	$(comp_args) \
-	-l AhbMasterAssertionsCompile.log \
-	-f ./ahbAssertion.f;
+	-l AhbCoverPropertyCompile.log \
+	-f ./ahbCoverProperty.f;
 	make compile_war_err;
 
 # Default test configuration
 ifndef test
-override test = AhbMasterAssertionTb
+override test = AhbCoverPropertyTb
 endif
 
 # Default verbosity level
@@ -101,13 +101,13 @@ compile_war_err:
 	echo "-----------------------------------------------------------------";
 	echo "------------------- Compilation Report --------------------------";
 	echo "";
-	grep "^** " AhbMasterAssertionsCompile.log;
+	grep "^** " AhbCoverPropertyCompile.log;
 	echo "";
-	grep "^Error" AhbMasterAssertionsCompile.log;
+	grep "^Error" AhbCoverPropertyCompile.log;
 	echo "";
-	grep "^Info" AhbMasterAssertionsCompile.log;
+	grep "^Info" AhbCoverPropertyCompile.log;
 	echo "";
-	echo "Log file path: AhbMasterAssertionsCompile.log";
+	echo "Log file path: AhbCoverPropertyCompile.log";
 	echo "";
 	echo "-----------------------------------------------------------------";
 	echo "-----------------------------------------------------------------";

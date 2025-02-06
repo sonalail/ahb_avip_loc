@@ -22,9 +22,8 @@ interface AhbCoverProperty (input hclk,
                             input hreadyout,
                             input hresp,
                             input hexokay,
-                            input hready,
-                          
-                           );
+                            input hready
+                       );
   
   import uvm_pkg::*;
   `include "uvm_macros.svh";
@@ -63,86 +62,86 @@ interface AhbCoverProperty (input hclk,
  
    property WriteDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrementBurst;
     @(posedge hclk) disable iff (!hresetn)
-     (hwrite && (htrans == 2'b11) && hready && (hburst == 3'b001))
+     (hwrite && (htrans == 2'b10 || htrans == 2'b11) && hready && (hburst == 3'b001))
     |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr == $past(haddr)+1));
   endproperty
   
   property WriteDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrementBurst;
     @(posedge hclk) disable iff (!hresetn)
-    (hwrite && (htrans == 2'b11) && hready && (hburst == 3'b001))
+    (hwrite && (htrans == 2'b10 ||htrans == 2'b11) && hready && (hburst == 3'b001))
     |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr != $past(haddr)+1));
   endproperty
   
   property WriteDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateWrap4Burst;
     @(posedge hclk) disable iff (!hresetn)
-    (hwrite && (htrans == 2'b11) && hready && (hburst == 3'b010))
-    |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr == (($past(haddr)+((haddr + hsize) % 16)))));
+    (hwrite && (htrans == 2'b10 || htrans == 2'b11) && hready && (hburst == 3'b010))
+    |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr == (($past(haddr,4)))));
   endproperty
   
   property WriteDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateWrap4Burst;
     @(posedge hclk) disable iff (!hresetn)
-    (hwrite && (htrans == 2'b11) && hready && (hburst == 3'b010))
-    |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr != (($past(haddr)+((haddr + hsize) % 16)))));
+    (hwrite && (htrans == 2'b10 || htrans == 2'b11) && hready && (hburst == 3'b010))
+    |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr != (($past(haddr,4)))));
   endproperty
          
          
   property WriteDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement4Burst;
     @(posedge hclk) disable iff (!hresetn)
-    (hwrite && (htrans == 2'b11) && hready && (hburst == 3'b011))
+    (hwrite && (htrans == 2'b10 || htrans == 2'b11) && hready && (hburst == 3'b011))
     |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr == ($past(haddr)+4)));
   endproperty
   
   property WriteDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement4Burst;
     @(posedge hclk) disable iff (!hresetn)
-    (hwrite && (htrans == 2'b11) && hready && (hburst == 3'b011))
+    (hwrite && (htrans == 2'b10 || htrans == 2'b11) && hready && (hburst == 3'b011))
     |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr != ($past(haddr)+4)));
   endproperty
   
   property WriteDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateWrap8Burst;
     @(posedge hclk) disable iff (!hresetn)
     (hwrite && (htrans == 2'b11) && hready && (hburst == 3'b100))
-    |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr == (($past(haddr)+((haddr + hsize) % 32)))));
+    |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr == (($past(haddr,8)))));
   endproperty
   
   property WriteDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateWrap8Burst;
     @(posedge hclk) disable iff (!hresetn)
-    (hwrite && (htrans == 2'b11) && hready && (hburst == 3'b100))
-    |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr != (($past(haddr)+((haddr + hsize) % 32)))));
+    (hwrite && (htrans == 2'b10 || htrans == 2'b11) && hready && (hburst == 3'b100))
+    |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr != (($past(haddr,8)))));
   endproperty  
   
   property WriteDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement8Burst;
     @(posedge hclk) disable iff (!hresetn)
-    (hwrite && (htrans == 2'b11) && hready && (hburst == 3'b101))
+    (hwrite && (htrans == 2'b10 || htrans == 2'b11) && hready && (hburst == 3'b101))
     |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr == ($past(haddr)+8)));
   endproperty
   
   property WriteDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement8Burst;
     @(posedge hclk) disable iff (!hresetn)
-    (hwrite && (htrans == 2'b11) && hready && (hburst == 3'b101))
+    (hwrite && (htrans == 2'b10 || htrans == 2'b11) && hready && (hburst == 3'b101))
     |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr != ($past(haddr)+8)));
   endproperty
   
   property WriteDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateWrap16Burst;
     @(posedge hclk) disable iff (!hresetn)
-    (hwrite && (htrans == 2'b11) && hready && (hburst == 3'b110))
-    |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr == (($past(haddr)+((haddr + hsize) % 64)))));
+    (hwrite && (htrans == 2'b10 || htrans == 2'b11) && hready && (hburst == 3'b110))
+    |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr == (($past(haddr,16)))));
   endproperty
   
   property WriteDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateWrap16Burst;
     @(posedge hclk) disable iff (!hresetn)
-    (hwrite && (htrans == 2'b11) && hready && (hburst == 3'b110))
-    |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr != (($past(haddr)+((haddr + hsize) % 64)))));
+    (hwrite && (htrans == 2'b10 || htrans == 2'b11) && hready && (hburst == 3'b110))
+    |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr != (($past(haddr,16)))));
   endproperty
   
     property WriteDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement16Burst;
     @(posedge hclk) disable iff (!hresetn)
-      (hwrite && (htrans == 2'b11) && hready && (hburst == 3'b111))
+      (hwrite && (htrans == 2'b10 || htrans == 2'b11) && hready && (hburst == 3'b111))
       |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr == ($past(haddr)+16)));
   endproperty
   
   property WriteDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement16Burst;
     @(posedge hclk) disable iff (!hresetn)
-    (hwrite && (htrans == 2'b11) && hready && (hburst == 3'b111))
+    (hwrite && (htrans == 2'b10 || htrans == 2'b11) && hready && (hburst == 3'b111))
     |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr != ($past(haddr)+16)));
   endproperty
 
