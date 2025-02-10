@@ -2,13 +2,12 @@
 `define AHBSLAVEASSERTIONTB_INCLUDED_
 
 import AhbGlobalPackage::*;
-
 import uvm_pkg::*;
+
 `include "uvm_macros.svh"
 
 module AhbSlaveAssertionTb;
 
-  // Testbench signals (these will drive the interface signals)
   reg         hclk;
   reg         hresetn;
   reg         hreadyout;
@@ -25,7 +24,6 @@ module AhbSlaveAssertionTb;
   reg         hexokay;
   reg [3:0]   hwstrb;
 
-  // Instantiate the interface for Slave Assertions
   AhbSlaveAssertion ahbslaveassertions_u (.hclk(hclk),
     .hresetn(hresetn),
     .hreadyout(hreadyout),
@@ -44,12 +42,12 @@ module AhbSlaveAssertionTb;
   );
 
   string name = "AhbSlaveAssertionTb";
-  // Clock generation
+  
   always begin
     #5 hclk = ~hclk;  // 100 MHz clock (10ns period)
   end
 
-  // Initial block to apply stimulus and reset
+
   initial begin
     hclk = 0;
     hresetn = 0;
@@ -59,28 +57,26 @@ module AhbSlaveAssertionTb;
   initial begin
     InitialSignals();
     
-    ValidReadTransaction();
-    ValidReadTransactionFail();
+    ValidReadTransactionAssertionPass();
+    ValidReadTransactionAssertionFail();
     
-    InvalidReadwithHRESPError();
-    HrespIsOkayForValidTransactionFail();
+    InvalidReadwithHRESPErrorAssertionPass();
+    HrespIsOkayForValidTransactionAssertionFail();
     
-    WriteTransactionPassAssertion();
+    WriteTransactionAssertionPass();
     
-    BurstTransactionIncrement();
-    InvalidBurstType();
-    InvalidBurstTypeFail();
+    BurstTransactionIncrementAssertionPass();
+    InvalidBurstTypeAssertionPass();
+    InvalidBurstTypeAssertionFail();
     
-    IdleStatewithHrsepError();
-    IdleStatewithHrespErrorFail();
+    IdleStatewithHrsepErrorAssertionPass();
+    IdleStatewithHrespErrorAssertionFail();
     
-    HsizeDoesNotMatcheDataWidthFail();
+    HsizeDoesNotMatchDataWidthAssertionFail();
     
     $finish;
   end
   
-
-  // Initialize signals
   task InitialSignals();
     `uvm_info(name,$sformatf("When reset is high Initialize the signals "),UVM_NONE);
      @(posedge hclk);
@@ -92,8 +88,8 @@ module AhbSlaveAssertionTb;
          haddr = 32'b0;
          htrans = 2'b00;
          hwrite = 1'b0;
-         hsize = 3'b010;  // Word transfer
-         hburst = 3'b000; // Single burst
+         hsize = 3'b010;  
+         hburst = 3'b000; 
          hselx = 1'b0;
          hwdata = 32'b0;
          hprot = 4'b0000;
@@ -103,143 +99,130 @@ module AhbSlaveAssertionTb;
      `uvm_info(name,$sformatf("When_arvalidIsAsserted_Then_sameClkAraddrIsNotUnknown_Expect_AssertionPass Task Ended"),UVM_NONE);
    endtask
 
-  // Test 1: Valid Read Transaction
-  task ValidReadTransaction();
-    `uvm_info(name,$sformatf("Valid Read Transaction Started "),UVM_NONE);
+  
+  task ValidReadTransactionAssertionPass();
+    `uvm_info(name,$sformatf("Valid Read Transaction Assertion Pass Started "),UVM_NONE);
     @(posedge hclk);
-    htrans = 2'b10;  // NONSEQ transaction
+    htrans = 2'b10; 
     hreadyout = 1;
-    hwrite = 0;      // Read
-    hrdata = 32'hA5A5A5A5;  // Read data
-    haddr = 32'h0000_1000;   // Example address
-    hresp = 2'b00;   // OKAY response
+    hwrite = 0;      
+    hrdata = 32'hA5A5A5A5; 
+    haddr = 32'h0000_1000;   
+    hresp = 2'b00;   
     @(posedge hclk);
-    `uvm_info(name,$sformatf("Valid Read Transaction Ended "),UVM_NONE);
+    `uvm_info(name,$sformatf("Valid Read Transaction Assertion Pass Ended "),UVM_NONE);
   endtask
-
-  // Test 2: Invalid Read Transaction(Fail Assertion)
-  task ValidReadTransactionFail();
+  
+  task ValidReadTransactionAssertionFail();
     `uvm_info(name,$sformatf("Invalid Read Transaction (Fail Assertion) Started "),UVM_NONE);
     @(posedge hclk);
-    htrans = 2'b10;  // NONSEQ transaction
+    htrans = 2'b10;  
     hreadyout = 1;
-    hwrite = 0;      // Read
-    hrdata = 32'hx;  // Read data
-    haddr = 32'h0000_1000;   // Example address
-    hresp = 2'b00;   // OKAY response
+    hwrite = 0;    
+    hrdata = 32'hx; 
+    haddr = 32'h0000_1000;   
+    hresp = 2'b00;   
     @(posedge hclk);
     `uvm_info(name,$sformatf("Invalid Read Transaction (Fail Assertion) Ended "),UVM_NONE);
   endtask
   
-  // Test 3: Invalid Read with HRESP Error
-  task InvalidReadwithHRESPError();
-    `uvm_info(name,$sformatf("Invalid Read with HRESP Error Started "),UVM_NONE);
+  task InvalidReadwithHRESPErrorAssertionPass();
+    `uvm_info(name,$sformatf("Invalid Read with HRESP Error Assertion Pass Started "),UVM_NONE);
     @(posedge hclk);
-    htrans = 2'b00;  // IDLE
+    htrans = 2'b00;  
     hreadyout = 1;
-    hresp = 2'b01;   // ERROR response
+    hresp = 2'b01;   
     @(posedge hclk);
-    `uvm_info(name,$sformatf("Invalid Read with HRESP Error Ended"),UVM_NONE);
+    `uvm_info(name,$sformatf("Invalid Read with HRESP Error Assertion Pass Ended"),UVM_NONE);
   endtask
     
-  // Test 4: Write Transaction (Pass Assertion)
-  task WriteTransactionPassAssertion();
-    `uvm_info(name,$sformatf("Write Transaction Pass Assertion Started "),UVM_NONE);
+  task WriteTransactionAssertionPass();
+    `uvm_info(name,$sformatf("Write Transaction Assertion Pass Started "),UVM_NONE);
     @(posedge hclk);
-    htrans = 2'b01;  // BUSY transaction
+    htrans = 2'b01;  
     hreadyout = 1;
-    hwrite = 1;      // Write
-    hwdata = 32'hDEAD_BEEF;  // Write data
-    haddr = 32'h0000_2000;   // Example address
-    hresp = 2'b00;   // OKAY response
+    hwrite = 1;      
+    hwdata = 32'hDEAD_BEEF;  
+    haddr = 32'h0000_2000;   
+    hresp = 2'b00;   
     @(posedge hclk);
     `uvm_info(name,$sformatf("Write Transaction Pass Assertion Ended"),UVM_NONE);
   endtask
     
-  // Test 5: Invalid Burst Type (Fail Assertion)
-  task InvalidBurstTypeFail();
-    `uvm_info(name,$sformatf("Invalid Burst Type Fail Started "),UVM_NONE);
+  task InvalidBurstTypeAssertionFail();
+    `uvm_info(name,$sformatf("Invalid Burst Type Assertion Fail Started "),UVM_NONE);
     @(posedge hclk);
-    htrans = 2'b10;  // NONSEQ
-    hburst = 3'b101; // Invalid burst type
+    htrans = 2'b10;  
+    hburst = 3'b101;
     hreadyout = 1;
     hresp = 2'b00;
     @(posedge hclk);
-    `uvm_info(name,$sformatf("Invalid Burst Type Fail Ended"),UVM_NONE);
+    `uvm_info(name,$sformatf("Invalid Burst Type Assertion Fail Ended"),UVM_NONE);
   endtask
-  
-  
-  // Test 6: Burst Transaction (INCR)
-  task BurstTransactionIncrement();
-    `uvm_info(name,$sformatf("Burst Transaction (INCR) Started "),UVM_NONE);
+
+  task BurstTransactionIncrementAssertionPass();
+    `uvm_info(name,$sformatf("Burst Transaction (INCR) Assertion Pass Started "),UVM_NONE);
     @(posedge hclk);
-    htrans = 2'b10;  // NONSEQ
-    hburst = 3'b001; // INCR burst
+    htrans = 2'b10;  
+    hburst = 3'b001; 
     hreadyout = 1;
     haddr = 32'h0000_3000;
     hresp = 2'b00;
     @(posedge hclk);
-    `uvm_info(name,$sformatf("Burst Transaction (INCR) Ended"),UVM_NONE);
+    `uvm_info(name,$sformatf("Burst Transaction (INCR) Assertion Pass Ended"),UVM_NONE);
   endtask
    
-  
-  // Test 7: Idle State with HRESP ERROR(Fail assertion)
-  task IdleStatewithHrespErrorFail();
-    `uvm_info(name,$sformatf("Idle State with HRESP ERROR Fail Started "),UVM_NONE);
+  task IdleStatewithHrespErrorAssertionFail();
+    `uvm_info(name,$sformatf("Idle State with HRESP ERROR Assertion Fail Started "),UVM_NONE);
     @(posedge hclk);
-    htrans = 2'b00;  // IDLE
+    htrans = 2'b00; 
     hreadyout = 1;
-    hresp = 2'b00;   // OKAY  response
+    hresp = 2'b00;   
     @(posedge hclk);
-    `uvm_info(name,$sformatf("Idle State with HRESP ERROR Fail Ended"),UVM_NONE);
+    `uvm_info(name,$sformatf("Idle State with HRESP ERROR Assertion Fail Ended"),UVM_NONE);
   endtask
-  
-  // Test 8: Invalid Burst Type
-  task InvalidBurstType();
-    `uvm_info(name,$sformatf("Invalid Burst Type Started "),UVM_NONE);
+
+  task InvalidBurstTypeAssertionPass();
+    `uvm_info(name,$sformatf("Invalid Burst Type Assertion Pass Started "),UVM_NONE);
     @(posedge hclk);
-    htrans = 2'b10;  // NONSEQ
-    hburst = 3'b101; // Invalid burst type
+    htrans = 2'b10;  
+    hburst = 3'b101
     hreadyout = 1;
     hresp = 2'b00;
     @(posedge hclk);
-    `uvm_info(name,$sformatf("Invalid Burst Type Ended"),UVM_NONE);
+    `uvm_info(name,$sformatf("Invalid Burst Type Assertion Pass Ended"),UVM_NONE);
   endtask
 
-  //Test 9 :HSIZE does not matche data width)(Fail Assertion)
-  task HsizeDoesNotMatcheDataWidthFail();
-    `uvm_info(name,$sformatf("HSIZE does not matche data width Fail Started "),UVM_NONE);
+  task HsizeDoesNotMatchDataWidthAssertionFail();
+    `uvm_info(name,$sformatf("HSIZE does not match data width Assertion Fail Started "),UVM_NONE);
     @(posedge hclk);
     hreadyout = 1;
-    htrans = 2'b10; //NONSEQ
+    htrans = 2'b10; 
     hsize = 3'b110;
     @(posedge hclk);
-    `uvm_info(name,$sformatf("HSIZE does not matche data width Fail Ended"),UVM_NONE);
+    `uvm_info(name,$sformatf("HSIZE does not match data width Assertion Fail Ended"),UVM_NONE);
   endtask
   
-  // Test 10: Idle State with HRESP ERROR
-  task IdleStatewithHrsepError();
-    `uvm_info(name,$sformatf("Idle State with HRESP ERROR Started "),UVM_NONE);
+  task IdleStatewithHrsepErrorAssertionPass();
+    `uvm_info(name,$sformatf("Idle State with HRESP ERROR Assertion Pass Started "),UVM_NONE);
     @(posedge hclk);
-    htrans = 2'b00;  // IDLE
+    htrans = 2'b00; 
     hreadyout = 1;
-    hresp = 2'b01;   // ERROR response
+    hresp = 2'b01;  
     @(posedge hclk);
-   `uvm_info(name,$sformatf("Idle State with HRESP ERROR Ended"),UVM_NONE);
+    `uvm_info(name,$sformatf("Idle State with HRESP ERROR Assertion Pass Ended"),UVM_NONE);
   endtask
    
-   //Test 11:HRESP is OKAY for valid transaction (Fail assertion)
-  task HrespIsOkayForValidTransactionFail();
-    `uvm_info(name,$sformatf("HRESP is OKAY for valid transaction Fail Started "),UVM_NONE);
+  task HrespIsOkayForValidTransactionAssertionFail();
+    `uvm_info(name,$sformatf("HRESP is OKAY for valid transaction Assertion Fail Started "),UVM_NONE);
     @(posedge hclk);
-    hreadyout = 1; // Ready signal is high
-    htrans = 2'b10; // NONSEQ (valid transaction)
-    hresp = 1'b1; // ERROR response
+    hreadyout = 1;
+    htrans = 2'b10;
+    hresp = 1'b1; 
     @(posedge hclk);      
-    `uvm_info(name,$sformatf("HRESP is OKAY for valid transaction Fail Ended"),UVM_NONE);
+    `uvm_info(name,$sformatf("HRESP is OKAY for valid transaction Assertion Fail Ended"),UVM_NONE);
   endtask
   
-  // Monitor the assertion errors
   initial begin
     $monitor("Time=%0t, htrans=%b, hresp=%b, hreadyout=%b, hrdata=%h, haddr=%h, hwrite=%b, hburst=%b",
              $time, htrans, hresp, hreadyout, hrdata, haddr, hwrite, hburst);
