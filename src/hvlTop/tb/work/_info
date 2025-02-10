@@ -7,18 +7,26 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 d/fetools/work_area/frontend/nishashetty/ahb_avip_loc/src/hvlTop/tb
+Z0 d/fetools/work_area/frontend/prakhyath/ahb_avip_loc/src/hvlTop/tb
 T_opt
+<<<<<<< HEAD
 !s110 1738826355
 VHl7h1Z1aRbXi`fXXS2K;n0
 04 20 4 work AhbMasterAssertionTb fast 0
 =1-6805caf5892c-67a46273-5254e-2b0cf
+=======
+!s110 1738926888
+VKm06Hg<J@z[BUJ^E^=:na2
+04 18 4 work AhbCoverPropertyTb fast 0
+=1-6805caf5892c-67a5eb28-377da-f31a
+>>>>>>> d80011da72669844f6a0021b989c552a7d299afa
 o-quiet -auto_acc_if_foreign -work work +acc=npr
 Z1 tCvgOpt 0
 n@_opt
 OE;O;10.6c;65
-XAhbGlobalPackage
+YAhbCoverProperty
 Z2 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+<<<<<<< HEAD
 !s110 1738826347
 !i10b 1
 !s100 0KK<ZETUge[m0R;^`cGEH3
@@ -49,10 +57,17 @@ Z10 DXx4 work 16 AhbGlobalPackage 0 22 lbZeZli@[[15XMBao=kO41
 DXx4 work 26 AhbMasterAssertion_sv_unit 0 22 47<YVA<6dZPbNP4N^Dbn[2
 Z11 DXx6 mtiUvm 7 uvm_pkg 0 22 oMKUklN?>LE6@MJe7=2><1
 Z12 VDg1SIo80bB@j0V0VzS_@n1
+=======
+Z3 DXx4 work 16 AhbGlobalPackage 0 22 8_WSmOB?LmXNZ9>6Z=KHm1
+DXx4 work 24 AhbCoverProperty_sv_unit 0 22 DPQa9M1oa8VzV<TGFUFzS1
+Z4 DXx6 mtiUvm 7 uvm_pkg 0 22 oMKUklN?>LE6@MJe7=2><1
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+>>>>>>> d80011da72669844f6a0021b989c552a7d299afa
 r1
 !s85 0
 31
 !i10b 1
+<<<<<<< HEAD
 !s100 19>H1>1GAH88o@`HgbMLT3
 IeaTBkT_:zf3Bl`dSBD=A=1
 !s105 AhbMasterAssertion_sv_unit
@@ -78,41 +93,79 @@ R3
 R4
 R5
 R6
+=======
+!s100 oGYkDOBAi=;f^:Y5W_jV=1
+IC>l0GdMkhdQOk@IUP`kjQ0
+!s105 AhbCoverProperty_sv_unit
+S1
+R0
+Z6 w1738901778
+Z7 8/fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/AhbCoverProperty.sv
+Z8 F/fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/AhbCoverProperty.sv
+Z9 F/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh
+Z10 F/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh
+Z11 F/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh
+Z12 F/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh
+Z13 F/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh
+Z14 F/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh
+Z15 F/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh
+Z16 F/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh
+Z17 F/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh
+Z18 F/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh
+Z19 F/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh
+Z20 F/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh
+L0 6
+Z21 OE;L;10.6c;65
+Z22 !s108 1738926882.000000
+Z23 !s107 /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_deprecated_defines.svh|/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_reg_defines.svh|/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_callback_defines.svh|/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_sequence_defines.svh|/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/tlm1/uvm_tlm_imps.svh|/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_tlm_defines.svh|/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_printer_defines.svh|/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_object_defines.svh|/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_phase_defines.svh|/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_message_defines.svh|/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/macros/uvm_version_defines.svh|/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src/uvm_macros.svh|/fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv|/fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/AhbCoverProperty.sv|/fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//globals/AhbGlobalPackage.sv|
+Z24 !s90 -sv|+acc|+cover|+fcover|-l|AhbCoverPropertyCompile.log|-f|./ahbCoverProperty.f|
+>>>>>>> d80011da72669844f6a0021b989c552a7d299afa
 !i113 0
-R7
-R8
-R9
+Z25 !s102 +cover
+Z26 o-sv +acc +cover +fcover -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z27 !s92 -sv +acc +cover +fcover +incdir+/fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/ +incdir+/fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/ +incdir+/fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//globals/ -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R1
-n@ahb@master@assertion
-XAhbMasterAssertion_sv_unit
+n@ahb@cover@property
+XAhbCoverProperty_sv_unit
 R2
+<<<<<<< HEAD
 R10
 V47<YVA<6dZPbNP4N^Dbn[2
+=======
+R3
+VDPQa9M1oa8VzV<TGFUFzS1
+>>>>>>> d80011da72669844f6a0021b989c552a7d299afa
 r1
 !s85 0
 31
 !i10b 1
+<<<<<<< HEAD
 !s100 4m_2@PI3X:a[Z6Ja`eACa2
 I47<YVA<6dZPbNP4N^Dbn[2
+=======
+!s100 ?9;3AG;KenXPUfBP59dd]1
+IDPQa9M1oa8VzV<TGFUFzS1
+>>>>>>> d80011da72669844f6a0021b989c552a7d299afa
 !i103 1
 S1
 R0
-R13
-R14
-R15
-L0 7
-R3
-R4
-R5
 R6
-!i113 0
 R7
 R8
-R9
+L0 4
+R21
+R22
+R23
+R24
+!i113 0
+R25
+R26
+R27
 R1
-n@ahb@master@assertion_sv_unit
-vAhbMasterAssertionTb
+n@ahb@cover@property_sv_unit
+vAhbCoverPropertyTb
 R2
+<<<<<<< HEAD
 R10
 R11
 DXx4 work 28 AhbMasterAssertionTb_sv_unit 0 22 ACMi4T;S_FdHVW[DE8JJ_1
@@ -130,9 +183,13 @@ Z29 w1738826331
 Z30 8/fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv
 Z31 F/fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv
 R28
+=======
+>>>>>>> d80011da72669844f6a0021b989c552a7d299afa
 R3
 R4
+DXx4 work 26 AhbCoverPropertyTb_sv_unit 0 22 6mlkLf;LH0CTLYNk;klZ`2
 R5
+<<<<<<< HEAD
 R6
 !i113 0
 R7
@@ -145,100 +202,58 @@ R2
 R10
 R11
 VACMi4T;S_FdHVW[DE8JJ_1
+=======
+>>>>>>> d80011da72669844f6a0021b989c552a7d299afa
 r1
 !s85 0
 31
 !i10b 1
+<<<<<<< HEAD
 !s100 NaLE@9XLG;hLG3`n2P1cj2
 IACMi4T;S_FdHVW[DE8JJ_1
 !i103 1
+=======
+!s100 cIzV906QWzb>_b5dIgGak2
+IbHN;3ohR8_b;6:_hm4KTD2
+!s105 AhbCoverPropertyTb_sv_unit
+>>>>>>> d80011da72669844f6a0021b989c552a7d299afa
 S1
 R0
-R29
-R30
-R31
-R16
-R17
-R18
-R19
-R20
+Z28 w1738926880
+Z29 8/fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv
+Z30 F/fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv
+L0 10
 R21
 R22
 R23
 R24
+!i113 0
 R25
 R26
 R27
-L0 7
+R1
+n@ahb@cover@property@tb
+XAhbCoverPropertyTb_sv_unit
+R2
 R3
 R4
-R5
-R6
-!i113 0
-R7
-R8
-R9
-R1
-n@ahb@master@assertion@tb_sv_unit
-YAhbSlaveAssertion
-R2
-R10
-DXx4 work 25 AhbSlaveAssertion_sv_unit 0 22 UGO4U<T]GXS?e7U^<6hPV3
-R12
+V6mlkLf;LH0CTLYNk;klZ`2
 r1
 !s85 0
 31
 !i10b 1
-!s100 LaXb]S3ah`kKA^_KXZ>4j2
-IeH1XISW_16LmL6knN:HC92
-!s105 AhbSlaveAssertion_sv_unit
-S1
-R0
-Z32 w1738406175
-Z33 8/fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv
-Z34 F/fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv
-L0 13
-R3
-R4
-R5
-R6
-!i113 0
-R7
-R8
-R9
-R1
-n@ahb@slave@assertion
-XAhbSlaveAssertion_sv_unit
-R2
-R10
-VUGO4U<T]GXS?e7U^<6hPV3
-r1
-!s85 0
-31
-!i10b 1
-!s100 mIOZDY?gX1QlN_zAAM[BP2
-IUGO4U<T]GXS?e7U^<6hPV3
+!s100 FcgAhP35SHEiG2Og:gkO_1
+I6mlkLf;LH0CTLYNk;klZ`2
 !i103 1
 S1
 R0
-R32
-R33
-R34
-L0 8
-R3
-R4
-R5
-R6
-!i113 0
-R7
-R8
+R28
+R29
+R30
 R9
-R1
-n@ahb@slave@assertion_sv_unit
-vAhbSlaveAssertionTb
-R2
 R10
 R11
+<<<<<<< HEAD
 DXx4 work 27 AhbSlaveAssertionTb_sv_unit 0 22 eEfB=0F[i@QDkgB<NF0dH1
 R12
 r1
@@ -281,26 +296,51 @@ R0
 R35
 R36
 R37
+=======
+R12
+R13
+R14
+R15
+>>>>>>> d80011da72669844f6a0021b989c552a7d299afa
 R16
 R17
 R18
 R19
 R20
+L0 5
 R21
 R22
 R23
 R24
+!i113 0
 R25
 R26
 R27
-L0 4
-R3
-R4
-R5
-R6
-!i113 0
-R7
-R8
-R9
 R1
-n@ahb@slave@assertion@tb_sv_unit
+n@ahb@cover@property@tb_sv_unit
+XAhbGlobalPackage
+R2
+!s110 1738926882
+!i10b 1
+!s100 0KK<ZETUge[m0R;^`cGEH3
+I8_WSmOB?LmXNZ9>6Z=KHm1
+V8_WSmOB?LmXNZ9>6Z=KHm1
+S1
+R0
+w1738298266
+8/fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//globals/AhbGlobalPackage.sv
+F/fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//globals/AhbGlobalPackage.sv
+L0 5
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+R27
+R1
+n@ahb@global@package
