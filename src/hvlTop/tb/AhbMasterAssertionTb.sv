@@ -72,8 +72,8 @@ module AhbMasterAssertionTb;
   //calling tasks
   initial begin
     Initialize();
-    CheckThatHWDATAIsValidWhenHWRITEIsHIGHAssertionPass();
-    CheckThatHWDATAIsValidWhenHWRITEIsHIGHAssertionFail(); 
+   CheckThatHWDATAIsValidWhenHWRITEIsHIGHAssertionPass();
+   CheckThatHWDATAIsValidWhenHWRITEIsHIGHAssertionFail(); 
 
     EnsureHADDRIsAlignedBasedOnHSIZEAssertionPass(); 
     EnsureHADDRIsAlignedBasedOnHSIZEAssertionFail(); 
@@ -97,7 +97,17 @@ module AhbMasterAssertionTb;
     
     CheckForWRAPAssertionPass();
     CheckForWRAPAssertionFail();
-      $finish;
+    CheckTransBusyToSeqAssertionPass();
+    CheckTransBusyToSeqAssertionFail();
+   
+    CheckTransBusyToNonSeqAssertionPass();
+    CheckTransBusyToNonSeqAssertionFail();
+
+    CheckTransIdleToNonSeqAssertionPass();
+    CheckTransIdleToNonSeqAssertionFail();
+    checkAddrStabilityAssertionPass();
+      checkAddrStabilityAssertionFail();
+          $finish;
     
   end
     
@@ -375,23 +385,152 @@ module AhbMasterAssertionTb;
       @(posedge hclk);
       `uvm_info(name,$sformatf("Check for WRAP (wrapping burst) AssertionPass Task ended"),UVM_NONE);
     endtask
-  
-    task CheckTransBusyToSeqAssertionPass();
-      `uvm_info(name,$sformatf("Check Trans Busy To Seq AssertionPass Task started"),UVM_NONE);
+
+
+ //Stimulus 16 
+task CheckTransBusyToSeqAssertionPass();
+  `uvm_info(name, $sformatf("%t Check Trans Busy To Seq AssertionPass Task started",$time), UVM_NONE);
+   @(posedge hclk);
+  htrans = 2'b01;
+  hready = 0;
+  haddr = 32'h0C0FFEE0;
+  hburst = 3'b101;
+
+  @(posedge hclk);
+   htrans = 2'b11;
+   hready = 0 ;
+   haddr = 32'h0C0FFEE0;
+  @(posedge hclk);
+
+  `uvm_info(name, $sformatf("%t Check Trans Busy To Seq AssertionPass Task ended",$time), UVM_NONE);
+endtask
+
+ //Stimulus 17 
+task CheckTransBusyToSeqAssertionFail();
+  `uvm_info(name, $sformatf("%t Check Trans Busy To Seq AssertionFail Task started",$time), UVM_NONE);
+   @(posedge hclk);
+  htrans = 2'b01;
+  hready = 0;
+  haddr = 32'h0C0FFEE0;
+  hburst = 3'b101;
+
+  @(posedge hclk);
+   htrans = 2'b11;
+   hready = 0 ;
+   hburst = 3'b110;
+   haddr = 32'h0C0FFEE0;
+  @(posedge hclk);
+  `uvm_info(name, $sformatf("%t Check Trans Busy To Seq AssertionFail Task ended",$time), UVM_NONE);
+endtask
+
+
+
+
+  //Stimulus 18
+task CheckTransBusyToNonSeqAssertionPass();
+`uvm_info(name, $sformatf("%t Check Trans Busy To Non-Seq AssertionPass Task started",$time), UVM_NONE);
+   @(posedge hclk);
+  htrans = 2'b01;
+  hready = 0;
+  haddr = 32'hDEADBEEF;
+  hburst = 3'b001;
+
+  @(posedge hclk);
+   htrans = 2'b10;
+   hready = 0 ;
+   haddr = 32'hDEADBEEF;
+  @(posedge hclk);
+  #10;
+  `uvm_info(name, $sformatf("%t Check Trans Busy To Non Seq AssertionPass Task ended",$time), UVM_NONE);
+endtask
+
+
+
+  //Stimulus 19
+task CheckTransBusyToNonSeqAssertionFail();
+`uvm_info(name, $sformatf("%t Check Trans Busy To Non-Seq AssertionFail Task started",$time), UVM_NONE);
+   @(posedge hclk);
+  htrans = 2'b01;
+  hready = 0;
+  haddr = 32'h00000000;
+  hburst = 3'b001;
+
+  @(posedge hclk);
+   htrans = 2'b10;
+   hready = 0 ;
+   haddr = 32'h00000004;
+  @(posedge hclk);
+  `uvm_info(name, $sformatf("%t Check Trans Busy To Non Seq AssertionFail Task ended",$time), UVM_NONE);
+endtask
+
+  //Stimulus 20
+task CheckTransIdleToNonSeqAssertionPass();
+`uvm_info(name, $sformatf("%t Check Trans Idle To Non-Seq AssertionPass Task started",$time), UVM_NONE);
+   @(posedge hclk);
+  htrans = 2'b00;
+  hready = 0;
+
+  @(posedge hclk);
+   htrans = 2'b10;
+   hready = 0 ;
+   haddr = 32'h00000004;
+  @(posedge hclk);
+  `uvm_info(name, $sformatf("%t Check Trans Idle To Non Seq AssertionPass Task ended",$time), UVM_NONE);
+endtask
+
+  //Stimulus 21
+task CheckTransIdleToNonSeqAssertionFail();
+`uvm_info(name, $sformatf("%t Check Trans Idle To Non-Seq AssertionFail Task started",$time), UVM_NONE);
+   @(posedge hclk);
+  htrans = 2'b00;
+  hready = 0;
+
+  @(posedge hclk);
+   htrans = 2'b10;
+   hready = 0 ;
+   haddr = 32'h00000004;
+  @(posedge hclk);
+  `uvm_info(name, $sformatf("%t Check Idle Busy To Non Seq AssertionFail Task ended",$time), UVM_NONE);
+endtask
+
+//Stimulus 22
+task checkAddrStabilityAssertionPass();
+   `uvm_info(name, $sformatf("%tAddress  stability started",$time), UVM_NONE);
+    @(posedge hclk);
+        htrans = 2'b10; 
+        haddr = 32'hA0001000; 
+        hready = 0; 
+    @(posedge hclk);
+        haddr = 32'hA0001000; 
 
     @(posedge hclk);
-    htrans = 2'b01;  // BUSY
-    hready = 0;
-    hburst = 3'b011; // Incrementing burst
-    haddr  = 32'hDEADBEEF;
+        hready = 1;
+    @(posedge hclk);
+       htrans = 2'b11; 
+        haddr = 32'hA0001004;
+    @(posedge hclk);
+   `uvm_info(name, $sformatf("%tAddress stability Task ended",$time), UVM_NONE);
+endtask
+
+//Stimulus 23
+task checkAddrStabilityAssertionFail();
+   `uvm_info(name, $sformatf("%tAddress  stability started",$time), UVM_NONE);
+    @(posedge hclk);
+        htrans = 2'b10; 
+        haddr = 32'hA0001000; 
+        hready = 0; 
+    @(posedge hclk);
+        haddr = 32'hA0001004; 
 
     @(posedge hclk);
-    htrans = 2'b11;  // SEQ
-
+        hready = 1;
     @(posedge hclk);
-      `uvm_info(name,$sformatf("Check Trans Busy To Seq AssertionPass Task ended"),UVM_NONE);
+       htrans = 2'b11; 
+        haddr = 32'hA0001008;
+    @(posedge hclk);
+   `uvm_info(name, $sformatf("%tAddress stability Task ended",$time), UVM_NONE);
+endtask
 
- endtask 
 
 
 endmodule

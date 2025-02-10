@@ -71,7 +71,7 @@ assert property (checkHaddrAlignment)
      $info("HADDR is aligned based on HSIZE"); 
 else $error("HADDR is not aligned based on HSIZE!");
 
-// Check if HADDR is within the valid range
+//Check if HADDR is within the valid range
 property ifHaddrValidAndWithinRange;
   @(posedge hclk) disable iff (!hresetn)
   (hready && (htrans != 2'b00)) |-> ((haddr >= AHB_ADDR_MIN) && (haddr <= AHB_ADDR_MAX));
@@ -136,47 +136,52 @@ endproperty
 assert property (checkBurstWrap)
        $info("WRAP burst type passed: Address wrapping is done correctly");
   else $error("WRAP burst type failed: Address wrapping incorrect!");
-
-
   
 
 // Check for transition from BUSY to SEQ
 property checkTransBusyToSeq;
   @(posedge hclk) disable iff(!hresetn)
-  ($past(htrans) == 2'b01 && htrans == 2'b11) |->
- (!$past(hready) && (hburst inside {3'b010, 3'b011, 3'b100, 3'b101, 3'b110, 3'b111}) && 
-  $stable(haddr) && (htrans == 2'b11) throughout (!hready));
+  (htrans == 2'b01 && hready == 0 && hburst inside{[3'b010:3'b111]}) ##1
+  (htrans == 2'b11 && $stable(hready) && $stable(hburst) && $stable(haddr));
 endproperty
-
-assert property (checkTransBusyToSeq)
-       $info("Transition from BUSY to SEQ passed");
+assert property(checkTransBusyToSeq)
+    $info("Transition from BUSY to SEQ passed");
   else $error("Transition from BUSY to SEQ failed: Conditions not met!");
 
-// Check for transition from BUSY to NONSEQ
+
+//Check for transition from BUSY to NON-SEQ
 property checkTransBusyToNonSeq;
-  @(posedge hclk) disable iff (!hresetn)
-  ($past(htrans) == 2'b01 && htrans == 2'b10 && $past(hburst) inside {3'b000, 3'b001} && !$past(hready))
-   ((hburst inside {3'b010, 3'b011, 3'b100, 3'b101, 3'b110, 3'b111}) && !$stable(haddr) && (htrans == 2'b10 throughout (!$past(hready))));
+  @(posedge hclk) disable iff(!hresetn) 
+  (htrans == 2'b01 && hready ==0 && hburst inside {[3'b000:3'b001]}) |=>
+(htrans == 2'b10 && $stable(hready) && $stable(hburst) && $stable(haddr));
 endproperty
 
-assert property (checkTransBusyToNonSeq)
-       $info("Transition from BUSY to NONSEQ passed");
-  else $error("Transition from BUSY to NONSEQ failed: Conditions not met!");
-  
- // Check for transition from IDLE to NONSEQ 
+assert property(checkTransBusyToNonSeq)
+   $info("Transition from BUSY to NON - SEQ passed");
+ else $error("Transition from BUSY to NON - SEQ failed: Conditions not met!");
+
+//Check for transtion from IDLE to NON SEQ
 property checkTransIdleToNonSeq;
-  @(posedge hclk)  disable iff (!hresetn)
-  ($past(htrans) == 2'b00 && htrans == 2'b10 !$past(hready)) |-> 
-  ((hburst inside {3'b010, 3'b011, 3'b100, 3'b101, 3'b110, 3'b111}) && $stable(haddr) && 
-   (htrans == $past(htrans) throughout (!$past(hready))));
+  @(posedge hclk) disable iff(!hresetn)
+     (htrans == 2'b00 && hready == 0 )|=>
+  (htrans == 2'b10 && $stable(hready));
 endproperty
-  
-assert property (checkTransIdleToNonSeq)
-    $info("Transition from IDLE to NONSEQ passed");
-  else $error("Transition from IDLE to NONSEQ failed: Conditions not met!");
-  
+
+assert property(checkTransIdleToNonSeq)
+  $info("Transition from IDLE to NON-SEQ passed");
+else $error("Transition from IDLE to NON-SEQ failed: Conditions not met!"); 
 
 
+
+//stability
+property checkAddrStability;
+  @(posedge hclk) disable iff (!hresetn)
+  (htrans == 2'b10||htrans ==2'b11) |=> $stable(haddr) throughout hready==0;
+endproperty
+
+assert property (checkAddrStability)
+       $info("Address stability during waited transfer verified.");
+  else $error("Address changed before HREADY HIGH!");
 
 endinterface : AhbMasterAssertion
 
