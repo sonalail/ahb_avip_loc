@@ -1,8 +1,8 @@
 QuestaSim vlog 10.6c Compiler 2017.07 Jul 25 2017
-Start time: 16:50:40 on Feb 10,2025
+Start time: 10:02:14 on Feb 11,2025
 vlog -sv "+acc" "+cover" "+fcover" -l AhbSlaveAssertionsCompile.log -f ./ahbAssertion.f 
 -- Compiling package AhbGlobalPackage
-** Note: (vlog-2286) /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv(35): Using implicit +incdir+/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+** Note: (vlog-2286) /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv(35): Using implicit +incdir+/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
 -- Compiling package AhbMasterAssertion_sv_unit
 -- Importing package AhbGlobalPackage
 -- Compiling interface AhbMasterAssertion
@@ -10,19 +10,28 @@ vlog -sv "+acc" "+cover" "+fcover" -l AhbSlaveAssertionsCompile.log -f ./ahbAsse
 -- Compiling package AhbSlaveAssertion_sv_unit
 -- Importing package AhbGlobalPackage
 -- Compiling interface AhbSlaveAssertion
-** Warning: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(216): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+-- Compiling package AhbCoverProperty_sv_unit
+-- Importing package AhbGlobalPackage
+-- Compiling interface AhbCoverProperty
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Compiling package AhbCoverPropertyTb_sv_unit
+-- Importing package AhbGlobalPackage
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Compiling module AhbCoverPropertyTb
+** Warning: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(190): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 -- Compiling package AhbMasterAssertionTb_sv_unit
 -- Importing package AhbGlobalPackage
 -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
 -- Compiling module AhbMasterAssertionTb
-** Warning: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(216): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+** Warning: /fetools/work_area/frontend/nishashetty/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(190): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
 -- Compiling package AhbSlaveAssertionTb_sv_unit
 -- Importing package AhbGlobalPackage
 -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
 -- Compiling module AhbSlaveAssertionTb
 
 Top level modules:
+	AhbCoverPropertyTb
 	AhbMasterAssertionTb
 	AhbSlaveAssertionTb
-End time: 16:50:41 on Feb 10,2025, Elapsed time: 0:00:01
+End time: 10:02:15 on Feb 11,2025, Elapsed time: 0:00:01
 Errors: 0, Warnings: 2

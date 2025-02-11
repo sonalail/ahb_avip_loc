@@ -186,7 +186,7 @@ module AhbSlaveAssertionTb;
     `uvm_info(name,$sformatf("Invalid Burst Type Assertion Pass Started "),UVM_NONE);
     @(posedge hclk);
     htrans = 2'b10;  
-    hburst = 3'b101
+    hburst = 3'b101;
     hreadyout = 1;
     hresp = 2'b00;
     @(posedge hclk);
