@@ -1,4 +1,4 @@
-# Makefile for AHB Master Assertions Testbench
+# Makefile for AHB Master, Slave Assertions, and Cover Property Testbench
 
 # Default target
 usage:
@@ -42,8 +42,7 @@ compile:
 	make compile_war_err;
 	make compile_war_err_sassert;
 	make compile_war_err_massert;
-
-
+	make compile_war_err_cproperty;
 
 # Default test configuration
 ifndef test
@@ -64,7 +63,7 @@ simulate:
 	@for t in $(tests); do \
 		mkdir -p $$t; \
 		vsim -vopt \
-		work.$$t \	
+		work.$$t \t
 		-voptargs=+acc=npr \
 		-assertdebug \
 		+UVM_TESTNAME=$$t \
@@ -77,6 +76,7 @@ simulate:
 		make simulate_war_err test=$$t; \
 		make simulate_war_err_sassert test=$$t; \
 		make simulate_war_err_massert test=$$t; \
+		make simulate_war_err_cproperty test=$$t; \
 	done
 
 # Cleanup rules
@@ -89,7 +89,6 @@ clean_compile:
 	rm -rf merged_coverage.ucdb merged_cov_html_report;
 	rm -rf *.ucdb *.wlf;  # Remove any leftover coverage and waveform files
 
-
 # Coverage merge and reporting
 merge_cov_report:
 	rm -rf merged_coverage.ucdb merged_cov_html_report;
@@ -100,7 +99,6 @@ merge_cov_report:
 	echo "Coverage report: firefox merged_cov_html_report/index.html &";
 	echo "-----------------------------------------------------------------";
 	echo "";
-
 
 # Compilation warning/error check (covers all tests)
 compile_war_err:
@@ -132,7 +130,7 @@ simulate_war_err:
 		echo "Simulator Errors"; \
 		grep "Error" $$t/$$t.log || true; \
 		echo ""; \
-		grep "Info" $$t/$$t.log || true; \	
+		grep "Info" $$t/$$t.log || true; \
 		echo ""; \
 		echo "UVM Fatal"; \
     		grep "UVM_FATAL" $$t/$$t.log || true; \
@@ -154,5 +152,4 @@ simulate_war_err:
     		echo "-----------------------------------------------------------------"; \
     		echo "-----------------------------------------------------------------"; \
     		echo ""; \
-  	done
-
+	done
