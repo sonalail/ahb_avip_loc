@@ -40,9 +40,6 @@ compile:
 	vlog -sv +acc +cover +fcover $(comp_args) -l AhbMasterAssertionsCompile.log -f ./ahbAssertion.f;
 	vlog -sv +acc +cover +fcover $(comp_args) -l AhbSlaveAssertionsCompile.log -f ./ahbAssertion.f;
 	make compile_war_err;
-	#make compile_war_err_sassert;
-	#make compile_war_err_massert;
-	#make compile_war_err_cproperty;
 
 # Default test configuration
 ifndef test
@@ -63,7 +60,7 @@ simulate:
 	@for t in $(tests); do \
 		mkdir -p $$t; \
 		vsim -vopt \
-		work.$$t \t
+		work.$$t \
 		-voptargs=+acc=npr \
 		-assertdebug \
 		+UVM_TESTNAME=$$t \
@@ -73,10 +70,7 @@ simulate:
 		-coverage \
 		-c -do "log -r /*; add wave -r /*; coverage save -onexit -assert -directive -cvg -codeAll $$t/coverage.ucdb; run -all; exit" \
 		-wlf $$t/waveform.wlf; \
-		make simulate_war_err test=$$t; \
-		#make simulate_war_err_sassert test=$$t; \
-		make simulate_war_err_massert test=$$t; \
-		make simulate_war_err_cproperty test=$$t; \#
+		make simulate_war_err test=$$t;	\
 	done
 
 # Cleanup rules

@@ -1,0 +1,310 @@
+# vsim -vopt work.AhbSlaveAssertionTb -voptargs="+acc=npr" -assertdebug "+UVM_TESTNAME=AhbSlaveAssertionTb" "+UVM_VERBOSITY=UVM_MEDIUM" -l AhbSlaveAssertionTb/AhbSlaveAssertionTb.log -sva -coverage -c -do "log -r /*; add wave -r /*; coverage save -onexit -assert -directive -cvg -codeAll AhbSlaveAssertionTb/coverage.ucdb; run -all; exit" -wlf AhbSlaveAssertionTb/waveform.wlf 
+# Start time: 13:19:31 on Feb 11,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# //  Questa Sim
+# //  Version 10.6c linux Jul 25 2017
+# //
+# //  Copyright 1991-2017 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg
+# Loading work.AhbGlobalPackage(fast)
+# Loading work.AhbSlaveAssertionTb_sv_unit(fast)
+# Loading work.AhbSlaveAssertionTb(fast)
+# Loading work.AhbSlaveAssertion_sv_unit(fast)
+# Loading work.AhbSlaveAssertion(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# ** Warning: (vsim-3015) /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(27): [PCDPC] - Port size (1) does not match connection size (2) for port 'hresp'. The port definition is at: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv(11).
+#    Time: 0 ns  Iteration: 0  Instance: /AhbSlaveAssertionTb/ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv
+# ** Warning: (vsim-3015) /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(27): [PCDPC] - Port size (4) does not match connection size (1) for port 'hwstrb'. The port definition is at: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv(21).
+#    Time: 0 ns  Iteration: 0  Instance: /AhbSlaveAssertionTb/ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv
+# Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
+# log -r /*
+#  add wave -r /*
+#  coverage save -onexit -assert -directive -cvg -codeAll AhbSlaveAssertionTb/coverage.ucdb
+#  run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(81) @ 0: reporter [AhbSlaveAssertionTb] When reset is high Initialize the signals 
+# Time=0, htrans=xx, hresp=xx, hreadyout=x, hrdata=xxxxxxxx, haddr=xxxxxxxx, hwrite=x, hburst=xxx
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(99) @ 5: reporter [AhbSlaveAssertionTb] When_arvalidIsAsserted_Then_sameClkAraddrIsNotUnknown_Expect_AssertionPass Task Ended
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(104) @ 5: reporter [AhbSlaveAssertionTb] Valid Read Transaction Assertion Pass Started 
+# Time=5, htrans=00, hresp=00, hreadyout=0, hrdata=00000000, haddr=00000000, hwrite=0, hburst=000
+# ** Error: HREADYOUT is not high during valid transactions!
+#    Time: 15 ns Started: 15 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 32 Expr: hreadyout
+# Time=15, htrans=10, hresp=00, hreadyout=1, hrdata=00000000, haddr=00001000, hwrite=0, hburst=000
+# ** Info: HRESP is OKAY for valid transactions!
+#    Time: 25 ns Started: 25 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 50
+# ** Error: HADDR changed unexpectedly during a transfer!
+#    Time: 25 ns Started: 25 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 69 Expr: haddr==$past(haddr)
+# ** Info: HSIZE matches the data width supported by the slave!
+#    Time: 25 ns Started: 25 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 77
+# ** Info: Valid burst type!
+#    Time: 25 ns Started: 25 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 90
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 25 ns Started: 25 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# Time=25, htrans=10, hresp=00, hreadyout=1, hrdata=a5a5a5a5, haddr=00001000, hwrite=0, hburst=000
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(114) @ 35: reporter [AhbSlaveAssertionTb] Valid Read Transaction Assertion Pass Ended 
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(118) @ 35: reporter [AhbSlaveAssertionTb] Invalid Read Transaction (Fail Assertion) Started 
+# ** Info: HRESP is OKAY for valid transactions!
+#    Time: 35 ns Started: 35 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 50
+# ** Info: HRDATA is valid during read transfer!
+#    Time: 35 ns Started: 25 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 59
+# ** Info: HADDR remains unchanged during a transfer!
+#    Time: 35 ns Started: 35 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 68
+# ** Info: HSIZE matches the data width supported by the slave!
+#    Time: 35 ns Started: 35 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 77
+# ** Info: Valid burst type!
+#    Time: 35 ns Started: 35 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 90
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 35 ns Started: 35 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# ** Info: HRESP is OKAY for valid transactions!
+#    Time: 45 ns Started: 45 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 50
+# ** Info: HRDATA is valid during read transfer!
+#    Time: 45 ns Started: 35 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 59
+# ** Info: HADDR remains unchanged during a transfer!
+#    Time: 45 ns Started: 45 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 68
+# ** Info: HSIZE matches the data width supported by the slave!
+#    Time: 45 ns Started: 45 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 77
+# ** Info: Valid burst type!
+#    Time: 45 ns Started: 45 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 90
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 45 ns Started: 45 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# ** Info: HRESP is OKAY for valid transactions!
+#    Time: 55 ns Started: 55 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 50
+# ** Info: HRDATA is valid during read transfer!
+#    Time: 55 ns Started: 45 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 59
+# ** Info: HADDR remains unchanged during a transfer!
+#    Time: 55 ns Started: 55 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 68
+# ** Info: HSIZE matches the data width supported by the slave!
+#    Time: 55 ns Started: 55 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 77
+# ** Info: Valid burst type!
+#    Time: 55 ns Started: 55 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 90
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 55 ns Started: 55 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# Time=55, htrans=10, hresp=00, hreadyout=1, hrdata=xxxxxxxx, haddr=00001000, hwrite=0, hburst=000
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(128) @ 65: reporter [AhbSlaveAssertionTb] Invalid Read Transaction (Fail Assertion) Ended 
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(132) @ 65: reporter [AhbSlaveAssertionTb] Invalid Read with HRESP Error Assertion Pass Started 
+# ** Info: HRESP is OKAY for valid transactions!
+#    Time: 65 ns Started: 65 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 50
+# ** Error: HRDATA is invalid during read transfer!
+#    Time: 65 ns Started: 55 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 60 Expr: ~$isunknown(hrdata)
+# ** Info: HADDR remains unchanged during a transfer!
+#    Time: 65 ns Started: 65 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 68
+# ** Info: HSIZE matches the data width supported by the slave!
+#    Time: 65 ns Started: 65 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 77
+# ** Info: Valid burst type!
+#    Time: 65 ns Started: 65 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 90
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 65 ns Started: 65 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# ** Info: HRESP is OKAY for valid transactions!
+#    Time: 75 ns Started: 75 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 50
+# ** Error: HRDATA is invalid during read transfer!
+#    Time: 75 ns Started: 65 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 60 Expr: ~$isunknown(hrdata)
+# ** Info: HADDR remains unchanged during a transfer!
+#    Time: 75 ns Started: 75 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 68
+# ** Info: HSIZE matches the data width supported by the slave!
+#    Time: 75 ns Started: 75 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 77
+# ** Info: Valid burst type!
+#    Time: 75 ns Started: 75 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 90
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 75 ns Started: 75 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# Time=75, htrans=00, hresp=01, hreadyout=1, hrdata=xxxxxxxx, haddr=00001000, hwrite=0, hburst=000
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(138) @ 85: reporter [AhbSlaveAssertionTb] Invalid Read with HRESP Error Assertion Pass Ended
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(220) @ 85: reporter [AhbSlaveAssertionTb] HRESP is OKAY for valid transaction Assertion Fail Started 
+# ** Error: HRDATA is invalid during read transfer!
+#    Time: 85 ns Started: 75 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 60 Expr: ~$isunknown(hrdata)
+# ** Info: HRESP is ERROR for valid transfers!
+#    Time: 85 ns Started: 85 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 40
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 85 ns Started: 85 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# ** Info: HRESP is ERROR for valid transfers!
+#    Time: 95 ns Started: 95 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 40
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 95 ns Started: 95 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# Time=95, htrans=10, hresp=01, hreadyout=1, hrdata=xxxxxxxx, haddr=00001000, hwrite=0, hburst=000
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(226) @ 105: reporter [AhbSlaveAssertionTb] HRESP is OKAY for valid transaction Assertion Fail Ended
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(142) @ 105: reporter [AhbSlaveAssertionTb] Write Transaction Assertion Pass Started 
+# ** Info: HADDR remains unchanged during a transfer!
+#    Time: 105 ns Started: 105 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 68
+# ** Info: HSIZE matches the data width supported by the slave!
+#    Time: 105 ns Started: 105 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 77
+# ** Info: Valid burst type!
+#    Time: 105 ns Started: 105 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 90
+# ** Error: HRESP is not OKAY for valid transactions!
+#    Time: 105 ns Started: 105 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 51 Expr: ~hresp
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 105 ns Started: 105 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# ** Error: HRDATA is invalid during read transfer!
+#    Time: 115 ns Started: 105 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 60 Expr: ~$isunknown(hrdata)
+# ** Info: HADDR remains unchanged during a transfer!
+#    Time: 115 ns Started: 115 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 68
+# ** Info: HSIZE matches the data width supported by the slave!
+#    Time: 115 ns Started: 115 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 77
+# ** Info: Valid burst type!
+#    Time: 115 ns Started: 115 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 90
+# ** Error: HRESP is not OKAY for valid transactions!
+#    Time: 115 ns Started: 115 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 51 Expr: ~hresp
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 115 ns Started: 115 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# Time=115, htrans=01, hresp=00, hreadyout=1, hrdata=xxxxxxxx, haddr=00002000, hwrite=1, hburst=000
+# ** Error: HRDATA is invalid during read transfer!
+#    Time: 125 ns Started: 115 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 60 Expr: ~$isunknown(hrdata)
+# ** Error: HADDR changed unexpectedly during a transfer!
+#    Time: 125 ns Started: 125 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 69 Expr: haddr==$past(haddr)
+# ** Info: HSIZE matches the data width supported by the slave!
+#    Time: 125 ns Started: 125 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 77
+# ** Info: Valid burst type!
+#    Time: 125 ns Started: 125 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 90
+# ** Info: HRESP is OKAY for valid transactions!
+#    Time: 125 ns Started: 125 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 50
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 125 ns Started: 125 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(152) @ 135: reporter [AhbSlaveAssertionTb] Write Transaction Pass Assertion Ended
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(167) @ 135: reporter [AhbSlaveAssertionTb] Burst Transaction (INCR) Assertion Pass Started 
+# ** Info: HADDR remains unchanged during a transfer!
+#    Time: 135 ns Started: 135 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 68
+# ** Info: HSIZE matches the data width supported by the slave!
+#    Time: 135 ns Started: 135 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 77
+# ** Info: Valid burst type!
+#    Time: 135 ns Started: 135 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 90
+# ** Info: HRESP is OKAY for valid transactions!
+#    Time: 135 ns Started: 135 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 50
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 135 ns Started: 135 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# ** Info: HADDR remains unchanged during a transfer!
+#    Time: 145 ns Started: 145 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 68
+# ** Info: HSIZE matches the data width supported by the slave!
+#    Time: 145 ns Started: 145 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 77
+# ** Info: Valid burst type!
+#    Time: 145 ns Started: 145 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 90
+# ** Info: HRESP is OKAY for valid transactions!
+#    Time: 145 ns Started: 145 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 50
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 145 ns Started: 145 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# Time=145, htrans=10, hresp=00, hreadyout=1, hrdata=xxxxxxxx, haddr=00003000, hwrite=1, hburst=001
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(175) @ 155: reporter [AhbSlaveAssertionTb] Burst Transaction (INCR) Assertion Pass Ended
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(189) @ 155: reporter [AhbSlaveAssertionTb] Invalid Burst Type Assertion Pass Started 
+# ** Error: HADDR changed unexpectedly during a transfer!
+#    Time: 155 ns Started: 155 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 69 Expr: haddr==$past(haddr)
+# ** Info: HSIZE matches the data width supported by the slave!
+#    Time: 155 ns Started: 155 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 77
+# ** Info: Valid burst type!
+#    Time: 155 ns Started: 155 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 90
+# ** Info: HRESP is OKAY for valid transactions!
+#    Time: 155 ns Started: 155 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 50
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 155 ns Started: 155 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# ** Info: HADDR remains unchanged during a transfer!
+#    Time: 165 ns Started: 165 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 68
+# ** Info: HSIZE matches the data width supported by the slave!
+#    Time: 165 ns Started: 165 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 77
+# ** Info: Valid burst type!
+#    Time: 165 ns Started: 165 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 90
+# ** Info: HRESP is OKAY for valid transactions!
+#    Time: 165 ns Started: 165 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 50
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 165 ns Started: 165 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# Time=165, htrans=10, hresp=00, hreadyout=1, hrdata=xxxxxxxx, haddr=00003000, hwrite=1, hburst=101
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(196) @ 175: reporter [AhbSlaveAssertionTb] Invalid Burst Type Assertion Pass Ended
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(156) @ 175: reporter [AhbSlaveAssertionTb] Invalid Burst Type Assertion Fail Started 
+# ** Info: HADDR remains unchanged during a transfer!
+#    Time: 175 ns Started: 175 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 68
+# ** Info: HSIZE matches the data width supported by the slave!
+#    Time: 175 ns Started: 175 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 77
+# ** Error: Invalid burst type detected!
+#    Time: 175 ns Started: 175 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 91 Expr: hburst==4
+# ** Info: HRESP is OKAY for valid transactions!
+#    Time: 175 ns Started: 175 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 50
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 175 ns Started: 175 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# ** Info: HADDR remains unchanged during a transfer!
+#    Time: 185 ns Started: 185 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 68
+# ** Info: HSIZE matches the data width supported by the slave!
+#    Time: 185 ns Started: 185 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 77
+# ** Error: Invalid burst type detected!
+#    Time: 185 ns Started: 185 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 91 Expr: hburst==4
+# ** Info: HRESP is OKAY for valid transactions!
+#    Time: 185 ns Started: 185 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 50
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 185 ns Started: 185 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(163) @ 195: reporter [AhbSlaveAssertionTb] Invalid Burst Type Assertion Fail Ended
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(210) @ 195: reporter [AhbSlaveAssertionTb] Idle State with HRESP ERROR Assertion Pass Started 
+# ** Info: HADDR remains unchanged during a transfer!
+#    Time: 195 ns Started: 195 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 68
+# ** Info: HSIZE matches the data width supported by the slave!
+#    Time: 195 ns Started: 195 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 77
+# ** Error: Invalid burst type detected!
+#    Time: 195 ns Started: 195 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 91 Expr: hburst==4
+# ** Info: HRESP is OKAY for valid transactions!
+#    Time: 195 ns Started: 195 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 50
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 195 ns Started: 195 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# ** Info: HADDR remains unchanged during a transfer!
+#    Time: 205 ns Started: 205 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 68
+# ** Info: HSIZE matches the data width supported by the slave!
+#    Time: 205 ns Started: 205 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 77
+# ** Error: Invalid burst type detected!
+#    Time: 205 ns Started: 205 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 91 Expr: hburst==4
+# ** Info: HRESP is OKAY for valid transactions!
+#    Time: 205 ns Started: 205 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 50
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 205 ns Started: 205 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# Time=205, htrans=00, hresp=01, hreadyout=1, hrdata=xxxxxxxx, haddr=00003000, hwrite=1, hburst=101
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(216) @ 215: reporter [AhbSlaveAssertionTb] Idle State with HRESP ERROR Assertion Pass Ended
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(179) @ 215: reporter [AhbSlaveAssertionTb] Idle State with HRESP ERROR Assertion Fail Started 
+# ** Info: HRESP is ERROR for valid transfers!
+#    Time: 215 ns Started: 215 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 40
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 215 ns Started: 215 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# ** Info: HRESP is ERROR for valid transfers!
+#    Time: 225 ns Started: 225 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 40
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 225 ns Started: 225 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# Time=225, htrans=00, hresp=00, hreadyout=1, hrdata=xxxxxxxx, haddr=00003000, hwrite=1, hburst=101
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(185) @ 235: reporter [AhbSlaveAssertionTb] Idle State with HRESP ERROR Assertion Fail Ended
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(200) @ 235: reporter [AhbSlaveAssertionTb] HSIZE does not match data width Assertion Fail Started 
+# ** Error: HRESP is not ERROR for invalid transfers!
+#    Time: 235 ns Started: 235 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 41 Expr: hresp
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 235 ns Started: 235 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# ** Error: HRESP is not ERROR for invalid transfers!
+#    Time: 245 ns Started: 245 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 41 Expr: hresp
+# ** Info: HREADYOUT is high during valid transactions!
+#    Time: 245 ns Started: 245 ns  Scope: AhbSlaveAssertionTb.ahbslaveassertions_u File: /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/slaveAgentBFM/AhbSlaveAssertion.sv Line: 31
+# Time=245, htrans=10, hresp=00, hreadyout=1, hrdata=xxxxxxxx, haddr=00003000, hwrite=1, hburst=101
+# UVM_INFO /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(206) @ 255: reporter [AhbSlaveAssertionTb] HSIZE does not match data width Assertion Fail Ended
+# ** Note: $finish    : /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbSlaveAssertionTb.sv(77)
+#    Time: 255 ns  Iteration: 1  Instance: /AhbSlaveAssertionTb
+# Saving coverage database on exit...
+# End time: 13:19:33 on Feb 11,2025, Elapsed time: 0:00:02
+# Errors: 17, Warnings: 2

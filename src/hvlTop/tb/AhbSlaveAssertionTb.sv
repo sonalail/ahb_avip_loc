@@ -8,21 +8,21 @@ import uvm_pkg::*;
 
 module AhbSlaveAssertionTb;
 
-  reg         hclk;
-  reg         hresetn;
-  reg         hreadyout;
+  reg        		hclk;
+  reg         		hresetn;
+  reg         		hreadyout;
   reg [DATA_WIDTH-1:0]  hrdata;
-  reg [1:0]   hresp;
+  reg 		 [1:0]  hresp;
   reg [ADDR_WIDTH-1:0]  haddr;
-  reg [1:0]   htrans;
-  reg         hwrite;
-  reg [2:0]   hsize;
-  reg [2:0]   hburst;
-  reg         hselx;
+  reg            [1:0]  htrans;
+  reg       	        hwrite;
+  reg            [2:0]  hsize;
+  reg            [2:0]  hburst;
+  reg                   hselx;
   reg [DATA_WIDTH-1:0]  hwdata;
-  reg [3:0]   hprot;
-  reg         hexokay;
-  reg [3:0]   hwstrb;
+  reg            [3:0]  hprot;
+  reg                   hexokay;
+  reg            [3:0]  hwstrb;
 
   AhbSlaveAssertion ahbslaveassertions_u (.hclk(hclk),
     .hresetn(hresetn),
@@ -106,9 +106,10 @@ module AhbSlaveAssertionTb;
     htrans = 2'b10; 
     hreadyout = 1;
     hwrite = 0;      
-    hrdata = 32'hA5A5A5A5; 
     haddr = 32'h0000_1000;   
     hresp = 2'b00;   
+    @(posedge hclk);
+    hrdata = 32'hA5A5A5A5; 
     @(posedge hclk);
     `uvm_info(name,$sformatf("Valid Read Transaction Assertion Pass Ended "),UVM_NONE);
   endtask
@@ -119,10 +120,11 @@ module AhbSlaveAssertionTb;
     htrans = 2'b10;  
     hreadyout = 1;
     hwrite = 0;    
-    hrdata = 32'hx; 
     haddr = 32'h0000_1000;   
     hresp = 2'b00;   
     @(posedge hclk);
+    hrdata = 32'hx;
+    @(posedge hclk); 
     `uvm_info(name,$sformatf("Invalid Read Transaction (Fail Assertion) Ended "),UVM_NONE);
   endtask
   
@@ -142,10 +144,11 @@ module AhbSlaveAssertionTb;
     htrans = 2'b01;  
     hreadyout = 1;
     hwrite = 1;      
-    hwdata = 32'hDEAD_BEEF;  
     haddr = 32'h0000_2000;   
     hresp = 2'b00;   
     @(posedge hclk);
+    hwdata = 32'hDEAD_BEEF; 
+    @(posedge hclk); 
     `uvm_info(name,$sformatf("Write Transaction Pass Assertion Ended"),UVM_NONE);
   endtask
     
