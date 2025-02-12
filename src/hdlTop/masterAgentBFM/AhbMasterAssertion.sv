@@ -19,7 +19,8 @@ interface AhbMasterAssertion (
   input [HMASTER_WIDTH -1:0] hmaster,      
   input                      hmastlock,    
   input                      htransValid,  
-  input     [DATA_WIDTH-1:0] hwdataValid 
+  input     [DATA_WIDTH-1:0] hwdataValid,
+  input                      hselx
 );
 
   import uvm_pkg::*;
@@ -31,7 +32,7 @@ interface AhbMasterAssertion (
 
   property checkHwdataValid;
     @(posedge hclk) disable iff (!hresetn)
-    (hwrite && hready && (htrans != 2'b00)) |=> (!$isunknown(hwdata));
+    (hwrite && hready && (htrans != 2'b00) && hselx == 1) |=> (!$isunknown(hwdata));
   endproperty
   
   assert property (checkHwdataValid)
@@ -124,7 +125,7 @@ interface AhbMasterAssertion (
   
   property checkTransBusyToSeq;
     @(posedge hclk) disable iff(!hresetn)
-    (htrans == 2'b01 && hready == 0 && hburst inside{[3'b010:3'b111]}) ##1
+    (htrans == 2'b01 && hready == 0 && hburst inside{[3'b010:3'b111]}) |=>
     (htrans == 2'b11 && $stable(hready) && $stable(hburst) && $stable(haddr));
   endproperty
 

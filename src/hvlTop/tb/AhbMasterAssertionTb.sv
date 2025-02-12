@@ -8,22 +8,23 @@ import uvm_pkg::*;
 `include "uvm_macros.svh"
 
 module AhbMasterAssertionTb;
-  reg         hclk;
-  reg         hresetn;
-  reg [ADDR_WIDTH-1:0]  haddr;
-  reg [DATA_WIDTH-1:0]  hwdata;
-  reg [2:0]   hsize;
-  reg [2:0]   hburst;
-  reg [1:0]   htrans;
-  reg         hwrite;
-  reg         hready;
-  reg         hresp;
-  reg         hexcl;
-  reg [HPROT_WIDTH-1:0]   hprot;
-  reg [HMASTER_WIDTH-1:0]   hmaster;
-  reg         hmastlock;
-  reg         htransValid;
-  reg [DATA_WIDTH-1:0]  hwdataValid;
+  reg                     hclk;
+  reg                     hresetn;
+  reg    [ADDR_WIDTH-1:0] haddr;
+  reg    [DATA_WIDTH-1:0] hwdata;
+  reg               [2:0] hsize;
+  reg               [2:0] hburst;
+  reg               [1:0] htrans;
+  reg                     hwrite;
+  reg                     hready;
+  reg                     hresp; 
+  reg                     hexcl;
+  reg   [HPROT_WIDTH-1:0] hprot;
+  reg [HMASTER_WIDTH-1:0] hmaster;
+  reg                     hmastlock;
+  reg                     htransValid;
+  reg    [DATA_WIDTH-1:0] hwdataValid;
+  reg                     hselx;
   string name = "AhbMasterAssertionTb";
 
   AhbMasterAssertion ahbmasterassertions_u (
@@ -42,7 +43,8 @@ module AhbMasterAssertionTb;
     .hmaster(hmaster),
     .hmastlock(hmastlock),
     .htransValid(htransValid),
-    .hwdataValid(hwdataValid)
+    .hwdataValid(hwdataValid),
+    .hselx(hselx)
   );
 
   always begin
@@ -115,6 +117,7 @@ module AhbMasterAssertionTb;
         hmastlock = 0;
         htransValid = 1;
         hwdataValid = 1;
+        hselx  = 0;
         end
         `uvm_info(name,$sformatf("Initializing signals ended"),UVM_NONE);
     endtask
@@ -127,6 +130,7 @@ module AhbMasterAssertionTb;
       htrans = 2'b11;  
       hwrite = 1;
       hready = 1;
+      hselx  = 1;
       @(posedge hclk);
       hwdata = 32'h87654321;
       @(posedge hclk);                                                
@@ -141,6 +145,7 @@ module AhbMasterAssertionTb;
       htrans = 2'b11;
       hwrite = 1;
       hready = 1;
+      hselx  = 1;
       @(posedge hclk);
       hwdata =32'hx;
       @(posedge hclk);
@@ -167,6 +172,7 @@ module AhbMasterAssertionTb;
         hwrite = 1;
         hready = 1;
         htrans = 2'b10; 
+        hselx  = 1;
         @(posedge hclk);
         hwdata = 32'hDEADBEEF;
 	@(posedge hclk);
@@ -190,11 +196,12 @@ module AhbMasterAssertionTb;
     task CheckIfHADDRIsWithinTheValidRrangeAssertionFail();
       `uvm_info(name,$sformatf("Check if HADDR is within the valid range AssertionFail Task started"),UVM_NONE);
        @(posedge hclk);
-       haddr = 32'hFFFFFFFFF; 
+       haddr = 32'hFFFFFFFF; 
        hsize = 3'b010;       
        htrans = 2'b10;        
        hwrite = 1;
        hready = 1;
+       hselx  = 1;
        @(posedge hclk);
        hwdata = 32'hC0FFEE;
        @(posedge hclk);
@@ -209,6 +216,7 @@ module AhbMasterAssertionTb;
        htrans = 2'b11;
        hready = 1;
        hwrite = 1;
+       hselx  = 1;
        @(posedge hclk);
        hwdata = 32'hABCDEF01;
        @(posedge hclk);

@@ -1,5 +1,5 @@
 # vsim -vopt work.AhbCoverPropertyTb -voptargs="+acc=npr" -assertdebug "+UVM_TESTNAME=AhbCoverPropertyTb" "+UVM_VERBOSITY=UVM_MEDIUM" -l AhbCoverPropertyTb/AhbCoverPropertyTb.log -sva -coverage -c -do "log -r /*; add wave -r /*; coverage save -onexit -assert -directive -cvg -codeAll AhbCoverPropertyTb/coverage.ucdb; run -all; exit" -wlf AhbCoverPropertyTb/waveform.wlf 
-# Start time: 13:19:20 on Feb 11,2025
+# Start time: 11:08:36 on Feb 12,2025
 # ** Note: (vsim-3812) Design is being optimized...
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
@@ -224,5 +224,5 @@
 # ** Note: $finish    : /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv(93)
 #    Time: 1335 ns  Iteration: 1  Instance: /AhbCoverPropertyTb
 # Saving coverage database on exit...
-# End time: 13:19:25 on Feb 11,2025, Elapsed time: 0:00:05
+# End time: 11:08:39 on Feb 12,2025, Elapsed time: 0:00:03
 # Errors: 0, Warnings: 0
