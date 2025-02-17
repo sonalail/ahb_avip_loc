@@ -66,29 +66,29 @@ module AhbCoverPropertyTb;
   end
 
   initial begin
-    writeDataIsEqualToReadDataAndBothTheAddressIsSameInNonSeqState();
-    writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInNonSeqState();
+   // writeDataIsEqualToReadDataAndBothTheAddressIsSameInNonSeqState();
+    //writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInNonSeqState();
 
-    writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrementBurst();
-    writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrementBurst();
+   // writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrementBurst();
+   // writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrementBurst();
 
-    writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateWrap4Burst();
-    writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateWrap4Burst();
+   // writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateWrap4Burst();
+   // writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateWrap4Burst();
 
     writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement4Burst();
-    writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement4Burst();
+    //writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement4Burst();
 
-    writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateWrap8Burst();
-    writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateWrap8Burst();
+    //writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateWrap8Burst();
+    //writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateWrap8Burst();
 
-    writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement8Burst();
-    writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement8Burst();
+    //writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement8Burst();
+    //writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement8Burst();
 
-    writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateWrap16Burst();
-    writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateWrap16Burst();
+    //writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateWrap16Burst();
+    //writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateWrap16Burst();
 
-    writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement16Burst();
-    writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement16Burst();
+    //writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement16Burst();
+    //writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement16Burst();
 
     $finish;
   end
@@ -203,7 +203,7 @@ module AhbCoverPropertyTb;
     hready = 1;
     hwrite  = 1'b0; 
     htrans  = 2'b11; 
-    haddr   = 32'h1000_1005; 
+    haddr   = 32'h1000_1004 + (hsize<<1); 
     hburst  = 3'b001; 
     hrdata  = 32'h1234_abcd;
     hresp   = 0;

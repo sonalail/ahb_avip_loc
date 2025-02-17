@@ -1,35 +1,7 @@
 QuestaSim vlog 10.6c Compiler 2017.07 Jul 25 2017
-Start time: 11:02:29 on Feb 13,2025
+Start time: 10:43:19 on Feb 17,2025
 vlog -sv "+acc" "+cover" "+fcover" -l AhbCoverPropertyCompile.log -f ./ahbAssertion.f 
--- Compiling package AhbGlobalPackage
-** Note: (vlog-2286) /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hdlTop/masterAgentBFM/AhbMasterAssertion.sv(27): Using implicit +incdir+/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
--- Compiling package AhbMasterAssertion_sv_unit
--- Importing package AhbGlobalPackage
--- Compiling interface AhbMasterAssertion
--- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
--- Compiling package AhbSlaveAssertion_sv_unit
--- Importing package AhbGlobalPackage
--- Compiling interface AhbSlaveAssertion
--- Compiling package AhbCoverProperty_sv_unit
--- Importing package AhbGlobalPackage
--- Compiling interface AhbCoverProperty
--- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
--- Compiling package AhbCoverPropertyTb_sv_unit
--- Importing package AhbGlobalPackage
--- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
--- Compiling module AhbCoverPropertyTb
--- Compiling package AhbMasterAssertionTb_sv_unit
--- Importing package AhbGlobalPackage
--- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
--- Compiling module AhbMasterAssertionTb
--- Compiling package AhbSlaveAssertionTb_sv_unit
--- Importing package AhbGlobalPackage
--- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
--- Compiling module AhbSlaveAssertionTb
-
-Top level modules:
-	AhbCoverPropertyTb
-	AhbMasterAssertionTb
-	AhbSlaveAssertionTb
-End time: 11:02:31 on Feb 13,2025, Elapsed time: 0:00:02
-Errors: 0, Warnings: 0
+** Error: (vlog-7) Failed to open design unit file "/globals/AhbGlobalPackage.sv" in read mode.
+No such file or directory. (errno = ENOENT)
+End time: 10:43:19 on Feb 17,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0
