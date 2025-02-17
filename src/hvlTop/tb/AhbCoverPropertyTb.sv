@@ -66,29 +66,29 @@ module AhbCoverPropertyTb;
   end
 
   initial begin
-   // writeDataIsEqualToReadDataAndBothTheAddressIsSameInNonSeqState();
-    //writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInNonSeqState();
+    writeDataIsEqualToReadDataAndBothTheAddressIsSameInNonSeqState();
+    writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInNonSeqState();
 
-   // writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrementBurst();
-   // writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrementBurst();
+    writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrementBurst();
+    writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrementBurst();
 
-   // writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateWrap4Burst();
-   // writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateWrap4Burst();
+    writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateWrap4Burst();
+    writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateWrap4Burst();
 
     writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement4Burst();
-    //writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement4Burst();
+    writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement4Burst();
 
-    //writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateWrap8Burst();
-    //writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateWrap8Burst();
+    writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateWrap8Burst();
+    writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateWrap8Burst();
 
-    //writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement8Burst();
-    //writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement8Burst();
+    writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement8Burst();
+    writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement8Burst();
 
-    //writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateWrap16Burst();
-    //writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateWrap16Burst();
+    writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateWrap16Burst();
+    writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateWrap16Burst();
 
-    //writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement16Burst();
-    //writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement16Burst();
+    writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement16Burst();
+    writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement16Burst();
 
     $finish;
   end
@@ -193,17 +193,17 @@ module AhbCoverPropertyTb;
     @(posedge hclk);
     hready = 1;
     hwrite  = 1'b1; 
-    htrans  = 2'b11; 
+    htrans  = 2'b10; 
     haddr   = 32'h1000_1004; 
     hwdata  = 32'h1234_abcd;
     hburst  = 3'b001;
-    hsize   = 3'b001; 
+    hsize   = 3'b010; 
 
     @(posedge hclk);
     hready = 1;
     hwrite  = 1'b0; 
     htrans  = 2'b11; 
-    haddr   = 32'h1000_1004 + (hsize<<1); 
+    haddr   = haddr + (hsize<<1); 
     hburst  = 3'b001; 
     hrdata  = 32'h1234_abcd;
     hresp   = 0;
@@ -353,24 +353,39 @@ module AhbCoverPropertyTb;
     hrdata  = 32'hxxxx_xxxx;
 
     @(posedge hclk);
-    hready  = 1'b1; 
-
-    @(posedge hclk);
     hready = 1;
     hwrite  = 1'b1; 
     htrans  = 2'b10; 
     haddr   = 32'h1000_1004; 
     hwdata  = 32'h1234_abcd;
-    hburst  = 3'b011; 
-    hsize   = 3'b001;
+    hburst  = 3'b011;
+    hsize   = 3'b010; 
 
     @(posedge hclk);
     hready = 1;
     hwrite  = 1'b0; 
     htrans  = 2'b11; 
-    haddr   = 32'h1000_1008; 
-    hburst  = 3'b011;
+    haddr   = haddr + (hsize<<1); 
+    hburst  = 3'b011; 
     hrdata  = 32'h1234_abcd;
+    hresp   = 0;
+
+    @(posedge hclk);
+    hready = 1;
+    hwrite  = 1'b1; 
+    htrans  = 2'b11; 
+    haddr   = haddr + (hsize<<1); 
+    hburst  = 3'b011; 
+    hwdata  = 32'h1234_abcd;
+    hresp   = 0;
+
+    @(posedge hclk);
+    hready = 1;
+    hwrite  = 1'b1; 
+    htrans  = 2'b11; 
+    haddr   = haddr + (hsize<<1); 
+    hburst  = 3'b011; 
+    hwdata  = 32'h1234_abcd;
     hresp   = 0;
 
     @(posedge hclk);
@@ -423,7 +438,6 @@ module AhbCoverPropertyTb;
 
   task writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateWrap8Burst();
     `uvm_info(name,$sformatf("write Data Is Equal To Read Data And Both The Address Is Same In Seq State Wrap8 Burst task Started"),UVM_NONE);
-
  
     @(posedge hclk);
     hburst = 3'b100; 
@@ -541,13 +555,14 @@ module AhbCoverPropertyTb;
   task writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement8Burst();
     `uvm_info(name,$sformatf("write Data Is Equal To Read Data And Both The Address Is Same In Seq State Increment8 Burst task Started"),UVM_NONE);
 
+
     @(posedge hclk);
     hwrite  = 1'b0;
-    htrans  = 2'b00; 
+    htrans  = 2'b00;
     haddr   = 32'hxxxx_xxxx;
     hwdata  = 32'hxxxx_xxxx;
-    hsize   = 3'b010; 
-    hburst  = 3'b000; 
+    hsize   = 3'b010;
+    hburst  = 3'b000;
     hready  = 1'b0;
     hrdata  = 32'hxxxx_xxxx;
 
@@ -557,19 +572,54 @@ module AhbCoverPropertyTb;
     @(posedge hclk);
     hready = 1;
     hwrite  = 1'b1;
-    htrans  = 2'b10; 
-    haddr   = 32'h1000_1004; 
-    hwdata  = 32'h1234_abcd; 
-    hburst  = 3'b101;
-    hsize   = 3'b001; 
+    htrans  = 2'b10;
+    haddr   = 32'h1000_1004;
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010;
+    
+    @(posedge hclk);
+    haddr   = haddr + (hsize<<1);
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010;
 
     @(posedge hclk);
-    hready = 1;
+    haddr   = haddr + (hsize<<1);
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010;
+    
+    @(posedge hclk);
+    haddr   = haddr + (hsize<<1);
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010;
+
+    @(posedge hclk);
+    haddr   = haddr + (hsize<<1);
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010;
+
+    @(posedge hclk);
+    haddr   = haddr + (hsize<<1);
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010;
+     
+    @(posedge hclk);
+    haddr   = haddr + (hsize<<1);
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010;
+
+    @(posedge hclk);
+    haddr   = haddr + (hsize<<1);
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010; 
     hwrite  = 1'b0;
-    htrans  = 2'b11;
-    haddr   = 32'h1000_100C; 
-    hburst  = 3'b011; 
-    hrdata  = 32'h1234_abcd;
     hresp   = 0;
 
     @(posedge hclk);
@@ -815,39 +865,121 @@ module AhbCoverPropertyTb;
 
 
   //INCREMENT16 BURST
-
-  task writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement16Burst();
+task writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement16Burst();
     `uvm_info(name,$sformatf("write Data Is Equal To Read Data And Both The Address Is Same In Seq State Increment16 Burst task Started"),UVM_NONE);
 
     @(posedge hclk);
     hwrite  = 1'b0;
-    htrans  = 2'b00; 
+    htrans  = 2'b00;
     haddr   = 32'hxxxx_xxxx;
     hwdata  = 32'hxxxx_xxxx;
-    hsize   = 3'b010; 
+    hsize   = 3'b010;
     hburst  = 3'b000;
     hready  = 1'b0;
     hrdata  = 32'hxxxx_xxxx;
 
     @(posedge hclk);
-    hready  = 1'b1; 
+    hready  = 1'b1;
 
     @(posedge hclk);
     hready = 1;
-    hwrite  = 1'b1; 
+    hwrite  = 1'b1;
     htrans  = 2'b10;
     haddr   = 32'h1000_1004;
-    hwdata  = 32'h1234_abcd; 
+    hwdata  = 32'h1234_abcd;
     hburst  = 3'b111;
-    hsize   = 3'b001; 
+    hsize   = 3'b010;
+    
+    @(posedge hclk);
+    haddr   = haddr + (hsize<<1);
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010;
 
     @(posedge hclk);
-    hready = 1;
+    haddr   = haddr + (hsize<<1);
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010;
+    
+    @(posedge hclk);
+    haddr   = haddr + (hsize<<1);
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010;
+
+    @(posedge hclk);
+    haddr   = haddr + (hsize<<1);
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010;
+
+    @(posedge hclk);
+    haddr   = haddr + (hsize<<1);
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010;
+     
+    @(posedge hclk);
+    haddr   = haddr + (hsize<<1);
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010;
+
+    @(posedge hclk);
+    haddr   = haddr + (hsize<<1);
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010;
+
+    @(posedge hclk);
+    haddr   = haddr + (hsize<<1);
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010;
+    
+    @(posedge hclk);
+    haddr   = haddr + (hsize<<1);
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010;
+   
+    @(posedge hclk);
+    haddr   = haddr + (hsize<<1);
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010; 
+   
+    @(posedge hclk);
+    haddr   = haddr + (hsize<<1);
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010; 
+  
+    @(posedge hclk);
+    haddr   = haddr + (hsize<<1);
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010; 
+
+    @(posedge hclk);
+    haddr   = haddr + (hsize<<1);
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010; 
+
+    @(posedge hclk);
+    haddr   = haddr + (hsize<<1);
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010; 
+
+    @(posedge hclk);
+    haddr   = haddr + (hsize<<1);
+    hwdata  = 32'h1234_abcd;
+    hburst  = 3'b111;
+    hsize   = 3'b010; 
     hwrite  = 1'b0;
-    htrans  = 2'b11;
-    haddr   = 32'h1000_1014; 
-    hburst  = 3'b011; 
-    hrdata  = 32'h1234_abcd;
     hresp   = 0;
 
     @(posedge hclk);
@@ -855,6 +987,7 @@ module AhbCoverPropertyTb;
 
     `uvm_info(name,$sformatf("write Data Is Equal To Read Data And Both The Address Is Same In Seq State Increment16 Burst task ended"),UVM_NONE);
   endtask
+
 
   task writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement16Burst();
     `uvm_info(name,$sformatf("write Data Is Equal To Read Data And Both The Address Is Not Same In Seq State Increment16 Burst task Started"),UVM_NONE);

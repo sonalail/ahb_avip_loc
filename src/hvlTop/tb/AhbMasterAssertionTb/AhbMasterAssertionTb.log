@@ -1,5 +1,5 @@
 # vsim -vopt work.AhbMasterAssertionTb -voptargs="+acc=npr" -assertdebug "+UVM_TESTNAME=AhbMasterAssertionTb" "+UVM_VERBOSITY=UVM_MEDIUM" -l AhbMasterAssertionTb/AhbMasterAssertionTb.log -sva -coverage -c -do "log -r /*; add wave -r /*; coverage save -onexit -assert -directive -cvg -codeAll AhbMasterAssertionTb/coverage.ucdb; run -all; exit" -wlf AhbMasterAssertionTb/waveform.wlf 
-# Start time: 11:04:10 on Feb 13,2025
+# Start time: 14:18:15 on Feb 17,2025
 # ** Note: (vsim-3812) Design is being optimized...
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
@@ -890,5 +890,5 @@
 # ** Note: $finish    : /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbMasterAssertionTb.sv(98)
 #    Time: 705 ns  Iteration: 1  Instance: /AhbMasterAssertionTb
 # Saving coverage database on exit...
-# End time: 11:04:14 on Feb 13,2025, Elapsed time: 0:00:04
+# End time: 14:18:20 on Feb 17,2025, Elapsed time: 0:00:05
 # Errors: 145, Warnings: 0

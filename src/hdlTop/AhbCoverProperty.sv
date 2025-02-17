@@ -68,7 +68,7 @@ interface AhbCoverProperty (input hclk,
 
   property WriteDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrementBurst;
     @(posedge hclk) disable iff (!hresetn)
-    (hwrite && (htrans == 2'b10 ||htrans == 2'b11) && hready && (hburst == 3'b001))
+    (hwrite && (htrans == 2'b10 || htrans == 2'b11) && hready && (hburst == 3'b001))
     |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr != $past(haddr) + (1 << hsize)));
   endproperty
 
@@ -88,18 +88,18 @@ interface AhbCoverProperty (input hclk,
   property WriteDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement4Burst;
     @(posedge hclk) disable iff (!hresetn)
     (hwrite && (htrans == 2'b10 || htrans == 2'b11) && hready && (hburst == 3'b011))
-    |=> ((hrdata == $past(hwdata)) && hresp == 0 && ##1(haddr == $past(haddr) + (1 << hsize)))[*3]);
+    |=> ((hrdata == $past(hwdata)) && hresp == 0 &&  (haddr == $past(haddr) + (1 << hsize))[*4]);
   endproperty
 
   property WriteDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement4Burst;
     @(posedge hclk) disable iff (!hresetn)
     (hwrite && (htrans == 2'b10 || htrans == 2'b11) && hready && (hburst == 3'b011))
-    |=> ((hrdata == $past(hwdata)) && hresp == 0 && ##1(haddr != $past(haddr) + (1 << hsize))[*3]);
+    |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr != $past(haddr) + (1 << hsize))[*4]);
   endproperty
 
   property WriteDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateWrap8Burst;
     @(posedge hclk) disable iff (!hresetn)
-    (hwrite && (htrans == 2'b11) && hready && (hburst == 3'b100))
+    (hwrite && (htrans == 2'b10 || htrans == 2'b11) && hready && (hburst == 3'b100))
     |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr == (($past(haddr,8)))));
   endproperty
 
@@ -111,14 +111,14 @@ interface AhbCoverProperty (input hclk,
 
   property WriteDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement8Burst;
     @(posedge hclk) disable iff (!hresetn)
-    (hwrite && (htrans == 2'b10 || htrans == 2'b11) && hready && (hburst == 3'b101))
-    |=> ((hrdata == $past(hwdata)) && hresp == 0 && ##1(haddr == $past(haddr) + (1 << hsize))[*7]);
+    (hwrite && (htrans == 2'b10 ||  htrans == 2'b11) && hready && (hburst == 3'b101))
+    |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr == $past(haddr) + (1 << hsize))[*8]);
   endproperty
 
   property WriteDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement8Burst;
     @(posedge hclk) disable iff (!hresetn)
-    (hwrite && (htrans == 2'b10 || htrans == 2'b11) && hready && (hburst == 3'b101))
-    |=> ((hrdata == $past(hwdata)) && hresp == 0 && ##1(haddr != $past(haddr) + (1 << hsize))[*7]);
+    (hwrite && (htrans == 2'b10 ||  htrans == 2'b11) && hready && (hburst == 3'b101))
+    |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr != $past(haddr) + (1 << hsize))[*8]);
   endproperty
 
   property WriteDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateWrap16Burst;
@@ -135,14 +135,14 @@ interface AhbCoverProperty (input hclk,
 
   property WriteDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement16Burst;
     @(posedge hclk) disable iff (!hresetn)
-      (hwrite && (htrans == 2'b10 || htrans == 2'b11) && hready && (hburst == 3'b111))
-    |=> ((hrdata == $past(hwdata)) && hresp == 0 && ##1(haddr == $past(haddr) + (1 << hsize))[*15]);
+      (hwrite && (htrans == 2'b10 ||  htrans == 2'b11) && hready && (hburst == 3'b111))
+    |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr == $past(haddr) + (1 << hsize))[*16]);
   endproperty
 
   property WriteDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement16Burst;
     @(posedge hclk) disable iff (!hresetn)
-    (hwrite && (htrans == 2'b10 || htrans == 2'b11) && hready && (hburst == 3'b111))
-    |=> ((hrdata == $past(hwdata)) && hresp == 0 && ##1(haddr != $past(haddr) + (1 << hsize))[*15]);
+    (hwrite && (htrans == 2'b10 ||  htrans == 2'b11) && hready && (hburst == 3'b111))
+    |=> ((hrdata == $past(hwdata)) && hresp == 0 && (haddr != $past(haddr) + (1 << hsize))[*16]);
   endproperty
 
 
