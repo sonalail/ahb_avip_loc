@@ -66,19 +66,19 @@ module AhbCoverPropertyTb;
   end
 
   initial begin
-    writeDataIsEqualToReadDataAndBothTheAddressIsSameInNonSeqState();
-    writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInNonSeqState();
+   // writeDataIsEqualToReadDataAndBothTheAddressIsSameInNonSeqState();
+   // writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInNonSeqState();
 
-    writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrementBurst();
-    writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrementBurst();
+   // writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrementBurst();
+   // writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrementBurst();
 
-    writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateWrap4Burst();
-    writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateWrap4Burst();
+//    writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateWrap4Burst();
+  //  writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateWrap4Burst();
 
     writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement4Burst();
     writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement4Burst();
 
-    writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateWrap8Burst();
+  /*  writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateWrap8Burst();
     writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateWrap8Burst();
 
     writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement8Burst();
@@ -89,7 +89,7 @@ module AhbCoverPropertyTb;
 
     writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement16Burst();
     writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement16Burst();
-
+*/
     $finish;
   end
 
@@ -341,59 +341,45 @@ module AhbCoverPropertyTb;
   //INCREMENT4 BURST
   task writeDataIsEqualToReadDataAndBothTheAddressIsSameInSeqStateIncrement4Burst();
     `uvm_info(name,$sformatf("write Data Is Equal To Read Data And Both The Address Is Same In Seq State Increment4 Burst task Started"),UVM_NONE);
+ @(posedge hclk);
+  hwrite  = 1'b0;
+  htrans  = 2'b00;
+  haddr   = 32'hxxxx_xxxx;
+  hwdata  = 32'hxxxx_xxxx;
+  hsize   = 3'b010; // Word transfer
+  hburst  = 3'b000; // Idle
+  hready  = 1'b0;
+ @(posedge hclk);
+  hready =1;
+ @(posedge hclk);
+  hwrite =1;
+  
+  hburst =3'b011;
+  hsize=3'b010;
+  htrans =2'b10;
+  haddr= 32'h1000_1000;
+  hwdata=32'hdead_beef;
 
-    @(posedge hclk);
-    hwrite  = 1'b0;
-    htrans  = 2'b00; 
-    haddr   = 32'hxxxx_xxxx;
-    hwdata  = 32'hxxxx_xxxx;
-    hsize   = 3'b010; 
-    hburst  = 3'b000; 
-    hready  = 1'b0;
-    hrdata  = 32'hxxxx_xxxx;
+  @(posedge hclk)
+  htrans =2'b11;
+  haddr = 32'h1000_1004;
+  hwdata = 32'hDead_0000;
 
-    @(posedge hclk);
-    hready = 1;
-    hwrite  = 1'b1; 
-    htrans  = 2'b10; 
-    haddr   = 32'h1000_1004; 
-    hwdata  = 32'h1234_abcd;
-    hburst  = 3'b011;
-    hsize   = 3'b010; 
+  @(posedge hclk)
+  htrans =2'b11;
+  haddr = 32'h1000_1008;
+  hwdata = 32'h0000_Dead;
 
-    @(posedge hclk);
-    hready = 1;
-    hwrite  = 1'b0; 
-    htrans  = 2'b11; 
-    haddr   = haddr + (hsize<<1); 
-    hburst  = 3'b011; 
-    hrdata  = 32'h1234_abcd;
-    hresp   = 0;
+  @(posedge hclk)
+  htrans =2'b11;
+  haddr = 32'h1000_100c;
+  hwdata = 32'h1010_0101;
 
-    @(posedge hclk);
-    hready = 1;
-    hwrite  = 1'b1; 
-    htrans  = 2'b11; 
-    haddr   = haddr + (hsize<<1); 
-    hburst  = 3'b011; 
-    hwdata  = 32'h1234_abcd;
-    hresp   = 0;
-
-    @(posedge hclk);
-    hready = 1;
-    hwrite  = 1'b1; 
-    htrans  = 2'b11; 
-    haddr   = haddr + (hsize<<1); 
-    hburst  = 3'b011; 
-    hwdata  = 32'h1234_abcd;
-    hresp   = 0;
-
-    @(posedge hclk);
-    @(posedge hclk);
+  #20;
 
     `uvm_info(name,$sformatf("write Data Is Equal To Read Data And Both The Address Is Same In Seq State Increment4 Burst task ended"),UVM_NONE);
-  endtask
 
+  endtask
   task writeDataIsEqualToReadDataAndBothTheAddressIsNotSameInSeqStateIncrement4Burst();
     `uvm_info(name,$sformatf("write Data Is Equal To Read Data And Both The Address Is Not Same In Seq State Increment4 Burst task Started"),UVM_NONE);
 

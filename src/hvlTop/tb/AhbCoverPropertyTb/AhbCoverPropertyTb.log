@@ -1,6 +1,6 @@
 # vsim -vopt work.AhbCoverPropertyTb -voptargs="+acc=npr" -assertdebug "+UVM_TESTNAME=AhbCoverPropertyTb" "+UVM_VERBOSITY=UVM_MEDIUM" -l AhbCoverPropertyTb/AhbCoverPropertyTb.log -sva -coverage -c -do "log -r /*; add wave -r /*; coverage save -onexit -assert -directive -cvg -codeAll AhbCoverPropertyTb/coverage.ucdb; run -all; exit" -wlf AhbCoverPropertyTb/waveform.wlf 
-# Start time: 15:19:03 on Feb 17,2025
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Start time: 09:48:42 on Feb 18,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
 # //
@@ -25,16 +25,6 @@
 # Loading mtiUvm.questa_uvm_pkg(fast)
 # Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
 # log -r /*
-# ** Error: Unable to lock WLF file "AhbCoverPropertyTb/waveform.wlf". Retrying 1 times, errno 11
-# ** Error: Unable to lock WLF file "AhbCoverPropertyTb/waveform.wlf". Retrying 2 times, errno 11
-# ** Error: Unable to lock WLF file "AhbCoverPropertyTb/waveform.wlf". Retrying 3 times, errno 11
-# ** Error: Cannot lock WLF file: "AhbCoverPropertyTb/waveform.wlf"
-#           errno 11: Resource temporarily unavailable.
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: AhbCoverPropertyTb/waveform.wlf
-#           File in use by: prakhyath  Hostname: FEserver.mirafra.com  ProcessID: 104182
-#           Attempting to use alternate WLF file "AhbCoverPropertyTb/wlftTsTZ8t".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: AhbCoverPropertyTb/waveform.wlf
-#           Using alternate file: AhbCoverPropertyTb/wlftTsTZ8t
 #  add wave -r /*
 #  coverage save -onexit -assert -directive -cvg -codeAll AhbCoverPropertyTb/coverage.ucdb
 #  run -all
@@ -242,5 +232,5 @@
 # ** Note: $finish    : /fetools/work_area/frontend/prakhyath/ahb_avip_loc/src//hvlTop/tb/AhbCoverPropertyTb.sv(93)
 #    Time: 1545 ns  Iteration: 1  Instance: /AhbCoverPropertyTb
 # Saving coverage database on exit...
-# End time: 15:19:11 on Feb 17,2025, Elapsed time: 0:00:08
-# Errors: 4, Warnings: 2
+# End time: 09:48:44 on Feb 18,2025, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 0
